@@ -53,7 +53,7 @@ export default function Projects() {
       title: "MG Orbis",
       slug: "https://www.mgorbis.com/",
       category: ["Website"],
-      image: "mg.png",
+      image: "mg2.png",
       tech: ["NextJS", "TailwindCSS"],
     },
      {
