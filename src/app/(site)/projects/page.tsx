@@ -49,6 +49,13 @@ export default function Projects() {
         "/ship.webp",
       tech: ["NextJS", "Tailwind CSS"],
     },
+    {
+      title: "MG Orbis",
+      slug: "https://www.mgorbis.com/",
+      category: ["Website"],
+      image: "mg.png",
+      tech: ["NextJS", "TailwindCSS"],
+    },
      {
       title: "Fotiq",
       slug: "https://www.fotiq.uk/",
@@ -151,65 +158,83 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* PROJECT GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((item, i) => (
-            <Link href={item.slug} key={i}>
-              <div className="group overflow-hidden transition cursor-pointer">
-                <div className="rounded-2xl overflow-hidden relative">
-                  <img
-                    src={`${item.image}?auto=format&fit=crop&w=800&q=80`}
-                    className="w-full h-52 object-cover group-hover:scale-105 transition duration-500"
-                    alt={item.title}
-                  />
+       {/* PROJECT GRID */}
+<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {filtered.map((item, i) => {
+    const isExternal = item.slug.startsWith("http");
 
-                  <div className="absolute w-full top-0 flex flex-col justify-between h-full">
-                    {/* TECH TAGS */}
-                    <div className="flex gap-2 p-4 flex-wrap">
-                      {item.tech.map((tech, index) => (
-                        <h1
-                          key={index}
-                          className={`px-3 py-1 text-xs rounded-full ${
-                            index === 0
-                              ? "bg-white/50 backdrop-blur-sm text-black"
-                              : "bg-black/50 text-white"
-                          }`}
-                        >
-                          {tech}
-                        </h1>
-                      ))}
-                    </div>
+    const card = (
+      <div className="group overflow-hidden transition cursor-pointer">
+        <div className="rounded-2xl overflow-hidden relative">
+          <img
+            src={`${item.image}${
+              item.image.startsWith("http")
+                ? "?auto=format&fit=crop&w=800&q=80"
+                : ""
+            }`}
+            className="w-full h-52 object-cover group-hover:scale-105 transition duration-500"
+            alt={item.title}
+          />
 
-                    {/* BOTTOM CONTENT */}
-                    <div className="relative overflow-hidden p-4 pt-8">
-                      <div className="absolute bottom-0 left-0 w-full h-24 backdrop-blur-sm mask-[linear-gradient(to_top,black,transparent)]"></div>
+          <div className="absolute w-full top-0 flex flex-col justify-between h-full">
+            {/* TECH TAGS */}
+            <div className="flex gap-2 p-4 flex-wrap">
+              {item.tech.map((tech, index) => (
+                <h1
+                  key={index}
+                  className={`px-3 py-1 text-xs rounded-full ${
+                    index === 0
+                      ? "bg-white/50 backdrop-blur-sm text-black"
+                      : "bg-black/50 text-white"
+                  }`}
+                >
+                  {tech}
+                </h1>
+              ))}
+            </div>
 
-                      <div className="absolute bottom-0 left-0 w-full h-20 backdrop-blur-md mask-[linear-gradient(to_top,black,transparent)]"></div>
+            {/* BOTTOM CONTENT */}
+            <div className="relative overflow-hidden p-4 pt-8">
+              <div className="absolute bottom-0 left-0 w-full h-24 backdrop-blur-sm mask-[linear-gradient(to_top,black,transparent)]"></div>
+              <div className="absolute bottom-0 left-0 w-full h-20 backdrop-blur-md mask-[linear-gradient(to_top,black,transparent)]"></div>
+              <div className="absolute bottom-0 left-0 w-full h-16 backdrop-blur-xl mask-[linear-gradient(to_top,black,transparent)]"></div>
 
-                      <div className="absolute bottom-0 left-0 w-full h-16 backdrop-blur-xl mask-[linear-gradient(to_top,black,transparent)]"></div>
+              <h3 className="relative z-10 text-md font-semibold text-white mt-1">
+                {item.title}
+              </h3>
 
-                      <h3 className="relative z-10 text-md font-semibold text-white mt-1">
-                        {item.title}
-                      </h3>
-
-                 <div className="flex flex-wrap relative z-10 mt-2 text-xs text-blue-300">
-  {item.category.map((cat, index) => (
-    <span key={index} className="flex items-center">
-      <span>{cat}</span>
-
-      {index < item.category.length - 1 && (
-        <span className="mx-1">&</span>
-      )}
-    </span>
-  ))}
-</div>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex flex-wrap relative z-10 mt-2 text-xs text-blue-300">
+                {item.category.map((cat, index) => (
+                  <span key={index} className="flex items-center">
+                    <span>{cat}</span>
+                    {index < item.category.length - 1 && (
+                      <span className="mx-1">&</span>
+                    )}
+                  </span>
+                ))}
               </div>
-            </Link>
-          ))}
+            </div>
+          </div>
         </div>
+      </div>
+    );
+
+    return isExternal ? (
+      <a
+        key={i}
+        href={item.slug}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {card}
+      </a>
+    ) : (
+      <Link key={i} href={item.slug}>
+        {card}
+      </Link>
+    );
+  })}
+</div>
       </div>
     </div>
   );
