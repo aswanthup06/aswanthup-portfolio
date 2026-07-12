@@ -36,6 +36,193 @@ const projects = [
   },
 ];
 
+/* ========================================= */
+/* Featured "Best Work" spotlight — Zenoway   */
+/* Sits above the grid, does not touch it.    */
+/* ========================================= */
+function FeaturedProject() {
+  return (
+    <div
+      className="
+        group
+        relative
+        grid
+        grid-cols-1
+        lg:grid-cols-2
+        overflow-hidden
+        rounded-2xl
+        border
+        border-gray-200
+        bg-white
+        mt-14
+      "
+    >
+      {/* Image side */}
+      <div className="relative h-64 lg:h-full min-h-[320px] overflow-hidden">
+        <Image
+          className="
+            w-full
+            h-full
+            object-cover
+            transition-transform
+            duration-700
+            group-hover:scale-105
+          "
+          src="https://images.unsplash.com/photo-1582079767878-082f4300d386?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=800&q=80"
+          alt="Zenoway UI case study preview"
+          width={900}
+          height={700}
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent lg:bg-linear-to-r" />
+
+        <span
+          className="
+            absolute
+            top-4
+            left-4
+            px-3
+            py-1
+            rounded-md
+            bg-black
+            border
+            border-white/10
+            backdrop-blur-md
+            text-xs
+            text-white
+            tracking-wide
+          "
+        >
+          Own Project
+        </span>
+
+        {/* Floating button — opens the case study, same pattern as the grid cards */}
+        <Link
+          href="/projects/zenoway"
+          aria-label="View Zenoway case study"
+          className="
+            absolute
+            bottom-4
+            right-4
+            w-11
+            h-11
+            rounded-full
+            bg-white
+            text-black
+            flex
+            items-center
+            justify-center
+            hover:scale-110
+            duration-300
+          "
+        >
+          <MdOutlineArrowOutward className="text-lg" />
+        </Link>
+      </div>
+
+      {/* Content side */}
+      <div className="flex flex-col justify-center p-8 lg:p-10">
+        <p className="text-xs uppercase tracking-widest text-gray-400">
+          Case Study
+        </p>
+
+        <h3 className="text-gray-900 font-bold text-2xl md:text-3xl mt-2">
+          Zenoway
+        </h3>
+
+        <p className="text-gray-500 text-sm md:text-base leading-relaxed mt-4 max-w-md">
+          A career portal that skips accounts and application forms in favor
+          of one action &mdash; a direct email to HR. Designed and built end
+          to end, from job discovery through the admin dashboard.
+        </p>
+
+        <div className="flex gap-2 flex-wrap mt-6">
+          {["Case Study", "UI/UX", "UI Development"].map((item) => (
+            <span
+              key={item}
+              className="
+                px-3
+                py-1
+                rounded-md
+                bg-gray-100
+                border
+                border-gray-200
+                text-xs
+                text-gray-700
+                tracking-wide
+              "
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
+        {/* Tech stack */}
+        <div className="flex gap-2 flex-wrap mt-3">
+          {["Figma", "Next.js", "Tailwind CSS", "TypeScript"].map((item) => (
+            <span
+              key={item}
+              className="
+                px-3
+                py-1
+                rounded-md
+                bg-blue-50
+                border
+                border-blue-100
+                text-xs
+                text-blue-700
+                tracking-wide
+              "
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-5 mt-8">
+          <Link
+            href="/projects/zenoway"
+            aria-label="Read the Zenoway case study"
+            className="
+              group/btn
+              inline-flex
+              items-center
+              gap-2
+              text-sm
+              font-semibold
+              text-gray-900
+              w-fit
+            "
+          >
+            Read the case study
+            <MdOutlineArrowOutward className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 duration-300" />
+          </Link>
+
+          <Link
+            href="https://www.zenoway.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit the live Zenoway site"
+            className="
+              group/live
+              inline-flex
+              items-center
+              gap-2
+              text-sm
+              font-semibold
+              text-gray-900
+              w-fit
+            "
+          >
+            Live Site
+            <MdOutlineArrowOutward className="group-hover/live:translate-x-1 group-hover/live:-translate-y-1 duration-300" />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectsSection() {
   return (
     <section id="projects" aria-label="Featured Projects" className="w-full">
@@ -98,6 +285,12 @@ export default function ProjectsSection() {
             <MdOutlineArrowOutward className="group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
           </Link>
         </div>
+
+        {/* ========================================= */}
+        {/* Featured — Zenoway (best work spotlight)   */}
+        {/* ========================================= */}
+
+        <FeaturedProject />
 
         {/* ========================================= */}
         {/* Cards */}
