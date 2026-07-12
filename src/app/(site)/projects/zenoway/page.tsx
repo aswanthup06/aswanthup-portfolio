@@ -73,7 +73,7 @@ function Shot({ src, title, caption }: { src: string; title: string; caption: st
   return (
     <figure>
       <div className="border border-[#d8dbd3] rounded-[10px] overflow-hidden bg-white">
-        <img className="block w-full h-[210px] object-cover" src={src} alt={title} loading="lazy" />
+        <img className="block w-full h-[180px] object-cover" src={src} alt={title} loading="lazy" />
       </div>
       <figcaption className="mt-2.5 flex flex-col">
         <strong className="text-sm">{title}</strong>
