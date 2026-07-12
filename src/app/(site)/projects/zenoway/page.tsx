@@ -1,287 +1,604 @@
 import React from "react";
-import { CiGlobe } from "react-icons/ci";
 import {
-  LuArrowUpRight,
-  LuBriefcase,
-  LuLayoutDashboard,
-  LuMail,
-  LuUsers,
-  LuChartBar,
-  LuClock,
-  LuCircleCheck,
+  Mail,
+  MousePointerClick,
+  LayoutDashboard,
+  Sparkles,
+  ArrowRight,
+  ExternalLink,
+  Send,
+  ArrowDown,
+    PenTool,
+  Code2,
+  Radio,
 
-} from "react-icons/lu";
+} from "lucide-react";
 
-export default function Zenoway() {
-  const userScreens = [
-    { id: 1, src: "/assets/zenoway/zenoway1.webp", title: "Job Discovery", desc: "Browse opportunities" },
-    { id: 2, src: "/assets/zenoway/zenoway3.webp", title: "Application Flow", desc: "Direct HR contact" },
-    { id: 3, src: "/assets/zenoway/zenoway2.webp", title: "Career Portal", desc: "Simple navigation" },
-  ];
+/* ---------- Signature element: an email-chrome header used as the ---------- */
+/* ---------- eyebrow for every section, echoing Zenoway's core idea ---------- */
+/* ---------- (apply by sending one email, not filling a portal).    ---------- */
 
-  const adminScreens = [
-    { id: 1, src: "/zenad1.png", title: "Dashboard Analytics", desc: "Track platform activity" },
-    { id: 2, src: "/zenad2.png", title: "Content Management", desc: "Update job listings" },
-    { id: 3, src: "/zenad3.png", title: "Update & Add", desc: "Job Update" },
-  ];
-
-  const features = [
-    { icon: LuMail, title: "Direct HR Contact", desc: "Email-based applications, no login required", color: "orange" },
-    { icon: LuBriefcase, title: "Easy Applications", desc: "Quick job discovery and apply flow", color: "blue" },
-    { icon: LuLayoutDashboard, title: "Modern Interface", desc: "Clean, responsive design system", color: "green" },
-    { icon: LuUsers, title: "User First", desc: "Minimal onboarding process", color: "purple" },
-  ];
-
+function MailHeader({ to, subject }: { to: string; subject: string }) {
   return (
-    <div className="min-h-screen bg-white">
-      
-      {/* Hero Section */}
-      <section className="relative px-6 pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-orange-50 to-transparent rounded-full blur-3xl -z-10"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-blue-50 to-transparent rounded-full blur-3xl -z-10"></div>
-        
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full bg-green-500"></span>
-              <span className="text-sm text-gray-600">Personal Project • 2025</span>
-            </div>
-            
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight leading-tight">
-              Simple Career Portal
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
-                For Modern Hiring
-              </span>
-            </h1>
-            
-            <p className="text-xl text-gray-500 mt-6 max-w-2xl mx-auto leading-relaxed">
-              Zenoway is a lightweight career platform designed to make job discovery 
-              fast and straightforward. Users can directly connect with HR through 
-              email-based applications without complex onboarding.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-4 mt-10">
-              <a
-                href="https://www.zenoway.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-orange-500 transition-all duration-300 text-white px-6 py-3 rounded-xl shadow-lg"
-              >
-                <CiGlobe className="text-xl" />
-                Visit Website
-                <LuArrowUpRight className="text-lg" />
-              </a>
-              
-              <div className="flex items-center gap-3 px-5 py-3 bg-gray-50 rounded-xl border border-gray-100">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                <span className="text-sm text-gray-600">First Phase Live</span>
-              </div>
-            </div>
-          </div>
-          
-          {/* Hero Image */}
-          <div className="mt-16 relative">
-            <div className=" rounded-xl"></div>
-            <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1582079767878-082f4300d386?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Zenoway Dashboard"
-                className="w-full h-100 object-cover"
-              />
-            </div>
-            
-            {/* Floating badges */}
-            <div className="absolute -bottom-6 left-6 md:left-12 bg-white rounded-lg shadow-lg px-4 py-3 flex items-center gap-3 border border-gray-100">
-              <div className="bg-orange-100 p-2 rounded-full">
-                <LuMail className="text-orange-500 text-lg" />
-              </div>
-              <div>
-                <p className="font-semibold text-sm">Direct HR Contact</p>
-                <p className="text-xs text-gray-400">No login required</p>
-              </div>
-            </div>
-            
-            <div className="absolute -top-6 right-6 md:right-12 bg-white rounded-lg shadow-lg px-4 py-3 flex items-center gap-3 border border-gray-100">
-              <div className="bg-blue-100 p-2 rounded-full">
-                <LuBriefcase className="text-blue-500 text-lg" />
-              </div>
-              <div>
-                <p className="font-semibold text-sm">Easy Applications</p>
-                <p className="text-xs text-gray-400">Fast career discovery</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="border border-[#d8dbd3] bg-white rounded-lg overflow-hidden mb-7">
+      <div className="flex gap-1.5 px-3.5 py-2.5 border-b border-[#d8dbd3] bg-[#f8f8f6]">
+        <span className="w-2 h-2 rounded-full bg-[#8a9096]" />
+        <span className="w-2 h-2 rounded-full bg-[#8a9096]" />
+        <span className="w-2 h-2 rounded-full bg-[#8a9096]" />
+      </div>
+      <div className="px-4 py-3 font-['Space_Mono'] text-[12.5px] text-[#565f66] flex flex-col gap-1">
+        <span>
+          <em className="not-italic text-[#8a9096] inline-block w-[62px]">To</em>
+          {to}
+        </span>
+        <span>
+          <em className="not-italic text-[#8a9096] inline-block w-[62px]">Subject</em>
+          {subject}
+        </span>
+      </div>
+    </div>
+  );
+}
 
-      {/* Stats Section */}
-      <section className="px-6 py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <p className="text-3xl font-bold text-gray-900">0</p>
-              <p className="text-sm text-gray-500 mt-1">Login Required</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-gray-900">1-Click</p>
-              <p className="text-sm text-gray-500 mt-1">Application Process</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-gray-900">100%</p>
-              <p className="text-sm text-gray-500 mt-1">HR Direct Connect</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-gray-900">Modern</p>
-              <p className="text-sm text-gray-500 mt-1">Responsive UI</p>
-            </div>
-          </div>
-        </div>
-      </section>
+function StatCard({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="bg-white px-[18px] py-[22px] text-center">
+      <div className="font-['Space_Mono'] text-[22px] text-[#d8842c] mb-1">{value}</div>
+      <div className="text-[12.5px] text-[#565f66]">{label}</div>
+    </div>
+  );
+}
 
-      {/* Problem & Solution */}
-      <section className="px-6 py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-gray-900 rounded-2xl p-8 text-white">
-              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
-                <LuClock className="text-2xl text-orange-400" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-3">The Problem</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Most career platforms force users through lengthy onboarding flows, 
-                complex login systems, and frustrating application processes before 
-                they can even apply for a single job.
-              </p>
-            </div>
-            
-            <div className="bg-orange-500 rounded-2xl p-8 text-white">
-              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                <LuCircleCheck className="text-2xl" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-3">The Solution</h3>
-              <p className="text-orange-50 leading-relaxed">
-                Zenoway removes unnecessary barriers. Users discover opportunities instantly 
-                and connect with recruiters through direct HR email integration — no 
-                accounts, no passwords, no friction.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+function FeatureCard({
+  icon,
+  title,
+  body,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  body: string;
+}) {
+  return (
+    <div className="bg-white border border-[#d8dbd3] rounded-[10px] p-5">
+      <div className="w-[34px] h-[34px] rounded-lg bg-[#f4e3ca] text-[#d8842c] flex items-center justify-center mb-3.5">
+        {icon}
+      </div>
+      <h3 className="text-[15.5px] mb-1.5">{title}</h3>
+      <p className="text-[13.5px] text-[#565f66] m-0">{body}</p>
+    </div>
+  );
+}
 
-      {/* Features Grid */}
-      <section className="px-6 py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wide">Why Zenoway</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Designed for simplicity</h2>
-            <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
-              Every feature is built around one core principle — making job discovery fast and effortless
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                  feature.color === 'orange' ? 'bg-orange-100 text-orange-500' :
-                  feature.color === 'blue' ? 'bg-blue-100 text-blue-500' :
-                  feature.color === 'green' ? 'bg-green-100 text-green-500' :
-                  'bg-purple-100 text-purple-500'
-                }`}>
-                  <feature.icon className="text-xl" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
-                <p className="text-sm text-gray-500">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+function Shot({ src, title, caption }: { src: string; title: string; caption: string }) {
+  return (
+    <figure>
+      <div className="border border-[#d8dbd3] rounded-[10px] overflow-hidden bg-white">
+        <img className="block w-full h-[210px] object-cover" src={src} alt={title} loading="lazy" />
+      </div>
+      <figcaption className="mt-2.5 flex flex-col">
+        <strong className="text-sm">{title}</strong>
+        <span className="text-[12.5px] text-[#8a9096]">{caption}</span>
+      </figcaption>
+    </figure>
+  );
+}
 
-      {/* User Screens */}
-      <section className="px-6 py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wide">User Experience</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Platform interface showcase</h2>
-            <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
-              Clean layouts, modern typography, and intuitive navigation for a smooth browsing experience
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {userScreens.map((item) => (
-              <div key={item.id} className="group">
-                <div className="bg-gray-100  overflow-hidden border-gray-200 border">
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    className="w-full  object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="mt-4">
-                  <h4 className="font-semibold text-gray-900">{item.title}</h4>
-                  <p className="text-sm text-gray-500">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+function FlowNode({
+  title,
+  subtitle,
+  tone = "neutral",
+}: {
+  title: string;
+  subtitle?: string;
+  tone?: "neutral" | "amber" | "green" | "dark";
+}) {
+  const toneClasses = {
+    neutral: "bg-white border-[#d8dbd3] text-[#171b1f]",
+    amber: "bg-[#f4e3ca] border-[#e3cbb5] text-[#171b1f]",
+    green: "bg-[#dfe9e2] border-[#c3d8cb] text-[#171b1f]",
+    dark: "bg-[#171b1f] border-[#171b1f] text-[#f2f3ef]",
+  }[tone];
+  return (
+    <div className={`border rounded-lg px-4 py-3 text-center ${toneClasses}`}>
+      <div className="font-['Space_Mono'] text-[13px]">{title}</div>
+      {subtitle && <div className="text-[11.5px] text-[#565f66] mt-1">{subtitle}</div>}
+    </div>
+  );
+}
 
-      {/* Admin Dashboard */}
-      <section className="px-6 py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wide">Admin Dashboard</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Simple management system</h2>
-            <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
-              Clean admin experience for managing opportunities and monitoring platform activity
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {adminScreens.map((item) => (
-              <div key={item.id} className=" overflow-hidden">
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className="w-full h-60 object-cover border-gray-200 border"
-                />
-                <div className="mt-3">
-                  <div className="flex items-center gap-2 mb-2">
-                    <LuChartBar className="text-gray-400 text-sm" />
-                    <h4 className="font-semibold text-gray-900">{item.title}</h4>
-                  </div>
-                  <p className="text-sm text-gray-500">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+function FlowArrow() {
+  return (
+    <div className="flex justify-center py-1">
+      <ArrowDown size={16} className="text-[#8a9096]" />
+    </div>
+  );
+}
 
-      {/* CTA */}
-      <section className="px-6 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to simplify hiring?</h2>
-            <p className="text-gray-300 mb-8 max-w-lg mx-auto">
-              Zenoway is currently in first phase. Visit the website to see the live platform.
-            </p>
+function BriefPanel() {
+  const rows: { icon: React.ReactNode; label: string; value: string }[] = [
+    { icon: <PenTool size={13} />, label: "Role", value: "UI/UX Design & Frontend Dev" },
+    { icon: <Code2 size={13} />, label: "Type", value: "Personal Project" },
+  ];
+  return (
+    <div className="border border-[#d8dbd3] rounded-xl overflow-hidden bg-white flex flex-col h-full">
+      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-[#d8dbd3] bg-[#f8f8f6]">
+        <div className="flex gap-1.5">
+          <span className="w-[9px] h-[9px] rounded-full bg-[#d8dbd3]" />
+          <span className="w-[9px] h-[9px] rounded-full bg-[#d8dbd3]" />
+          <span className="w-[9px] h-[9px] rounded-full bg-[#d8dbd3]" />
+        </div>
+        <span className="font-['Space_Mono'] text-[10px] text-[#8a9096] tracking-wide">brief.eml</span>
+      </div>
+ 
+      <div className="px-4 pt-4 pb-3 border-b border-dashed border-[#d8dbd3]">
+        <div className="font-['Space_Mono'] text-[10px] uppercase tracking-wide text-[#8a9096] mb-1.5">
+          Subject
+        </div>
+        <div className="text-[13.5px] leading-snug text-[#171b1f]">
+          A career portal with no login &mdash; browse, then email.
+        </div>
+      </div>
+ 
+      <div className="flex flex-col flex-1">
+        {rows.map((r, i) => (
+          <div
+            key={r.label}
+            className={`flex items-center gap-2.5 px-4 py-3 ${
+              i !== rows.length - 1 ? "border-b border-[#f0f1ed]" : ""
+            }`}
+          >
+            <span className="text-[#8a9096]">{r.icon}</span>
+            <span className="font-['Space_Mono'] text-[10px] uppercase tracking-wide text-[#8a9096] w-11 shrink-0">
+              {r.label}
+            </span>
+            <span className="text-[13px] text-[#171b1f]">{r.value}</span>
+          </div>
+        ))}
+      </div>
+ 
+      <div className="flex items-center gap-2 px-4 py-3 bg-[#f5f9f6] border-t border-[#c3d8cb]">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2e6b52] opacity-60" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2e6b52]" />
+        </span>
+        <span className="font-['Space_Mono'] text-[11.5px] text-[#2e6b52]">First phase live</span>
+        <Radio size={12} className="text-[#2e6b52] ml-auto" />
+      </div>
+    </div>
+  );
+}
+
+function FlowBranch({
+  nodes,
+}: {
+  nodes: { title: string; subtitle?: string; tone?: "neutral" | "amber" | "green" | "dark" }[];
+}) {
+  return (
+    <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${nodes.length}, minmax(0,1fr))` }}>
+      {nodes.map((n, i) => (
+        <FlowNode key={i} {...n} />
+      ))}
+    </div>
+  );
+}
+
+function FlowDiagram({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="bg-white border border-[#d8dbd3] rounded-[10px] p-6">
+      <div className="font-['Space_Mono'] text-[11.5px] uppercase tracking-wide text-[#8a9096] mb-4">{label}</div>
+      <div className="max-w-[420px] mx-auto flex flex-col">{children}</div>
+    </div>
+  );
+}
+
+export default function ZenowayCaseStudy() {
+  return (
+    <div className="font-['IBM_Plex_Sans'] bg-[#f2f3ef] text-[#171b1f] leading-relaxed">
+      {/* Google fonts for this component */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet"
+      />
+
+      {/* ---------------- HERO ---------------- */}
+      <section className="pt-[120px] pb-12">
+        <div className="max-w-[1080px] mx-auto px-6">
+          <div className="inline-flex items-center gap-2 font-['Space_Mono'] text-xs tracking-wide text-[#565f66] px-2.5 py-1.5 border border-[#d8dbd3] rounded-full bg-white mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2e6b52]" />
+            Case Study &middot; Personal Project &middot; 2025
+          </div>
+          <h1 className="font-['Space_Mono'] text-[32px] md:text-[54px] leading-[1.08] tracking-[-0.01em] mb-5 max-w-[780px]">
+            A career portal that skips <span className="text-[#d8842c]">everything</span> except the job and the email.
+          </h1>
+          <p className="text-lg text-[#565f66] max-w-[560px] mb-8">
+            Zenoway is a lightweight hiring platform built around one idea: someone who
+            finds a job they like shouldn&rsquo;t need an account, a password, or a ten-step
+            form to say so. They should be able to email the person hiring, directly.
+          </p>
+          <div className="flex gap-3 flex-wrap mb-10">
             <a
+              className="font-['Space_Mono'] text-[13px] inline-flex items-center gap-2 px-[18px] py-3 rounded-md no-underline border border-[#171b1f] bg-[#171b1f] text-[#f2f3ef] transition-transform hover:-translate-y-0.5"
               href="https://www.zenoway.com/"
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 transition-colors text-white px-6 py-3 rounded-xl font-medium"
+              rel="noreferrer"
             >
-              <CiGlobe className="text-xl" />
-              Visit Zenoway
+              Visit Zenoway <ExternalLink size={14} />
             </a>
+            <a
+              className="font-['Space_Mono'] text-[13px] inline-flex items-center gap-2 px-[18px] py-3 rounded-md no-underline border border-[#171b1f] bg-transparent text-[#171b1f] transition-transform hover:-translate-y-0.5"
+              href="#problem"
+            >
+              Read the case study <ArrowDown size={14} />
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-[1fr_260px] gap-5">
+            <div className="border border-[#d8dbd3] rounded-xl overflow-hidden bg-white">
+              <div className="flex gap-1.5 px-3.5 py-2.5 border-b border-[#d8dbd3]">
+                <span className="w-[9px] h-[9px] rounded-full bg-[#d8dbd3]" />
+                <span className="w-[9px] h-[9px] rounded-full bg-[#d8dbd3]" />
+                <span className="w-[9px] h-[9px] rounded-full bg-[#d8dbd3]" />
+              </div>
+              <video
+                className="block w-full h-[340px] object-cover"
+                src="/assets/zenoway/hiring.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Zenoway platform preview"
+              />
+            </div>
+
+             <BriefPanel />
+
+
+
+       
           </div>
         </div>
       </section>
+
+      {/* ---------------- STATS ---------------- */}
+      <div className="max-w-[880px] mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#d8dbd3] border border-[#d8dbd3] rounded-[10px] overflow-hidden my-12">
+          <StatCard value="0" label="Login steps required" />
+          <StatCard value="1-click" label="From job post to application" />
+          <StatCard value="100%" label="Applications routed straight to HR" />
+          <StatCard value="Modern" label="Fully responsive interface" />
+        </div>
+      </div>
+
+      {/* ---------------- PROBLEM ---------------- */}
+      <section id="problem" className="py-14 border-t border-[#d8dbd3]">
+        <div className="max-w-[880px] mx-auto px-6">
+          <MailHeader to="job seekers, everywhere" subject="Why most career portals lose people before the apply button" />
+          <h2 className="font-['Space_Mono'] text-[22px] md:text-[30px] mb-4">The problem</h2>
+          <p className="text-[16.5px] text-[#565f66] max-w-[640px] mb-2">
+            Most career platforms treat applying for a job as a project of its own &mdash;
+            an account to create, a profile to build, a resume to reformat, and a form to
+            fill in before a recruiter ever sees a name.
+          </p>
+          <div className="grid md:grid-cols-2 gap-7 mt-7">
+            <div className="bg-white border border-[#e3cbb5] rounded-[10px] p-6">
+              <h4 className="font-['Space_Mono'] text-[13px] text-[#b25f1e] uppercase tracking-wide mb-3.5">
+                What that costs the applicant
+              </h4>
+              <ul className="list-disc pl-[18px] text-[#565f66] text-[15px] m-0">
+                <li className="mb-2">An account and password to remember for a platform they may never return to</li>
+                <li className="mb-2">Profile fields that repeat what&rsquo;s already on the resume</li>
+                <li className="mb-2">No clear line to an actual person once the form is submitted</li>
+                <li className="mb-2">Friction that&rsquo;s highest exactly when motivation is highest &mdash; right after finding a role they want</li>
+              </ul>
+            </div>
+            <div className="bg-white border border-[#e3cbb5] rounded-[10px] p-6">
+              <h4 className="font-['Space_Mono'] text-[13px] text-[#b25f1e] uppercase tracking-wide mb-3.5">
+                What that costs the platform
+              </h4>
+              <ul className="list-disc pl-[18px] text-[#565f66] text-[15px] m-0">
+                <li className="mb-2">Drop-off between &ldquo;found the job&rdquo; and &ldquo;finished applying&rdquo;</li>
+                <li className="mb-2">Engineering overhead spent on auth, profiles, and applicant storage</li>
+                <li className="mb-2">A slower, heavier product for what is, at its core, a browse-and-contact flow</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- SOLUTION / APPROACH ---------------- */}
+      <section className="py-14 border-t border-[#d8dbd3]">
+        <div className="max-w-[880px] mx-auto px-6">
+          <MailHeader to="hiring teams &amp; recruiters" subject="The approach &mdash; cut every step that isn&#39;t browsing or contacting" />
+          <h2 className="font-['Space_Mono'] text-[22px] md:text-[30px] mb-4">The approach</h2>
+          <p className="text-[16.5px] text-[#565f66] max-w-[640px] mb-2">
+            The design rule for Zenoway was simple: if a screen doesn&rsquo;t help someone
+            see a job or send an application, it doesn&rsquo;t belong in the flow. That ruled
+            out accounts, profiles, and multi-page forms in favor of one action &mdash; a direct
+            email to HR.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-start mt-8">
+            <div className="flex flex-col gap-2.5">
+              <div className="font-['Space_Mono'] text-[12.5px] tracking-wide text-[#8a9096] uppercase mb-1">
+                Typical career portal
+              </div>
+              <div className="opacity-85 bg-white border border-[#d8dbd3] rounded-lg px-3.5 py-3 text-sm text-[#565f66] flex items-center gap-2.5">
+                <span className="font-['Space_Mono'] text-[#8a9096] text-xs">01</span> Create an account
+              </div>
+              <div className="opacity-85 bg-white border border-[#d8dbd3] rounded-lg px-3.5 py-3 text-sm text-[#565f66] flex items-center gap-2.5">
+                <span className="font-['Space_Mono'] text-[#8a9096] text-xs">02</span> Verify email
+              </div>
+              <div className="opacity-85 bg-white border border-[#d8dbd3] rounded-lg px-3.5 py-3 text-sm text-[#565f66] flex items-center gap-2.5">
+                <span className="font-['Space_Mono'] text-[#8a9096] text-xs">03</span> Build a profile
+              </div>
+              <div className="opacity-85 bg-white border border-[#d8dbd3] rounded-lg px-3.5 py-3 text-sm text-[#565f66] flex items-center gap-2.5">
+                <span className="font-['Space_Mono'] text-[#8a9096] text-xs">04</span> Upload &amp; reformat resume
+              </div>
+              <div className="opacity-85 bg-white border border-[#d8dbd3] rounded-lg px-3.5 py-3 text-sm text-[#565f66] flex items-center gap-2.5">
+                <span className="font-['Space_Mono'] text-[#8a9096] text-xs">05</span> Fill a multi-step application
+              </div>
+              <div className="opacity-85 bg-white border border-[#d8dbd3] rounded-lg px-3.5 py-3 text-sm text-[#565f66] flex items-center gap-2.5">
+                <span className="font-['Space_Mono'] text-[#8a9096] text-xs">06</span> Wait, with no direct contact
+              </div>
+            </div>
+            <div className="self-center font-['Space_Mono'] text-[#8a9096] text-xs text-center md:[writing-mode:vertical-lr]">
+              VS
+            </div>
+            <div className="flex flex-col gap-2.5">
+              <div className="font-['Space_Mono'] text-[12.5px] tracking-wide text-[#8a9096] uppercase mb-1">
+                Zenoway
+              </div>
+              <div className="bg-[#dfe9e2] border border-[#c3d8cb] rounded-lg px-3.5 py-3 text-sm text-[#171b1f] flex items-center gap-2.5">
+                <span className="font-['Space_Mono'] text-[#8a9096] text-xs">01</span> Browse open roles
+              </div>
+              <div className="bg-[#dfe9e2] border border-[#c3d8cb] rounded-lg px-3.5 py-3 text-sm text-[#171b1f] flex items-center gap-2.5">
+                <span className="font-['Space_Mono'] text-[#8a9096] text-xs">02</span> Read the one that fits
+              </div>
+              <div className="bg-[#dfe9e2] border border-[#c3d8cb] rounded-lg px-3.5 py-3 text-sm text-[#171b1f] flex items-center gap-2.5">
+                <span className="font-['Space_Mono'] text-[#8a9096] text-xs">03</span> Send an email straight to HR
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- PRINCIPLES / FEATURES ---------------- */}
+      <section className="py-14 border-t border-[#d8dbd3]">
+        <div className="max-w-[880px] mx-auto px-6">
+          <MailHeader to="design system" subject="Four principles the interface is built around" />
+          <h2 className="font-['Space_Mono'] text-[22px] md:text-[30px] mb-4">Designed for simplicity</h2>
+          <p className="text-[16.5px] text-[#565f66] max-w-[640px] mb-2">Every screen answers to one of these before it ships.</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-7">
+            <FeatureCard
+              icon={<Mail size={18} />}
+              title="Direct HR contact"
+              body="Applications go out as email, no login required on either side."
+            />
+            <FeatureCard
+              icon={<MousePointerClick size={18} />}
+              title="Easy applications"
+              body="A quick job discovery and apply flow, with nothing extra in the way."
+            />
+            <FeatureCard
+              icon={<Sparkles size={18} />}
+              title="Modern interface"
+              body="A clean, responsive design system across every screen size."
+            />
+            <FeatureCard
+              icon={<LayoutDashboard size={18} />}
+              title="User first"
+              body="A minimal onboarding process &mdash; the product gets out of the way."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- JOB SEEKER UI ---------------- */}
+      <section className="py-14 border-t border-[#d8dbd3]">
+        <div className="max-w-[880px] mx-auto px-6">
+          <MailHeader to="job seekers" subject="Platform interface showcase" />
+          <h2 className="font-['Space_Mono'] text-[22px] md:text-[30px] mb-4">The job seeker experience</h2>
+          <p className="text-[16.5px] text-[#565f66] max-w-[640px] mb-2">
+            Clean layouts, restrained typography, and navigation that doesn&rsquo;t need
+            explaining &mdash; browsing roles should feel closer to reading a well-organized
+            list than operating software.
+          </p>
+          <div className="grid md:grid-cols-3 gap-[18px] mt-7">
+            <Shot
+              src="https://aswanthup.online/assets/zenoway/zenoway1.webp"
+              title="Job discovery"
+              caption="Browse opportunities"
+            />
+            <Shot
+              src="https://aswanthup.online/assets/zenoway/zenoway3.webp"
+              title="Application flow"
+              caption="Direct HR contact"
+            />
+            <Shot
+              src="https://aswanthup.online/assets/zenoway/zenoway2.webp"
+              title="Career portal"
+              caption="Simple navigation"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- ADMIN UI ---------------- */}
+      <section className="py-14 border-t border-[#d8dbd3]">
+        <div className="max-w-[880px] mx-auto px-6">
+          <MailHeader to="hiring teams" subject="Admin dashboard &mdash; simple management system" />
+          <h2 className="font-['Space_Mono'] text-[22px] md:text-[30px] mb-4">The admin side</h2>
+          <p className="text-[16.5px] text-[#565f66] max-w-[640px] mb-2">
+            The flip side of a frictionless applicant experience is a dashboard that
+            stays out of the recruiter&rsquo;s way too &mdash; post a role, track activity,
+            update a listing, and nothing more than that.
+          </p>
+          <div className="grid md:grid-cols-3 gap-[18px] mt-7">
+            <Shot src="https://aswanthup.online/zenad1.png" title="Dashboard analytics" caption="Track platform activity" />
+            <Shot src="https://aswanthup.online/zenad2.png" title="Content management" caption="Update job listings" />
+            <Shot src="https://aswanthup.online/zenad3.png" title="Update & add" caption="Add or edit job posts" />
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- USER FLOWS ---------------- */}
+      <section className="py-14 border-t border-[#d8dbd3]">
+        <div className="max-w-[880px] mx-auto px-6">
+          <MailHeader to="everyone on the platform" subject="How each role moves through Zenoway" />
+          <h2 className="font-['Space_Mono'] text-[22px] md:text-[30px] mb-4">User flows</h2>
+          <p className="text-[16.5px] text-[#565f66] max-w-[640px] mb-2">
+            Three roles share the platform &mdash; the job seeker applying, the HR contact
+            receiving applications, and the main admin who approves HR accounts and keeps
+            the job board itself in order.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mt-8">
+            <FlowDiagram label="Job seeker &mdash; core path">
+              <FlowNode title="Home" subtitle="Browse the landing page" />
+              <FlowArrow />
+              <FlowNode title="Search jobs" subtitle="Filter by role or location" />
+              <FlowArrow />
+              <FlowNode title="Job details" subtitle="Read the full listing" />
+              <FlowArrow />
+              <FlowBranch
+                nodes={[
+                  { title: "Copy HR email", subtitle: "Apply directly", tone: "amber" },
+                  { title: "Career page", subtitle: "Company's own site", tone: "amber" },
+                ]}
+              />
+            </FlowDiagram>
+
+            <FlowDiagram label="Job details &mdash; also available">
+              <FlowNode title="Job details page" />
+              <FlowArrow />
+              <FlowBranch
+                nodes={[
+                  { title: "View company", subtitle: "See company profile" },
+                  { title: "WhatsApp group", subtitle: "Join for job updates" },
+                  { title: "How to mail", subtitle: "Tips for emailing HR" },
+                ]}
+              />
+            </FlowDiagram>
+
+            <FlowDiagram label="HR &mdash; day to day">
+              <FlowNode title="HR login" subtitle="Access the dashboard" tone="green" />
+              <FlowArrow />
+              <FlowNode title="Dashboard" subtitle="Track platform activity" tone="green" />
+              <FlowArrow />
+              <FlowNode title="Manage listings" subtitle="Create, update, or remove" tone="green" />
+              <FlowArrow />
+              <FlowNode title="Application received" subtitle="Candidate emails arrive directly" tone="green" />
+              <FlowArrow />
+              <FlowNode title="Respond to candidate" subtitle="Reply straight from inbox" tone="green" />
+            </FlowDiagram>
+
+            <FlowDiagram label="Main admin &mdash; HR lifecycle">
+              <FlowNode title="HR signup" subtitle="Request to join" />
+              <FlowArrow />
+              <FlowNode title="Pending approval" subtitle="Waiting for admin review" />
+              <FlowArrow />
+              <FlowNode title="Admin approves" subtitle="Verified by main admin" tone="dark" />
+              <FlowArrow />
+              <FlowNode title="Active HR account" subtitle="Can post and manage jobs" tone="green" />
+              <FlowArrow />
+              <FlowBranch
+                nodes={[
+                  { title: "Track jobs", subtitle: "View their job posts" },
+                  { title: "Block account", subtitle: "Restrict access" },
+                  { title: "Assist account", subtitle: "Reset name or password" },
+                ]}
+              />
+            </FlowDiagram>
+          </div>
+
+          <div className="mt-6">
+            <FlowDiagram label="Main admin &mdash; job management">
+              <FlowNode title="Job management" tone="dark" />
+              <FlowArrow />
+              <FlowBranch
+                nodes={[
+                  { title: "Add job" },
+                  { title: "Update job" },
+                  { title: "Delete job" },
+                  { title: "Approve jobs" },
+                ]}
+              />
+            </FlowDiagram>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- REFLECTION / STATUS ---------------- */}
+      <section className="py-14 border-t border-[#d8dbd3]">
+        <div className="max-w-[880px] mx-auto px-6">
+          <MailHeader to="future me" subject="Where this stands, and what I&#39;d push on next" />
+          <h2 className="font-['Space_Mono'] text-[22px] md:text-[30px] mb-4">Where it stands</h2>
+          <div className="inline-flex items-center gap-2 font-['Space_Mono'] text-[12.5px] bg-[#dfe9e2] text-[#2e6b52] px-3 py-1.5 rounded-full mb-4.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2e6b52]" /> First phase live
+          </div>
+          <p className="text-[16.5px] text-[#565f66] max-w-[640px] mb-2">
+            Zenoway&rsquo;s first phase &mdash; browsing, the direct-email apply flow, and a
+            minimal admin panel &mdash; is live at zenoway.com.
+          </p>
+          <div className="grid md:grid-cols-2 gap-[22px] mt-7">
+            <div className="py-5">
+              <h4 className="font-['Space_Mono'] text-[13.5px] mb-2">What the constraint bought</h4>
+              <p className="text-[14.5px] text-[#565f66] m-0">
+                Removing accounts and applicant storage cut both the build time and the
+                surface area someone has to trust before applying &mdash; there&rsquo;s no
+                data to hand over, just an email to send.
+              </p>
+            </div>
+            <div className="py-5">
+              <h4 className="font-['Space_Mono'] text-[13.5px] mb-2">What I&rsquo;d watch for next</h4>
+              <p className="text-[14.5px] text-[#565f66] m-0">
+                Direct email doesn&rsquo;t give either side a paper trail once a message is
+                sent. As Zenoway grows, lightweight status visibility &mdash; without
+                reintroducing the friction this was built to avoid &mdash; is the open question.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- FOOTER / CONTACT ---------------- */}
+      <footer className="py-14 pb-[72px]">
+        <div className="max-w-[880px] mx-auto px-6">
+          <div className="bg-[#171b1f] text-[#f2f3ef] rounded-[14px] p-10 flex justify-between items-end flex-wrap gap-6">
+            <div>
+              <h2 className="font-['Space_Mono'] text-[22px] md:text-[30px] mb-4 text-[#f2f3ef]">Let&rsquo;s work together</h2>
+              <p className="text-[#b7bcb2] max-w-[420px] m-0 text-[14.5px]">
+                Open to UI/UX design and frontend development projects &mdash; let&rsquo;s build something this direct.
+              </p>
+            </div>
+            <div className="flex gap-3 flex-wrap">
+              <a
+                className="font-['Space_Mono'] text-[12.5px] text-[#f2f3ef] border border-[#3b423f] px-3.5 py-2.5 rounded-md no-underline inline-flex items-center gap-1.5"
+                href="mailto:aswanthup06@gmail.com"
+              >
+                <Send size={13} /> aswanthup06@gmail.com
+              </a>
+              <a
+                className="font-['Space_Mono'] text-[12.5px] text-[#f2f3ef] border border-[#3b423f] px-3.5 py-2.5 rounded-md no-underline inline-flex items-center gap-1.5"
+                href="https://wa.me/917559068970"
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp
+              </a>
+              <a
+                className="font-['Space_Mono'] text-[12.5px] text-[#f2f3ef] border border-[#3b423f] px-3.5 py-2.5 rounded-md no-underline inline-flex items-center gap-1.5"
+                href="https://www.zenoway.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit Zenoway <ArrowRight size={13} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
