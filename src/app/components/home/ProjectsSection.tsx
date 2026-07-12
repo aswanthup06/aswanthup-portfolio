@@ -57,9 +57,9 @@ function FeaturedProject() {
         mt-14
       "
     >
-      {/* Image side */}
+      {/* Video side */}
       <div className="relative h-64 lg:h-full min-h-[320px] overflow-hidden">
-        <Image
+        <video
           className="
             w-full
             h-full
@@ -68,18 +68,19 @@ function FeaturedProject() {
             duration-700
             group-hover:scale-105
           "
-          src="https://images.unsplash.com/photo-1582079767878-082f4300d386?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=800&q=80"
-          alt="Zenoway UI case study preview"
-          width={900}
-          height={700}
-          loading="lazy"
+          src="/assets/zenoway/zenoway.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent lg:bg-linear-to-r" />
 
         <span
           className="
             absolute
-            top-4
+            bottom-4
             left-4
             px-3
             py-1
@@ -95,6 +96,35 @@ function FeaturedProject() {
         >
           Own Project
         </span>
+
+
+        {/* Glassmorphic tagline */}
+        <div
+          className="
+            absolute
+            top-4
+            left-4
+            right-4
+            w-fit
+            max-w-[calc(100%-2rem)]
+            px-4
+            py-2
+            rounded-full
+            bg-white/10
+            border
+            border-white/25
+            backdrop-blur-xl
+            shadow-[0_4px_24px_rgba(0,0,0,0.15)]
+            flex
+            items-center
+            gap-2
+          "
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+          <p className="text-white text-xs md:text-sm font-medium tracking-wide">
+            Helping first-time job seekers land their first role
+          </p>
+        </div>
 
         {/* Floating button — opens the case study, same pattern as the grid cards */}
         <Link
@@ -127,7 +157,7 @@ function FeaturedProject() {
         </p>
 
         <h3 className="text-gray-900 font-bold text-2xl md:text-3xl mt-2">
-          Zenoway
+          Zenoway.com
         </h3>
 
         <p className="text-gray-500 text-sm md:text-base leading-relaxed mt-4 max-w-md">

@@ -193,7 +193,7 @@ function FlowDiagram({ label, children }: { label: string; children: React.React
 
 export default function ZenowayCaseStudy() {
   return (
-    <div className="font-['IBM_Plex_Sans'] bg-[#f2f3ef] text-[#171b1f] leading-relaxed">
+  <div className="font-['IBM_Plex_Sans'] bg-gradient-to-b from-[#f2f3ef] via-[#f2f3ef] to-white text-[#171b1f] leading-relaxed">
       {/* Google fonts for this component */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
@@ -563,7 +563,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- FOOTER / CONTACT ---------------- */}
-      <footer className="py-14 pb-[72px]">
+      <footer className="py-14">
         <div className="max-w-[880px] mx-auto px-6">
           <div className="bg-[#171b1f] text-[#f2f3ef] rounded-[14px] p-10 flex justify-between items-end flex-wrap gap-6">
             <div>
