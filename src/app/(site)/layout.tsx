@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Questrial } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ContactModalProvider } from "../context/ContactModalContext";
 import ContactModal from "../components/ContactModal";
 import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const questrial = Questrial({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.aswanthup.art"),
+  metadataBase: new URL("https://www.aswanthup.online"),
 
   title: {
     default: "Aswanth UP | UI Developer & UI/UX Designer",
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Aswanth UP",
-      url: "https://www.aswanthup.art",
+      url: "https://www.aswanthup.online",
     },
   ],
 
@@ -54,7 +53,7 @@ export const metadata: Metadata = {
   publisher: "Aswanth UP",
 
   alternates: {
-    canonical: "https://www.aswanthup.art",
+    canonical: "https://www.aswanthup.online",
   },
 
   openGraph: {
@@ -105,15 +104,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${questrial.className} antialiased`}>
         <ContactModalProvider>
           <Navbar />
           {children}
           <ContactModal />
           <Footer />
         </ContactModalProvider>
+
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
