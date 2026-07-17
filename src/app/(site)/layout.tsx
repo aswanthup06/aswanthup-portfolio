@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { Questrial } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ContactModalProvider } from "../context/ContactModalContext";
 import ContactModal from "../components/ContactModal";
 import "../globals.css";
 
-const questrial = Questrial({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.aswanthup.online"),
@@ -104,7 +98,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${questrial.className} antialiased`}>
+      <body>
         <ContactModalProvider>
           <Navbar />
           {children}
