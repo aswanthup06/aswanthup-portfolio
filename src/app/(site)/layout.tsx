@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Aswanth UP | UI Developer & UI/UX Designer",
     description:
       "Explore the portfolio of Aswanth UP featuring web applications, UI/UX design projects, React development, Next.js solutions, and creative digital experiences.",
-    url: "https://www.aswanthup.art",
+    url: "https://www.aswanthup.online",
     siteName: "Aswanth UP Portfolio",
     locale: "en_US",
     type: "website",
