@@ -1,6 +1,10 @@
+
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import { motion, type Variants } from "framer-motion";
 
 const projects = [
   {
@@ -23,7 +27,6 @@ const projects = [
     type: "Dashboard",
     role: "UI Development",
   },
-
   {
     title: "Doctor One",
     description:
@@ -36,13 +39,37 @@ const projects = [
   },
 ];
 
-/* ========================================= */
-/* Featured "Best Work" spotlight — Zenoway   */
-/* Sits above the grid, does not touch it.    */
-/* ========================================= */
+const fadeUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
 function FeaturedProject() {
   return (
-    <div
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
       className="
         group
         relative
@@ -57,7 +84,6 @@ function FeaturedProject() {
         mt-14
       "
     >
-      {/* Video side */}
       <div className="relative h-64 lg:h-full min-h-[320px] overflow-hidden">
         <video
           className="
@@ -75,6 +101,7 @@ function FeaturedProject() {
           playsInline
           preload="metadata"
         />
+
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent lg:bg-linear-to-r" />
 
         <span
@@ -97,8 +124,6 @@ function FeaturedProject() {
           Own Project
         </span>
 
-
-        {/* Glassmorphic tagline */}
         <div
           className="
             absolute
@@ -121,12 +146,12 @@ function FeaturedProject() {
           "
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+
           <p className="text-white text-xs md:text-sm font-medium tracking-wide">
             Helping first-time job seekers land their first role
           </p>
         </div>
 
-        {/* Floating button — opens the case study, same pattern as the grid cards */}
         <Link
           href="/projects/zenoway"
           aria-label="View Zenoway case study"
@@ -150,7 +175,6 @@ function FeaturedProject() {
         </Link>
       </div>
 
-      {/* Content side */}
       <div className="flex flex-col justify-center p-8 lg:p-10">
         <p className="text-xs uppercase tracking-widest text-gray-400">
           Case Study
@@ -187,7 +211,6 @@ function FeaturedProject() {
           ))}
         </div>
 
-        {/* Tech stack */}
         <div className="flex gap-2 flex-wrap mt-3">
           {["Figma", "Next.js", "Tailwind CSS", "TypeScript"].map((item) => (
             <span
@@ -225,6 +248,7 @@ function FeaturedProject() {
             "
           >
             Read the case study
+
             <MdOutlineArrowOutward className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 duration-300" />
           </Link>
 
@@ -245,23 +269,30 @@ function FeaturedProject() {
             "
           >
             Live Site
+
             <MdOutlineArrowOutward className="group-hover/live:translate-x-1 group-hover/live:-translate-y-1 duration-300" />
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" aria-label="Featured Projects" className="w-full">
+    <section
+      id="projects"
+      aria-label="Featured Projects"
+      className="w-full"
+    >
       <div className="max-w-6xl mx-auto">
-        {/* ========================================= */}
-        {/* Header */}
-        {/* ========================================= */}
-
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6"
+        >
           <div className="max-w-2xl">
             <h2 className="font-bold text-sm md:text-base text-gray-900">
               Projects
@@ -276,13 +307,11 @@ export default function ProjectsSection() {
             </p>
 
             <p className="text-gray-500 text-sm md:text-base leading-relaxed mt-5 max-w-xl">
-              A collection of selected projects focused on frontend development,
-              UI engineering, responsive experiences, and scalable product
-              design across multiple industries.
+              A collection of selected projects focused on frontend
+              development, UI engineering, responsive experiences, and
+              scalable product design across multiple industries.
             </p>
           </div>
-
-          {/* Button */}
 
           <Link
             href="/projects"
@@ -312,39 +341,43 @@ export default function ProjectsSection() {
             "
           >
             Explore All Projects
+
             <MdOutlineArrowOutward className="group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
           </Link>
-        </div>
-
-        {/* ========================================= */}
-        {/* Featured — Zenoway (best work spotlight)   */}
-        {/* ========================================= */}
+        </motion.div>
 
         <FeaturedProject />
 
-        {/* ========================================= */}
-        {/* Cards */}
-        {/* ========================================= */}
-
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-14 gap-6">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-14 gap-6"
+        >
           {projects.map((project, index) => (
-            <article
+            <motion.article
               key={index}
+              variants={fadeUp}
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.25 }}
               className="
                 group
-
-              
                 overflow-hidden
                 transition-all
                 duration-500
-                hover:-translate-y-1
-                
               "
             >
               <div className="relative overflow-hidden">
-                <div
-                  className="overflow-hidden rounded-xl relative border
-                      border-gray-200"
+                <motion.div
+                  initial={{ scale: 1.05, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.7,
+                    ease: "easeOut",
+                  }}
+                  className="overflow-hidden rounded-xl relative border border-gray-200"
                 >
                   <Image
                     className="
@@ -354,7 +387,6 @@ export default function ProjectsSection() {
                       transition-transform
                       duration-700
                       group-hover:scale-105
-                      
                     "
                     src={project.image}
                     alt={`${project.title} UI Project Preview`}
@@ -363,11 +395,7 @@ export default function ProjectsSection() {
                     loading="lazy"
                   />
 
-                  {/* Overlay */}
-
                   <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent" />
-
-                  {/* Tech Stack */}
 
                   <div className="absolute top-4 left-4 flex gap-2 flex-wrap">
                     {project.tech.map((item, i) => (
@@ -391,8 +419,6 @@ export default function ProjectsSection() {
                     ))}
                   </div>
 
-                  {/* Floating Button */}
-
                   <Link
                     href={project.link}
                     aria-label={`View ${project.title} project`}
@@ -414,12 +440,10 @@ export default function ProjectsSection() {
                   >
                     <MdOutlineArrowOutward className="text-lg" />
                   </Link>
-                </div>
+                </motion.div>
               </div>
 
               <div className="pt-5">
-                {/* Top */}
-
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="text-gray-900 font-bold text-xl">
@@ -432,9 +456,7 @@ export default function ProjectsSection() {
                   </div>
                 </div>
 
-                {/* Bottom */}
-
-                <div className=" flex items-center justify-between  pt-5">
+                <div className="flex items-center justify-between pt-5">
                   <div>
                     <p className="text-xs uppercase tracking-widest text-gray-400">
                       {project.type}
@@ -446,10 +468,11 @@ export default function ProjectsSection() {
                   </div>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
+

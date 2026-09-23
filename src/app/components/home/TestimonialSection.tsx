@@ -1,7 +1,10 @@
-'use client';
+
+"use client";
+
 import Image from "next/image";
 import TestimonialCard from "./TestimonialCard";
 import { useContactModal } from "../../context/ContactModalContext";
+import { motion, type Variants } from "framer-motion";
 
 interface Testimonial {
   avatar: string;
@@ -18,7 +21,6 @@ const testimonials: Testimonial[] = [
     name: "Gokul Hari",
     role: "Co-Founder of Chaavie Solutions",
   },
-
   {
     avatar: "/musthafa.png",
     quote:
@@ -26,7 +28,6 @@ const testimonials: Testimonial[] = [
     name: "Mohamad Musthafa",
     role: "Managing Director at G tec Kunnumpuram",
   },
-
   {
     avatar: "/bav.png",
     quote:
@@ -36,27 +37,60 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+const fadeUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
 export default function TestimonialSection() {
   const { openModal } = useContactModal();
+
   return (
     <section
       id="testimonials"
       aria-label="Client Testimonials"
       className="w-full"
     >
-      {/* Header */}
-      <div className="max-w-6xl mx-auto mb-12">
-  <h2 className="font-bold text-sm md:text-base text-gray-900">
-    Testimonials
-  </h2>
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        className="max-w-6xl mx-auto mb-12"
+      >
+        <h2 className="font-bold text-sm md:text-base text-gray-900">
+          Testimonials
+        </h2>
 
-  <p className="text-2xl md:text-3xl text-slate-500/60 leading-snug">
-    Real feedback from people who experienced my work firsthand.
-  </p>
-</div>
+        <p className="text-2xl md:text-3xl text-slate-500/60 leading-snug">
+          Real feedback from people who experienced my work firsthand.
+        </p>
+      </motion.div>
 
-      {/* Grid */}
-      <div
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
         className="
           max-w-6xl
           mx-auto
@@ -66,8 +100,10 @@ export default function TestimonialSection() {
           gap-6
         "
       >
-        {/* Left */}
-        <article
+        <motion.article
+          variants={fadeUp}
+          whileHover={{ y: -6 }}
+          transition={{ duration: 0.25 }}
           className="
             lg:row-span-2
             flex
@@ -83,7 +119,11 @@ export default function TestimonialSection() {
           "
         >
           <div>
-            <div
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
               className="
                 inline-flex
                 items-center
@@ -99,35 +139,36 @@ export default function TestimonialSection() {
               "
             >
               <div className="flex -space-x-2">
-                <Image
-                  src="/gokul.png"
-                  alt="Gokul Hari"
-                  width={28}
-                  height={28}
-                  className="w-7 h-7 rounded-full border-2 border-black object-cover"
-                />
-
-                <Image
-                  src="/musthafa.png"
-                  alt="Muhammad Musthafa"
-                  width={28}
-                  height={28}
-                  className="w-7 h-7 rounded-full border-2 border-black object-cover"
-                />
-
-                <Image
-                  src="/bav.png"
-                  alt="Bhavana Raj"
-                  width={28}
-                  height={28}
-                  className="w-7 h-7 rounded-full border-2 border-black object-cover"
-                />
+                {[
+                  ["/gokul.png", "Gokul Hari"],
+                  ["/musthafa.png", "Muhammad Musthafa"],
+                  ["/bav.png", "Bhavana Raj"],
+                ].map(([src, alt], index) => (
+                  <motion.div
+                    key={src}
+                    initial={{ opacity: 0, x: 10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.1,
+                    }}
+                  >
+                    <Image
+                      src={src}
+                      alt={alt}
+                      width={28}
+                      height={28}
+                      className="w-7 h-7 rounded-full border-2 border-black object-cover"
+                    />
+                  </motion.div>
+                ))}
               </div>
 
               <span className="text-xs text-gray-300">
                 Trusted by founders & developers
               </span>
-            </div>
+            </motion.div>
 
             <h3 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight lg:w-[80%]">
               Real feedback from people I worked with
@@ -141,7 +182,16 @@ export default function TestimonialSection() {
           </div>
 
           <div className="pt-8">
-            <div className="flex items-center gap-3 mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: 0.2,
+              }}
+              className="flex items-center gap-3 mb-6"
+            >
               <div>
                 <p className="text-3xl font-bold">4.9/5</p>
 
@@ -149,11 +199,17 @@ export default function TestimonialSection() {
                   Based on professional collaborations
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            <button
+            <motion.button
               onClick={openModal}
               aria-label="Let's Work Together"
+              whileHover={{
+                scale: 1.02,
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
               className="
                 w-full
                 bg-white
@@ -169,23 +225,38 @@ export default function TestimonialSection() {
               "
             >
               Let’s Work Together
-            </button>
+            </motion.button>
           </div>
-        </article>
+        </motion.article>
 
-        {/* Cards */}
-        <div className="lg:col-span-2">
+        <motion.div
+          variants={fadeUp}
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.25 }}
+          className="lg:col-span-2"
+        >
           <TestimonialCard testimonial={testimonials[0]} />
-        </div>
+        </motion.div>
 
-        <div className="h-full">
+        <motion.div
+          variants={fadeUp}
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.25 }}
+          className="h-full"
+        >
           <TestimonialCard testimonial={testimonials[1]} />
-        </div>
+        </motion.div>
 
-        <div className="h-full">
+        <motion.div
+          variants={fadeUp}
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.25 }}
+          className="h-full"
+        >
           <TestimonialCard testimonial={testimonials[2]} />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
+

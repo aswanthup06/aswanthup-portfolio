@@ -14,9 +14,7 @@ import {
 
 } from "lucide-react";
 
-/* ---------- Signature element: an email-chrome header used as the ---------- */
-/* ---------- eyebrow for every section, echoing Zenoway's core idea ---------- */
-/* ---------- (apply by sending one email, not filling a portal).    ---------- */
+
 
 function MailHeader({ to, subject }: { to: string; subject: string }) {
   return (
