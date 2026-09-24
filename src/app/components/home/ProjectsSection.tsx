@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -171,7 +170,7 @@ function FeaturedProject() {
             duration-300
           "
         >
-          <MdOutlineArrowOutward className="text-lg" />
+          <MdOutlineArrowOutward aria-hidden="true" className="text-lg" />
         </Link>
       </div>
 
@@ -185,9 +184,9 @@ function FeaturedProject() {
         </h3>
 
         <p className="text-gray-500 text-sm md:text-base leading-relaxed mt-4 max-w-md">
-          A career portal that skips accounts and application forms in favor
-          of one action &mdash; a direct email to HR. Designed and built end
-          to end, from job discovery through the admin dashboard.
+          A career portal that skips accounts and application forms in favor of
+          one action &mdash; a direct email to HR. Designed and built end to
+          end, from job discovery through the admin dashboard.
         </p>
 
         <div className="flex gap-2 flex-wrap mt-6">
@@ -248,7 +247,6 @@ function FeaturedProject() {
             "
           >
             Read the case study
-
             <MdOutlineArrowOutward className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 duration-300" />
           </Link>
 
@@ -269,7 +267,6 @@ function FeaturedProject() {
             "
           >
             Live Site
-
             <MdOutlineArrowOutward className="group-hover/live:translate-x-1 group-hover/live:-translate-y-1 duration-300" />
           </Link>
         </div>
@@ -280,11 +277,7 @@ function FeaturedProject() {
 
 export default function ProjectsSection() {
   return (
-    <section
-      id="projects"
-      aria-label="Featured Projects"
-      className="w-full"
-    >
+    <section id="projects" aria-label="Featured Projects" className="w-full">
       <div className="max-w-6xl mx-auto">
         <motion.div
           variants={fadeUp}
@@ -307,9 +300,9 @@ export default function ProjectsSection() {
             </p>
 
             <p className="text-gray-500 text-sm md:text-base leading-relaxed mt-5 max-w-xl">
-              A collection of selected projects focused on frontend
-              development, UI engineering, responsive experiences, and
-              scalable product design across multiple industries.
+              A collection of selected projects focused on frontend development,
+              UI engineering, responsive experiences, and scalable product
+              design across multiple industries.
             </p>
           </div>
 
@@ -341,7 +334,6 @@ export default function ProjectsSection() {
             "
           >
             Explore All Projects
-
             <MdOutlineArrowOutward className="group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
           </Link>
         </motion.div>
@@ -475,4 +467,3 @@ export default function ProjectsSection() {
     </section>
   );
 }
-

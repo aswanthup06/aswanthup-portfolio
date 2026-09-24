@@ -1,4 +1,3 @@
-
 "use client";
 
 import { MdOutlineArrowOutward } from "react-icons/md";
@@ -19,7 +18,6 @@ export default function HeroSection() {
 
   return (
     <div className="pt-20 flex items-center flex-col">
-
       {/* Small Label */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
@@ -86,7 +84,7 @@ export default function HeroSection() {
           "
         >
           Get in Touch
-          <MdOutlineArrowOutward />
+          <MdOutlineArrowOutward aria-hidden="true" />
         </motion.button>
       </motion.div>
 
@@ -98,43 +96,70 @@ export default function HeroSection() {
         className="flex justify-center mt-12"
       >
         <div className="flex flex-wrap justify-center gap-6">
-
           <TechItem
-            icon={<IoLogoReact className="text-blue-500 text-lg" />}
+            icon={
+              <IoLogoReact
+                aria-hidden="true"
+                className="text-blue-500 text-lg"
+              />
+            }
             name="ReactJS"
           />
 
           <TechItem
-            icon={<SiNextdotjs className="text-black text-lg" />}
+            icon={
+              <SiNextdotjs
+                aria-hidden="true"
+                className="text-black text-lg"
+              />
+            }
             name="Next.js"
           />
 
           <TechItem
-            icon={<SiFigma className="text-red-500 text-lg" />}
+            icon={
+              <SiFigma
+                aria-hidden="true"
+                className="text-red-500 text-lg"
+              />
+            }
             name="Figma"
           />
 
           <TechItem
-            icon={<IoLogoHtml5 className="text-orange-500 text-lg" />}
+            icon={
+              <IoLogoHtml5
+                aria-hidden="true"
+                className="text-orange-500 text-lg"
+              />
+            }
             name="HTML"
           />
 
           <TechItem
-            icon={<IoLogoCss3 className="text-blue-600 text-lg" />}
+            icon={
+              <IoLogoCss3
+                aria-hidden="true"
+                className="text-blue-600 text-lg"
+              />
+            }
             name="CSS"
           />
 
           <TechItem
-            icon={<IoLogoJavascript className="text-yellow-400 text-lg" />}
+            icon={
+              <IoLogoJavascript
+                aria-hidden="true"
+                className="text-yellow-400 text-lg"
+              />
+            }
             name="JavaScript"
           />
-
         </div>
       </motion.div>
     </div>
   );
 }
-
 
 /* Technology Item */
 
@@ -158,4 +183,3 @@ function TechItem({
     </motion.div>
   );
 }
-

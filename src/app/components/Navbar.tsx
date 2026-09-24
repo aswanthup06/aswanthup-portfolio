@@ -150,16 +150,17 @@ export default function Navbar() {
         >
           <Link
             href="/"
+            aria-label="Home"
             className="
-              h-10 w-10 rounded
-              bg-linear-to-b
-              from-blue-400 to-blue-600
-              text-white
-              flex items-center justify-center
-              shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-              hover:from-blue-500 hover:to-blue-700
-              transition-all duration-200
-            "
+    h-10 w-10 rounded
+    bg-linear-to-b
+    from-blue-400 to-blue-600
+    text-white
+    flex items-center justify-center
+    shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
+    hover:from-blue-500 hover:to-blue-700
+    transition-all duration-200
+  "
           >
             <motion.div
               whileHover={{
@@ -171,7 +172,7 @@ export default function Navbar() {
                 stiffness: 300,
               }}
             >
-              <BsGlobe className="text-md" />
+              <BsGlobe aria-hidden="true" className="text-md" />
             </motion.div>
           </Link>
         </motion.div>
@@ -183,14 +184,8 @@ export default function Navbar() {
           className="hidden md:flex gap-4"
         >
           {navItems.map((item) => (
-            <motion.li
-              key={item.href}
-              variants={navItemVariants}
-            >
-              <Link
-                href={item.href}
-                className={navLinkClass(item.href)}
-              >
+            <motion.li key={item.href} variants={navItemVariants}>
+              <Link href={item.href} className={navLinkClass(item.href)}>
                 <motion.span
                   whileHover={{ y: -1 }}
                   transition={{
@@ -237,7 +232,6 @@ export default function Navbar() {
             "
           >
             Get in Touch
-
             <motion.span
               whileHover={{
                 x: 3,
@@ -325,10 +319,7 @@ export default function Navbar() {
                 className="flex flex-col gap-4"
               >
                 {navItems.map((item) => (
-                  <motion.div
-                    key={item.href}
-                    variants={navItemVariants}
-                  >
+                  <motion.div key={item.href} variants={navItemVariants}>
                     <Link
                       href={item.href}
                       className={navLinkClass(item.href)}
@@ -363,7 +354,6 @@ export default function Navbar() {
                   "
                 >
                   Get in Touch
-
                   <motion.span
                     whileHover={{
                       x: 3,
