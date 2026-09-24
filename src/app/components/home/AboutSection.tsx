@@ -104,7 +104,7 @@ export default function AboutSection() {
           <div>
             <div className="w-20 h-20 border border-gray-200 rounded-full flex items-center justify-center mb-4 overflow-hidden">
               <Image
-                src="/me2.png"
+                src="/me.webp"
                 alt="Aswanth UP UI Developer"
                 width={100}
                 height={100}
