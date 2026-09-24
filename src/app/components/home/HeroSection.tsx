@@ -28,11 +28,14 @@ export default function HeroSection() {
         Personal Portfolio
       </motion.div>
 
-      {/* Heading */}
+      {/* Heading - LCP Element */}
       <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.15 }}
+        initial={{ scale: 0.96 }}
+        animate={{ scale: 1 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
       >
         <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-semibold text-gray-700">
           Building <span className="text-blue-500">User-Centric</span>
@@ -47,7 +50,10 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
+        transition={{
+          duration: 0.6,
+          delay: 0.3,
+        }}
         className="flex justify-center"
       >
         <p className="text-md text-center text-gray-500 md:w-7/12 text-sm md:text-lg">
@@ -61,7 +67,10 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.45 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.45,
+        }}
         className="flex items-center justify-center mt-6"
       >
         <motion.button
@@ -74,12 +83,19 @@ export default function HeroSection() {
             to-blue-600
             rounded-md
             text-white
-            h-10 w-36
-            font-medium text-[14px]
-            flex items-center gap-2 justify-center
+            h-10
+            w-36
+            font-medium
+            text-[14px]
+            flex
+            items-center
+            gap-2
+            justify-center
             shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-            hover:from-blue-500 hover:to-blue-700
-            transition-all duration-200
+            hover:from-blue-500
+            hover:to-blue-700
+            transition-all
+            duration-200
             cursor-pointer
           "
         >
@@ -92,7 +108,10 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
+        transition={{
+          duration: 0.6,
+          delay: 0.6,
+        }}
         className="flex justify-center mt-12"
       >
         <div className="flex flex-wrap justify-center gap-6">
@@ -175,7 +194,9 @@ function TechItem({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -3 }}
-      transition={{ duration: 0.3 }}
+      transition={{
+        duration: 0.3,
+      }}
       className="flex items-center gap-2 text-sm font-medium text-gray-600 cursor-default"
     >
       {icon}
