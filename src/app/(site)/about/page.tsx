@@ -153,7 +153,7 @@ export default function About() {
               </motion.div>
 
               <motion.img
-                src="/me2.png"
+                src="/me.webp"
                 alt="Aswanth"
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1.1, opacity: 1 }}
