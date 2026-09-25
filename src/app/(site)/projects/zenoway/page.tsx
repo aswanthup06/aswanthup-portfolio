@@ -217,7 +217,7 @@ export default function ZenowayCaseStudy() {
           <div className="flex gap-3 flex-wrap mb-10">
             <a
               className="font-['Space_Mono'] text-[13px] inline-flex items-center gap-2 px-[18px] py-3 rounded-md no-underline border border-[#171b1f] bg-[#171b1f] text-[#f2f3ef] transition-transform hover:-translate-y-0.5"
-              href="https://www.zenoway.com/"
+              href="https://www.zenoway.online/"
               target="_blank"
               rel="noreferrer"
             >
@@ -537,7 +537,7 @@ export default function ZenowayCaseStudy() {
           </div>
           <p className="text-[16.5px] text-[#565f66] max-w-[640px] mb-2">
             Zenoway&rsquo;s first phase &mdash; browsing, the direct-email apply flow, and a
-            minimal admin panel &mdash; is live at zenoway.com.
+            minimal admin panel &mdash; is live at zenoway.online.
           </p>
           <div className="grid md:grid-cols-2 gap-[22px] mt-7">
             <div className="py-5">
@@ -587,7 +587,7 @@ export default function ZenowayCaseStudy() {
               </a>
               <a
                 className="font-['Space_Mono'] text-[12.5px] text-[#f2f3ef] border border-[#3b423f] px-3.5 py-2.5 rounded-md no-underline inline-flex items-center gap-1.5"
-                href="https://www.zenoway.com/"
+                href="https://www.zenoway.online/"
                 target="_blank"
                 rel="noreferrer"
               >

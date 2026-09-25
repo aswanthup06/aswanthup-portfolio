@@ -180,7 +180,7 @@ function FeaturedProject() {
         </p>
 
         <h3 className="text-gray-900 font-bold text-2xl md:text-3xl mt-2">
-          Zenoway.com
+          zenoway.online
         </h3>
 
         <p className="text-gray-500 text-sm md:text-base leading-relaxed mt-4 max-w-md">
@@ -251,7 +251,7 @@ function FeaturedProject() {
           </Link>
 
           <Link
-            href="https://www.zenoway.com/"
+            href="https://www.zenoway.online/"
             target="_blank"
             rel="noreferrer"
             aria-label="Visit the live Zenoway site"
