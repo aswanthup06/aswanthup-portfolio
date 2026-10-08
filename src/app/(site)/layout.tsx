@@ -17,7 +17,7 @@ const questrial = Questrial({
 });
 
 const siteUrl = "https://www.aswanthup.online";
-const ogImage = `${siteUrl}/assets/banner/banner.webp`;
+const ogImage = `${siteUrl}/assets/banner/banner.jpg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -28,18 +28,17 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Portfolio of Aswanth UP, a UI Developer and UI/UX Designer specializing in React, Next.js, Tailwind CSS, web applications, mobile app design, and modern user experiences.",
+    "Portfolio of Aswanth UP, a UI Developer and UI/UX Designer specializing in React, Next.js, Tailwind CSS, web applications, and modern user experiences.",
 
   keywords: [
     "Aswanth UP",
-    "Aswanth",
     "UI Developer",
     "UI Designer",
     "UI UX Designer",
-    "Frontend Developer",
     "React Developer",
     "Next.js Developer",
     "Tailwind CSS",
+    "Frontend Developer",
     "Web Designer",
     "Web Developer",
     "Portfolio",
@@ -62,18 +61,15 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Aswanth UP Portfolio",
+    locale: "en_US",
+
     title: "Aswanth UP | UI Developer & UI/UX Designer",
 
     description:
-      "Explore the portfolio of Aswanth UP featuring UI/UX design, React development, Next.js projects, Tailwind CSS, and modern digital experiences.",
-
-    url: siteUrl,
-
-    siteName: "Aswanth UP Portfolio",
-
-    locale: "en_US",
-
-    type: "website",
+      "Explore the portfolio of Aswanth UP featuring UI/UX design, web development, React, Next.js, and modern digital experiences.",
 
     images: [
       {
@@ -81,6 +77,7 @@ export const metadata: Metadata = {
         width: 1734,
         height: 907,
         alt: "Aswanth UP — UI Developer & UI/UX Designer",
+        type: "image/jpeg",
       },
     ],
   },
@@ -93,7 +90,14 @@ export const metadata: Metadata = {
     description:
       "Portfolio showcasing UI/UX design, React development, Next.js projects, and modern digital experiences.",
 
-    images: [ogImage],
+    images: [
+      {
+        url: ogImage,
+        width: 1734,
+        height: 907,
+        alt: "Aswanth UP — UI Developer & UI/UX Designer",
+      },
+    ],
   },
 
   robots: {
@@ -114,9 +118,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <body className={questrial.className}>
