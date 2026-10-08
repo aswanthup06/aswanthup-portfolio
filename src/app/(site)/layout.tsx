@@ -17,7 +17,7 @@ const questrial = Questrial({
 });
 
 const siteUrl = "https://www.aswanthup.online";
-const ogImage = `${siteUrl}/assets/banner/banner-img2.jpg`;
+const ogImage = `${siteUrl}/banner-img2.jpg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
