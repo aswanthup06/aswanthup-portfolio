@@ -16,8 +16,11 @@ const questrial = Questrial({
   display: "swap",
 });
 
+const siteUrl = "https://www.aswanthup.online";
+const ogImage = `${siteUrl}/assets/banner/banner.webp`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.aswanthup.online"),
+  metadataBase: new URL(siteUrl),
 
   title: {
     default: "Aswanth UP | UI Developer & UI/UX Designer",
@@ -29,6 +32,7 @@ export const metadata: Metadata = {
 
   keywords: [
     "Aswanth UP",
+    "Aswanth",
     "UI Developer",
     "UI Designer",
     "UI UX Designer",
@@ -36,9 +40,9 @@ export const metadata: Metadata = {
     "React Developer",
     "Next.js Developer",
     "Tailwind CSS",
-    "Portfolio",
     "Web Designer",
     "Web Developer",
+    "Portfolio",
     "Kozhikode",
     "Kerala",
   ],
@@ -46,7 +50,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Aswanth UP",
-      url: "https://www.aswanthup.online",
+      url: siteUrl,
     },
   ],
 
@@ -54,38 +58,48 @@ export const metadata: Metadata = {
   publisher: "Aswanth UP",
 
   alternates: {
-    canonical: "https://www.aswanthup.online",
+    canonical: siteUrl,
   },
 
   openGraph: {
     title: "Aswanth UP | UI Developer & UI/UX Designer",
+
     description:
-      "Explore the portfolio of Aswanth UP featuring web applications, UI/UX design projects, React development, Next.js solutions, and creative digital experiences.",
-    url: "https://www.aswanthup.online",
+      "Explore the portfolio of Aswanth UP featuring UI/UX design, React development, Next.js projects, Tailwind CSS, and modern digital experiences.",
+
+    url: siteUrl,
+
     siteName: "Aswanth UP Portfolio",
+
     locale: "en_US",
+
     type: "website",
+
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Aswanth UP Portfolio",
+        url: ogImage,
+        width: 1734,
+        height: 907,
+        alt: "Aswanth UP — UI Developer & UI/UX Designer",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
+
     title: "Aswanth UP | UI Developer & UI/UX Designer",
+
     description:
       "Portfolio showcasing UI/UX design, React development, Next.js projects, and modern digital experiences.",
-    images: ["/og-image.png"],
+
+    images: [ogImage],
   },
 
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -108,8 +122,11 @@ export default function RootLayout({
       <body className={questrial.className}>
         <ContactModalProvider>
           <Navbar />
+
           {children}
+
           <ContactModal />
+
           <Footer />
         </ContactModalProvider>
 
