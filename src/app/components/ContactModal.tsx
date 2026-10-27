@@ -33,6 +33,14 @@ const itemVariants: Variants = {
   },
 };
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function ContactModal() {
   const { isOpen, closeModal } = useContactModal();
 
@@ -43,6 +51,9 @@ export default function ContactModal() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"success" | "error" | null>(null);
   const [statusMessage, setStatusMessage] = useState("");
+
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
 
   const contactData = {
     title: "Get in Touch Now!",
@@ -77,6 +88,78 @@ export default function ContactModal() {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  // Reset form errors and status when modal is closed
+  useEffect(() => {
+    if (!isOpen) {
+      setErrors({});
+      setTouched({});
+      setStatus(null);
+      setStatusMessage("");
+    }
+  }, [isOpen]);
+
+  const validateField = (field: "name" | "email" | "message", val: string): string | undefined => {
+    const trimmed = val.trim();
+    switch (field) {
+      case "name":
+        if (!trimmed) return "Name is required";
+        if (trimmed.length < 2) return "Name must be at least 2 characters";
+        return undefined;
+      case "email":
+        if (!trimmed) return "Email is required";
+        if (!EMAIL_REGEX.test(trimmed)) return "Please enter a valid email address";
+        return undefined;
+      case "message":
+        if (!trimmed) return "Message is required";
+        if (trimmed.length < 10) return "Message must be at least 10 characters";
+        return undefined;
+    }
+  };
+
+  const validateForm = (): FormErrors => {
+    const newErrors: FormErrors = {};
+    const nameErr = validateField("name", name);
+    const emailErr = validateField("email", email);
+    const messageErr = validateField("message", message);
+
+    if (nameErr) newErrors.name = nameErr;
+    if (emailErr) newErrors.email = emailErr;
+    if (messageErr) newErrors.message = messageErr;
+
+    return newErrors;
+  };
+
+  const handleBlur = (field: "name" | "email" | "message") => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const val = field === "name" ? name : field === "email" ? email : message;
+    const error = validateField(field, val);
+    setErrors((prev) => ({ ...prev, [field]: error }));
+  };
+
+  const handleNameChange = (val: string) => {
+    setName(val);
+    if (touched.name) {
+      const error = validateField("name", val);
+      setErrors((prev) => ({ ...prev, name: error }));
+    }
+  };
+
+  const handleEmailChange = (val: string) => {
+    setEmail(val);
+    if (touched.email) {
+      const error = validateField("email", val);
+      setErrors((prev) => ({ ...prev, email: error }));
+    }
+  };
+
+  const handleMessageChange = (val: string) => {
+    setMessage(val);
+    if (touched.message) {
+      const error = validateField("message", val);
+      setErrors((prev) => ({ ...prev, message: error }));
+    }
+  };
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -133,6 +216,15 @@ export default function ContactModal() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    setTouched({ name: true, email: true, message: true });
+    const validationErrors = validateForm();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setErrors({});
     setLoading(true);
     setStatus(null);
 
@@ -143,9 +235,9 @@ export default function ContactModal() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
-          email,
-          message,
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim(),
         }),
       });
 
@@ -158,6 +250,7 @@ export default function ContactModal() {
         setName("");
         setEmail("");
         setMessage("");
+        setTouched({});
       } else {
         setStatus("error");
         setStatusMessage(data.message || "Failed to send message");
@@ -326,6 +419,7 @@ export default function ContactModal() {
                   initial="hidden"
                   animate="show"
                   onSubmit={handleSubmit}
+                  noValidate
                   className="space-y-4 pb-6"
                 >
                   <motion.h3
@@ -335,32 +429,96 @@ export default function ContactModal() {
                     Send a Message
                   </motion.h3>
 
-                  <motion.input
-                    variants={itemVariants}
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full h-12 text-sm px-4 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition"
-                  />
+                  <motion.div variants={itemVariants}>
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      value={name}
+                      onChange={(e) => handleNameChange(e.target.value)}
+                      onBlur={() => handleBlur("name")}
+                      aria-invalid={Boolean(errors.name && touched.name)}
+                      className={`w-full h-12 text-sm px-4 rounded-md transition focus:outline-none focus:ring-2 ${
+                        errors.name && touched.name
+                          ? "bg-red-50/60 border border-red-300 focus:ring-red-400/30 text-gray-900"
+                          : "bg-gray-100 border border-transparent focus:ring-blue-400/30"
+                      }`}
+                    />
+                    <AnimatePresence>
+                      {errors.name && touched.name && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0, y: -4 }}
+                          animate={{ opacity: 1, height: "auto", y: 0 }}
+                          exit={{ opacity: 0, height: 0, y: -4 }}
+                          className="text-xs text-red-500 mt-1 pl-1"
+                        >
+                          {errors.name}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
 
-                  <motion.input
-                    variants={itemVariants}
-                    type="email"
-                    placeholder="Your Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full h-12 text-sm px-4 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition"
-                  />
+                  <motion.div variants={itemVariants}>
+                    <input
+                      type="email"
+                      placeholder="Your Email"
+                      value={email}
+                      onChange={(e) => handleEmailChange(e.target.value)}
+                      onBlur={() => handleBlur("email")}
+                      aria-invalid={Boolean(errors.email && touched.email)}
+                      className={`w-full h-12 text-sm px-4 rounded-md transition focus:outline-none focus:ring-2 ${
+                        errors.email && touched.email
+                          ? "bg-red-50/60 border border-red-300 focus:ring-red-400/30 text-gray-900"
+                          : "bg-gray-100 border border-transparent focus:ring-blue-400/30"
+                      }`}
+                    />
+                    <AnimatePresence>
+                      {errors.email && touched.email && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0, y: -4 }}
+                          animate={{ opacity: 1, height: "auto", y: 0 }}
+                          exit={{ opacity: 0, height: 0, y: -4 }}
+                          className="text-xs text-red-500 mt-1 pl-1"
+                        >
+                          {errors.email}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
 
-                  <motion.textarea
-                    variants={itemVariants}
-                    placeholder="Your Message"
-                    rows={4}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full px-4 text-sm py-3 bg-gray-100 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition"
-                  />
+                  <motion.div variants={itemVariants}>
+                    <textarea
+                      placeholder="Your Message (at least 10 characters)"
+                      rows={4}
+                      value={message}
+                      onChange={(e) => handleMessageChange(e.target.value)}
+                      onBlur={() => handleBlur("message")}
+                      aria-invalid={Boolean(errors.message && touched.message)}
+                      className={`w-full px-4 text-sm py-3 rounded-md resize-none transition focus:outline-none focus:ring-2 ${
+                        errors.message && touched.message
+                          ? "bg-red-50/60 border border-red-300 focus:ring-red-400/30 text-gray-900"
+                          : "bg-gray-100 border border-transparent focus:ring-blue-400/30"
+                      }`}
+                    />
+                    <div className="flex justify-between items-center mt-1 px-1">
+                      <AnimatePresence>
+                        {errors.message && touched.message ? (
+                          <motion.p
+                            initial={{ opacity: 0, height: 0, y: -4 }}
+                            animate={{ opacity: 1, height: "auto", y: 0 }}
+                            exit={{ opacity: 0, height: 0, y: -4 }}
+                            className="text-xs text-red-500"
+                          >
+                            {errors.message}
+                          </motion.p>
+                        ) : (
+                          <span />
+                        )}
+                      </AnimatePresence>
+                      <span className="text-[11px] text-gray-400 ml-auto">
+                        {message.length}/1000
+                      </span>
+                    </div>
+                  </motion.div>
 
                   <AnimatePresence mode="wait">
                     {status && (
@@ -419,6 +577,7 @@ export default function ContactModal() {
                       flex
                       items-center
                       justify-center
+                      gap-2
                       shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
                       hover:from-blue-500
                       hover:to-blue-700
@@ -427,7 +586,14 @@ export default function ContactModal() {
                       disabled:opacity-70
                     "
                   >
-                    {loading ? "Sending..." : "Submit"}
+                    {loading ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
                   </motion.button>
                 </motion.form>
               </motion.div>
@@ -438,4 +604,3 @@ export default function ContactModal() {
     </AnimatePresence>
   );
 }
-
