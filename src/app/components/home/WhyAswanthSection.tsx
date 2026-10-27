@@ -138,7 +138,7 @@ export default function WhyAswanthSection() {
             </div>
 
             <motion.img
-              src="/bg2.jpg"
+              src="/images/home/bg2.jpg"
               alt="UI Development Workspace"
               initial={{ scale: 1.05 }}
               whileInView={{ scale: 1 }}
@@ -200,7 +200,7 @@ export default function WhyAswanthSection() {
 
                 <div>
                   <motion.img
-                    src="/Home.png"
+                    src="/images/home/Home.png"
                     alt=""
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -248,7 +248,7 @@ export default function WhyAswanthSection() {
               </div>
 
               <motion.img
-                src="/Dashboard.png"
+                src="/images/home/Dashboard.webp"
                 alt="Figma to Frontend Development"
                 initial={{ scale: 1.05, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -321,7 +321,7 @@ export default function WhyAswanthSection() {
                   className="border border-gray-200 rounded-xl overflow-hidden"
                 >
                   <img
-                    src="/kannur.webp"
+                    src="/images/home/kannur.webp"
                     alt=""
                   />
                 </motion.div>

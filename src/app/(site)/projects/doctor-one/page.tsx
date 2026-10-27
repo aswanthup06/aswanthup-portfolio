@@ -187,7 +187,7 @@ const Drone: React.FC = () => {
             <div>
               <img
                 className="w-full rounded-lg shadow-md"
-                src="/dr1banner.webp"
+                src="/images/projects/doctor-one/dr1banner.webp"
                 alt="Doctor One Dashboard"
               />
             </div>
@@ -227,10 +227,10 @@ const Drone: React.FC = () => {
               ref={videoRef}
               className="w-full aspect-video"
               onClick={togglePlay}
-              poster="/video-poster.jpg"
+              poster="/images/projects/doctor-one/dr1banner.webp"
               preload="metadata"
             >
-              <source src="/dr1.mp4" type="video/mp4" />
+              <source src="/videos/doctor-one/dr1.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>

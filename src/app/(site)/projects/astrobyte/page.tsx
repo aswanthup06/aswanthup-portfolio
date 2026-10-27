@@ -30,7 +30,7 @@ export default function FullStackDeveloper() {
             <div className="aspect-square bg-gray-100 rounded-2xl shadow-lg overflow-hidden border border-gray-200">
               <div className="relative w-full h-full">
                 <Image
-                  src="/p2.webp"
+                  src="/images/projects/astrobyte/p2.webp"
                   alt="Full Stack Developer Poster"
                   fill
                   className="object-cover"

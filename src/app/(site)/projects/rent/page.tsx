@@ -12,7 +12,7 @@ export default function PosterPage() {
           {/* LEFT - Square Poster */}
           <div className="aspect-square bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/50 flex items-center justify-center">
          
-             <img src="/r2.webp" alt="" className="h-full w-full" />
+             <img src="/images/projects/rent/r2.webp" alt="" className="h-full w-full" />
         
           </div>
           

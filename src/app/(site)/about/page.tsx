@@ -153,7 +153,7 @@ export default function About() {
               </motion.div>
 
               <motion.img
-                src="/me.webp"
+                src="/images/about/me.webp"
                 alt="Aswanth"
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1.1, opacity: 1 }}
@@ -440,7 +440,7 @@ export default function About() {
             >
               <div className="relative h-64 overflow-hidden bg-amber-900/5">
                 <motion.img
-                  src="/wood.jpeg"
+                  src="/images/about/wood.jpeg"
                   alt="Wood carving detail"
                   whileHover={{ scale: 1.06 }}
                   transition={{ duration: 0.5 }}
@@ -588,7 +588,7 @@ export default function About() {
             >
               <div className="relative h-52 overflow-hidden">
                 <motion.img
-                  src="/wood1.jpeg"
+                  src="/images/about/wood1.jpeg"
                   alt="Carpentry workbench with tools"
                   whileHover={{
                     scale: 1.06,
@@ -645,7 +645,7 @@ export default function About() {
               className="relative bg-stone-100 rounded-2xl overflow-hidden h-48 group"
             >
               <motion.img
-                src="/wood3.png"
+                src="/images/about/wood3.webp"
                 alt="Carpenter at work"
                 whileHover={{
                   scale: 1.06,

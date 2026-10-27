@@ -24,7 +24,7 @@ export default function DoctorIconShowcase() {
           <div className="sticky top-12">
             <div className="aspect-square bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
               <img
-                src="/Pharmacy.webp"
+                src="/images/projects/icon/Pharmacy.webp"
                 alt="Doctor Platform App"
                 className="w-full h-full object-cover"
               />

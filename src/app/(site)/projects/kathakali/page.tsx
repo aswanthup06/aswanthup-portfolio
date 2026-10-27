@@ -19,7 +19,7 @@ export default function PosterPage() {
           {/* LEFT - Square Poster */}
           <div className="aspect-square bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/50">
             <img
-              src="/kadha.webp"
+              src="/images/projects/kathakali/kadha.webp"
               alt="Kathakali T-Shirt Design"
               className="w-full h-full object-cover"
             />

@@ -433,9 +433,9 @@ export default function ZenowayCaseStudy() {
             update a listing, and nothing more than that.
           </p>
           <div className="grid md:grid-cols-3 gap-[18px] mt-7">
-            <Shot src="https://aswanthup.online/zenad1.png" title="Dashboard analytics" caption="Track platform activity" />
-            <Shot src="https://aswanthup.online/zenad2.png" title="Content management" caption="Update job listings" />
-            <Shot src="https://aswanthup.online/zenad3.png" title="Update & add" caption="Add or edit job posts" />
+            <Shot src="/images/projects/zenoway/zenad1.png" title="Dashboard analytics" caption="Track platform activity" />
+            <Shot src="/images/projects/zenoway/zenad2.png" title="Content management" caption="Update job listings" />
+            <Shot src="/images/projects/zenoway/zenad3.png" title="Update & add" caption="Add or edit job posts" />
           </div>
         </div>
       </section>

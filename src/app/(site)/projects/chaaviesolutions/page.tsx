@@ -29,7 +29,7 @@ export default function ChavieSolutionsServices() {
             <div className="aspect-square bg-gray-100 rounded-2xl shadow-lg overflow-hidden border border-gray-200">
               <div className="relative w-full h-full">
                 <Image
-                  src="/p3.webp"
+                  src="/images/projects/chaaviesolutions/p3.webp"
                   alt="Chavie Solutions Services Poster"
                   fill
                   className="object-cover"

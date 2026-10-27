@@ -2,28 +2,28 @@ export default function HappyERPPage() {
   const screens = [
     {
       id: 1,
-      image: "/happy1.png",
+      image: "/images/projects/happy-erp/happy1.png",
       alt: "Dashboard",
       title: "Dashboard Overview",
       description: "Real-time metrics",
     },
     {
       id: 2,
-      image: "/happy2.png",
+      image: "/images/projects/happy-erp/happy2.png",
       alt: "Inventory",
       title: "Inventory Management",
       description: "Stock levels and product tracking",
     },
     {
       id: 3,
-      image: "/happy3.png",
+      image: "/images/projects/happy-erp/happy3.png",
       alt: "Orders",
       title: "Product list",
       description: "Product list and details",
     },
     {
       id: 4,
-      image: "/happy4.png",
+      image: "/images/projects/happy-erp/happy4.png",
       alt: "Analytics",
       title: "Sales Orders",
       description: "Sales orders and status",

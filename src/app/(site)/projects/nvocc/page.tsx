@@ -152,8 +152,8 @@ export default function Nvocc() {
               </div>
               <div className="order-1 lg:order-2">
                 <div className="grid grid-cols-2 gap-4">
-                  <img src="/exp1.png" alt="Export module screen 1" className="rounded-xl shadow-lg w-full h-48 object-cover" />
-                  <img src="/exp2.png" alt="Export module screen 2" className="rounded-xl shadow-lg w-full h-48 object-cover mt-6" />
+                  <img src="/images/projects/nvocc/exp1.png" alt="Export module screen 1" className="rounded-xl shadow-lg w-full h-48 object-cover" />
+                  <img src="/images/projects/nvocc/exp2.png" alt="Export module screen 2" className="rounded-xl shadow-lg w-full h-48 object-cover mt-6" />
                 </div>
               </div>
             </div>
@@ -177,8 +177,8 @@ export default function Nvocc() {
               </div>
               <div>
                 <div className="grid grid-cols-2 gap-4">
-                  <img src="/imp1.png" alt="Import module screen 1" className="rounded-xl shadow-lg w-full h-48 object-cover" />
-                  <img src="/imp2.png" alt="Import module screen 2" className="rounded-xl shadow-lg w-full h-48 object-cover mt-6" />
+                  <img src="/images/projects/nvocc/imp1.png" alt="Import module screen 1" className="rounded-xl shadow-lg w-full h-48 object-cover" />
+                  <img src="/images/projects/nvocc/imp2.png" alt="Import module screen 2" className="rounded-xl shadow-lg w-full h-48 object-cover mt-6" />
                 </div>
               </div>
             </div>
@@ -202,8 +202,8 @@ export default function Nvocc() {
               </div>
               <div className="order-1 lg:order-2">
                 <div className="grid grid-cols-2 gap-4">
-                  <img src="/mr1.png" alt="Maintenance and repair module screen 1" className="rounded-xl shadow-lg w-full h-48 object-cover" />
-                  <img src="/mr2.png" alt="Maintenance and repair module screen 2" className="rounded-xl shadow-lg w-full h-48 object-cover mt-6" />
+                  <img src="/images/projects/nvocc/mr1.png" alt="Maintenance and repair module screen 1" className="rounded-xl shadow-lg w-full h-48 object-cover" />
+                  <img src="/images/projects/nvocc/mr2.png" alt="Maintenance and repair module screen 2" className="rounded-xl shadow-lg w-full h-48 object-cover mt-6" />
                 </div>
               </div>
             </div>
