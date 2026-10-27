@@ -5,31 +5,8 @@ import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaBehance, FaLinkedinIn, FaPlus } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
-import { motion, type Variants } from "framer-motion";
-
-const fadeUp: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
+import { motion } from "framer-motion";
+import { fadeUp, stagger, cardHover } from "../../lib/animations";
 
 export default function AboutSection() {
   return (

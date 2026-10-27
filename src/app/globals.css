@@ -21,6 +21,30 @@ body {
   color: var(--foreground);
 }
 
+/* Ensure all interactive & clickable elements have cursor: pointer */
+button,
+a,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+summary {
+  cursor: pointer;
+}
+
+button:disabled,
+a[aria-disabled="true"],
+[role="button"][aria-disabled="true"],
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled,
+[disabled] {
+  cursor: not-allowed;
+}
+
 /* Hide Scrollbar */
 
 /* Chrome, Edge, Safari */

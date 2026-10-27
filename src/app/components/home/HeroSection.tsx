@@ -13,6 +13,12 @@ import {
 import { SiNextdotjs, SiFigma } from "react-icons/si";
 import { motion } from "framer-motion";
 
+import {
+  PREMIUM_EASE,
+  SPRING_SMOOTH,
+  SPRING_BOUNCY,
+} from "../../lib/animations";
+
 export default function HeroSection() {
   const { openModal } = useContactModal();
 
@@ -20,9 +26,9 @@ export default function HeroSection() {
     <div className="pt-20 flex items-center flex-col">
       {/* Small Label */}
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.6, ease: PREMIUM_EASE }}
         className="flex items-center justify-center text-blue-500 font-semibold text-sm md:text-md lg:text-lg"
       >
         Personal Portfolio
@@ -30,11 +36,12 @@ export default function HeroSection() {
 
       {/* Heading - LCP Element */}
       <motion.div
-        initial={{ scale: 0.96 }}
-        animate={{ scale: 1 }}
+        initial={{ opacity: 0, y: 20, scale: 0.98, filter: "blur(6px)" }}
+        animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
         transition={{
-          duration: 0.6,
-          ease: "easeOut",
+          duration: 0.7,
+          delay: 0.1,
+          ease: PREMIUM_EASE,
         }}
       >
         <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-semibold mb-4 text-gray-700 leading-tight">
@@ -45,15 +52,16 @@ export default function HeroSection() {
 
       {/* Description */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{
-          duration: 0.6,
-          delay: 0.3,
+          duration: 0.65,
+          delay: 0.25,
+          ease: PREMIUM_EASE,
         }}
         className="flex justify-center"
       >
-        <p className="text-md text-center text-gray-500 md:w-7/12 text-sm md:text-lg">
+        <p className="text-md text-center text-gray-500 md:w-7/12 text-sm md:text-lg leading-relaxed">
           Bridging UI/UX excellence with clean, performant code. I specialize
           in transforming complex workflows into intuitive, user-centric web
           applications
@@ -62,18 +70,19 @@ export default function HeroSection() {
 
       {/* Button */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
-          duration: 0.5,
-          delay: 0.45,
+          duration: 0.55,
+          delay: 0.4,
+          ease: PREMIUM_EASE,
         }}
         className="flex items-center justify-center mt-6"
       >
         <motion.button
           onClick={openModal}
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.96 }}
+          whileHover={{ scale: 1.04, y: -2, transition: SPRING_SMOOTH }}
+          whileTap={{ scale: 0.96, transition: SPRING_BOUNCY }}
           className="
             bg-gradient-to-b
             from-blue-400
@@ -91,8 +100,7 @@ export default function HeroSection() {
             shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
             hover:from-blue-500
             hover:to-blue-700
-            transition-all
-            duration-200
+            transition-colors
             cursor-pointer
           "
         >

@@ -9,6 +9,8 @@ import { BsGlobe } from "react-icons/bs";
 import { TbMenu3, TbX } from "react-icons/tb";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
+import { PREMIUM_EASE } from "../lib/animations";
+
 const navItems = [
   {
     label: "Home",
@@ -27,14 +29,16 @@ const navItems = [
 const navContainerVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: -25,
+    y: -20,
+    filter: "blur(4px)",
   },
   show: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.5,
-      ease: "easeOut",
+      duration: 0.6,
+      ease: PREMIUM_EASE,
     },
   },
 };
@@ -44,7 +48,7 @@ const navItemsVariants: Variants = {
   show: {
     transition: {
       staggerChildren: 0.08,
-      delayChildren: 0.15,
+      delayChildren: 0.1,
     },
   },
 };
@@ -58,8 +62,8 @@ const navItemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.35,
-      ease: "easeOut",
+      duration: 0.45,
+      ease: PREMIUM_EASE,
     },
   },
 };

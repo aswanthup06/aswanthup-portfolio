@@ -4,57 +4,33 @@
 import React from "react";
 import { motion, type Variants } from "framer-motion";
 import { IoStar } from "react-icons/io5";
-
-const fadeUp: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const fadeIn: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 0.7,
-      ease: "easeOut",
-    },
-  },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
+import {
+  fadeUp,
+  fadeIn,
+  stagger,
+  staggerContainer,
+  staggerFast,
+  PREMIUM_EASE,
+  SPRING_SMOOTH,
+  SPRING_BOUNCY,
+  SPRING_GENTLE,
+} from "../../lib/animations";
 
 const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 35,
+    y: 28,
     scale: 0.97,
+    filter: "blur(4px)",
   },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.55,
-      ease: "easeOut",
+      duration: 0.6,
+      ease: PREMIUM_EASE,
     },
   },
 };
@@ -62,14 +38,16 @@ const cardVariants: Variants = {
 const journeyVariants: Variants = {
   hidden: {
     opacity: 0,
-    x: -35,
+    x: -30,
+    filter: "blur(4px)",
   },
   show: {
     opacity: 1,
     x: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.55,
-      ease: "easeOut",
+      duration: 0.65,
+      ease: PREMIUM_EASE,
     },
   },
 };
@@ -132,22 +110,19 @@ export default function About() {
               className="relative"
               initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.7,
-                type: "spring",
-                stiffness: 180,
-              }}
+              transition={SPRING_GENTLE}
             >
               <motion.div
                 animate={{
                   rotate: [0, 8, -8, 0],
+                  scale: [1, 1.08, 1],
                 }}
                 transition={{
                   duration: 4,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute left-30 inset-0 rounded-full bg-blue-400 h-8 w-8 z-50 text-white flex justify-center items-center"
+                className="absolute left-30 inset-0 rounded-full bg-blue-400 h-8 w-8 z-50 text-white flex justify-center items-center shadow-md shadow-blue-400/40"
               >
                 <IoStar />
               </motion.div>
@@ -156,16 +131,17 @@ export default function About() {
                 src="/images/about/me.webp"
                 alt="Aswanth"
                 initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1.1, opacity: 1 }}
+                animate={{ scale: 1.05, opacity: 1 }}
                 transition={{
                   duration: 0.8,
                   delay: 0.15,
-                  ease: "easeOut",
+                  ease: PREMIUM_EASE,
                 }}
                 whileHover={{
-                  scale: 1.15,
+                  scale: 1.12,
+                  transition: SPRING_SMOOTH,
                 }}
-                className="relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-2 border-white"
+                className="relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-2 border-white shadow-lg"
               />
             </motion.div>
           </motion.div>
@@ -194,7 +170,11 @@ export default function About() {
               variants={stagger}
               className="space-y-6"
             >
-              <motion.div variants={fadeUp}>
+              <motion.div
+                variants={fadeUp}
+                whileHover={{ x: 4, transition: SPRING_SMOOTH }}
+                className="p-4 rounded-xl hover:bg-white/60 hover:shadow-sm transition-all duration-300"
+              >
                 <h2 className="text-lg font-semibold text-gray-800">
                   Who I Am
                 </h2>
@@ -206,7 +186,11 @@ export default function About() {
                 </p>
               </motion.div>
 
-              <motion.div variants={fadeUp}>
+              <motion.div
+                variants={fadeUp}
+                whileHover={{ x: 4, transition: SPRING_SMOOTH }}
+                className="p-4 rounded-xl hover:bg-white/60 hover:shadow-sm transition-all duration-300"
+              >
                 <h2 className="text-lg font-semibold text-gray-800">
                   What I Do
                 </h2>
@@ -218,7 +202,11 @@ export default function About() {
                 </p>
               </motion.div>
 
-              <motion.div variants={fadeUp}>
+              <motion.div
+                variants={fadeUp}
+                whileHover={{ x: 4, transition: SPRING_SMOOTH }}
+                className="p-4 rounded-xl hover:bg-white/60 hover:shadow-sm transition-all duration-300"
+              >
                 <h2 className="text-lg font-semibold text-gray-800">
                   Experience
                 </h2>
@@ -237,7 +225,7 @@ export default function About() {
               </h2>
 
               <motion.div
-                variants={stagger}
+                variants={staggerFast}
                 className="flex flex-wrap gap-3"
               >
                 {skills.map((skill) => (
@@ -246,13 +234,14 @@ export default function About() {
                     variants={cardVariants}
                     whileHover={{
                       y: -3,
-                      scale: 1.04,
+                      scale: 1.05,
+                      transition: SPRING_SMOOTH,
                     }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
+                    whileTap={{
+                      scale: 0.95,
+                      transition: SPRING_BOUNCY,
                     }}
-                    className="hover:bg-blue-100 hover:text-blue-600 transition flex items-center gap-2 text-gray-700 text-sm bg-gray-50 px-4 py-2 rounded-lg border border-gray-200"
+                    className="hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-colors flex items-center gap-2 text-gray-700 text-sm bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-gray-200 shadow-sm cursor-pointer"
                   >
                     {skill}
                   </motion.span>
@@ -308,13 +297,10 @@ export default function About() {
                     <motion.div
                       whileHover={{
                         y: -5,
-                        scale: 1.01,
+                        scale: 1.015,
+                        transition: SPRING_SMOOTH,
                       }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 250,
-                      }}
-                      className="w-full md:w-[45%] bg-white p-6 rounded-xl shadow-md"
+                      className="w-full md:w-[45%] bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100"
                     >
                       <span className="text-sm text-blue-500 font-medium">
                         {item.date}
@@ -338,14 +324,15 @@ export default function About() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{
-                        duration: 0.4,
-                        delay: 0.2,
+                        duration: 0.45,
+                        delay: 0.15,
                         type: "spring",
-                        stiffness: 300,
+                        stiffness: 320,
+                        damping: 20,
                       }}
                       className="absolute left-1/2 transform -translate-x-1/2"
                     >
-                      <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white" />
+                      <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-sm ring-2 ring-blue-200" />
                     </motion.div>
                   </motion.div>
                 ))}
@@ -435,15 +422,16 @@ export default function About() {
               variants={cardVariants}
               whileHover={{
                 y: -6,
+                transition: SPRING_SMOOTH,
               }}
-              className="lg:row-span-2 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-stone-100 group"
+              className="lg:row-span-2 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 group"
             >
               <div className="relative h-64 overflow-hidden bg-amber-900/5">
                 <motion.img
                   src="/images/about/wood.jpeg"
                   alt="Wood carving detail"
-                  whileHover={{ scale: 1.06 }}
-                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.65, ease: PREMIUM_EASE }}
                   className="w-full h-full object-cover"
                 />
 
@@ -485,8 +473,8 @@ export default function About() {
 
             <motion.div
               variants={cardVariants}
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition border border-stone-100"
+              whileHover={{ y: -5, transition: SPRING_SMOOTH }}
+              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-stone-100"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl">
@@ -517,8 +505,8 @@ export default function About() {
 
             <motion.div
               variants={cardVariants}
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition border border-stone-100"
+              whileHover={{ y: -5, transition: SPRING_SMOOTH }}
+              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-stone-100"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 text-xl">
@@ -548,8 +536,8 @@ export default function About() {
 
             <motion.div
               variants={cardVariants}
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition border border-stone-100"
+              whileHover={{ y: -5, transition: SPRING_SMOOTH }}
+              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-stone-100"
             >
               <div className="flex gap-3 items-start mb-3">
                 <span className="text-2xl">✏️</span>
@@ -583,18 +571,19 @@ export default function About() {
 
             <motion.div
               variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className="row-span-2 bg-stone-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition group"
+              whileHover={{ y: -6, transition: SPRING_SMOOTH }}
+              className="row-span-2 bg-stone-900 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group"
             >
               <div className="relative h-52 overflow-hidden">
                 <motion.img
                   src="/images/about/wood1.jpeg"
                   alt="Carpentry workbench with tools"
                   whileHover={{
-                    scale: 1.06,
+                    scale: 1.08,
                   }}
                   transition={{
-                    duration: 0.5,
+                    duration: 0.65,
+                    ease: PREMIUM_EASE,
                   }}
                   className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
                 />
@@ -641,17 +630,18 @@ export default function About() {
 
             <motion.div
               variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className="relative bg-stone-100 rounded-2xl overflow-hidden h-48 group"
+              whileHover={{ y: -6, transition: SPRING_SMOOTH }}
+              className="relative bg-stone-100 rounded-2xl overflow-hidden h-48 group shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
               <motion.img
                 src="/images/about/wood3.webp"
                 alt="Carpenter at work"
                 whileHover={{
-                  scale: 1.06,
+                  scale: 1.08,
                 }}
                 transition={{
-                  duration: 0.5,
+                  duration: 0.65,
+                  ease: PREMIUM_EASE,
                 }}
                 className="w-full h-full object-cover"
               />
@@ -665,8 +655,8 @@ export default function About() {
 
             <motion.div
               variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className="bg-amber-50/40 rounded-2xl p-6 flex flex-col justify-center border border-amber-100/50"
+              whileHover={{ y: -5, transition: SPRING_SMOOTH }}
+              className="bg-amber-50/40 rounded-2xl p-6 flex flex-col justify-center border border-amber-100/50 hover:shadow-md transition-shadow duration-300"
             >
               <span className="text-4xl mb-2 opacity-60">“</span>
 

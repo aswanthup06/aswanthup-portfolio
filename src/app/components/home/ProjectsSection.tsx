@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { fadeUp, stagger, SPRING_SMOOTH } from "../../lib/animations";
 
 const projects = [
   {
@@ -37,30 +38,6 @@ const projects = [
     role: "UI Design & UI Development",
   },
 ];
-
-const fadeUp: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
 
 function FeaturedProject() {
   return (

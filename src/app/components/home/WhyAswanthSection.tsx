@@ -3,7 +3,8 @@
 import { LuCircleArrowRight } from "react-icons/lu";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { fadeUp, stagger, cardHover } from "../../lib/animations";
 
 const strengths: string[] = [
   "Pixel-Perfect UI Development",
@@ -11,30 +12,6 @@ const strengths: string[] = [
   "Clean & Scalable Code",
   "Detail-Oriented Execution",
 ];
-
-const fadeUp: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
 
 export default function WhyAswanthSection() {
   return (
@@ -265,7 +242,7 @@ export default function WhyAswanthSection() {
           <div className="h-full grid gap-2">
             <motion.div
               variants={fadeUp}
-              whileHover={{ y: -5 }}
+              whileHover={cardHover}
               className="bg-white rounded-xl p-5 border border-gray-200 flex flex-col justify-between"
             >
               <div>

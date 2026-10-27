@@ -4,6 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { PREMIUM_EASE, SPRING_SMOOTH, SPRING_BOUNCY } from "../../lib/animations";
 
 type Project = {
   title: string;
@@ -16,16 +17,18 @@ type Project = {
 const itemVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 30,
-    scale: 0.97,
+    y: 25,
+    scale: 0.98,
+    filter: "blur(4px)",
   },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.5,
-      ease: "easeOut",
+      duration: 0.55,
+      ease: PREMIUM_EASE,
     },
   },
 };
@@ -33,14 +36,16 @@ const itemVariants: Variants = {
 const headerVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 25,
+    y: 20,
+    filter: "blur(4px)",
   },
   show: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.6,
-      ease: "easeOut",
+      duration: 0.65,
+      ease: PREMIUM_EASE,
     },
   },
 };
@@ -66,8 +71,8 @@ const filterVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.4,
-      ease: "easeOut",
+      duration: 0.45,
+      ease: PREMIUM_EASE,
     },
   },
 };
@@ -227,10 +232,12 @@ export default function Projects() {
               variants={filterVariants}
               whileHover={{
                 y: -2,
-                scale: 1.03,
+                scale: 1.04,
+                transition: SPRING_SMOOTH,
               }}
               whileTap={{
                 scale: 0.95,
+                transition: SPRING_BOUNCY,
               }}
               onClick={() => setActive(cat)}
               className={`relative px-4 py-2 text-sm rounded-full transition ${
@@ -298,7 +305,8 @@ export default function Projects() {
                     },
                   }}
                   whileHover={{
-                    y: -6,
+                    y: -7,
+                    transition: SPRING_SMOOTH,
                   }}
                   transition={{
                     layout: {
@@ -307,7 +315,7 @@ export default function Projects() {
                   }}
                   className="group overflow-hidden cursor-pointer"
                 >
-                  <div className="rounded-2xl overflow-hidden relative shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+                  <div className="rounded-2xl overflow-hidden relative shadow-sm group-hover:shadow-2xl transition-all duration-500">
                     <div className="relative overflow-hidden">
                       <motion.img
                         src={imageUrl}
@@ -317,8 +325,8 @@ export default function Projects() {
                           scale: 1.08,
                         }}
                         transition={{
-                          duration: 0.6,
-                          ease: "easeOut",
+                          duration: 0.65,
+                          ease: PREMIUM_EASE,
                         }}
                       />
 

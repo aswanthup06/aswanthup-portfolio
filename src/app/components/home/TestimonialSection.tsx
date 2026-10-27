@@ -4,7 +4,8 @@
 import Image from "next/image";
 import TestimonialCard from "./TestimonialCard";
 import { useContactModal } from "../../context/ContactModalContext";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { fadeUp, stagger } from "../../lib/animations";
 
 interface Testimonial {
   avatar: string;
@@ -36,30 +37,6 @@ const testimonials: Testimonial[] = [
     role: "MERN Stack Developer at Chaavie Solutions",
   },
 ];
-
-const fadeUp: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
 
 export default function TestimonialSection() {
   const { openModal } = useContactModal();

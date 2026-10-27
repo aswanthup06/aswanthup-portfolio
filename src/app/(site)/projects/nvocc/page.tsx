@@ -298,7 +298,7 @@ export default function Nvocc() {
           <div className="w-16 h-1 bg-gray-900 mx-auto mt-4 mb-8"></div>
           <div className="flex flex-wrap justify-center gap-4">
             {["Next.js", "Tailwind CSS", "Node.js", "PostgreSQL", "Sequelize ORM", "AWS"].map((tech, idx) => (
-              <span key={idx} className="px-6 py-3 bg-gray-100 rounded-full text-gray-700 font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 cursor-default">
+              <span key={idx} className="px-6 py-3 bg-gray-100 rounded-full text-gray-700 font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 cursor-pointer">
                 {tech}
               </span>
             ))}
