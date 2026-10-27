@@ -47,13 +47,13 @@ export default function WhyAswanthSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="max-w-2xl"
         >
-          <h1 className="font-bold text-sm md:text-base">
+          <h2 className="font-bold text-sm md:text-base text-blue-600">
             Why Aswanth?
-          </h1>
+          </h2>
 
-          <h1 className="text-3xl text-slate-500/60 leading-snug mt-2">
+          <p className="text-3xl text-slate-500/60 leading-snug mt-2 font-medium">
             Blending UI design and development into seamless products.
-          </h1>
+          </p>
         </motion.div>
 
         <motion.div
@@ -75,11 +75,11 @@ export default function WhyAswanthSection() {
                 </div>
 
                 <div className="max-w-sm">
-                  <h1 className="text-3xl font-bold leading-tight mt-6">
+                  <h3 className="text-3xl font-bold leading-tight mt-6">
                     Designing Interfaces
                     <br />
                     That Feel Natural
-                  </h1>
+                  </h3>
 
                   <p className="text-sm leading-relaxed text-white/75 mt-2">
                     I bridge the gap between UI design and frontend
@@ -104,18 +104,18 @@ export default function WhyAswanthSection() {
                         <LuCircleArrowRight className="text-blue-200 text-sm" />
                       </div>
 
-                      <h1 className="text-sm text-white/90 font-medium">
+                      <p className="text-sm text-white/90 font-medium">
                         {item}
-                      </h1>
+                      </p>
                     </motion.div>
                   ))}
                 </motion.div>
 
                 <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-5">
                   <div>
-                    <h1 className="text-lg font-semibold">
+                    <h4 className="text-lg font-semibold">
                       UI Developer & Designer
-                    </h1>
+                    </h4>
 
                     <p className="text-xs text-white/60 mt-1">
                       Focused on scalable frontend experiences.
@@ -163,7 +163,7 @@ export default function WhyAswanthSection() {
                     Figma To Code
                   </p>
 
-                  <motion.h1
+                  <motion.p
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -174,7 +174,7 @@ export default function WhyAswanthSection() {
                     className="text-5xl font-black text-black mt-3"
                   >
                     99%
-                  </motion.h1>
+                  </motion.p>
                 </div>
 
                 <div className="px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-semibold">
@@ -214,9 +214,9 @@ export default function WhyAswanthSection() {
                 </div>
 
                 <div className="border-white/10 bg-white/5 backdrop-blur-sm rounded-xl p-4 border">
-                  <h1 className="text-white text-xl font-semibold leading-tight">
+                  <h3 className="text-white text-xl font-semibold leading-tight">
                     From Design To Live Product
-                  </h1>
+                  </h3>
 
                   <p className="text-white/70 text-sm leading-relaxed mt-3">
                     Explore the original design file and the final developed
@@ -275,9 +275,9 @@ export default function WhyAswanthSection() {
                       Redesign Skill
                     </p>
 
-                    <h1 className="text-2xl font-bold text-black/80 mt-4 leading-tight">
+                    <h3 className="text-2xl font-bold text-black/80 mt-4 leading-tight">
                       Modernizing Existing Products
-                    </h1>
+                    </h3>
                   </div>
                 </div>
 
@@ -296,9 +296,9 @@ export default function WhyAswanthSection() {
                   className="border border-gray-200 bg-gray-50 rounded-xl p-4 flex items-center justify-between gap-2"
                 >
                   <div>
-                    <h1 className="text-lg font-bold text-black/80">
+                    <h4 className="text-lg font-bold text-black/80">
                       Existing Website
-                    </h1>
+                    </h4>
 
                     <p className="text-xs text-gray-500 mt-1">
                       Old interface with outdated experience.
@@ -331,9 +331,9 @@ export default function WhyAswanthSection() {
                   className="border border-blue-100 bg-blue-50 rounded-xl p-4 flex items-center justify-between gap-2"
                 >
                   <div>
-                    <h1 className="text-lg font-bold text-black/80">
+                    <h4 className="text-lg font-bold text-black/80">
                       Redesigned UI
-                    </h1>
+                    </h4>
 
                     <p className="text-xs text-gray-500 mt-1">
                       Modern visuals with improved usability.

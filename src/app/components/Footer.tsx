@@ -168,9 +168,9 @@ export default function Footer() {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
               >
                 <motion.div variants={itemVariants}>
-                  <h1 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
                     Navigation
-                  </h1>
+                  </h3>
 
                   <ul className="space-y-4 mt-5 text-sm">
                     <li>
@@ -203,9 +203,9 @@ export default function Footer() {
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <h1 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
                     Services
-                  </h1>
+                  </h3>
 
                   <ul className="space-y-4 mt-5 text-sm text-gray-500">
                     <li>UI Development</li>
@@ -216,9 +216,9 @@ export default function Footer() {
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <h1 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
                     Connect
-                  </h1>
+                  </h3>
 
                   <div className="flex items-center gap-3 mt-5">
                     <motion.a

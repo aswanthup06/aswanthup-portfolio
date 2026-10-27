@@ -406,7 +406,7 @@ export default function About() {
             variants={stagger}
             className="md:flex items-center mb-6 justify-between"
           >
-            <motion.h1
+            <motion.h2
               variants={fadeUp}
               className="text-xl md:text-4xl font-bold tracking-tight text-stone-900 mb-4"
             >
@@ -414,7 +414,7 @@ export default function About() {
               <span className="text-amber-500">_</span>
               <br />
               Meets Code
-            </motion.h1>
+            </motion.h2>
 
             <motion.div variants={fadeUp}>
               <p className="text-stone-500 md:text-lg max-w-lg mx-auto md:text-end">

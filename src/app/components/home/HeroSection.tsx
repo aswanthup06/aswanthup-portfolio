@@ -37,12 +37,9 @@ export default function HeroSection() {
           ease: "easeOut",
         }}
       >
-        <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-semibold text-gray-700">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-semibold mb-4 text-gray-700 leading-tight">
           Building <span className="text-blue-500">User-Centric</span>
-        </h1>
-
-        <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-semibold mb-4 text-gray-700">
-          Web Experiences
+          <span className="block mt-1">Web Experiences</span>
         </h1>
       </motion.div>
 

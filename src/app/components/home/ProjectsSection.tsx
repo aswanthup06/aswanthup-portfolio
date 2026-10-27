@@ -454,9 +454,9 @@ export default function ProjectsSection() {
                       {project.type}
                     </p>
 
-                    <h1 className="text-sm font-semibold text-gray-900 mt-1">
+                    <p className="text-sm font-semibold text-gray-900 mt-1">
                       {project.role}
-                    </h1>
+                    </p>
                   </div>
                 </div>
               </div>
