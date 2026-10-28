@@ -266,8 +266,8 @@ export default function NvoccPage() {
               {/* Main Preview Image */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-muted">
                 <Image
-                  src="/images/projects/nvocc/nvo.webp"
-                  alt="NVOCC Logistics Platform Preview"
+                  src="/images/projects/nvocc/nvocc-hero.webp"
+                  alt="NVOCC Logistics Platform Hero Preview"
                   fill
                   sizes="(max-width: 1024px) 100vw, 500px"
                   className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
