@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ContactModalProvider } from "../context/ContactModalContext";
 import ContactModal from "../components/ContactModal";
+import GlobalSmoothScroll from "../components/GlobalSmoothScroll";
 
 import "../globals.css";
 
@@ -124,6 +125,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={questrial.className}>
+        <GlobalSmoothScroll />
         <ContactModalProvider>
           <Navbar />
 

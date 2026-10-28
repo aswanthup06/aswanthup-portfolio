@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Compass,
 } from "lucide-react";
+import SmoothScroll from "./SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Zenoway — Career Platform Product Overview",
@@ -25,10 +26,22 @@ export const metadata: Metadata = {
 export default function ZenowayCaseStudy() {
   return (
     <main className="min-h-screen bg-white text-[#17251F] selection:bg-[#EDF7F1] selection:text-[#164E3B]">
+      <SmoothScroll />
+
       {/* ---------------- SECTION A: SPLIT HERO WITH SOFT MINT SURFACE & LIVE PREVIEW ---------------- */}
       <section className="pt-24 sm:pt-28 md:pt-36 pb-16 md:pb-24 bg-gradient-to-b from-[#EDF7F1] via-[#F3F8F5] to-white border-b border-[#E2EBE5]">
         <div className="max-w-6xl mx-auto px-6">
-
+          {/* Back to Projects link */}
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#52605B] hover:text-[#087F50] transition-colors mb-6 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#087F50] rounded"
+          >
+            <ArrowLeft
+              size={14}
+              className="transition-transform group-hover:-translate-x-0.5"
+            />
+            <span>Back to Projects</span>
+          </Link>
 
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Editorial Content */}
