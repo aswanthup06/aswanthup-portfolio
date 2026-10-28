@@ -56,7 +56,7 @@ export default function Nvocc() {
 
       {/* OVERVIEW SECTION - Floating Card Style */}
       <section className="relative -mt-20 z-20">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
@@ -94,7 +94,7 @@ export default function Nvocc() {
 
       {/* MY ROLE SECTION - With Gradient Background */}
       <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">My Role</h2>
             <div className="w-16 h-1 bg-gray-900 mx-auto mt-4 mb-4"></div>
@@ -124,8 +124,8 @@ export default function Nvocc() {
       </section>
 
       {/* CORE MODULES - With Image Pairs for Each Module */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="pt-16 pb-10 md:pt-20 md:pb-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">Core Modules</h2>
             <div className="w-16 h-1 bg-gray-900 mx-auto mt-4 mb-4"></div>
@@ -213,7 +213,7 @@ export default function Nvocc() {
 
       {/* MY RESPONSIBILITY DETAIL - Split Layout with Overlapping Images */}
       <section className="py-24 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="relative z-10 bg-white rounded-2xl shadow-xl p-8">
@@ -231,7 +231,7 @@ export default function Nvocc() {
                   mobile, tablet, and desktop screens.
                 </p>
                 <p className="text-gray-600 leading-relaxed mt-4">
-                  By leveraging Next.js features and Tailwind's utility-first approach, I delivered 
+                  By leveraging Next.js features and Tailwind&apos;s utility-first approach, I delivered 
                   a scalable, efficient, and visually consistent web application that aligns perfectly 
                   with the design vision.
                 </p>
@@ -265,7 +265,7 @@ export default function Nvocc() {
 
       {/* RESULTS - Split Stats with Brand Accent */}
       <section className="py-24 bg-gray-900">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white tracking-tight">The Results</h2>
             <div className="w-16 h-1 bg-white/30 mx-auto mt-4"></div>
@@ -292,7 +292,7 @@ export default function Nvocc() {
       </section>
 
       {/* TECH STACK - Pills with Icons */}
-      <section className="py-24">
+      <section className="pt-16 pb-10 md:pt-20 md:pb-12">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-gray-900 tracking-tight">Tech Stack</h2>
           <div className="w-16 h-1 bg-gray-900 mx-auto mt-4 mb-8"></div>

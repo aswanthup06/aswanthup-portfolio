@@ -53,10 +53,10 @@ export default function HeroSection() {
   return (
     // Respects the user's reduced-motion setting for all transform animations
     <MotionConfig reducedMotion="user">
-      <section className="relative overflow-x-clip pt-16 pb-16 md:pt-20 lg:pb-24">
+      <section className="relative w-full overflow-x-clip pt-24 pb-8 md:pt-28 md:pb-12">
         <Backdrop />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
           {/* ------------------------------ Copy ------------------------------ */}
           <motion.div
             variants={container}
@@ -66,7 +66,7 @@ export default function HeroSection() {
           >
             <motion.div
               variants={item}
-              className="mb-5 inline-flex items-center gap-2 rounded-full  px-3 py-1.5 text-xs font-medium text-text-body  md:text-sm"
+              className="mb-5 inline-flex items-center gap-2 text-xs font-medium text-text-body md:text-sm"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />

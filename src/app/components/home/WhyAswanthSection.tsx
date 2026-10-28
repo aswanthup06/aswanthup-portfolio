@@ -16,7 +16,7 @@ const strengths: string[] = [
 export default function WhyAswanthSection() {
   return (
     <section className="w-full">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"

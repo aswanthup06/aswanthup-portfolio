@@ -47,13 +47,14 @@ export default function TestimonialSection() {
       aria-label="Client Testimonials"
       className="w-full"
     >
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        className="max-w-2xl mb-12"
-      >
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="max-w-2xl mb-12"
+        >
         <h2 className="font-bold text-sm md:text-base text-primary">
           Testimonials
         </h2>
@@ -72,8 +73,7 @@ export default function TestimonialSection() {
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
         className="
-          max-w-6xl
-          mx-auto
+          w-full
           grid
           md:grid-cols-2
           lg:grid-cols-3
@@ -236,6 +236,7 @@ export default function TestimonialSection() {
           <TestimonialCard testimonial={testimonials[2]} />
         </motion.div>
       </motion.div>
+      </div>
     </section>
   );
 }

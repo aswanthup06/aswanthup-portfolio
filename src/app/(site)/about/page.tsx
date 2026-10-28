@@ -104,7 +104,7 @@ const card =
 export default function About() {
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative flex flex-col items-center overflow-x-clip px-6 pb-24 pt-32 md:pt-36">
+      <div className="relative flex flex-col items-center overflow-x-clip px-4 sm:px-6 lg:px-8 pb-8 md:pb-12 pt-32 md:pt-36">
         <div className="grid-bg absolute inset-0 -z-10" />
 
         <div className="w-full max-w-6xl">
@@ -995,7 +995,7 @@ function Cta() {
       variants={item}
       {...inView}
       aria-labelledby="cta-heading"
-      className="relative mt-28 overflow-hidden rounded-3xl border border-border-default bg-gradient-to-br from-blue-50 via-white to-cyan-50 p-8 md:p-14"
+      className="relative mt-16 md:mt-20 overflow-hidden rounded-3xl border border-border-default bg-gradient-to-br from-blue-50 via-white to-cyan-50 p-6 sm:p-8 md:p-14"
     >
       {/* soft decoration */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">

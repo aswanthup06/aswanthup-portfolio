@@ -9,10 +9,10 @@ import ContactSection from "../components/home/ContactSection";
 
 export default function Home() {
   return (
-    <div className="flex relative min-h-screen pt-24 flex-col items-center font-sans scroll-smooth">
-      <div className="absolute inset-0 grid-bg -z-10" />
+    <div className="relative flex min-h-screen w-full flex-col items-center font-sans">
+      <div className="grid-bg absolute inset-0 -z-10 pointer-events-none" />
 
-      <div className="flex flex-col gap-22 px-6">
+      <div className="flex w-full flex-col gap-16 md:gap-24">
         <HeroSection />
 
         <AboutSection />

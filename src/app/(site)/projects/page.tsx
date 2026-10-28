@@ -173,7 +173,7 @@ export default function Projects() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen px-6 pb-24 pt-32 md:pt-36">
+      <div className="relative min-h-screen px-4 sm:px-6 lg:px-8 pb-8 md:pb-12 pt-32 md:pt-36">
         <div className="grid-bg absolute inset-0 -z-10" />
 
         <div className="mx-auto max-w-6xl">

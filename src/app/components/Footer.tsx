@@ -48,15 +48,20 @@ const itemVariants: Variants = {
 
 export default function Footer() {
   return (
-    <footer className="w-full pt-24 pb-6">
-      <div className="px-6">
+    <footer className="relative w-full pt-8 md:pt-12 pb-8">
+      {/* Seamless squares texture behind footer */}
+      <div className="grid-bg absolute inset-0 -z-10 pointer-events-none" />
+
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-6xl mx-auto relative overflow-hidden rounded-xl border border-border-default bg-surface-card shadow-[0_10px_60px_rgba(0,0,0,0.06)]"
+          className="max-w-6xl mx-auto relative overflow-hidden rounded-2xl border border-border-default bg-surface-card shadow-[0_10px_60px_rgba(0,0,0,0.06)]"
         >
+          {/* Squares texture inside footer card */}
+          <div className="grid-bg absolute inset-0 pointer-events-none opacity-80" />
           <motion.div
             animate={{
               scale: [1, 1.08, 1],

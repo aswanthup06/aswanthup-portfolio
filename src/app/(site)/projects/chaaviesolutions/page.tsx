@@ -1,114 +1,271 @@
-// pages/ChavieSolutionsServices.tsx or app/ChavieSolutionsServices/page.tsx
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
 
-export default function ChavieSolutionsServices() {
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import {
+  LuCalendar,
+  LuBriefcase,
+  LuLayers,
+  LuSparkles,
+  LuCircleCheck,
+  LuServer,
+} from "react-icons/lu";
+import { useContactModal } from "../../../context/ContactModalContext";
+
+export default function ChaavieSolutionsPage() {
+  const { openModal } = useContactModal();
+
+  const specs = [
+    { label: "Year", value: "2024", icon: LuCalendar },
+    { label: "Category", value: "Brand Architecture", icon: LuBriefcase },
+    { label: "Format", value: "Corporate Showcase", icon: LuLayers },
+    { label: "Focus", value: "Enterprise Services", icon: LuServer },
+  ];
+
   const services = [
-    "Custom Web Application Development",
-    "Digital Transformation Consultation",
-    "Mobile Application Development"
+    {
+      title: "Custom Web Application Engineering",
+      desc: "Robust, performant full-stack platforms designed with scalable component architectures.",
+    },
+    {
+      title: "Digital Transformation Consulting",
+      desc: "Strategic advisory modernizing legacy software workflows and operational infrastructure.",
+    },
+    {
+      title: "Mobile Application Development",
+      desc: "Cross-platform mobile experiences prioritizing fluid gesture navigation and responsive UI.",
+    },
+    {
+      title: "UI/UX Systems & Design Systems",
+      desc: "Comprehensive Figma-to-code design tokens ensuring brand consistency across multi-tier products.",
+    },
+  ];
+
+  const highlights = [
+    {
+      title: "Corporate Visual Maturity",
+      desc: "Disciplined layout architecture combining deep tech accents with generous negative space to project enterprise stability.",
+    },
+    {
+      title: "Service Hierarchy Clarity",
+      desc: "Instant scanability separating complex technical capabilities into three digestible strategic service pillars.",
+    },
+    {
+      title: "Collateral Multipurposing",
+      desc: "Engineered for executive investor presentations, corporate headquarters displays, and digital onboarding decks.",
+    },
+  ];
+
+  const tags = [
+    "Corporate Branding",
+    "Service Architecture",
+    "Poster Design",
+    "Visual Hierarchy",
+    "Figma",
+    "Adobe Illustrator",
+    "Enterprise Solutions",
   ];
 
   return (
-    <div className="min-h-screen bg-white py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Back Button */}
-        <Link href="/projects" className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 mb-8 transition-colors">
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Back to Projects
-        </Link>
+    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36 pb-8 md:pb-12">
+      {/* Background Texture */}
+      <div className="grid-bg absolute inset-0 -z-10 pointer-events-none" />
 
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          
-          {/* Left Side - Square Poster */}
-          <div className="relative">
-            <div className="aspect-square bg-gray-100 rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-              <div className="relative w-full h-full">
-                <Image
-                  src="/images/projects/chaaviesolutions/p3.webp"
-                  alt="Chavie Solutions Services Poster"
-                  fill
-                  className="object-cover"
-                  priority
-                />
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Breadcrumb Navigation */}
+        <nav aria-label="Breadcrumb" className="mb-8 md:mb-12">
+          <ol className="flex items-center gap-2 text-xs md:text-sm text-text-muted">
+            <li>
+              <Link
+                href="/"
+                className="hover:text-primary transition-colors font-medium"
+              >
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true" className="text-gray-300">
+              /
+            </li>
+            <li>
+              <Link
+                href="/projects"
+                className="hover:text-primary transition-colors font-medium"
+              >
+                Projects
+              </Link>
+            </li>
+            <li aria-hidden="true" className="text-gray-300">
+              /
+            </li>
+            <li className="font-semibold text-text-primary truncate">
+              Chaavie Solutions
+            </li>
+          </ol>
+        </nav>
+
+        {/* 2-Column Showcase */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          {/* Left Column: Sticky Square Poster Card */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <div
+              data-cursor="view"
+              data-cursor-label="Preview"
+              className="group relative aspect-square w-full rounded-2xl overflow-hidden border border-border-default bg-surface-muted shadow-[0_12px_40px_rgba(0,0,0,0.06)]"
+            >
+              <Image
+                src="/images/projects/chaaviesolutions/p3.webp"
+                alt="Chaavie Solutions Enterprise Services Poster"
+                fill
+                priority
+                unoptimized
+                sizes="(max-width: 1024px) 100vw, 480px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
+
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs">
+                <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 font-medium">
+                  Brand Collateral
+                </span>
+                <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-medium">
+                  Enterprise
+                </span>
               </div>
             </div>
+
+            <p className="mt-3 text-xs text-text-muted text-center lg:text-left">
+              Brand poster and capabilities showcase created for Chaavie Solutions.
+            </p>
           </div>
 
-          {/* Right Side - Details */}
-          <div className="space-y-6">
-            {/* Title Section */}
-            <div>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-semibold rounded-full">
-                  Services
-                </span>
-                <span className="px-3 py-1 bg-teal-100 text-teal-700 text-xs font-semibold rounded-full">
-                  Consultation
-                </span>
-              </div>
-              <h1 className="text-5xl font-bold text-gray-900 mb-3 tracking-tight">
-                Chavie <span className="text-indigo-600">Solutions</span>
-              </h1>
-              <p className="text-gray-500 text-lg italic">Helping you make your smart moves</p>
+          {/* Right Column: Editorial Details */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            {/* Category Tag */}
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              Corporate Identity · Service Architecture
             </div>
 
-            {/* Services List */}
-            <div className="bg-gradient-to-r from-indigo-50 to-teal-50 rounded-xl p-6 border border-indigo-200">
-              <h2 className="text-gray-900 font-semibold text-lg mb-4 flex items-center gap-2">
-                <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                Our Services
+            {/* Title & Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary tracking-tight leading-[1.15]">
+              Chaavie Solutions
+            </h1>
+            <p className="text-lg sm:text-xl text-primary font-medium mt-2">
+              Enterprise Technology Services &amp; Capabilities Showcase
+            </p>
+
+            {/* Narrative Overview */}
+            <div className="mt-6 space-y-4 text-text-body text-sm sm:text-base leading-relaxed">
+              <p>
+                An enterprise capabilities poster and visual collateral suite developed for Chaavie Solutions, a technology consultancy specializing in custom web applications, digital transformation, and mobile development.
+              </p>
+              <p>
+                The visual communication balances technical sophistication with clear corporate messaging, utilizing an organized typographical grid to establish immediate authority for prospective clients, enterprise stakeholders, and recruitment drives.
+              </p>
+            </div>
+
+            {/* Specification Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
+              {specs.map(({ label, value, icon: Icon }) => (
+                <div
+                  key={label}
+                  className="rounded-xl border border-border-default bg-surface-card p-3.5 shadow-2xs"
+                >
+                  <Icon className="text-primary text-base mb-1.5" />
+                  <p className="text-[11px] text-text-muted uppercase tracking-wider font-medium">
+                    {label}
+                  </p>
+                  <p className="text-xs sm:text-sm font-semibold text-text-primary mt-0.5 truncate">
+                    {value}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Core Services Breakdown */}
+            <div className="mt-8 rounded-2xl border border-border-default bg-surface-subtle p-5 sm:p-6">
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-text-primary flex items-center gap-2 mb-4">
+                <LuServer className="text-primary" />
+                Featured Capabilities
               </h2>
+
               <div className="space-y-3">
-                {services.map((service, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white p-3 rounded-lg border border-indigo-100">
-                    <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                    <p className="text-gray-800 font-medium">{service}</p>
+                {services.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-surface-card p-3.5 rounded-xl border border-border-subtle"
+                  >
+                    <p className="text-sm font-semibold text-text-primary">
+                      {item.title}
+                    </p>
+                    <p className="text-xs sm:text-sm text-text-muted mt-0.5 leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Description */}
-            <div className="bg-gray-50 rounded-xl p-5 border border-gray-200">
-              <p className="text-gray-600 leading-relaxed text-sm">
-                A professional service poster designed for Chavie Solutions, showcasing their core 
-                offerings in web development, digital transformation, and mobile applications. The 
-                design emphasizes clarity and professionalism with a bright, approachable aesthetic.
-              </p>
+            {/* Key Design Highlights */}
+            <div className="mt-6 rounded-2xl border border-border-default bg-surface-card p-5 sm:p-6 shadow-2xs">
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-text-primary flex items-center gap-2 mb-4">
+                <LuSparkles className="text-primary" />
+                Strategic Execution Highlights
+              </h2>
+
+              <div className="space-y-3.5">
+                {highlights.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <LuCircleCheck className="text-primary shrink-0 mt-0.5 text-base" />
+                    <div>
+                      <p className="text-sm font-semibold text-text-primary">
+                        {item.title}
+                      </p>
+                      <p className="text-xs sm:text-sm text-text-muted mt-0.5 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="grid grid-cols-1 gap-4">
-              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-center gap-3">
-                <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wide">Email</p>
-                  <p className="text-indigo-600 font-semibold">Contact@chaviesolutions.com</p>
-                </div>
+            {/* Tags / Tools */}
+            <div className="mt-8">
+              <p className="text-xs uppercase tracking-wider font-semibold text-text-muted mb-3">
+                Disciplines &amp; Skills
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded-md bg-surface-muted border border-border-default text-xs font-medium text-text-secondary"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-              
-              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-center gap-3">
-                <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wide">Phone</p>
-                  <p className="text-teal-600 font-semibold">+91 808 673 0010</p>
-                </div>
-              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="mt-10 pt-6 border-t border-border-default flex flex-wrap items-center gap-4">
+              <button
+                type="button"
+                onClick={openModal}
+                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+              >
+                Inquire for Work
+                <MdOutlineArrowOutward className="text-base" />
+              </button>
+
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+              >
+                All Projects
+              </Link>
             </div>
           </div>
         </div>

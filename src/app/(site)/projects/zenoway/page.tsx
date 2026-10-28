@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  ArrowLeft,
   ExternalLink,
   Search,
   FileText,
@@ -30,24 +29,43 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION A: SPLIT HERO WITH SOFT MINT SURFACE & LIVE PREVIEW ---------------- */}
       <section className="pt-24 sm:pt-28 md:pt-36 pb-16 md:pb-24 bg-gradient-to-b from-[#EDF7F1] via-[#F3F8F5] to-white border-b border-[#E2EBE5]">
-        <div className="max-w-6xl mx-auto px-6">
-          {/* Back to Projects link */}
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#52605B] hover:text-[#087F50] transition-colors mb-6 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#087F50] rounded"
-          >
-            <ArrowLeft
-              size={14}
-              className="transition-transform group-hover:-translate-x-0.5"
-            />
-            <span>Back to Projects</span>
-          </Link>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb Navigation */}
+          <nav aria-label="Breadcrumb" className="mb-8 md:mb-12">
+            <ol className="flex items-center gap-2 text-xs md:text-sm text-[#52605B]">
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-[#087F50] transition-colors font-medium"
+                >
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-[#C4D5CC]">
+                /
+              </li>
+              <li>
+                <Link
+                  href="/projects"
+                  className="hover:text-[#087F50] transition-colors font-medium"
+                >
+                  Projects
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-[#C4D5CC]">
+                /
+              </li>
+              <li className="font-semibold text-[#17251F] truncate">
+                Zenoway
+              </li>
+            </ol>
+          </nav>
 
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Editorial Content */}
             <div className="lg:col-span-7 space-y-6">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#164E3B] ">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#087F50]">
                 <span className="w-2 h-2 rounded-full bg-[#0FA968] animate-pulse" />
                 <span>CAREER PLATFORM · PRODUCT OVERVIEW</span>
               </div>
@@ -182,7 +200,7 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION C: THE PROBLEM ---------------- */}
       <section className="py-16 md:py-24 border-b border-[#E5E7EB]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-[#087F50] mb-3">
               THE CHALLENGE
@@ -244,7 +262,7 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION D: THE ZENOWAY APPROACH ---------------- */}
       <section className="py-16 md:py-24 bg-[#FAFCFA] border-b border-[#E5E7EB]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-[#087F50] mb-3">
               THE APPROACH
@@ -316,7 +334,7 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION E: CORE PRINCIPLES ---------------- */}
       <section className="py-16 md:py-24 border-b border-[#E5E7EB]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-[#087F50] mb-3">
               FOUNDATIONAL DESIGN
@@ -388,7 +406,7 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION F: THE PRODUCT EXPERIENCE ---------------- */}
       <section className="py-16 md:py-24 bg-[#FAFCFA] border-b border-[#E5E7EB]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-[#087F50] mb-3">
               WALKTHROUGH
@@ -533,7 +551,7 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION G: FOR EMPLOYERS ---------------- */}
       <section className="py-16 md:py-24 border-b border-[#E5E7EB]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-[#087F50] mb-3">
               EMPLOYER PORTAL
@@ -620,7 +638,7 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION H: BEHIND THE PLATFORM ---------------- */}
       <section className="py-16 md:py-24 bg-[#FAFCFA] border-b border-[#E5E7EB]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-[#087F50] mb-3">
               ENGINEERING &amp; DESIGN
@@ -695,7 +713,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION I: CLOSING CTA ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="pt-14 pb-8 md:pt-18 md:pb-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="rounded-2xl border border-[#0FA968]/20 bg-[#EDF7F1]/40 p-8 sm:p-12 md:p-16">
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#087F50] uppercase tracking-widest mb-4">

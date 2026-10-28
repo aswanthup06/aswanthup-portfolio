@@ -33,7 +33,7 @@ export default function HappyERPPage() {
   return (
     <main className="min-h-screen bg-white text-black ">
       {/* <div className="border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 py-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center gap-2 text-sm text-gray-400">
             <span>Portfolio</span>
             <span>→</span>
@@ -43,7 +43,7 @@ export default function HappyERPPage() {
       </div> */}
 
       {/* HERO SECTION - Project Intro */}
-      <section className="max-w-6xl mx-auto px-6 py-16 lg:py-24 ">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 pt-16">
           {/* Left: Project info */}
           <div>
@@ -129,8 +129,8 @@ export default function HappyERPPage() {
       </section>
 
       {/* OVERVIEW SECTION */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 gap-12 items-center">
+      <section className="bg-gray-50 pt-16 pb-10 md:pt-20 md:pb-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 gap-12 items-center">
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
               Overview
@@ -172,7 +172,7 @@ export default function HappyERPPage() {
 
       {/* CHALLENGE & SOLUTION */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
@@ -200,8 +200,8 @@ export default function HappyERPPage() {
       </section>
 
       {/* MY ROLE */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="bg-gray-50 pt-16 pb-10 md:pt-20 md:pb-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 tracking-tight text-center">
             My Role
           </h2>
@@ -279,7 +279,7 @@ export default function HappyERPPage() {
 
       {/* KEY FEATURES */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 tracking-tight text-center">
             Key Features
           </h2>
@@ -394,8 +394,8 @@ export default function HappyERPPage() {
       </section>
 
       {/* SCREEN GALLERY */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="bg-gray-50 pt-16 pb-10 md:pt-20 md:pb-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 tracking-tight text-center">
             Screens & Interfaces
           </h2>
@@ -425,7 +425,7 @@ export default function HappyERPPage() {
 
       {/* RESULTS */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gray-900 rounded-2xl p-10 text-center">
             <h2 className="text-3xl font-bold text-white tracking-tight">
               The Results
@@ -455,7 +455,7 @@ export default function HappyERPPage() {
       </section>
 
       {/* LEARNINGS */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 pt-16 pb-10 md:pt-20 md:pb-12">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-gray-900 tracking-tight text-center">
             Key Learnings

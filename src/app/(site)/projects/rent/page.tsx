@@ -4,8 +4,8 @@ import { LuArrowUpRight, LuCalendar, LuUser, LuTag, LuEye, LuBrush, LuPalette, L
 
 export default function PosterPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-16 px-6 pt-38">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 pt-32 pb-8 md:pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
           

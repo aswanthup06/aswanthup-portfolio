@@ -31,7 +31,7 @@ export default function Blogs() {
   ];
 
   return (
-    <div className="relative min-h-screen px-6 py-24">
+    <div className="relative min-h-screen px-4 sm:px-6 lg:px-8 pt-32 pb-8 md:pb-12">
 
       <div className="absolute inset-0 grid-bg z-0" />
 

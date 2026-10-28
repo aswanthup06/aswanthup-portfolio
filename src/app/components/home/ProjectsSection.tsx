@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { motion } from "framer-motion";
-import { fadeUp, stagger, SPRING_SMOOTH } from "../../lib/animations";
+import { fadeUp, stagger } from "../../lib/animations";
 
 const projects = [
   {
@@ -269,7 +269,7 @@ function FeaturedProject() {
 export default function ProjectsSection() {
   return (
     <section id="projects" aria-label="Featured Projects" className="w-full">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"

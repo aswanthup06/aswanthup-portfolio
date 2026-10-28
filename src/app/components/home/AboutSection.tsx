@@ -13,16 +13,17 @@ export default function AboutSection() {
     <section
       id="about"
       aria-label="About Aswanth UP"
-      className="w-full flex flex-col items-center"
+      className="w-full"
     >
-      {/* Header */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        className="md:flex items-end justify-between w-full max-w-6xl"
-      >
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="md:flex items-end justify-between w-full"
+        >
         <div>
           <h2 className="font-bold text-sm md:text-base text-primary">
             About Me
@@ -61,7 +62,7 @@ export default function AboutSection() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-[1fr_auto_1fr] gap-5 w-full max-w-6xl mt-12"
+        className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-[1fr_auto_1fr] gap-5 w-full mt-12"
       >
         {/* Box 1 */}
         <motion.article
@@ -275,6 +276,7 @@ export default function AboutSection() {
           </div>
         </motion.article>
       </motion.div>
+      </div>
     </section>
   );
 }
