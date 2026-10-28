@@ -47,7 +47,7 @@ const PROJECTS: Project[] = [
     slug: "/projects/zenoway",
     category: ["Web Application", "UI Design"],
     image:
-      "/images/projects/zenoway/zenoway1.webp",
+      "/images/projects/zenoway/zenoway-mock.webp",
     tech: ["NextJS", "Tailwind CSS"],
   },
   {
