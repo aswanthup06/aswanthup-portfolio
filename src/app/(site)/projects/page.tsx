@@ -36,13 +36,6 @@ const CATEGORIES = [
 
 const PROJECTS: Project[] = [
   {
-    title: "Happy ERP",
-    slug: "/projects/happy-erp",
-    category: ["Web Application", "UI Design"],
-    image: "/images/projects/happy-erp/happy-erp-hero.webp",
-    tech: ["ReactJS", "Bootstrap 5"],
-  },
-  {
     title: "ZENOWAY",
     slug: "/projects/zenoway",
     category: ["Web Application", "UI Design"],
@@ -51,18 +44,27 @@ const PROJECTS: Project[] = [
     tech: ["NextJS", "Tailwind CSS"],
   },
   {
-    title: "Doctor One",
-    slug: "/projects/doctor-one",
+    title: "Happy ERP",
+    slug: "/projects/happy-erp",
     category: ["Web Application", "UI Design"],
-    image: "/images/projects/doctor-one/doctor.webp",
-    tech: ["ReactJS", "Tailwind CSS"],
+    image: "/images/projects/happy-erp/happy-erp-hero.webp",
+    tech: ["ReactJS", "Bootstrap 5"],
   },
+
+
   {
     title: "NVOCC",
     slug: "/projects/nvocc",
     category: ["Web Application"],
     image: "/images/projects/nvocc/nvocc-hero.webp",
     tech: ["NextJS", "Tailwind CSS"],
+  },
+  {
+    title: "Doctor One",
+    slug: "/projects/doctor-one",
+    category: ["Web Application", "UI Design"],
+    image: "/images/projects/doctor-one/doctor.webp",
+    tech: ["ReactJS", "Tailwind CSS"],
   },
   {
     title: "MG Orbis",
