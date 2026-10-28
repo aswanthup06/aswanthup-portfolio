@@ -75,7 +75,7 @@ function FeaturedProject() {
               duration-700
               group-hover:scale-105
             "
-            src="/assets/zenoway/zenoway.mp4"
+            src="/images/projects/zenoway/zenoway.mp4"
             autoPlay
             loop
             muted
