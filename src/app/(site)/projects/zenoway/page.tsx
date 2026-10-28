@@ -25,137 +25,154 @@ export const metadata: Metadata = {
 export default function ZenowayCaseStudy() {
   return (
     <main className="min-h-screen bg-white text-[#17251F] selection:bg-[#EDF7F1] selection:text-[#164E3B]">
-      {/* ---------------- SECTION A: EDITORIAL HERO ---------------- */}
-      <section className="pt-28 sm:pt-32 md:pt-40 pb-12 md:pb-16 border-b border-[#E5E7EB]">
+      {/* ---------------- SECTION A: SPLIT HERO WITH SOFT MINT SURFACE & LIVE PREVIEW ---------------- */}
+      <section className="pt-24 sm:pt-28 md:pt-36 pb-16 md:pb-24 bg-gradient-to-b from-[#EDF7F1] via-[#F3F8F5] to-white border-b border-[#E2EBE5]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl">
+          {/* Back to Projects link */}
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#52605B] hover:text-[#087F50] transition-colors mb-8 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#087F50] rounded"
+          >
+            <ArrowLeft
+              size={14}
+              className="transition-transform group-hover:-translate-x-0.5"
+            />
+            <span>Back to Projects</span>
+          </Link>
 
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Column: Editorial Content */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-[#164E3B] ">
+                <span className="w-2 h-2 rounded-full bg-[#0FA968] animate-pulse" />
+                <span>CAREER PLATFORM · PRODUCT OVERVIEW</span>
+              </div>
 
-            {/* Eyebrow */}
-            <p className="text-xs font-semibold tracking-widest uppercase text-[#087F50] mb-4">
-              CAREER PLATFORM · PRODUCT OVERVIEW
-            </p>
+              {/* Headline */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-semibold tracking-tight text-[#17251F] leading-[1.12]">
+                Find your next opportunity.{" "}
+                <span className="text-[#087F50]">Without the extra steps.</span>
+              </h1>
 
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-semibold tracking-tight text-[#17251F] leading-[1.12] mb-6">
-              Find your next opportunity.{" "}
-              <span className="text-[#087F50]">Without the extra steps.</span>
-            </h1>
+              {/* Supporting Text */}
+              <p className="text-base sm:text-lg text-[#52605B] leading-relaxed max-w-xl">
+                Zenoway makes discovering jobs straightforward. Explore opportunities,
+                understand the role, and connect with employers through a simple, direct
+                application experience.
+              </p>
 
-            {/* Supporting Text */}
-            <p className="text-lg md:text-xl text-[#52605B] leading-relaxed mb-8">
-              Zenoway makes discovering jobs straightforward. Explore opportunities,
-              understand the role, and connect with employers through a simple, direct
-              application experience.
-            </p>
+              {/* CTAs */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                <a
+                  href="https://www.zenoway.online/jobs"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-white bg-[#087F50] hover:bg-[#0FA968] transition-colors rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#087F50]/40"
+                >
+                  Explore jobs
+                  <ArrowRight size={16} />
+                </a>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 mb-10">
-              <a
-                href="https://www.zenoway.online/jobs"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-white bg-[#087F50] hover:bg-[#0FA968] transition-colors rounded-lg shadow-xs focus:outline-none focus:ring-2 focus:ring-[#087F50]/40"
-              >
-                Explore jobs
-                <ArrowRight size={16} />
-              </a>
+                <a
+                  href="https://www.zenoway.online/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-[#17251F] hover:text-[#087F50] bg-white border border-[#D5E2DA] hover:border-[#087F50]/50 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-[#087F50]/20 shadow-2xs"
+                >
+                  Visit Zenoway
+                  <ExternalLink size={15} />
+                </a>
+              </div>
 
-              <a
-                href="https://www.zenoway.online/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-[#17251F] hover:text-[#087F50] bg-white border border-[#E5E7EB] hover:border-[#087F50]/40 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-[#087F50]/20"
-              >
-                Visit Zenoway
-                <ExternalLink size={15} />
-              </a>
+              {/* Project Metadata Strip */}
+              <div className="pt-6 border-t border-[#D5E2DA] grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+                <div>
+                  <span className="text-[#8A9590] uppercase tracking-wider block mb-1">
+                    Role
+                  </span>
+                  <span className="font-medium text-[#17251F]">
+                    Product &amp; UI Design
+                  </span>
+                </div>
+                <div>
+                  <span className="text-[#8A9590] uppercase tracking-wider block mb-1">
+                    Platform
+                  </span>
+                  <span className="font-medium text-[#17251F]">
+                    Web Application
+                  </span>
+                </div>
+                <div>
+                  <span className="text-[#8A9590] uppercase tracking-wider block mb-1">
+                    Access
+                  </span>
+                  <span className="font-medium text-[#087F50]">
+                    Free to Use
+                  </span>
+                </div>
+                <div>
+                  <span className="text-[#8A9590] uppercase tracking-wider block mb-1">
+                    Status
+                  </span>
+                  <span className="font-medium text-[#17251F]">
+                    Live in Production
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* Project Metadata Strip */}
-            <div className="pt-6 border-t border-[#E5E7EB] grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-              <div>
-                <span className="text-[#8A9590] uppercase tracking-wider block mb-1">
-                  Role
-                </span>
-                <span className="font-medium text-[#17251F]">
-                  Product &amp; UI Design
-                </span>
-              </div>
-              <div>
-                <span className="text-[#8A9590] uppercase tracking-wider block mb-1">
-                  Platform
-                </span>
-                <span className="font-medium text-[#17251F]">
-                  Web Application
-                </span>
-              </div>
-              <div>
-                <span className="text-[#8A9590] uppercase tracking-wider block mb-1">
-                  Access
-                </span>
-                <span className="font-medium text-[#087F50]">
-                  Free to Use
-                </span>
-              </div>
-              <div>
-                <span className="text-[#8A9590] uppercase tracking-wider block mb-1">
-                  Status
-                </span>
-                <span className="font-medium text-[#17251F]">
-                  Live in Production
-                </span>
+            {/* Right Column: Floating Device-Grade Video Showcase */}
+            <div className="lg:col-span-5">
+              <div className="relative">
+                {/* Subtle emerald ambient glow */}
+                <div className="absolute -inset-3 bg-[#0FA968]/15 rounded-2xl blur-xl -z-10 pointer-events-none" />
+
+                <div className="rounded-2xl border border-[#D5E2DA] bg-white shadow-[0_20px_50px_rgba(22,78,59,0.08)] overflow-hidden">
+                  {/* Clean browser preview header */}
+                  <div className="px-4 py-3 border-b border-[#E5EBE7] bg-[#F7FAF8] flex items-center justify-between text-xs text-[#52605B]">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#0FA968]" />
+                      <span className="font-medium text-[#17251F]">zenoway.online</span>
+                    </div>
+
+                  </div>
+
+                  {/* 100% full opacity, vibrant video */}
+                  <div className="relative aspect-[16/10] w-full bg-[#17251F]/5 overflow-hidden">
+                    <video
+                      className="w-full h-full object-cover block motion-reduce:hidden"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
+                      aria-label="Zenoway live platform preview demonstrating direct job discovery"
+                    >
+                      <source src="/assets/zenoway/hiring.mp4" type="video/mp4" />
+                      <source src="/assets/zenoway/zenoway.mp4" type="video/mp4" />
+                    </video>
+
+                    {/* Static fallback for users with reduced motion */}
+                    <div className="hidden motion-reduce:block relative w-full h-full">
+                      <Image
+                        src="/assets/zenoway/zenoway1.webp"
+                        alt="Zenoway platform job discovery interface"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 560px"
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-3.5 px-1 flex items-center justify-between text-xs text-[#6B7973]">
+                  <span>Direct job discovery &amp; apply flow</span>
+                  <span className="text-[#087F50] font-medium">Verified UI</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ---------------- SECTION B: PRODUCT PREVIEW ---------------- */}
-      <section className="py-12 md:py-16 bg-[#FAFCFA] border-b border-[#E5E7EB]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
-            {/* Clean, border-light presentation bar */}
-            <div className="px-4 py-3 border-b border-[#E5E7EB] bg-[#F7FAF8] flex items-center justify-between text-xs text-[#52605B]">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#0FA968]" />
-                <span className="font-medium text-[#17251F]">zenoway.online</span>
-                <span className="text-[#8A9590] hidden sm:inline">
-                  — Live Job Feed &amp; Application Interface
-                </span>
-              </div>
-              <span className="text-[#8A9590]">Verified Preview</span>
-            </div>
-
-            {/* Preview Media Container */}
-            <div className="relative bg-[#EDF7F1]/20">
-              <video
-                className="w-full h-auto object-cover block motion-reduce:hidden"
-                src="/assets/zenoway/hiring.mp4"
-                poster="/assets/zenoway/zenoway1.webp"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="Zenoway live platform preview demonstrating direct job discovery"
-              />
-              {/* Fallback for users with reduced motion preferences */}
-              <div className="hidden motion-reduce:block relative w-full aspect-[16/10]">
-                <Image
-                  src="/assets/zenoway/zenoway1.webp"
-                  alt="Zenoway platform job discovery interface"
-                  fill
-                  sizes="(max-width: 1200px) 100vw, 1200px"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-
-          <p className="text-xs text-[#8A9590] mt-3.5 text-center sm:text-left">
-            Actual Zenoway interface: candidates browse verified listings and connect directly with hiring teams.
-          </p>
         </div>
       </section>
 
