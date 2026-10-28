@@ -170,14 +170,14 @@ export default function ZenowayCaseStudy() {
                       preload="auto"
                       aria-label="Zenoway live platform preview demonstrating direct job discovery"
                     >
-                      <source src="/assets/zenoway/hiring.mp4" type="video/mp4" />
-                      <source src="/assets/zenoway/zenoway.mp4" type="video/mp4" />
+                      <source src="/images/projects/zenoway/hiring.mp4" type="video/mp4" />
+                      <source src="/images/projects/zenoway/zenoway.mp4" type="video/mp4" />
                     </video>
 
                     {/* Static fallback for users with reduced motion */}
                     <div className="hidden motion-reduce:block relative w-full h-full">
                       <Image
-                        src="/assets/zenoway/zenoway1.webp"
+                        src="/images/projects/zenoway/zenoway1.webp"
                         alt="Zenoway platform job discovery interface"
                         fill
                         sizes="(max-width: 1024px) 100vw, 560px"
@@ -446,7 +446,7 @@ export default function ZenowayCaseStudy() {
                 <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
                   <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
                     <Image
-                      src="/assets/zenoway/zenoway1.webp"
+                      src="/images/projects/zenoway/zenoway1.webp"
                       alt="Zenoway job discovery interface displaying open positions and filtering options"
                       fill
                       sizes="(max-width: 1024px) 100vw, 680px"
@@ -469,7 +469,7 @@ export default function ZenowayCaseStudy() {
                 <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
                   <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
                     <Image
-                      src="/assets/zenoway/zenoway2.webp"
+                      src="/images/projects/zenoway/zenoway2.webp"
                       alt="Zenoway job details view showing comprehensive role breakdown and requirements"
                       fill
                       sizes="(max-width: 1024px) 100vw, 680px"
@@ -529,7 +529,7 @@ export default function ZenowayCaseStudy() {
                 <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
                   <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
                     <Image
-                      src="/assets/zenoway/zenoway3.webp"
+                      src="/images/projects/zenoway/zenoway3.webp"
                       alt="Zenoway application experience highlighting direct contact with hiring teams"
                       fill
                       sizes="(max-width: 1024px) 100vw, 680px"

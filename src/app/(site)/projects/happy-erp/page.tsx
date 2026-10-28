@@ -1,484 +1,550 @@
+"use client";
+
+import React, { useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  LuPackage,
+  LuTruck,
+  LuUsers,
+  LuChartColumn,
+  LuLayoutDashboard,
+  LuCode,
+  LuWorkflow,
+  LuCircleCheck,
+  LuPlay,
+  LuArrowUpRight,
+  LuLayers,
+  LuClock,
+  LuUserCheck,
+} from "react-icons/lu";
+import { useContactModal } from "../../../context/ContactModalContext";
+
 export default function HappyERPPage() {
+  const { openModal } = useContactModal();
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  const scrollToGallery = () => {
+    galleryRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const projectMeta = [
+    { label: "Timeline", value: "3 Months", icon: LuClock },
+    { label: "Role", value: "UI/UX & Frontend Lead", icon: LuUserCheck },
+    { label: "Tech Stack", value: "React · Next.js · Tailwind", icon: LuCode },
+    { label: "Deliverables", value: "40+ Screens · Design System", icon: LuLayers },
+  ];
+
+  const stats = [
+    { value: "40+", label: "Custom Screens", detail: "End-to-end interface architecture" },
+    { value: "5", label: "Core Modules", detail: "Inventory, sales, procurement & analytics" },
+    { value: "60%", label: "Manual Effort Cut", detail: "Streamlined order entry & fulfillment" },
+    { value: "100%", label: "Responsive", detail: "Optimized for warehouse & desktop displays" },
+  ];
+
   const screens = [
     {
       id: 1,
-      image: "/images/projects/happy-erp/happy1.png",
-      alt: "Dashboard",
-      title: "Dashboard Overview",
-      description: "Real-time metrics",
+      image: "/images/projects/happy-erp/happy1.webp",
+      alt: "Happy ERP Dashboard Overview",
+      title: "Executive Dashboard",
+      description: "Real-time metrics tracking daily revenue, active warehouse orders, and critical stock alerts.",
+      tag: "Live Analytics",
     },
     {
       id: 2,
-      image: "/images/projects/happy-erp/happy2.png",
-      alt: "Inventory",
-      title: "Inventory Management",
-      description: "Stock levels and product tracking",
+      image: "/images/projects/happy-erp/happy2.webp",
+      alt: "Happy ERP Inventory Management",
+      title: "Inventory & Stock Control",
+      description: "Granular SKU tracking, multi-warehouse stock levels, reorder threshold automations, and batch audits.",
+      tag: "Warehouse Ops",
     },
     {
       id: 3,
-      image: "/images/projects/happy-erp/happy3.png",
-      alt: "Orders",
-      title: "Product list",
-      description: "Product list and details",
+      image: "/images/projects/happy-erp/happy3.webp",
+      alt: "Happy ERP Product List & Catalog",
+      title: "Product Catalog & Master Data",
+      description: "Comprehensive product specifications, vendor associations, category trees, and pricing tiers.",
+      tag: "Catalog Management",
     },
     {
       id: 4,
-      image: "/images/projects/happy-erp/happy4.png",
-      alt: "Analytics",
-      title: "Sales Orders",
-      description: "Sales orders and status",
+      image: "/images/projects/happy-erp/happy4.webp",
+      alt: "Happy ERP Sales Orders & Invoicing",
+      title: "Sales Orders & Fulfillment",
+      description: "End-to-end order processing lifecycle from quotation and picking slip to shipping and invoicing.",
+      tag: "Order Lifecycle",
+    },
+  ];
+
+  const features = [
+    {
+      icon: LuPackage,
+      title: "Smart Inventory Tracking",
+      desc: "Live stock level tracking with automated reorder triggers and safety stock buffers preventing retail stockouts.",
+    },
+    {
+      icon: LuTruck,
+      title: "Supplier & Vendor Management",
+      desc: "Centralized vendor scorecard, automated purchase requisition workflows, and shipping lead-time tracking.",
+    },
+    {
+      icon: LuUsers,
+      title: "Multi-Tier Customer Hub",
+      desc: "Consolidated wholesale and retail accounts with customized credit terms, historical orders, and communication logs.",
+    },
+    {
+      icon: LuChartColumn,
+      title: "Business Intelligence",
+      desc: "Actionable revenue forecasting, seasonal toy sales trends, margin analysis, and inventory turnover reports.",
+    },
+  ];
+
+  const roles = [
+    {
+      icon: LuLayoutDashboard,
+      title: "UI/UX Architecture",
+      desc: "Created structured wireframes, component design tokens, and high-fidelity prototypes tailored for data-dense work.",
+    },
+    {
+      icon: LuCode,
+      title: "Frontend Engineering",
+      desc: "Built scalable, reusable React components and responsive dashboard layouts with clean state management.",
+    },
+    {
+      icon: LuWorkflow,
+      title: "Workflow Integration",
+      desc: "Integrated REST APIs for real-time inventory updates, modal dialogs, search indexing, and bulk record edits.",
     },
   ];
 
   return (
-    <main className="min-h-screen bg-white text-black ">
-      {/* <div className="border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center gap-2 text-sm text-gray-400">
-            <span>Portfolio</span>
-            <span>→</span>
-            <span className="text-gray-600">HAPPY ERP</span>
-          </div>
-        </div>
-      </div> */}
+    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36 pb-16">
+      {/* Background Texture */}
+      <div className="grid-bg absolute inset-0 -z-10 pointer-events-none" />
 
-      {/* HERO SECTION - Project Intro */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 pt-16">
-          {/* Left: Project info */}
-          <div>
-            <div className="flex gap-2 mb-6">
-              <span className="px-3 py-1 bg-gray-900 text-white text-xs rounded-full">
-                Case Study
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ---------------- BREADCRUMB ---------------- */}
+        <nav aria-label="Breadcrumb" className="mb-8 md:mb-12">
+          <ol className="flex items-center gap-2 text-xs md:text-sm text-text-muted">
+            <li>
+              <Link href="/" className="hover:text-primary transition-colors font-medium">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
+            <li>
+              <Link href="/projects" className="hover:text-primary transition-colors font-medium">
+                Projects
+              </Link>
+            </li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
+            <li className="font-semibold text-text-primary truncate">Happy ERP</li>
+          </ol>
+        </nav>
+
+        {/* ---------------- SECTION 1: SPLIT HERO ---------------- */}
+        <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center pb-16 border-b border-border-default">
+          {/* Left Column: Editorial Content */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            {/* Live Indicator Badge */}
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-3">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
-              <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                2024
-              </span>
+              Enterprise Resource Planning · Case Study
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary tracking-tight leading-[1.12]">
               HAPPY ERP
+              <span className="text-primary">.</span>
             </h1>
-            <p className="text-xl text-gray-500 mt-4">
-              Enterprise Resource Planning for Toy Businesses
+
+            <p className="text-lg sm:text-xl text-primary font-medium mt-2">
+              Cloud ERP Platform for Toy Manufacturers &amp; Distributors
             </p>
 
-            <div className="h-1 w-12 bg-gray-900 mt-8"></div>
-
-            <p className="text-gray-600 leading-relaxed mt-8">
-              HAPPY is a comprehensive ERP platform built specifically for toy
-              manufacturers and distributors. The system handles inventory,
-              supplier management, customer orders, and business analytics in
-              one unified dashboard.
+            <p className="mt-5 text-sm sm:text-base text-text-body leading-relaxed max-w-xl">
+              HAPPY is a unified enterprise resource planning platform engineered to replace error-prone spreadsheets with real-time inventory management, automated procurement workflows, and executive analytics tailored for multi-channel toy businesses.
             </p>
 
-            {/* Quick facts */}
-            <div className="grid grid-cols-2 gap-6 mt-10 pt-6 border-t border-gray-100">
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-wide">
-                  Timeline
-                </p>
-                <p className="font-medium text-gray-800 mt-1">3 Months</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-wide">
-                  Role
-                </p>
-                <p className="font-medium text-gray-800 mt-1">
-                  UI/UX Designer & Developer
-                </p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-wide">
-                  Tech Stack
-                </p>
-                <p className="font-medium text-gray-800 mt-1">
-                  React, Bootstrap
-                </p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase tracking-wide">
-                  Deliverables
-                </p>
-                <p className="font-medium text-gray-800 mt-1">
-                  40+ Screens, Design System
-                </p>
-              </div>
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <button
+                type="button"
+                onClick={scrollToGallery}
+                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+              >
+                <LuPlay className="text-xs" />
+                Explore Platform Screens
+              </button>
+
+              <button
+                type="button"
+                onClick={openModal}
+                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+              >
+                Discuss Similar Project
+              </button>
+            </div>
+
+            {/* Quick Meta Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-6 border-t border-border-subtle">
+              {projectMeta.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx}>
+                    <div className="flex items-center gap-1.5 text-xs text-text-muted uppercase tracking-wider font-medium">
+                      <Icon className="text-text-caption" />
+                      <span>{item.label}</span>
+                    </div>
+                    <p className="font-semibold text-text-primary text-sm mt-1">
+                      {item.value}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Right: Hero image */}
-          <div className="grid grid-cols-3  gap-4 items-center">
-            <img
-              src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="HAPPY ERP Dashboard Preview"
-              className=" h-90 object-cover mt-28 rounded-lg"
-            />{" "}
-            <img
-              src="https://plus.unsplash.com/premium_photo-1701984401543-4b635f3a03b5?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="HAPPY ERP Dashboard Preview"
-              className=" h-90 object-cover rounded-lg"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1484820540004-14229fe36ca4?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="HAPPY ERP Dashboard Preview"
-              className="mt-28 h-90 object-cover  rounded-lg"
-            />
-          </div>
-        </div>
-      </section>
+          {/* Right Column: Hero Mockup */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full rounded-2xl border border-border-default bg-white shadow-2xl overflow-hidden group">
+              {/* Browser Header Bar */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-border-subtle bg-surface-subtle">
+                <div className="flex gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
+                </div>
+                <div className="mx-auto text-[11px] font-medium text-text-muted bg-white/80 border border-border-default px-3 py-0.5 rounded-md">
+                  happy-erp.internal/dashboard
+                </div>
+              </div>
 
-      {/* OVERVIEW SECTION */}
-      <section className="bg-gray-50 pt-16 pb-10 md:pt-20 md:pb-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 gap-12 items-center">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
-              Overview
-            </h2>
-            <p className="text-gray-500 mt-4 leading-relaxed">
-              Toy businesses face unique challenges: seasonal demand
-              fluctuations, complex supplier networks, and managing hundreds of
-              SKUs across different product lines.
-            </p>
-            <p className="text-gray-500 mt-4 leading-relaxed">
-              HAPPY ERP was designed to solve these problems by providing a
-              centralized platform that connects inventory, sales, procurement,
-              and analytics.
-            </p>
-          </div>
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-rows-3 gap-4">
-            <div className="bg-white rounded-xl border border-gray-100 flex items-center gap-3 p-4">
-              <p className="text-2xl font-bold text-gray-900 bg-gray-100 w-20 flex justify-center h-full items-center rounded-sm">
-                40+
-              </p>
-              <p className="text-md text-gray-500 mt-1">Custom Screens</p>
-            </div>
-            <div className="bg-white rounded-xl border border-gray-100 flex items-center gap-3 p-4">
-              <p className="text-2xl font-bold text-gray-900 bg-gray-100 w-20 flex justify-center h-full items-center rounded-sm p-2">
-                5
-              </p>
-              <p className="text-md text-gray-500 mt-1">Core Modules</p>
-            </div>
-            <div className="bg-white rounded-xl border border-gray-100 flex items-center gap-3 p-4">
-              <p className="text-2xl font-bold text-gray-900 bg-gray-100 w-20 flex justify-center h-full items-center rounded-sm">
-                100%
-              </p>
-              <p className="text-md text-gray-500 mt-1">Responsive Design</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CHALLENGE & SOLUTION */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
-                The Challenge
-              </h2>
-              <p className="text-gray-600 mt-4 leading-relaxed">
-                The client was managing inventory across spreadsheets, leading
-                to stockouts, overstocking, and delayed order fulfillment. Teams
-                had no visibility into supplier performance or sales trends,
-                making data-driven decisions impossible.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
-                The Solution
-              </h2>
-              <p className="text-gray-600 mt-4 leading-relaxed">
-                A unified ERP platform with real-time inventory tracking,
-                automated purchase orders, customer management, and an analytics
-                dashboard that provides actionable insights for business owners.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MY ROLE */}
-      <section className="bg-gray-50 pt-16 pb-10 md:pt-20 md:pb-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight text-center">
-            My Role
-          </h2>
-          <p className="text-gray-500 text-center mt-3 max-w-2xl mx-auto">
-            End-to-end design and development of the HAPPY ERP platform
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-800">UI/UX Design</h3>
-              <p className="text-sm text-gray-500 mt-2">
-                Wireframes, mockups, design system
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-800">
-                Frontend Development
-              </h3>
-              <p className="text-sm text-gray-500 mt-2">
-                React components, responsive layouts
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-800">Integration</h3>
-              <p className="text-sm text-gray-500 mt-2">API integration</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* KEY FEATURES */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight text-center">
-            Key Features
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg
-                  className="w-5 h-5 text-gray-700"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800">
-                  Inventory Management
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  Real-time stock tracking, low stock alerts, and automated
-                  reorder suggestions
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg
-                  className="w-5 h-5 text-gray-700"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800">
-                  Supplier Management
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  Track supplier performance, manage purchase orders, and vendor
-                  communications
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg
-                  className="w-5 h-5 text-gray-700"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800">
-                  Customer Management
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  Centralized customer database, order history, and
-                  communication logs
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg
-                  className="w-5 h-5 text-gray-700"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800">
-                  Analytics Dashboard
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  Sales trends, inventory insights, and business performance
-                  metrics
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SCREEN GALLERY */}
-      <section className="bg-gray-50 pt-16 pb-10 md:pt-20 md:pb-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight text-center">
-            Screens & Interfaces
-          </h2>
-
-          <p className="text-gray-500 text-center mt-3">
-            A selection of key screens from the HAPPY ERP platform
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            {screens.map((screen) => (
-              <div key={screen.id} className="overflow-hidden">
-                <img
-                  src={screen.image}
-                  alt={screen.alt}
-                  className="w-full shadow-sm rounded-lg"
+              {/* Main Preview Image */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-muted">
+                <Image
+                  src="/images/projects/happy-erp/happy1.webp"
+                  alt="HAPPY ERP Dashboard Preview"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 500px"
+                  className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  priority
                 />
-                <div className="mt-4">
-                  <p className="font-medium text-gray-800">{screen.title}</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                  <p className="text-sm text-gray-400">{screen.description}</p>
+        {/* ---------------- SECTION 2: STATS & OVERVIEW ---------------- */}
+        <section className="py-16 border-b border-border-default">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6 space-y-4">
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                Executive Summary
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight">
+                Built to solve the operational friction of high-velocity toy commerce.
+              </h2>
+              <p className="text-text-body leading-relaxed text-sm sm:text-base">
+                Toy businesses face intense seasonal spikes, hundreds of rapid SKUs, and fragmented vendor networks. Prior to HAPPY ERP, inventory was scattered across disconnected spreadsheets, causing recurring stockouts and delayed fulfillment during peak sales quarters.
+              </p>
+              <p className="text-text-body leading-relaxed text-sm sm:text-base">
+                The platform bridges inventory management, warehouse receipts, vendor purchase orders, and sales distribution into one coherent, low-latency interface.
+              </p>
+            </div>
+
+            {/* Stats Grid */}
+            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-xl border border-border-default bg-surface-subtle hover:bg-white hover:shadow-md transition-all duration-300"
+                >
+                  <p className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm font-semibold text-text-primary mt-1">
+                    {stat.label}
+                  </p>
+                  <p className="text-xs text-text-muted mt-1 leading-snug">
+                    {stat.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------------- SECTION 3: THE CHALLENGE & SOLUTION ---------------- */}
+        <section className="py-16 border-b border-border-default">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 rounded-2xl border border-border-default bg-surface-subtle">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 mb-3">
+                <span className="w-2 h-2 rounded-full bg-amber-500" />
+                The Core Challenge
+              </div>
+              <h3 className="text-xl font-bold text-text-primary mb-3">
+                Fragmented Data &amp; Blind Purchasing
+              </h3>
+              <p className="text-text-body text-sm leading-relaxed">
+                The client operated across disjointed spreadsheets and paper picking lists. Warehouse teams had zero real-time visibility into supplier ship windows or cross-channel sales velocity. This caused frequent stockouts on best-selling toy categories while capital sat locked in slow-moving inventory.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl border border-border-default bg-surface-subtle">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 mb-3">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                The Solution
+              </div>
+              <h3 className="text-xl font-bold text-text-primary mb-3">
+                A Unified, High-Density ERP System
+              </h3>
+              <p className="text-text-body text-sm leading-relaxed">
+                An engineered enterprise application delivering real-time stock sync across warehouses, automated purchase recommendations based on seasonal sales patterns, structured supplier scorecards, and a sub-second response dashboard for operators.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------------- SECTION 4: MY ROLE ---------------- */}
+        <section className="py-16 border-b border-border-default">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+              Core Responsibilities
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight mt-1">
+              My Engineering &amp; Design Ownership
+            </h2>
+            <p className="text-text-muted text-sm mt-2">
+              Leading the frontend implementation and design system creation from Figma concept to production.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {roles.map((role, idx) => {
+              const Icon = role.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-6 rounded-2xl border border-border-default bg-white hover:border-primary/40 hover:shadow-md transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-surface-muted flex items-center justify-center text-primary mb-5">
+                    <Icon className="text-xl" />
+                  </div>
+                  <h3 className="text-lg font-bold text-text-primary">
+                    {role.title}
+                  </h3>
+                  <p className="text-sm text-text-body mt-2 leading-relaxed">
+                    {role.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ---------------- SECTION 5: KEY FEATURES ---------------- */}
+        <section className="py-16 border-b border-border-default">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+              Functional Capabilities
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight mt-1">
+              Key Platform Modules
+            </h2>
+            <p className="text-text-muted text-sm mt-2">
+              Designed for speed, data accuracy, and minimal cognitive overhead.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feat, idx) => {
+              const Icon = feat.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-6 rounded-2xl border border-border-default bg-surface-subtle hover:bg-white hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-10 h-10 rounded-lg bg-white border border-border-default flex items-center justify-center text-primary mb-4 shadow-sm">
+                      <Icon className="text-lg" />
+                    </div>
+                    <h3 className="text-base font-bold text-text-primary">
+                      {feat.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-text-body mt-2 leading-relaxed">
+                      {feat.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ---------------- SECTION 6: SCREEN GALLERY (WALKTHROUGH) ---------------- */}
+        <section ref={galleryRef} className="py-16 border-b border-border-default scroll-mt-24">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+              Visual Walkthrough
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight mt-1">
+              Screens &amp; Interface Design
+            </h2>
+            <p className="text-text-muted text-sm mt-2">
+              High-density information displays engineered for rapid data entry, filtering, and auditability.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {screens.map((screen) => (
+              <div
+                key={screen.id}
+                className="group rounded-2xl border border-border-default bg-white p-4 shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300"
+              >
+                {/* Browser-style frame */}
+                <div className="rounded-xl overflow-hidden border border-border-subtle bg-surface-subtle">
+                  <div className="flex items-center justify-between px-3 py-2 border-b border-border-subtle bg-surface-subtle text-[11px] text-text-muted">
+                    <div className="flex gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-gray-300" />
+                      <span className="w-2 h-2 rounded-full bg-gray-300" />
+                      <span className="w-2 h-2 rounded-full bg-gray-300" />
+                    </div>
+                    <span className="font-mono text-[10px] text-text-caption">
+                      module-0{screen.id}.screen
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-primary/10 text-primary">
+                      {screen.tag}
+                    </span>
+                  </div>
+
+                  <div className="relative aspect-[16/10] w-full bg-surface-muted overflow-hidden">
+                    <Image
+                      src={screen.image}
+                      alt={screen.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 600px"
+                      className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+
+                <div className="pt-4 px-1">
+                  <h3 className="text-base font-bold text-text-primary group-hover:text-primary transition-colors">
+                    {screen.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-text-body mt-1 leading-relaxed">
+                    {screen.description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* RESULTS */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-900 rounded-2xl p-10 text-center">
-            <h2 className="text-3xl font-bold text-white tracking-tight">
-              The Results
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-              <div>
-                <p className="text-4xl font-bold text-white">60%</p>
-                <p className="text-gray-400 text-sm mt-2">
-                  Reduction in manual data entry
-                </p>
+        {/* ---------------- SECTION 7: RESULTS & IMPACT ---------------- */}
+        <section className="py-16 border-b border-border-default">
+          <div className="rounded-2xl bg-text-primary text-white p-8 sm:p-12 shadow-xl">
+            <div className="max-w-2xl mx-auto text-center mb-10">
+              <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
+                Measurable Impact
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">
+                Tangible Business Outcomes
+              </h2>
+              <p className="text-gray-400 text-sm mt-2">
+                Delivered significant time savings and stock transparency across wholesale and distribution channels.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-3 gap-6 text-center">
+              <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+                <p className="text-4xl sm:text-5xl font-bold text-blue-400">60%</p>
+                <p className="text-white font-semibold text-sm mt-2">Reduction in Manual Entry</p>
+                <p className="text-xs text-gray-400 mt-1">Automated purchase workflows &amp; batch updates</p>
               </div>
-              <div>
-                <p className="text-4xl font-bold text-white">2x</p>
-                <p className="text-gray-400 text-sm mt-2">
-                  Faster order processing
-                </p>
+
+              <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+                <p className="text-4xl sm:text-5xl font-bold text-blue-400">2x</p>
+                <p className="text-white font-semibold text-sm mt-2">Faster Order Dispatch</p>
+                <p className="text-xs text-gray-400 mt-1">Instant picking slip generation &amp; validation</p>
               </div>
-              <div>
-                <p className="text-4xl font-bold text-white">100%</p>
-                <p className="text-gray-400 text-sm mt-2">
-                  Inventory accuracy achieved
-                </p>
+
+              <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+                <p className="text-4xl sm:text-5xl font-bold text-blue-400">100%</p>
+                <p className="text-white font-semibold text-sm mt-2">Inventory Accuracy</p>
+                <p className="text-xs text-gray-400 mt-1">Zero unaccounted warehouse discrepancies</p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* LEARNINGS */}
-      <section className="bg-gray-50 pt-16 pb-10 md:pt-20 md:pb-12">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight text-center">
-            Key Learnings
-          </h2>
-          <div className="mt-8 space-y-6">
-            <div className="bg-white p-6 rounded-xl border border-gray-100">
-              <p className="text-gray-600 leading-relaxed">
-                Building a complex ERP system taught me the importance of
-                scalable component architecture and state management. The
-                dashboard required real-time data synchronization across
-                multiple modules.
-              </p>
+        {/* ---------------- SECTION 8: LEARNINGS & BOTTOM CTA ---------------- */}
+        <section className="py-16">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                Retrospective
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight mt-1">
+                Key Engineering Insights
+              </h2>
             </div>
-            <div className="bg-white p-6 rounded-xl border border-gray-100">
-              <p className="text-gray-600 leading-relaxed">
-                Working closely with stakeholders helped me understand how to
-                translate business requirements into intuitive UI that
-                non-technical users can navigate efficiently.
+
+            <div className="space-y-4">
+              <div className="p-6 rounded-2xl border border-border-default bg-surface-subtle">
+                <h3 className="font-bold text-text-primary text-base flex items-center gap-2">
+                  <LuCircleCheck className="text-primary text-lg" />
+                  High-Density Information Architecture
+                </h3>
+                <p className="text-sm text-text-body mt-2 leading-relaxed">
+                  Enterprise ERP software demands careful visual hierarchy: minimizing wasted padding while avoiding clutter, using monospace numeric tabular alignments, and providing immediate keyboard shortcuts for rapid warehouse data entry.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl border border-border-default bg-surface-subtle">
+                <h3 className="font-bold text-text-primary text-base flex items-center gap-2">
+                  <LuCircleCheck className="text-primary text-lg" />
+                  Optimistic State &amp; Resilient State Management
+                </h3>
+                <p className="text-sm text-text-body mt-2 leading-relaxed">
+                  Handling concurrent inventory updates across warehouse and sales departments required modular component state machines and instant feedback patterns to prevent race conditions during order bookings.
+                </p>
+              </div>
+            </div>
+
+            {/* Bottom Contact Banner */}
+            <div className="mt-12 p-8 rounded-2xl border border-border-default bg-white text-center shadow-sm">
+              <h3 className="text-xl font-bold text-text-primary">
+                Interested in building or modernizing an enterprise tool?
+              </h3>
+              <p className="text-sm text-text-muted mt-2 max-w-md mx-auto">
+                Let&apos;s collaborate to design and engineer intuitive, high-performance dashboards and business applications.
               </p>
+              <div className="mt-6 flex justify-center gap-4">
+                <button
+                  type="button"
+                  onClick={openModal}
+                  className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20"
+                >
+                  Get in Touch
+                  <LuArrowUpRight />
+                </button>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+                >
+                  View All Projects
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </div>
+    </div>
   );
 }
