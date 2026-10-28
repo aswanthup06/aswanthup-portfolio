@@ -227,8 +227,8 @@ export default function HappyERPPage() {
               {/* Main Preview Image */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-muted">
                 <Image
-                  src="/images/projects/happy-erp/happy1.webp"
-                  alt="HAPPY ERP Dashboard Preview"
+                  src="/images/projects/happy-erp/happy-erp-hero.webp"
+                  alt="HAPPY ERP Platform Hero Preview"
                   fill
                   sizes="(max-width: 1024px) 100vw, 500px"
                   className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
