@@ -24,12 +24,15 @@ export default function AboutSection() {
         className="md:flex items-end justify-between w-full max-w-6xl"
       >
         <div>
-          <h2 className="font-bold text-sm md:text-base text-text-primary">
+          <h2 className="font-bold text-sm md:text-base text-primary">
             About Me
           </h2>
 
-          <p className="text-3xl text-text-muted/60">
-            Designing Seamless User Experiences
+          <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
+            Designing Seamless{" "}
+            <span className="text-text-muted font-medium">
+              User Experiences
+            </span>
           </p>
         </div>
 
@@ -87,7 +90,7 @@ export default function AboutSection() {
               UI Developer • React Frontend
             </p>
 
-            <p className="text-text-muted text-sm leading-relaxed">
+            <p className="text-text-body text-sm leading-relaxed">
               UI Developer with 3+ years of experience building scalable,
               responsive, and pixel-perfect interfaces using React, Next.js,
               Tailwind CSS, and Figma Dev Mode.
@@ -97,7 +100,7 @@ export default function AboutSection() {
               {["React", "Next.js", "Tailwind", "Figma"].map((item) => (
                 <span
                   key={item}
-                  className="px-3 py-1 rounded-sm bg-surface-muted text-xs text-text-secondary"
+                  className="px-3 py-1 rounded-sm bg-surface-muted text-xs text-text-body font-medium"
                 >
                   {item}
                 </span>
@@ -106,7 +109,7 @@ export default function AboutSection() {
           </div>
 
           <div className="pt-6 border-t border-border-subtle mt-6">
-            <p className="text-sm text-text-caption">Based in Kerala, India</p>
+            <p className="text-sm text-text-muted">Based in Kerala, India</p>
 
             <p className="text-sm text-text-primary font-medium mt-1">
               Open to Remote Opportunities
@@ -138,7 +141,7 @@ export default function AboutSection() {
 
           <div className="mt-6 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-text-muted text-sm">
+              <span className="text-text-muted text-sm font-medium">
                 Responsive UI Systems
               </span>
 
@@ -155,11 +158,11 @@ export default function AboutSection() {
                   delay: 0.4,
                   ease: "easeOut",
                 }}
-                className="h-full bg-black rounded-full"
+                className="h-full bg-primary rounded-full"
               />
             </div>
 
-            <p className="text-text-caption text-sm leading-relaxed">
+            <p className="text-text-body text-sm leading-relaxed">
               Built scalable dashboards, SaaS platforms, healthcare interfaces,
               and reusable component systems across web and mobile applications.
             </p>
@@ -189,7 +192,7 @@ export default function AboutSection() {
           <div>
             <p className="text-text-primary font-bold text-lg">Fast Delivery</p>
 
-            <p className="text-text-caption text-sm leading-relaxed">
+            <p className="text-text-body text-sm leading-relaxed">
               Rapid Figma-to-code workflow
             </p>
           </div>
@@ -205,7 +208,7 @@ export default function AboutSection() {
             <div>
               <p className="text-text-primary font-bold text-lg">Figma to Code</p>
 
-              <p className="text-text-caption text-sm">Design Accuracy</p>
+              <p className="text-text-muted text-sm font-medium">Design Accuracy</p>
             </div>
 
             <div className="px-3 py-1 rounded-md bg-green-50 text-green-600 text-xs font-semibold">
@@ -227,7 +230,7 @@ export default function AboutSection() {
               99%
             </motion.h3>
 
-            <p className="text-text-caption text-sm mt-2">
+            <p className="text-text-body text-sm mt-2 leading-relaxed">
               Pixel-perfect implementation using Figma Dev Mode, Auto Layout,
               and scalable component systems.
             </p>
@@ -243,7 +246,7 @@ export default function AboutSection() {
           <div>
             <p className="text-text-primary font-bold text-lg">Follow Me</p>
 
-            <p className="text-text-caption text-sm mt-1">
+            <p className="text-text-body text-sm mt-1">
               Let’s connect and build something amazing.
             </p>
           </div>

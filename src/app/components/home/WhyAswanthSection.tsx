@@ -28,8 +28,11 @@ export default function WhyAswanthSection() {
             Why Aswanth?
           </h2>
 
-          <p className="text-3xl text-text-muted/60 leading-snug mt-2 font-medium">
-            Blending UI design and development into seamless products.
+          <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
+            Blending UI Design{" "}
+            <span className="text-text-muted font-medium">
+              Into Seamless Products
+            </span>
           </p>
         </motion.div>
 
@@ -148,7 +151,7 @@ export default function WhyAswanthSection() {
                       duration: 0.6,
                       delay: 0.2,
                     }}
-                    className="text-5xl font-black text-black mt-3"
+                    className="text-5xl font-black text-text-primary mt-3"
                   >
                     99%
                   </motion.p>
@@ -159,7 +162,7 @@ export default function WhyAswanthSection() {
                 </div>
               </div>
 
-              <p className="text-sm text-text-muted leading-relaxed mt-4">
+              <p className="text-sm text-text-body leading-relaxed mt-4">
                 Pixel-perfect frontend implementation using Figma Dev Mode,
                 Auto Layout, reusable components, and responsive UI systems.
               </p>
@@ -258,7 +261,7 @@ export default function WhyAswanthSection() {
                   </div>
                 </div>
 
-                <p className="text-sm text-text-muted leading-relaxed mt-5">
+                <p className="text-sm text-text-body leading-relaxed mt-4">
                   I redesign outdated products with cleaner layouts, better UX
                   flow, modern UI patterns, and improved responsiveness.
                 </p>

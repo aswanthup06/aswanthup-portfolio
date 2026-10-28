@@ -148,14 +148,14 @@ export default function About() {
 
           <motion.h1
             variants={fadeUp}
-            className="text-center text-lg font-semibold text-gray-800 mb-2"
+            className="text-center text-lg font-bold text-text-primary mb-2"
           >
-            Aswanth Up
+            Aswanth UP
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="text-center text-gray-500 max-w-2xl mx-auto mb-12"
+            className="text-center text-text-body max-w-2xl mx-auto mb-12 text-sm md:text-base leading-relaxed"
           >
             I'm Aswanth, a UI Developer and Designer focused on building
             user-centric, high-performance web applications. I combine design
@@ -175,11 +175,11 @@ export default function About() {
                 whileHover={{ y: -3, transition: SPRING_SMOOTH }}
                 className="p-4 rounded-xl hover:bg-white/60 hover:shadow-sm transition-all duration-300"
               >
-                <h2 className="text-lg font-semibold text-gray-800">
+                <h2 className="text-lg font-semibold text-text-primary">
                   Who I Am
                 </h2>
 
-                <p className="text-gray-500 text-sm mt-2">
+                <p className="text-text-body text-sm mt-2 leading-relaxed">
                   A passionate UI Engineer with 3+ years of experience
                   designing and developing web applications. I specialize in
                   React-based architectures and modern UI systems.
@@ -191,11 +191,11 @@ export default function About() {
                 whileHover={{ y: -3, transition: SPRING_SMOOTH }}
                 className="p-4 rounded-xl hover:bg-white/60 hover:shadow-sm transition-all duration-300"
               >
-                <h2 className="text-lg font-semibold text-gray-800">
+                <h2 className="text-lg font-semibold text-text-primary">
                   What I Do
                 </h2>
 
-                <p className="text-gray-500 text-sm mt-2">
+                <p className="text-text-body text-sm mt-2 leading-relaxed">
                   I design intuitive user interfaces, build scalable frontend
                   systems, and optimize user experiences with performance-focused
                   development.
@@ -207,11 +207,11 @@ export default function About() {
                 whileHover={{ y: -3, transition: SPRING_SMOOTH }}
                 className="p-4 rounded-xl hover:bg-white/60 hover:shadow-sm transition-all duration-300"
               >
-                <h2 className="text-lg font-semibold text-gray-800">
+                <h2 className="text-lg font-semibold text-text-primary">
                   Experience
                 </h2>
 
-                <p className="text-gray-500 text-sm mt-2">
+                <p className="text-text-body text-sm mt-2 leading-relaxed">
                   3+ years working as a UI Developer & Designer, handling
                   complete UI development for real-world applications including
                   healthcare platforms and web systems.
@@ -220,7 +220,7 @@ export default function About() {
             </motion.div>
 
             <motion.div variants={fadeUp}>
-              <h2 className="text-lg font-semibold text-gray-800 mb-4">
+              <h2 className="text-lg font-semibold text-text-primary mb-4">
                 Skills & Tools
               </h2>
 
@@ -241,7 +241,7 @@ export default function About() {
                       scale: 0.95,
                       transition: SPRING_BOUNCY,
                     }}
-                    className="hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-colors flex items-center gap-2 text-gray-700 text-sm glass-card px-4 py-2 rounded-md cursor-pointer shadow-xs"
+                    className="hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-colors flex items-center gap-2 text-text-body text-sm glass-card px-4 py-2 rounded-md cursor-pointer shadow-xs font-medium"
                   >
                     {skill}
                   </motion.span>
@@ -254,11 +254,11 @@ export default function About() {
             variants={fadeUp}
             className="mt-24 w-full"
           >
-            <h2 className="text-2xl font-semibold text-center text-gray-800 mb-16">
+            <h2 className="text-2xl font-bold text-center text-text-primary mb-16">
               My Journey
             </h2>
 
-            <p className="text-center text-gray-500 max-w-2xl mx-auto -mt-10 mb-16 leading-relaxed">
+            <p className="text-center text-text-body max-w-2xl mx-auto -mt-10 mb-16 leading-relaxed">
               From creative beginnings in art and craftsmanship to building
               modern digital experiences, my journey has been shaped by design,
               curiosity, and continuous learning.
@@ -302,19 +302,19 @@ export default function About() {
                       }}
                       className="w-full md:w-[45%] glass-card p-6 rounded-xl hover:shadow-xl transition-all duration-300"
                     >
-                      <span className="text-sm text-blue-500 font-medium">
+                      <span className="text-sm text-primary font-semibold">
                         {item.date}
                       </span>
 
-                      <h3 className="text-lg font-semibold mt-1 text-gray-800">
+                      <h3 className="text-lg font-bold mt-1 text-text-primary">
                         {item.title}
                       </h3>
 
-                      <p className="text-xs text-gray-400 mb-2">
+                      <p className="text-xs text-text-muted mb-2 font-medium">
                         {item.location}
                       </p>
 
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-text-body leading-relaxed">
                         {item.desc}
                       </p>
                     </motion.div>

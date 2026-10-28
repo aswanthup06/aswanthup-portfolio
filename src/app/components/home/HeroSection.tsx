@@ -45,7 +45,7 @@ export default function HeroSection() {
           ease: PREMIUM_EASE,
         }}
       >
-        <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-semibold mb-4 text-text-secondary leading-tight">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-bold mb-4 text-text-primary leading-tight">
           Building <span className="text-primary">User-Centric</span>
           <span className="block mt-1">Web Experiences</span>
         </h1>
@@ -62,7 +62,7 @@ export default function HeroSection() {
         }}
         className="flex justify-center"
       >
-        <p className="text-md text-center text-text-muted md:w-7/12 text-sm md:text-lg leading-relaxed">
+        <p className="text-md text-center text-text-body md:w-7/12 text-sm md:text-lg leading-relaxed">
           Bridging UI/UX excellence with clean, performant code. I specialize
           in transforming complex workflows into intuitive, user-centric web
           applications

@@ -114,7 +114,7 @@ export default function Footer() {
 
                 <motion.p
                   variants={itemVariants}
-                  className="text-sm leading-relaxed text-text-muted mt-6"
+                  className="text-sm leading-relaxed text-text-body mt-6"
                 >
                   Passionate about crafting clean digital experiences through
                   frontend development, modern UI systems, responsive

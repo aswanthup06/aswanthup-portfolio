@@ -36,7 +36,7 @@ export default function TestimonialCard({
         />
       </motion.div>
 
-      <p className="text-sm text-text-muted leading-relaxed flex-1">
+      <p className="text-sm text-text-body leading-relaxed flex-1">
         &ldquo;{testimonial.quote}&rdquo;
       </p>
 

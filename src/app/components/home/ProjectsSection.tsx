@@ -161,7 +161,7 @@ function FeaturedProject() {
       </div>
 
       <div className="flex flex-col justify-center p-8 lg:p-10">
-        <p className="text-xs uppercase tracking-widest text-text-caption">
+        <p className="text-xs uppercase tracking-widest text-text-muted font-medium">
           Case Study
         </p>
 
@@ -174,7 +174,7 @@ function FeaturedProject() {
           </h3>
         </Link>
 
-        <p className="text-text-muted text-sm md:text-base leading-relaxed mt-4 max-w-md">
+        <p className="text-text-body text-sm md:text-base leading-relaxed mt-4 max-w-md">
           A career portal that skips accounts and application forms in favor of
           one action &mdash; a direct email to HR. Designed and built end to
           end, from job discovery through the admin dashboard.
@@ -278,19 +278,18 @@ export default function ProjectsSection() {
           className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6"
         >
           <div className="max-w-2xl">
-            <h2 className="font-bold text-sm md:text-base text-gray-900">
+            <h2 className="font-bold text-sm md:text-base text-primary">
               Projects
             </h2>
 
-            <p className="text-3xl md:text-4xl text-black/85 font-semibold leading-tight mt-3">
+            <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
               Featured Work
-              <span className="text-slate-400 font-medium">
-                {" "}
+              <span className="text-text-muted font-medium">
                 Built With Modern UI Thinking
               </span>
             </p>
 
-            <p className="text-text-muted text-sm md:text-base leading-relaxed mt-5 max-w-xl">
+            <p className="text-text-body text-sm md:text-base leading-relaxed mt-4 max-w-xl">
               A collection of selected projects focused on frontend development,
               UI engineering, responsive experiences, and scalable product
               design across multiple industries.
@@ -440,7 +439,7 @@ export default function ProjectsSection() {
                       </h3>
                     </Link>
 
-                    <p className="text-text-muted text-sm leading-relaxed mt-3">
+                    <p className="text-text-body text-sm leading-relaxed mt-2.5">
                       {project.description}
                     </p>
                   </div>
@@ -448,7 +447,7 @@ export default function ProjectsSection() {
 
                 <div className="flex items-center justify-between pt-5">
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-text-caption">
+                    <p className="text-xs uppercase tracking-widest text-text-muted font-medium">
                       {project.type}
                     </p>
 
