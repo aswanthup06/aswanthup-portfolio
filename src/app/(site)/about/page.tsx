@@ -32,7 +32,7 @@ import {
   FaHammer,
   FaLocationDot,
   FaBriefcase,
-  FaDownload,
+
   FaGithub,
   FaLinkedinIn,
   FaBehance,
@@ -59,7 +59,7 @@ import { PREMIUM_EASE } from "../../lib/animations";
 /* -------------------------------------------------------------------------- */
 
 const EMAIL = "aswanthup06@gmail.com";
-const RESUME = "/resume.pdf";
+// const RESUME = "/resume.pdf";
 
 const LINKS = {
   github: "https://github.com/aswanthup06",

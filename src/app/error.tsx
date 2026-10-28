@@ -1,6 +1,7 @@
 'use client';
-import "./globals.css";
 
+import { useEffect } from "react";
+import "./globals.css";
 import Link from "next/link";
 
 interface ErrorProps {
@@ -9,10 +10,13 @@ interface ErrorProps {
 }
 
 export default function Error({ error, reset }: ErrorProps) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="bg-white border border-gray-200 rounded-xl shadow-xl p-10 text-center max-w-md">
-
         <h1 className="text-3xl font-semibold text-gray-900">
           Something went wrong
         </h1>
@@ -51,7 +55,6 @@ export default function Error({ error, reset }: ErrorProps) {
             Go Home
           </Link>
         </div>
-
       </div>
     </div>
   );

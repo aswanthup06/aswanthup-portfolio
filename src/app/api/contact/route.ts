@@ -121,12 +121,14 @@ export async function POST(req: NextRequest) {
       success: true,
       data,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage =
+      error instanceof Error ? error.message : "Internal server error";
     console.error("Contact API Exception:", error);
     return NextResponse.json(
       {
         success: false,
-        message: error?.message || "Internal server error",
+        message: errorMessage,
       },
       { status: 500 }
     );

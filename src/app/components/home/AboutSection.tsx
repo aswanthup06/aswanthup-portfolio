@@ -6,7 +6,7 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaBehance, FaLinkedinIn, FaPlus } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { motion } from "framer-motion";
-import { fadeUp, stagger, cardHover } from "../../lib/animations";
+import { fadeUp, stagger } from "../../lib/animations";
 
 export default function AboutSection() {
   return (

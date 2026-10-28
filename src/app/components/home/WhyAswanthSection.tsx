@@ -3,6 +3,7 @@
 import { LuCircleArrowRight } from "react-icons/lu";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, stagger, cardHover } from "../../lib/animations";
 
@@ -181,7 +182,7 @@ export default function WhyAswanthSection() {
                 <div>
                   <motion.img
                     src="/images/home/Home.webp"
-                    alt=""
+                    alt="Design to live product dashboard showcase"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -300,9 +301,12 @@ export default function WhyAswanthSection() {
                   variants={fadeUp}
                   className="border border-border-default rounded-xl overflow-hidden"
                 >
-                  <img
+                  <Image
                     src="/images/home/kannur.webp"
-                    alt=""
+                    alt="Kannur university redesign preview"
+                    width={600}
+                    height={330}
+                    className="w-full h-auto object-cover"
                   />
                 </motion.div>
 
@@ -338,4 +342,3 @@ export default function WhyAswanthSection() {
     </section>
   );
 }
-

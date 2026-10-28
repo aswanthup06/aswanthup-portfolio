@@ -74,15 +74,13 @@ export default function ContactModal() {
     };
   }, [isOpen]);
 
-  // Reset form errors and status when modal is closed
-  useEffect(() => {
-    if (!isOpen) {
-      setErrors({});
-      setTouched({});
-      setStatus(null);
-      setStatusMessage("");
-    }
-  }, [isOpen]);
+  const handleClose = () => {
+    setErrors({});
+    setTouched({});
+    setStatus(null);
+    setStatusMessage("");
+    closeModal();
+  };
 
   const validateField = (field: "name" | "email" | "message", val: string): string | undefined => {
     const trimmed = val.trim();
@@ -169,7 +167,7 @@ export default function ContactModal() {
   const handleContactAction = (type: string, value: string) => {
     switch (type) {
       case "phone":
-        window.location.href = `tel:${value}`;
+        window.location.assign(`tel:${value}`);
         break;
 
       case "email":
@@ -262,7 +260,7 @@ export default function ContactModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            onClick={closeModal}
+            onClick={handleClose}
             className="fixed inset-0 bg-black/40 z-40"
           />
 
@@ -288,7 +286,7 @@ export default function ContactModal() {
                   duration: 0.3,
                   delay: 0.15,
                 }}
-                onClick={closeModal}
+                onClick={handleClose}
                 className="
                   mb-6
                   bg-linear-to-b

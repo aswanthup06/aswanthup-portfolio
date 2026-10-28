@@ -11,8 +11,8 @@ import {
 import { MdOutlineArrowOutward } from "react-icons/md";
 import {
   IoLogoReact,
-  IoLogoCss3,
-  IoLogoJavascript,
+
+
 } from "react-icons/io5";
 import {
   SiNextdotjs,

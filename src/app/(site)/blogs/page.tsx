@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Blogs() {
   const blogs = [
     {
@@ -5,38 +7,29 @@ export default function Blogs() {
       desc: "How to structure UI components for long-term scalability using modern frontend architecture.",
       date: "April 2026",
       tag: "UI/UX",
-      image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a"
+      image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a",
     },
     {
       title: "React Performance Optimization",
       desc: "Best practices to improve performance in React apps using memoization and lazy loading.",
       date: "March 2026",
       tag: "Development",
-      image: "https://images.unsplash.com/photo-1547658719-da2b51169166"
+      image: "https://images.unsplash.com/photo-1547658719-da2b51169166",
     },
     {
       title: "From Figma to Production",
       desc: "Bridging the gap between design and development efficiently.",
       date: "February 2026",
       tag: "Workflow",
-      image: "https://images.unsplash.com/photo-1547658719-da2b51169166"
+      image: "https://images.unsplash.com/photo-1547658719-da2b51169166",
     },
-     {
-      title: "From Figma to Production",
-      desc: "Bridging the gap between design and development efficiently.",
-      date: "February 2026",
-      tag: "Workflow",
-      image: "https://images.unsplash.com/photo-1547658719-da2b51169166"
-    }
   ];
 
   return (
     <div className="relative min-h-screen px-4 sm:px-6 lg:px-8 pt-32 pb-8 md:pb-12">
-
       <div className="absolute inset-0 grid-bg z-0" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-4xl font-semibold text-gray-800">
             Blogs
@@ -47,28 +40,27 @@ export default function Blogs() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-
           {blogs.map((blog, index) => (
             <div
               key={index}
-              className="group  overflow-hidden  transition duration-300"
+              className="group overflow-hidden transition duration-300"
             >
-
-              <div className="overflow-hidden">
-                <img
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
+                <Image
                   src={`${blog.image}?auto=format&fit=crop&w=800&q=80`}
                   alt={blog.title}
-                  className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition duration-300"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 380px"
+                  className="object-cover rounded-lg group-hover:scale-105 transition duration-300"
                 />
               </div>
 
-              <div className=" mt-2">
-
-                <span className="text-xs text-blue-500 font-medium ">
+              <div className="mt-3">
+                <span className="text-xs text-blue-500 font-medium">
                   {blog.tag}
                 </span>
 
-                <h3 className="text-lg font-semibold text-gray-800 ">
+                <h3 className="text-lg font-semibold text-gray-800 mt-1">
                   {blog.title}
                 </h3>
 
@@ -82,13 +74,10 @@ export default function Blogs() {
                     Read →
                   </button>
                 </div>
-
               </div>
             </div>
           ))}
-
         </div>
-
       </div>
     </div>
   );
