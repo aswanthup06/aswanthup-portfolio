@@ -1075,7 +1075,7 @@ function Cta() {
                 {...(external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
-                className="group flex items-center gap-4 border-b border-border-default py-4 transition-colors duration-500 hover:border-primary/40"
+                className="group flex items-center gap-4 border-b border-border-default py-4 transition-colors duration-500"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-text-body duration-300 transition-colors group-hover:text-primary">
                   <Icon aria-hidden="true" />
