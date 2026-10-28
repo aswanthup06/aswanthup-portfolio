@@ -868,7 +868,7 @@ function Craft() {
         className="mt-10 grid auto-rows-[170px] grid-cols-2 gap-4 lg:auto-rows-[180px] lg:grid-cols-4"
       >
         <Photo
-          src="/images/about/wood.jpeg"
+          src="/images/about/wood.webp"
           alt="Wood carving detail"
           caption="Wood carving"
           badge="✦ Primary craft"
@@ -882,7 +882,7 @@ function Craft() {
         />
 
         <Photo
-          src="/images/about/wood1.jpeg"
+          src="/images/about/wood1.webp"
           alt="Carpentry workbench with tools"
           caption="The workbench, 2019–2022"
           className="row-span-2"

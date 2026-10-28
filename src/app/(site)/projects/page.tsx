@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
     title: "Doctor One",
     slug: "/projects/doctor-one",
     category: ["Web Application", "UI Design"],
-    image: "/images/projects/doctor-one/doctor.jpg",
+    image: "/images/projects/doctor-one/doctor.webp",
     tech: ["ReactJS", "Tailwind CSS"],
   },
   {

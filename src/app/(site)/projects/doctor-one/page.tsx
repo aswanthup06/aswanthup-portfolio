@@ -220,7 +220,7 @@ export default function DoctorOneCaseStudy() {
                   {/* Fallback Image for Reduced Motion */}
                   <div className="hidden motion-reduce:block relative w-full h-full">
                     <Image
-                      src="/images/projects/doctor-one/dr1banner.jpg"
+                      src="/images/projects/doctor-one/dr1banner.webp"
                       alt="Doctor ONE Clinical Platform Interface"
                       fill
                       unoptimized
@@ -365,7 +365,7 @@ export default function DoctorOneCaseStudy() {
 
             <div className="relative aspect-[16/9] w-full bg-slate-100">
               <Image
-                src="/images/projects/doctor-one/dr1banner.jpg"
+                src="/images/projects/doctor-one/dr1banner.webp"
                 alt="Doctor ONE Telehealth Discovery Platform"
                 fill
                 unoptimized
