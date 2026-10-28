@@ -61,8 +61,16 @@ export default function ContactModal() {
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
 
+    const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
+    if (isOpen) {
+      lenis?.stop();
+    } else {
+      lenis?.start();
+    }
+
     return () => {
       document.body.style.overflow = "";
+      lenis?.start();
     };
   }, [isOpen]);
 
@@ -266,9 +274,13 @@ export default function ContactModal() {
               duration: 0.4,
               ease: "easeOut",
             }}
+            data-lenis-prevent
             className="fixed top-0 right-0 h-dvh w-full md:w-1/3 p-4 z-50"
           >
-            <div className="h-full bg-white rounded-2xl shadow-xl p-6 overflow-y-auto">
+            <div
+              data-lenis-prevent
+              className="h-full bg-white rounded-2xl shadow-xl p-6 overflow-y-auto overscroll-contain"
+            >
               <motion.button
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}

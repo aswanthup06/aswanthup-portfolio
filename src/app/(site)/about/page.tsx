@@ -1,707 +1,1104 @@
-
 "use client";
 
-import React from "react";
-import { motion, type Variants } from "framer-motion";
-import { IoStar } from "react-icons/io5";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
-  fadeUp,
-  fadeIn,
-  stagger,
-  staggerContainer,
-  staggerFast,
-  PREMIUM_EASE,
-  SPRING_SMOOTH,
-  SPRING_BOUNCY,
-  SPRING_GENTLE,
-} from "../../lib/animations";
+  motion,
+  MotionConfig,
+  animate,
+  useInView,
+  useScroll,
+  useSpring,
+  type Variants,
+} from "framer-motion";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import {
+  IoLogoReact,
+  IoLogoHtml5,
+  IoLogoCss3,
+  IoLogoJavascript,
+} from "react-icons/io5";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiFigma,
+  SiGit,
+  SiSass,
+  SiFramer,
+} from "react-icons/si";
+import {
+  FaHammer,
+  FaLocationDot,
+  FaBriefcase,
+  FaDownload,
+  FaGithub,
+  FaLinkedinIn,
+  FaBehance,
+  FaRulerCombined,
+  FaPuzzlePiece,
+  FaScrewdriverWrench,
+  FaQuoteLeft,
+  FaPencil,
+  FaEnvelope,
+} from "react-icons/fa6";
+import { IoLogoWhatsapp } from "react-icons/io";
 
-const cardVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 28,
-    scale: 0.97,
-    filter: "blur(4px)",
-  },
+import { useContactModal } from "../../context/ContactModalContext";
+import { PREMIUM_EASE } from "../../lib/animations";
+
+/* -------------------------------------------------------------------------- */
+/*  ⚠ CONFIRM BEFORE DEPLOYING                                                */
+/*  Placeholders / assumptions in this file:                                  */
+/*   - RESUME path (add the file to /public or change the path)               */
+/*   - EMAIL (public on your site, make sure you want that)                   */
+/*   - Role titles on the timeline (Futura Labs, Chaavie, 6solve)             */
+/*   - Which projects link from the Chaavie entry                             */
+/*   - Principles copy (written to fit your craft story)                      */
+/* -------------------------------------------------------------------------- */
+
+const EMAIL = "aswanthup06@gmail.com";
+const RESUME = "/resume.pdf";
+
+const LINKS = {
+  github: "https://github.com/aswanthup06",
+  linkedin: "https://www.linkedin.com/in/aswanthup/",
+  behance: "https://www.behance.net/ASWANTHUP",
+  whatsapp: "https://wa.me/917559068970",
+};
+
+/* -------------------------------------------------------------------------- */
+/*  Motion (same easing/timing as the rest of the site)                       */
+/* -------------------------------------------------------------------------- */
+
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 14 },
   show: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.6,
-      ease: PREMIUM_EASE,
-    },
+    transition: { duration: 0.45, ease: PREMIUM_EASE },
   },
 };
 
-const journeyVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-    filter: "blur(4px)",
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.65,
-      ease: PREMIUM_EASE,
-    },
-  },
-};
+const hover = { y: -4, transition: { duration: 0.25 } };
+
+const inView = {
+  initial: "hidden",
+  whileInView: "show",
+  viewport: { once: true, amount: 0.15 },
+} as const;
+
+const card =
+  "bg-surface-card border border-border-default rounded-xl transition-shadow duration-300 hover:shadow-xl";
+
+/* -------------------------------------------------------------------------- */
+/*  Page                                                                      */
+/* -------------------------------------------------------------------------- */
 
 export default function About() {
-  const journey = [
-    {
-      date: "June 2023 – Present",
-      title: "Chaavie Solutions",
-      location: "Kozhikode, Kerala",
-      desc: "Worked across UI/UX design, frontend development, and branding. Led UI development for healthcare platforms and mentored junior developers.",
-    },
-    {
-      date: "Jan 2025 – Aug 2025",
-      title: "6solve IT Services (Contract through Chaavie)",
-      location: "Tirunelveli, Tamil Nadu",
-      desc: "Collaborated on Next.js projects, improving performance and scalability. Strengthened modern frontend architecture skills.",
-    },
-    {
-      date: "Nov 2022 – Mar 2023",
-      title: "Futura Labs",
-      location: "Kozhikode, Kerala",
-      desc: "Started journey in UI/UX design and frontend basics including HTML, CSS, and Figma.",
-    },
-    {
-      date: "July 2016 – March 2019",
-      title: "BSc Computer Science",
-      location: "Hi-Tech Arts and Science College, Kallachi, Kerala",
-      desc: "I completed my BSc in Computer Science from Hi-Tech Arts and Science College. During my studies, I also worked on academic projects to enhance my practical skills alongside theoretical knowledge.",
-    },
-  ];
+  return (
+    <MotionConfig reducedMotion="user">
+      <div className="relative flex flex-col items-center overflow-x-clip px-6 pb-24 pt-32 md:pt-36">
+        <div className="grid-bg absolute inset-0 -z-10" />
 
-  const skills = [
-    "React",
-    "Next.js",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "Tailwind",
-    "Figma",
-    "UI/UX Design",
-  ];
+        <div className="w-full max-w-6xl">
+          <Hero />
+          <Marquee />
+          <Stats />
+          <Story />
+          <Principles />
+          <Craft />
+          <Cta />
+        </div>
+      </div>
+    </MotionConfig>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Shared heading                                                            */
+/* -------------------------------------------------------------------------- */
+
+function Heading({
+  kicker,
+  title,
+  sub,
+  center = false,
+}: {
+  kicker: string;
+  title: React.ReactNode;
+  sub?: string;
+  center?: boolean;
+}) {
+  return (
+    <motion.div
+      variants={item}
+      {...inView}
+      className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}
+    >
+      <p className="text-sm font-bold text-primary">{kicker}</p>
+      <h2 className="mt-2 text-3xl font-semibold leading-tight text-text-primary md:text-4xl">
+        {title}
+      </h2>
+      {sub && (
+        <p className="mt-3 text-sm leading-relaxed text-text-body md:text-base">
+          {sub}
+        </p>
+      )}
+    </motion.div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  1. Hero                                                                   */
+/* -------------------------------------------------------------------------- */
+
+function Hero() {
+  const { openModal } = useContactModal();
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center pt-36 px-6">
-      <div className="absolute inset-0 -z-10 grid-bg" />
-
-      <div className="relative z-10 max-w-5xl w-full">
+    <section
+      aria-label="Introduction"
+      className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]"
+    >
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="flex flex-col items-center text-center lg:items-start lg:text-left"
+      >
         <motion.div
-          initial="hidden"
-          animate="show"
-          variants={stagger}
-          className="flex flex-col items-center"
+          variants={item}
+          className="mb-5 inline-flex items-center gap-2 text-xs font-medium text-text-body md:text-sm"
         >
-          <motion.div
-            variants={fadeIn}
-            className="flex justify-center mb-6"
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+          </span>
+          Open to work · Remote or relocating in India
+        </motion.div>
+
+        {/* h1 stays static so it never delays LCP */}
+        <h1 className="text-4xl font-bold leading-[1.1] text-text-primary md:text-5xl lg:text-6xl">
+          From chisels
+          <span className="block bg-gradient-to-r from-blue-600 via-primary to-cyan-500 bg-clip-text text-transparent">
+            to components.
+          </span>
+        </h1>
+
+        <motion.p
+          variants={item}
+          className="mt-5 max-w-xl text-sm leading-relaxed text-text-body md:text-lg"
+        >
+          I’m Aswanth, a UI Developer and Designer from Kozhikode, Kerala. I
+          spent years shaping wood by hand before I started shaping
+          interfaces, and I still build the same way: measure first, join
+          cleanly, and finish the details nobody asks about.
+        </motion.p>
+
+        <motion.div
+          variants={item}
+          className="mt-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+        >
+          <button
+            onClick={openModal}
+            className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-2.5 text-sm font-medium shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
           >
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={SPRING_GENTLE}
-            >
-              <motion.div
-                animate={{
-                  rotate: [0, 8, -8, 0],
-                  scale: [1, 1.08, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute left-30 inset-0 rounded-full bg-blue-400 h-8 w-8 z-50 text-white flex justify-center items-center shadow-md shadow-blue-400/40"
-              >
-                <IoStar />
-              </motion.div>
+            Get in Touch
+            <MdOutlineArrowOutward className="text-base" />
+          </button>
 
-              <motion.img
-                src="/images/about/me.webp"
-                alt="Aswanth"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1.05, opacity: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.15,
-                  ease: PREMIUM_EASE,
-                }}
-                whileHover={{
-                  scale: 1.12,
-                  transition: SPRING_SMOOTH,
-                }}
-                className="relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-2 border-white shadow-lg"
-              />
-            </motion.div>
-          </motion.div>
-
-          <motion.h1
-            variants={fadeUp}
-            className="text-center text-lg font-bold text-text-primary mb-2"
+          {/* <a
+            href={RESUME}
+            download
+            className="inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-2.5 text-sm font-medium text-text-primary transition-colors hover:bg-surface-muted"
           >
-            Aswanth UP
-          </motion.h1>
+            <FaDownload className="text-xs" />
+            Résumé
+          </a> */}
+        </motion.div>
 
-          <motion.p
-            variants={fadeUp}
-            className="text-center text-text-body max-w-2xl mx-auto mb-12 text-sm md:text-base leading-relaxed"
+        <motion.ul
+          variants={item}
+          className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-text-muted lg:justify-start"
+        >
+          <li className="flex items-center gap-2">
+            <FaLocationDot aria-hidden="true" className="text-primary" />
+            Kozhikode, Kerala
+          </li>
+          <li className="flex items-center gap-2">
+            <FaBriefcase aria-hidden="true" className="text-primary" />
+            3+ years in UI
+          </li>
+        </motion.ul>
+      </motion.div>
+
+      <Portrait />
+    </section>
+  );
+}
+
+function Portrait() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.15, ease: PREMIUM_EASE }}
+      className="relative mx-auto w-[260px] md:w-[320px]"
+    >
+      {/* offset outline */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 translate-x-4 translate-y-4 rounded-t-[999px] rounded-b-3xl border-2 border-primary/30"
+      />
+
+      {/* arch photo */}
+      <div className="relative aspect-[4/5] rounded-t-[999px] rounded-b-3xl bg-gradient-to-br from-primary to-cyan-400 p-[3px] shadow-xl">
+        <div className="relative h-full w-full overflow-hidden rounded-t-[999px] rounded-b-[22px] bg-white">
+          <Image
+            src="/images/about/me.webp"
+            alt="Aswanth UP"
+            fill
+            priority
+            sizes="(min-width: 768px) 320px, 260px"
+            className="object-cover"
+          />
+        </div>
+      </div>
+
+      {/* slow spinning dashed ring */}
+      <motion.div
+        aria-hidden="true"
+        className="absolute -right-10 -top-8 h-28 w-28 rounded-full border-2 border-dashed border-primary/30"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+      />
+
+      <Sticker
+        className="-left-6 top-16 md:-left-14"
+        float={[0, -9, 0]}
+        duration={5}
+        delay={0.9}
+      >
+        <FaHammer className="text-amber-500" /> Ex-carpenter
+      </Sticker>
+
+      <Sticker
+        className="-right-4 top-[48%] md:-right-12"
+        float={[0, 9, 0]}
+        duration={6}
+        delay={1.1}
+      >
+        <IoLogoReact className="text-sky-500" /> React · Next.js
+      </Sticker>
+
+      <Sticker
+        className="-left-2 bottom-8 md:-left-10"
+        float={[0, -7, 0]}
+        duration={5.5}
+        delay={1.3}
+      >
+        <SiFigma className="text-red-500" /> Figma
+      </Sticker>
+    </motion.div>
+  );
+}
+
+function Sticker({
+  children,
+  className,
+  float,
+  duration,
+  delay,
+}: {
+  children: React.ReactNode;
+  className: string;
+  float: number[];
+  duration: number;
+  delay: number;
+}) {
+  return (
+    <motion.div
+      className={`absolute ${className}`}
+      initial={{ opacity: 0, scale: 0.85 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.4, ease: PREMIUM_EASE }}
+    >
+      <motion.div
+        animate={{ y: float }}
+        transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
+        className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border-default bg-white px-3 py-1.5 text-[11px] font-semibold text-text-primary shadow-lg shadow-black/5 md:text-xs"
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  2. Tools marquee                                                          */
+/* -------------------------------------------------------------------------- */
+
+const TOOLS = [
+  { name: "React", Icon: IoLogoReact },
+  { name: "Next.js", Icon: SiNextdotjs },
+  { name: "TypeScript", Icon: SiTypescript },
+  { name: "Tailwind CSS", Icon: SiTailwindcss },
+  { name: "Figma", Icon: SiFigma },
+  { name: "Framer Motion", Icon: SiFramer },
+  { name: "JavaScript", Icon: IoLogoJavascript },
+  { name: "HTML5", Icon: IoLogoHtml5 },
+  { name: "CSS3", Icon: IoLogoCss3 },
+  { name: "SCSS", Icon: SiSass },
+  { name: "Git", Icon: SiGit },
+];
+
+function Marquee() {
+  const row = [...TOOLS, ...TOOLS];
+  const fade =
+    "linear-gradient(to right, transparent, black 10%, black 90%, transparent)";
+
+  return (
+    <div
+      className="mt-24 overflow-hidden"
+      style={{ maskImage: fade, WebkitMaskImage: fade }}
+      aria-label="Tools I work with"
+    >
+      <motion.ul
+        className="flex w-max"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+      >
+        {row.map(({ name, Icon }, i) => (
+          <li
+            key={`${name}-${i}`}
+            aria-hidden={i >= TOOLS.length}
+            className="flex items-center gap-2.5 pr-12 text-sm font-medium text-text-muted"
           >
-            I'm Aswanth, a UI Developer and Designer focused on building
-            user-centric, high-performance web applications. I combine design
-            thinking with clean code to create seamless digital experiences.
-          </motion.p>
+            <Icon className="text-xl" />
+            {name}
+          </li>
+        ))}
+      </motion.ul>
+    </div>
+  );
+}
 
-          <motion.div
-            variants={stagger}
-            className="grid md:grid-cols-2 gap-10 w-full"
+/* -------------------------------------------------------------------------- */
+/*  3. Stats                                                                  */
+/* -------------------------------------------------------------------------- */
+
+function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const seen = useInView(ref, { once: true, margin: "-40px" });
+  const [v, setV] = useState(0);
+
+  useEffect(() => {
+    if (!seen) return;
+    const controls = animate(0, to, {
+      duration: 1.4,
+      ease: PREMIUM_EASE,
+      onUpdate: (x) => setV(Math.round(x)),
+    });
+    return () => controls.stop();
+  }, [seen, to]);
+
+  return (
+    <span ref={ref}>
+      {v}
+      {suffix}
+    </span>
+  );
+}
+
+const STATS = [
+  { to: 3, suffix: "+", label: "Years building UI" },
+  { to: 600, suffix: "+", label: "Screens developed" },
+  { to: 4, suffix: "", label: "Case studies" },
+  { to: 5, suffix: "×", label: "State-level A grade" },
+];
+
+function Stats() {
+  return (
+    <motion.dl
+      variants={container}
+      {...inView}
+      className="mt-16 grid grid-cols-2 gap-y-8 border-y border-border-default py-8 lg:grid-cols-4 lg:divide-x lg:divide-border-default"
+    >
+      {STATS.map((s) => (
+        <motion.div
+          key={s.label}
+          variants={item}
+          className="px-4 text-center lg:px-8 lg:text-left lg:first:pl-0"
+        >
+          <dt className="text-4xl font-black tracking-tight text-text-primary md:text-5xl">
+            <CountUp to={s.to} suffix={s.suffix} />
+          </dt>
+          <dd className="mt-1 text-sm font-medium text-text-muted">
+            {s.label}
+          </dd>
+        </motion.div>
+      ))}
+    </motion.dl>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  4. Story / timeline (sticky heading, scroll-filled line)                  */
+/* -------------------------------------------------------------------------- */
+
+type Kind = "craft" | "study" | "work";
+
+type Chapter = {
+  period: string;
+  kind: Kind;
+  title: string;
+  org: string;
+  place?: string;
+  text: string;
+  points?: string[];
+  tags?: string[];
+  links?: { label: string; href: string }[];
+  now?: boolean;
+  sub?: { period: string; title: string; place: string; text: string };
+};
+
+const KIND: Record<Kind, { label: string; chip: string; dot: string }> = {
+  craft: {
+    label: "Craft",
+    chip: "bg-amber-50 text-amber-700",
+    dot: "bg-amber-500",
+  },
+  study: {
+    label: "Study",
+    chip: "bg-violet-50 text-violet-700",
+    dot: "bg-violet-500",
+  },
+  work: { label: "Work", chip: "bg-blue-50 text-blue-700", dot: "bg-primary" },
+};
+
+const CHAPTERS: Chapter[] = [
+  {
+    period: "2016 – 2019",
+    kind: "study",
+    title: "BSc Computer Science",
+    org: "Hi-Tech Arts and Science College",
+    place: "Kallachi, Kerala",
+    text: "Completed my BSc in Computer Science, building academic projects that put practical skills next to the theory.",
+  },
+  {
+    period: "2019 – 2022",
+    kind: "craft",
+    title: "Carpenter",
+    org: "Joinery & furniture",
+    text: "Hands-on experience in joinery, furniture making, and precision woodworking. I carried the workshop discipline into how I think about digital products.",
+    tags: ["Joinery", "Furniture", "Restoration"],
+  },
+  {
+    period: "Nov 2022 – Mar 2023",
+    kind: "work",
+    title: "UI/UX Design Intern",
+    org: "Futura Labs",
+    place: "Kozhikode, Kerala",
+    text: "Where the switch started: UI/UX design and frontend basics, including HTML, CSS, and Figma.",
+    tags: ["HTML", "CSS", "Figma"],
+  },
+  {
+    period: "Jun 2023 – Present",
+    kind: "work",
+    title: "UI Developer & Designer",
+    org: "Chaavie Solutions",
+    place: "Kozhikode, Kerala",
+    now: true,
+    text: "Working across UI/UX design, frontend development, and branding.",
+    points: [
+      "Led UI development for healthcare platforms",
+      "Mentored junior developers",
+      "Built dashboards, SaaS platforms and reusable component systems for web and mobile",
+    ],
+    tags: ["React", "Next.js", "Tailwind", "Figma"],
+    links: [{ label: "Doctor One", href: "/projects/doctor-one" }],
+    sub: {
+      period: "Jan – Aug 2025",
+      title: "Contract at 6solve IT Services",
+      place: "Tirunelveli, Tamil Nadu",
+      text: "Collaborated on Next.js projects, improving performance and scalability while strengthening modern frontend architecture skills.",
+    },
+  },
+];
+
+function Story() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.75", "end 0.6"],
+  });
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  return (
+    <section
+      aria-labelledby="story-heading"
+      className="mt-28 grid gap-10 lg:grid-cols-[300px_1fr] lg:gap-16"
+    >
+      <div className="lg:sticky lg:top-28 lg:self-start">
+        <motion.div variants={item} {...inView}>
+          <p className="text-sm font-bold text-primary">My Journey</p>
+          <h2
+            id="story-heading"
+            className="mt-2 text-3xl font-semibold leading-tight text-text-primary md:text-4xl"
           >
-            <motion.div
-              variants={stagger}
-              className="space-y-6"
-            >
-              <motion.div
-                variants={fadeUp}
-                whileHover={{ y: -3, transition: SPRING_SMOOTH }}
-                className="p-4 rounded-xl hover:bg-white/60 hover:shadow-sm transition-all duration-300"
+            A career built{" "}
+            <span className="font-medium text-text-muted">by hand</span>
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-text-body">
+            From school-level wood carving to production React, with a few
+            years at the workbench in between.
+          </p>
+
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {(Object.keys(KIND) as Kind[]).map((k) => (
+              <li
+                key={k}
+                className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${KIND[k].chip}`}
               >
-                <h2 className="text-lg font-semibold text-text-primary">
-                  Who I Am
-                </h2>
-
-                <p className="text-text-body text-sm mt-2 leading-relaxed">
-                  A passionate UI Engineer with 3+ years of experience
-                  designing and developing web applications. I specialize in
-                  React-based architectures and modern UI systems.
-                </p>
-              </motion.div>
-
-              <motion.div
-                variants={fadeUp}
-                whileHover={{ y: -3, transition: SPRING_SMOOTH }}
-                className="p-4 rounded-xl hover:bg-white/60 hover:shadow-sm transition-all duration-300"
-              >
-                <h2 className="text-lg font-semibold text-text-primary">
-                  What I Do
-                </h2>
-
-                <p className="text-text-body text-sm mt-2 leading-relaxed">
-                  I design intuitive user interfaces, build scalable frontend
-                  systems, and optimize user experiences with performance-focused
-                  development.
-                </p>
-              </motion.div>
-
-              <motion.div
-                variants={fadeUp}
-                whileHover={{ y: -3, transition: SPRING_SMOOTH }}
-                className="p-4 rounded-xl hover:bg-white/60 hover:shadow-sm transition-all duration-300"
-              >
-                <h2 className="text-lg font-semibold text-text-primary">
-                  Experience
-                </h2>
-
-                <p className="text-text-body text-sm mt-2 leading-relaxed">
-                  3+ years working as a UI Developer & Designer, handling
-                  complete UI development for real-world applications including
-                  healthcare platforms and web systems.
-                </p>
-              </motion.div>
-            </motion.div>
-
-            <motion.div variants={fadeUp}>
-              <h2 className="text-lg font-semibold text-text-primary mb-4">
-                Skills & Tools
-              </h2>
-
-              <motion.div
-                variants={staggerFast}
-                className="flex flex-wrap gap-3"
-              >
-                {skills.map((skill) => (
-                  <motion.span
-                    key={skill}
-                    variants={cardVariants}
-                    whileHover={{
-                      y: -3,
-                      scale: 1.05,
-                      transition: SPRING_SMOOTH,
-                    }}
-                    whileTap={{
-                      scale: 0.95,
-                      transition: SPRING_BOUNCY,
-                    }}
-                    className="hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-colors flex items-center gap-2 text-text-body text-sm glass-card px-4 py-2 rounded-md cursor-pointer shadow-xs font-medium"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            variants={fadeUp}
-            className="mt-24 w-full"
-          >
-            <h2 className="text-2xl font-bold text-center text-text-primary mb-16">
-              My Journey
-            </h2>
-
-            <p className="text-center text-text-body max-w-2xl mx-auto -mt-10 mb-16 leading-relaxed">
-              From creative beginnings in art and craftsmanship to building
-              modern digital experiences, my journey has been shaped by design,
-              curiosity, and continuous learning.
-            </p>
-
-            <div className="relative">
-              <motion.div
-                initial={{ scaleY: 0 }}
-                whileInView={{ scaleY: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 1.2,
-                  ease: "easeOut",
-                }}
-                style={{ transformOrigin: "top" }}
-                className="absolute left-1/2 top-0 h-full w-0.5 bg-gray-200 transform -translate-x-1/2"
-              />
-
-              <motion.div
-                variants={stagger}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.15 }}
-                className="space-y-16"
-              >
-                {journey.map((item, index) => (
-                  <motion.div
-                    key={item.title}
-                    variants={journeyVariants}
-                    className={`relative flex ${
-                      index % 2 === 0
-                        ? "justify-start"
-                        : "justify-end"
-                    }`}
-                  >
-                    <motion.div
-                      whileHover={{
-                        y: -5,
-                        scale: 1.015,
-                        transition: SPRING_SMOOTH,
-                      }}
-                      className="w-full md:w-[45%] glass-card p-6 rounded-xl hover:shadow-xl transition-all duration-300"
-                    >
-                      <span className="text-sm text-primary font-semibold">
-                        {item.date}
-                      </span>
-
-                      <h3 className="text-lg font-bold mt-1 text-text-primary">
-                        {item.title}
-                      </h3>
-
-                      <p className="text-xs text-text-muted mb-2 font-medium">
-                        {item.location}
-                      </p>
-
-                      <p className="text-sm text-text-body leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.45,
-                        delay: 0.15,
-                        type: "spring",
-                        stiffness: 320,
-                        damping: 20,
-                      }}
-                      className="absolute left-1/2 transform -translate-x-1/2"
-                    >
-                      <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-sm ring-2 ring-blue-200" />
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
+                <span className={`h-1.5 w-1.5 rounded-full ${KIND[k].dot}`} />
+                {KIND[k].label}
+              </li>
+            ))}
+          </ul>
         </motion.div>
       </div>
 
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{
-          duration: 0.7,
-          ease: "easeOut",
-        }}
-        className="w-full min-h-screen pt-20"
-      >
-        <div className="max-w-6xl mx-auto">
+      <div ref={ref} className="relative pl-10">
+        {/* track + scroll-filled line */}
+        <div
+          aria-hidden="true"
+          className="absolute bottom-2 left-3 top-2 w-0.5 bg-border-default"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.6,
-            }}
-            className="text-center max-w-2xl mx-auto mb-2"
-          >
-            <div className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm border border-stone-200 rounded-md px-4 py-1.5 mb-6 shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <motion.span
-                  animate={{
-                    scale: [1, 1.8, 1],
-                    opacity: [0.75, 0, 0.75],
-                  }}
-                  transition={{
-                    duration: 1.8,
-                    repeat: Infinity,
-                    ease: "easeOut",
-                  }}
-                  className="absolute inline-flex h-full w-full rounded-full bg-amber-400"
-                />
-
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
-              </span>
-
-              <span className="text-xs font-medium text-stone-600 tracking-wide">
-                From Workshop to Pixels
-              </span>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={stagger}
-            className="md:flex items-center mb-6 justify-between"
-          >
-            <motion.h2
-              variants={fadeUp}
-              className="text-xl md:text-4xl font-bold tracking-tight text-stone-900 mb-4"
-            >
-              Craftsmanship
-              <span className="text-amber-500">_</span>
-              <br />
-              Meets Code
-            </motion.h2>
-
-            <motion.div variants={fadeUp}>
-              <p className="text-stone-500 md:text-lg max-w-lg mx-auto md:text-end">
-                Wood grain, pencil strokes, and chisel marks — the foundation
-                of my design philosophy.
-              </p>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.08 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-min"
-          >
-            <motion.div
-              variants={cardVariants}
-              whileHover={{
-                y: -6,
-                transition: SPRING_SMOOTH,
-              }}
-              className="lg:row-span-2 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 group"
-            >
-              <div className="relative h-64 overflow-hidden bg-amber-900/5">
-                <motion.img
-                  src="/images/about/wood.jpeg"
-                  alt="Wood carving detail"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.65, ease: PREMIUM_EASE }}
-                  className="w-full h-full object-cover"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-
-                <div className="absolute bottom-4 left-4">
-                  <span className="bg-white/90 backdrop-blur-sm text-stone-700 text-xs font-medium px-3 py-1 rounded-md shadow-sm">
-                    ✦ Primary Craft
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-2xl">🪚</span>
-
-                  <h3 className="font-bold text-xl text-stone-800">
-                    Wood Carving
-                  </h3>
-                </div>
-
-                <p className="text-stone-500 text-sm leading-relaxed mb-4">
-                  Started my creative journey with chisel and wood — learning
-                  patience, grain direction, and the beauty of subtracting to
-                  reveal form.
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-md">
-                    Hand-carved
-                  </span>
-
-                  <span className="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-md">
-                    Detail-oriented
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: SPRING_SMOOTH }}
-              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-stone-100"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl">
-                  🏅
-                </div>
-
-                <span className="text-xs font-mono bg-stone-100 px-2 py-1 rounded text-stone-500">
-                  5×
-                </span>
-              </div>
-
-              <h3 className="font-bold text-lg text-stone-800 mb-1">
-                Kerala State Achievement
-              </h3>
-
-              <p className="text-stone-500 text-sm leading-relaxed mb-3">
-                <span className="font-semibold text-emerald-600">
-                  5 Times A Grade
-                </span>{" "}
-                in Wood Carving at Kerala State School Sasthrolsavam
-                (Work Experience Category)
-              </p>
-
-              <p className="text-xs text-stone-400">
-                Achieved during School, +1, and +2 years through state-level.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: SPRING_SMOOTH }}
-              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-stone-100"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 text-xl">
-                  🏆
-                </div>
-
-                <span className="text-xs font-mono bg-stone-100 px-2 py-1 rounded text-stone-500">
-                  4+1
-                </span>
-              </div>
-
-              <h3 className="font-bold text-lg text-stone-800 mb-1">
-                District Level
-              </h3>
-
-              <p className="text-stone-600 text-sm">
-                <span className="font-semibold text-blue-600">
-                  4× First Prize
-                </span>{" "}
-                · 1× Second Prize
-              </p>
-
-              <p className="text-xs text-stone-400 mt-2">
-                Wood carving & creative arts competitions
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: SPRING_SMOOTH }}
-              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-stone-100"
-            >
-              <div className="flex gap-3 items-start mb-3">
-                <span className="text-2xl">✏️</span>
-
-                <div>
-                  <h3 className="font-bold text-stone-800">
-                    Pencil Drawing & Painting
-                  </h3>
-
-                  <p className="text-xs text-amber-600 font-medium">
-                    Sub-District Level Winner
-                  </p>
-                </div>
-              </div>
-
-              <p className="text-stone-500 text-sm leading-relaxed mb-4">
-                Recognized for realistic pencil sketches and watercolor
-                compositions — visual storytelling before digital tools.
-              </p>
-
-              <div className="mt-3 flex gap-1">
-                <span className="text-xs text-stone-400">
-                  ✧ Sketching
-                </span>
-
-                <span className="text-xs text-stone-400">
-                  ✧ Watercolor
-                </span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -6, transition: SPRING_SMOOTH }}
-              className="row-span-2 bg-stone-900 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group"
-            >
-              <div className="relative h-52 overflow-hidden">
-                <motion.img
-                  src="/images/about/wood1.jpeg"
-                  alt="Carpentry workbench with tools"
-                  whileHover={{
-                    scale: 1.08,
-                  }}
-                  transition={{
-                    duration: 0.65,
-                    ease: PREMIUM_EASE,
-                  }}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
-                />
-
-                <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-stone-900/20 transition" />
-
-                <div className="absolute bottom-3 right-3">
-                  <span className="bg-black/50 text-white text-[10px] px-2 py-1 rounded-md backdrop-blur-sm">
-                    2019 - 2022
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-5 text-white">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-amber-400 text-xl">🔨</span>
-
-                  <h3 className="font-bold text-lg">
-                    Carpenter · Few Years
-                  </h3>
-                </div>
-
-                <p className="text-stone-300 text-sm leading-relaxed">
-                  Hands-on experience in joinery, furniture making, and
-                  precision woodworking. Translated workshop discipline into
-                  digital product thinking.
-                </p>
-
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="text-xs bg-stone-800 text-stone-300 px-2.5 py-1 rounded-md">
-                    Joinery
-                  </span>
-
-                  <span className="text-xs bg-stone-800 text-stone-300 px-2.5 py-1 rounded-md">
-                    Furniture
-                  </span>
-
-                  <span className="text-xs bg-stone-800 text-stone-300 px-2.5 py-1 rounded-md">
-                    Restoration
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -6, transition: SPRING_SMOOTH }}
-              className="relative bg-stone-100 rounded-xl overflow-hidden h-48 group shadow-sm hover:shadow-lg transition-shadow duration-300"
-            >
-              <motion.img
-                src="/images/about/wood3.webp"
-                alt="Carpenter at work"
-                whileHover={{
-                  scale: 1.08,
-                }}
-                transition={{
-                  duration: 0.65,
-                  ease: PREMIUM_EASE,
-                }}
-                className="w-full h-full object-cover"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent flex items-end p-4">
-                <span className="text-white text-sm font-medium drop-shadow">
-                  carpentry works
-                </span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ y: -5, transition: SPRING_SMOOTH }}
-              className="bg-amber-50/40 rounded-xl p-6 flex flex-col justify-center border border-amber-100/50 hover:shadow-md transition-shadow duration-300"
-            >
-              <span className="text-4xl mb-2 opacity-60">“</span>
-
-              <p className="text-stone-600 italic text-sm leading-relaxed">
-                Every UI component is like a well-cut joint — invisible when
-                perfect, but essential for structure.
-              </p>
-
-              <p className="text-xs text-stone-400 mt-3 tracking-wide">
-                — from carpenter to designer
-              </p>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.6,
-            }}
-            className="mt-12 text-center"
-          >
-            <p className="text-xs text-stone-400 flex items-center justify-center gap-2 flex-wrap">
-              <span>🪵 wood carving</span>
-
-              <span className="w-1 h-1 rounded-full bg-stone-300" />
-
-              <span>🔨 carpentry</span>
-
-              <span className="w-1 h-1 rounded-full bg-stone-300" />
-
-              <span>✏️ pencil drawing</span>
-
-              <span className="w-1 h-1 rounded-full bg-stone-300" />
-
-              <span>🎨 painting</span>
-
-              <span className="w-1 h-1 rounded-full bg-stone-300" />
-
-              <span>💻 ui design</span>
-            </p>
-          </motion.div>
+            style={{ scaleY }}
+            className="h-full w-full origin-top bg-gradient-to-b from-primary to-cyan-400"
+          />
         </div>
-      </motion.section>
-    </div>
+
+        <ol className="space-y-12">
+          {CHAPTERS.map((c) => (
+            <motion.li
+              key={c.title}
+              variants={item}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+              className="relative"
+            >
+              {/* dot */}
+              <span
+                aria-hidden="true"
+                className="absolute -left-9 top-1 flex h-4 w-4 items-center justify-center"
+              >
+                {c.now && (
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/40" />
+                )}
+                <span
+                  className={`relative h-4 w-4 rounded-full border-4 border-white shadow-sm ring-2 ring-blue-100 ${KIND[c.kind].dot}`}
+                />
+              </span>
+
+              <article>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span
+                    className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${KIND[c.kind].chip}`}
+                  >
+                    {c.period}
+                  </span>
+                  {c.now && (
+                    <span className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-semibold text-green-600">
+                      Now
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="mt-3 text-xl font-bold text-text-primary">
+                  {c.title}
+                </h3>
+                <p className="text-sm font-medium text-text-muted">
+                  {c.org}
+                  {c.place ? ` · ${c.place}` : ""}
+                </p>
+
+                <p className="mt-3 text-sm leading-relaxed text-text-body">
+                  {c.text}
+                </p>
+
+                {c.points && (
+                  <ul className="mt-3 space-y-1.5">
+                    {c.points.map((p) => (
+                      <li
+                        key={p}
+                        className="flex gap-2 text-sm leading-relaxed text-text-body"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                        />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {c.sub && (
+                  <div className="mt-4 rounded-lg border border-dashed border-border-default bg-surface-muted/60 p-4">
+                    <p className="text-xs font-semibold text-primary">
+                      {c.sub.period} · {c.sub.place}
+                    </p>
+                    <p className="mt-0.5 text-sm font-semibold text-text-primary">
+                      {c.sub.title}
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-text-body">
+                      {c.sub.text}
+                    </p>
+                  </div>
+                )}
+
+                {(c.tags || c.links) && (
+                  <div className="mt-4 flex flex-wrap items-center gap-2">
+                    {c.tags?.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-md bg-surface-muted px-2.5 py-1 text-xs font-medium text-text-body"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                    {c.links?.map((l) => (
+                      <Link
+                        key={l.href}
+                        href={l.href}
+                        className="inline-flex items-center gap-1 rounded-md border border-border-default px-2.5 py-1 text-xs font-semibold text-primary transition-colors hover:bg-surface-muted"
+                      >
+                        {l.label}
+                        <MdOutlineArrowOutward />
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </article>
+            </motion.li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  5. Principles (workshop rule -> how it shows up in code)                  */
+/* -------------------------------------------------------------------------- */
+
+const PRINCIPLES = [
+  {
+    Icon: FaRulerCombined,
+    rule: "Measure twice, cut once.",
+    title: "Plan before pixels",
+    text: "Layout, spacing and tokens get settled in Figma with Auto Layout, so the build is one clean pass instead of rework.",
+  },
+  {
+    Icon: FaPuzzlePiece,
+    rule: "A good joint disappears.",
+    title: "Details that hold it together",
+    text: "Responsive behavior, states and accessibility are invisible when they work, and that’s exactly the point.",
+  },
+  {
+    Icon: FaScrewdriverWrench,
+    rule: "Know your tools by hand.",
+    title: "Depth over buzzwords",
+    text: "React, Next.js, TypeScript, Tailwind and Figma Dev Mode, used daily and understood well enough to bend when needed.",
+  },
+];
+
+function Principles() {
+  return (
+    <section aria-labelledby="principles-heading" className="mt-28">
+      <Heading
+        kicker="How I work"
+        center
+        title={
+          <span id="principles-heading">
+            Workshop rules,{" "}
+            <span className="font-medium text-text-muted">applied to code</span>
+          </span>
+        }
+      />
+
+      <motion.div
+        variants={container}
+        {...inView}
+        className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8"
+      >
+        {PRINCIPLES.map(({ Icon, rule, title, text }, i) => (
+          <motion.article
+            key={title}
+            variants={item}
+            className="group border-t-2 border-border-default pt-6 transition-colors duration-300 hover:border-primary"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-xs font-bold text-primary">
+                0{i + 1}
+              </span>
+              <Icon
+                aria-hidden="true"
+                className="text-xl text-text-muted transition-colors group-hover:text-primary"
+              />
+            </div>
+
+            <p className="mt-5 text-sm font-medium italic text-amber-600">
+              “{rule}”
+            </p>
+            <h3 className="mt-1 text-lg font-bold text-text-primary">
+              {title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-text-body">
+              {text}
+            </p>
+          </motion.article>
+        ))}
+      </motion.div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  6. Craft bento                                                            */
+/* -------------------------------------------------------------------------- */
+
+function Photo({
+  src,
+  alt,
+  caption,
+  badge,
+  className,
+}: {
+  src: string;
+  alt: string;
+  caption: string;
+  badge?: string;
+  className: string;
+}) {
+  return (
+    <motion.figure
+      variants={item}
+      whileHover={hover}
+      className={`group relative overflow-hidden rounded-xl shadow-sm transition-shadow duration-300 hover:shadow-xl ${className}`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
+      {badge && (
+        <span className="absolute left-4 top-4 rounded-md bg-white/90 px-3 py-1 text-xs font-medium text-text-primary shadow-sm backdrop-blur-sm">
+          {badge}
+        </span>
+      )}
+      <figcaption className="absolute bottom-4 left-4 text-sm font-medium text-white drop-shadow">
+        {caption}
+      </figcaption>
+    </motion.figure>
+  );
+}
+
+function StatTile({
+  big,
+  title,
+  text,
+  className = "",
+}: {
+  big: string;
+  title: string;
+  text: string;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      variants={item}
+      whileHover={hover}
+      className={`${card} flex flex-col justify-between p-5 ${className}`}
+    >
+      <p className="text-4xl font-black tracking-tight text-text-primary">
+        {big}
+      </p>
+      <div>
+        <p className="text-sm font-bold text-text-primary">{title}</p>
+        <p className="mt-0.5 text-xs leading-relaxed text-text-muted">{text}</p>
+      </div>
+    </motion.div>
+  );
+}
+
+function Craft() {
+  return (
+    <section aria-labelledby="craft-heading" className="mt-28">
+      <Heading
+        kicker="From workshop to pixels"
+        title={
+          <span id="craft-heading">
+            Made by hand<span className="text-amber-500">_</span>
+          </span>
+        }
+        sub="Wood grain, pencil strokes, and chisel marks: the foundation of my design philosophy."
+      />
+
+      <motion.div
+        variants={container}
+        {...inView}
+        className="mt-10 grid auto-rows-[170px] grid-cols-2 gap-4 lg:auto-rows-[180px] lg:grid-cols-4"
+      >
+        <Photo
+          src="/images/about/wood.jpeg"
+          alt="Wood carving detail"
+          caption="Wood carving"
+          badge="✦ Primary craft"
+          className="col-span-2 row-span-2"
+        />
+
+        <StatTile
+          big="5×"
+          title="State-level A grade"
+          text="Wood Carving, Kerala State School Sasthrolsavam"
+        />
+
+        <Photo
+          src="/images/about/wood1.jpeg"
+          alt="Carpentry workbench with tools"
+          caption="The workbench, 2019–2022"
+          className="row-span-2"
+        />
+
+        <StatTile
+          big="4+1"
+          title="District prizes"
+          text="4× first prize · 1× second prize"
+        />
+
+        <motion.div
+          variants={item}
+          whileHover={hover}
+          className={`${card} col-span-2 flex items-center gap-4 p-5`}
+        >
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-600">
+            <FaPencil aria-hidden="true" />
+          </div>
+          <div>
+            <p className="text-sm font-bold text-text-primary">
+              Pencil drawing & painting
+            </p>
+            <p className="text-xs font-medium text-amber-600">
+              Sub-district level winner
+            </p>
+            <p className="mt-1 text-xs leading-relaxed text-text-muted">
+              Realistic sketches and watercolor: visual storytelling before
+              digital tools.
+            </p>
+          </div>
+        </motion.div>
+
+        <Photo
+          src="/images/about/wood3.webp"
+          alt="Carpenter at work"
+          caption="Carpentry works"
+          className="col-span-2"
+        />
+      </motion.div>
+
+      <motion.figure
+        variants={item}
+        {...inView}
+        className="mx-auto mt-12 max-w-2xl text-center"
+      >
+        <FaQuoteLeft
+          aria-hidden="true"
+          className="mx-auto mb-3 text-2xl text-amber-400/70"
+        />
+        <blockquote className="text-lg font-medium italic leading-relaxed text-text-primary md:text-xl">
+          Every UI component is like a well-cut joint: invisible when perfect,
+          but essential for structure.
+        </blockquote>
+        <figcaption className="mt-3 text-xs tracking-wide text-text-muted">
+          from carpenter to designer
+        </figcaption>
+      </motion.figure>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  7. Closing CTA (light)                                                    */
+/* -------------------------------------------------------------------------- */
+
+const CONTACTS = [
+  {
+    href: `mailto:${EMAIL}`,
+    label: "Email",
+    handle: EMAIL,
+    Icon: FaEnvelope,
+    external: false,
+  },
+  {
+    href: LINKS.github,
+    label: "GitHub",
+    handle: "github.com/aswanthup06",
+    Icon: FaGithub,
+    external: true,
+  },
+  {
+    href: LINKS.linkedin,
+    label: "LinkedIn",
+    handle: "linkedin.com/in/aswanthup",
+    Icon: FaLinkedinIn,
+    external: true,
+  },
+  {
+    href: LINKS.behance,
+    label: "Behance",
+    handle: "behance.net/ASWANTHUP",
+    Icon: FaBehance,
+    external: true,
+  },
+  {
+    href: LINKS.whatsapp,
+    label: "WhatsApp",
+    handle: "Message me directly",
+    Icon: IoLogoWhatsapp,
+    external: true,
+  },
+];
+
+function Cta() {
+  const { openModal } = useContactModal();
+
+  return (
+    <motion.section
+      variants={item}
+      {...inView}
+      aria-labelledby="cta-heading"
+      className="relative mt-28 overflow-hidden rounded-3xl border border-border-default bg-gradient-to-br from-blue-50 via-white to-cyan-50 p-8 md:p-14"
+    >
+      {/* soft decoration */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(59,130,246,0.18) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+            maskImage:
+              "radial-gradient(ellipse 70% 80% at 85% 10%, black 10%, transparent 70%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 80% at 85% 10%, black 10%, transparent 70%)",
+          }}
+        />
+        <motion.div
+          className="absolute -left-12 -top-12 h-64 w-64 rounded-full bg-blue-300/30 blur-3xl"
+          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -bottom-16 right-1/3 h-64 w-64 rounded-full bg-cyan-300/30 blur-3xl"
+          animate={{ x: [0, -30, 0], y: [0, -20, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      <div className="relative grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+        {/* Copy */}
+        <div>
+          <p className="text-sm font-bold text-primary">
+            Let’s work together
+          </p>
+
+          <h2
+            id="cta-heading"
+            className="mt-2 text-3xl font-bold leading-tight text-text-primary md:text-5xl"
+          >
+            Let’s build something{" "}
+            <span className="bg-gradient-to-r from-blue-600 via-primary to-cyan-500 bg-clip-text text-transparent">
+              people enjoy using.
+            </span>
+          </h2>
+
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-text-body md:text-base">
+            Open to UI Developer roles, remote or on-site across India. If you
+            have a product that deserves careful interfaces, I’d like to hear
+            about it.
+          </p>
+
+          <div className="mt-7 flex flex-wrap items-center gap-3">
+            <button
+              onClick={openModal}
+              className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+            >
+              Get in Touch
+              <MdOutlineArrowOutward className="text-base" />
+            </button>
+
+            {/* <a
+              href={RESUME}
+              download
+              className="inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-3 text-sm font-medium text-text-primary transition-colors hover:bg-surface-muted"
+            >
+              <FaDownload className="text-xs" />
+              Résumé
+            </a> */}
+          </div>
+        </div>
+
+        {/* Contact list */}
+        <motion.ul variants={container} {...inView} className="border-t border-border-default">
+          {CONTACTS.map(({ href, label, handle, Icon, external }) => (
+            <motion.li key={label} variants={item}>
+              <a
+                href={href}
+                {...(external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="group flex items-center gap-4 border-b border-border-default py-4 transition-colors duration-500 hover:border-primary/40"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-text-body duration-500 transition-colors  group-hover:text-black">
+                  <Icon aria-hidden="true" />
+                </span>
+
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm font-semibold text-text-primary">
+                    {label}
+                  </span>
+                  <span className="block truncate text-xs text-text-muted">
+                    {handle}
+                  </span>
+                </span>
+
+                <MdOutlineArrowOutward
+                  aria-hidden="true"
+                  className="shrink-0 text-lg text-text-muted transition-colors group-hover:text-primary"
+                />
+              </a>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </div>
+    </motion.section>
   );
 }

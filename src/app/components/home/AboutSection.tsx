@@ -201,39 +201,39 @@ export default function AboutSection() {
         {/* Box 4 */}
         <motion.article
           variants={fadeUp}
-          whileHover={{ y: -5 }}
-          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-xl h-full"
+          whileHover={{ y: -4 }}
+          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-lg h-full"
         >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-text-primary font-bold text-lg">Figma to Code</p>
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-text-muted text-sm font-medium">
+              Featured Project
+            </p>
 
-              <p className="text-text-muted text-sm font-medium">Design Accuracy</p>
-            </div>
 
-            <div className="px-3 py-1 rounded-md bg-green-50 text-green-600 text-xs font-semibold">
-              Verified
-            </div>
           </div>
 
-          <div className="mt-6">
-            <motion.h3
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: 0.3,
-              }}
-              className="text-6xl font-black text-text-primary tracking-tight"
-            >
-              99%
-            </motion.h3>
+          <div className="mt-7">
+            <h3 className="text-2xl font-bold tracking-tight text-text-primary">
+              Built with purpose.
+            </h3>
 
-            <p className="text-text-body text-sm mt-2 leading-relaxed">
-              Pixel-perfect implementation using Figma Dev Mode, Auto Layout,
-              and scalable component systems.
+            <p className="mt-3 text-sm text-text-body leading-relaxed">
+              Zenoway — a career platform built with Next.js, connecting job
+              discovery, detailed listings, and application experiences.
             </p>
+          </div>
+
+          <div className="mt-6 pt-5 border-t border-border-default">
+            <div className="flex flex-wrap gap-2">
+              {["Next.js", "React", "TypeScript", "Tailwind CSS"].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 rounded-md bg-[#EDF7F1] text-[#087F50] text-xs font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </motion.article>
 

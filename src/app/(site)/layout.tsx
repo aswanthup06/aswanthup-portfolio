@@ -10,6 +10,7 @@ import ContactModal from "../components/ContactModal";
 import GlobalSmoothScroll from "../components/GlobalSmoothScroll";
 
 import "../globals.css";
+import CustomCursor from "../components/CustomCursor";
 
 const questrial = Questrial({
   weight: "400",
@@ -126,6 +127,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={questrial.className}>
         <GlobalSmoothScroll />
+        <CustomCursor />
         <ContactModalProvider>
           <Navbar />
 
