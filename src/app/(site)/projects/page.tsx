@@ -39,7 +39,7 @@ const PROJECTS: Project[] = [
     title: "Happy ERP",
     slug: "/projects/happy-erp",
     category: ["Web Application", "UI Design"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    image: "/images/projects/happy-erp/happy-erp-hero.webp",
     tech: ["ReactJS", "Bootstrap 5"],
   },
   {
@@ -47,7 +47,7 @@ const PROJECTS: Project[] = [
     slug: "/projects/zenoway",
     category: ["Web Application", "UI Design"],
     image:
-      "https://images.unsplash.com/photo-1582079767878-082f4300d386?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/images/projects/zenoway/zenoway1.webp",
     tech: ["NextJS", "Tailwind CSS"],
   },
   {
@@ -61,7 +61,7 @@ const PROJECTS: Project[] = [
     title: "NVOCC",
     slug: "/projects/nvocc",
     category: ["Web Application"],
-    image: "/images/projects/nvocc/ship.webp",
+    image: "/images/projects/nvocc/nvocc-hero.webp",
     tech: ["NextJS", "Tailwind CSS"],
   },
   {

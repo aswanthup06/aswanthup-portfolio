@@ -11,7 +11,7 @@ const projects = [
     title: "Happy ERP",
     description:
       "A complete ERP dashboard system designed for managing business operations with clean UI architecture, scalable layouts, and responsive data-driven interfaces.",
-    image: "/images/projects/happy-erp/happy2.webp",
+    image: "/images/projects/happy-erp/happy-erp-hero.webp",
     link: "/projects/happy-erp",
     tech: ["React", "ERP", "Dashboard"],
     type: "Dashboard & Website",
@@ -21,7 +21,7 @@ const projects = [
     title: "ENVOCC",
     description:
       "A modern logistics and shipping management platform focused on improving operational workflows, dashboard usability, and enterprise-level user experience.",
-    image: "/images/projects/nvocc/nvo.webp",
+    image: "/images/projects/nvocc/nvocc-hero.webp",
     link: "/projects/nvocc",
     tech: ["React", "Next.js", "Tailwind"],
     type: "Dashboard",
