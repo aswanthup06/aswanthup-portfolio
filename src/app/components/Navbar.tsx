@@ -112,8 +112,8 @@ export default function Navbar() {
   const navLinkClass = (path: string): string =>
     `font-medium text-[14px] transition-colors duration-200 ${
       pathname === path
-        ? "text-blue-500 font-semibold"
-        : "text-gray-500 hover:text-gray-900"
+        ? "text-primary font-semibold"
+        : "text-text-muted hover:text-text-primary"
     }`;
 
   const closeMenu = (): void => {
@@ -140,7 +140,7 @@ export default function Navbar() {
           delay: 0.1,
           ease: "easeOut",
         }}
-        className="relative border shadow-2xl bg-white border-gray-200 rounded-lg h-14 flex items-center justify-between px-2 w-full md:w-fit mt-4 md:gap-24"
+        className="relative border shadow-2xl bg-surface-card border-border-default rounded-lg h-14 flex items-center justify-between px-2 w-full md:w-fit mt-4 md:gap-24"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
@@ -205,8 +205,8 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <motion.button
-            initial={{ opacity: 0, x: 15 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.4,
               delay: 0.3,
@@ -222,16 +222,12 @@ export default function Navbar() {
             onClick={openModal}
             className="
               hidden md:flex
-              bg-linear-to-b
-              from-blue-400 to-blue-600
+              btn-primary
               rounded-md
-              text-white
-              h-10 w-36
+              h-10 px-5
               font-medium text-[14px]
               items-center gap-2 justify-center
-              shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-              hover:from-blue-500 hover:to-blue-700
-              transition-all duration-200
+              hover:shadow-md hover:shadow-blue-500/20
               cursor-pointer
             "
           >
@@ -263,15 +259,11 @@ export default function Navbar() {
             aria-expanded={menuOpen}
             className="
               md:hidden
-              bg-linear-to-b
-              from-blue-400 to-blue-600
+              btn-primary
               rounded-md
-              text-white
               h-10 w-10
               flex items-center justify-center
-              shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-              hover:from-blue-500 hover:to-blue-700
-              transition-all duration-200
+              hover:shadow-md hover:shadow-blue-500/20
               cursor-pointer
             "
           >
@@ -310,7 +302,7 @@ export default function Navbar() {
               exit="exit"
               className="
                 absolute top-16 left-0 w-full
-                bg-white border border-gray-200
+                bg-surface-card border border-border-default
                 rounded-lg shadow-xl p-4
                 flex flex-col gap-4
                 md:hidden

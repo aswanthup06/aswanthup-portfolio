@@ -112,20 +112,22 @@ export const fadeIn: Variants = {
 };
 
 export const driftLeft: Variants = {
-  hidden: { opacity: 0, x: 20 },
+  hidden: { opacity: 0, y: 18, filter: "blur(4px)" },
   show: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.5, ease: PREMIUM_EASE },
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, ease: PREMIUM_EASE },
   },
 };
 
 export const driftRight: Variants = {
-  hidden: { opacity: 0, x: -20 },
+  hidden: { opacity: 0, y: 18, filter: "blur(4px)" },
   show: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.5, ease: PREMIUM_EASE },
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, ease: PREMIUM_EASE },
   },
 };
 

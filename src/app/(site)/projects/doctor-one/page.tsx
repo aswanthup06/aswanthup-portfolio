@@ -435,8 +435,8 @@ export default function DoctorOnePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Visual Showcase */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: PREMIUM_EASE }}
               className="relative"
@@ -458,8 +458,8 @@ export default function DoctorOnePage() {
 
             {/* Text & Deliverables List */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: PREMIUM_EASE }}
             >
@@ -479,7 +479,7 @@ export default function DoctorOnePage() {
                 {deliverables.map((item, idx) => (
                   <motion.div
                     key={idx}
-                    whileHover={{ x: 3, transition: SPRING_SMOOTH }}
+                    whileHover={{ y: -2, transition: SPRING_SMOOTH }}
                     className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-gray-100 shadow-2xs hover:border-blue-200 transition-colors"
                   >
                     <FaCheckCircle className="text-blue-500 shrink-0 text-sm" />

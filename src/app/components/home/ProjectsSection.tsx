@@ -55,30 +55,36 @@ function FeaturedProject() {
         overflow-hidden
         rounded-2xl
         border
-        border-gray-200
-        bg-white
+        border-border-default
+        bg-surface-card
         mt-14
       "
     >
       <div className="relative h-64 lg:h-full min-h-[320px] overflow-hidden">
-        <video
-          className="
-            w-full
-            h-full
-            object-cover
-            transition-transform
-            duration-700
-            group-hover:scale-105
-          "
-          src="/assets/zenoway/zenoway.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-        />
+        <Link
+          href="/projects/zenoway"
+          aria-label="View Zenoway case study"
+          className="block w-full h-full cursor-pointer"
+        >
+          <video
+            className="
+              w-full
+              h-full
+              object-cover
+              transition-transform
+              duration-700
+              group-hover:scale-105
+            "
+            src="/assets/zenoway/zenoway.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          />
 
-        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent lg:bg-linear-to-r" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent lg:bg-linear-to-r" />
+        </Link>
 
         <span
           className="
@@ -95,6 +101,7 @@ function FeaturedProject() {
             text-xs
             text-white
             tracking-wide
+            pointer-events-none
           "
         >
           Own Project
@@ -110,7 +117,7 @@ function FeaturedProject() {
             max-w-[calc(100%-2rem)]
             px-4
             py-2
-            rounded-full
+            rounded-md
             bg-white/10
             border
             border-white/25
@@ -119,6 +126,7 @@ function FeaturedProject() {
             flex
             items-center
             gap-2
+            pointer-events-none
           "
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
@@ -145,6 +153,7 @@ function FeaturedProject() {
             justify-center
             hover:scale-110
             duration-300
+            z-10
           "
         >
           <MdOutlineArrowOutward aria-hidden="true" className="text-lg" />
@@ -152,15 +161,20 @@ function FeaturedProject() {
       </div>
 
       <div className="flex flex-col justify-center p-8 lg:p-10">
-        <p className="text-xs uppercase tracking-widest text-gray-400">
+        <p className="text-xs uppercase tracking-widest text-text-caption">
           Case Study
         </p>
 
-        <h3 className="text-gray-900 font-bold text-2xl md:text-3xl mt-2">
-          zenoway.online
-        </h3>
+        <Link
+          href="/projects/zenoway"
+          className="inline-block w-fit mt-2 group-hover:text-primary transition-colors"
+        >
+          <h3 className="text-text-primary group-hover:text-primary font-bold text-2xl md:text-3xl transition-colors">
+            zenoway.online
+          </h3>
+        </Link>
 
-        <p className="text-gray-500 text-sm md:text-base leading-relaxed mt-4 max-w-md">
+        <p className="text-text-muted text-sm md:text-base leading-relaxed mt-4 max-w-md">
           A career portal that skips accounts and application forms in favor of
           one action &mdash; a direct email to HR. Designed and built end to
           end, from job discovery through the admin dashboard.
@@ -174,11 +188,11 @@ function FeaturedProject() {
                 px-3
                 py-1
                 rounded-md
-                bg-gray-100
+                bg-surface-muted
                 border
-                border-gray-200
+                border-border-default
                 text-xs
-                text-gray-700
+                text-text-secondary
                 tracking-wide
               "
             >
@@ -195,11 +209,11 @@ function FeaturedProject() {
                 px-3
                 py-1
                 rounded-md
-                bg-blue-50
+                bg-primary-subtle
                 border
                 border-blue-100
                 text-xs
-                text-blue-700
+                text-primary
                 tracking-wide
               "
             >
@@ -276,7 +290,7 @@ export default function ProjectsSection() {
               </span>
             </p>
 
-            <p className="text-gray-500 text-sm md:text-base leading-relaxed mt-5 max-w-xl">
+            <p className="text-text-muted text-sm md:text-base leading-relaxed mt-5 max-w-xl">
               A collection of selected projects focused on frontend development,
               UI engineering, responsive experiences, and scalable product
               design across multiple industries.
@@ -288,10 +302,8 @@ export default function ProjectsSection() {
             aria-label="View all projects"
             className="
               group
-              bg-gradient-to-b
-              from-blue-400
-              to-blue-600
-              rounded-lg
+              btn-primary
+              rounded-md
               text-white
               h-11
               px-6
@@ -302,10 +314,7 @@ export default function ProjectsSection() {
               gap-2
               w-fit
               justify-center
-              shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-              hover:from-blue-500
-              hover:to-blue-700
-              active:translate-y-px
+              shadow-md shadow-blue-500/20
               transition-all
               duration-300
             "
@@ -346,27 +355,33 @@ export default function ProjectsSection() {
                     duration: 0.7,
                     ease: "easeOut",
                   }}
-                  className="overflow-hidden rounded-xl relative border border-gray-200"
+                  className="overflow-hidden rounded-xl relative border border-border-default"
                 >
-                  <Image
-                    className="
-                      w-full
-                      h-64
-                      object-cover
-                      transition-transform
-                      duration-700
-                      group-hover:scale-105
-                    "
-                    src={project.image}
-                    alt={`${project.title} UI Project Preview`}
-                    width={600}
-                    height={400}
-                    loading="lazy"
-                  />
+                  <Link
+                    href={project.link}
+                    aria-label={`View ${project.title} project`}
+                    className="block relative cursor-pointer"
+                  >
+                    <Image
+                      className="
+                        w-full
+                        h-64
+                        object-cover
+                        transition-transform
+                        duration-700
+                        group-hover:scale-105
+                      "
+                      src={project.image}
+                      alt={`${project.title} UI Project Preview`}
+                      width={600}
+                      height={400}
+                      loading="lazy"
+                    />
 
-                  <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent" />
+                  </Link>
 
-                  <div className="absolute top-4 left-4 flex gap-2 flex-wrap">
+                  <div className="absolute top-4 left-4 flex gap-2 flex-wrap pointer-events-none">
                     {project.tech.map((item, i) => (
                       <span
                         key={i}
@@ -405,6 +420,7 @@ export default function ProjectsSection() {
                       justify-center
                       hover:scale-110
                       duration-300
+                      z-10
                     "
                   >
                     <MdOutlineArrowOutward className="text-lg" />
@@ -415,11 +431,16 @@ export default function ProjectsSection() {
               <div className="pt-5">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-gray-900 font-bold text-xl">
-                      {project.title}
-                    </h3>
+                    <Link
+                      href={project.link}
+                      className="inline-block group-hover:text-primary transition-colors"
+                    >
+                      <h3 className="text-text-primary group-hover:text-primary font-bold text-xl transition-colors">
+                        {project.title}
+                      </h3>
+                    </Link>
 
-                    <p className="text-gray-500 text-sm leading-relaxed mt-3">
+                    <p className="text-text-muted text-sm leading-relaxed mt-3">
                       {project.description}
                     </p>
                   </div>
@@ -427,11 +448,11 @@ export default function ProjectsSection() {
 
                 <div className="flex items-center justify-between pt-5">
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-gray-400">
+                    <p className="text-xs uppercase tracking-widest text-text-caption">
                       {project.type}
                     </p>
 
-                    <p className="text-sm font-semibold text-gray-900 mt-1">
+                    <p className="text-sm font-semibold text-text-primary mt-1">
                       {project.role}
                     </p>
                   </div>

@@ -45,10 +45,10 @@ export default function FullStackDeveloper() {
             {/* Title Section */}
             <div>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full">
+                <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-md">
                   Education
                 </span>
-                <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
+                <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-md">
                   Course Poster
                 </span>
               </div>

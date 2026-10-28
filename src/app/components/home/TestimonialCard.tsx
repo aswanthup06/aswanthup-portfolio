@@ -20,7 +20,7 @@ export default function TestimonialCard({
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.25 }}
-      className="bg-white rounded-xl border border-gray-200 p-6 flex flex-col h-full hover:shadow-md transition-shadow duration-200"
+      className="bg-surface-card rounded-xl border border-border-default p-6 flex flex-col h-full hover:shadow-md transition-shadow duration-200"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
@@ -36,18 +36,18 @@ export default function TestimonialCard({
         />
       </motion.div>
 
-      <p className="text-sm text-gray-700 leading-relaxed flex-1">
+      <p className="text-sm text-text-muted leading-relaxed flex-1">
         &ldquo;{testimonial.quote}&rdquo;
       </p>
 
       <div className="mt-auto pt-6">
-        <div className="w-full h-px bg-gray-100 mb-4" />
+        <div className="w-full h-px bg-border-subtle mb-4" />
 
-        <p className="text-sm font-semibold text-gray-900">
+        <p className="text-sm font-semibold text-text-primary">
           {testimonial.name}
         </p>
 
-        <p className="text-xs text-gray-500 mt-0.5">
+        <p className="text-xs text-text-muted mt-0.5">
           {testimonial.role}
         </p>
       </div>

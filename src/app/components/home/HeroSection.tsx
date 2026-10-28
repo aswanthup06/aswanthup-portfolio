@@ -18,6 +18,7 @@ import {
   SPRING_SMOOTH,
   SPRING_BOUNCY,
 } from "../../lib/animations";
+import { Button } from "../ui";
 
 export default function HeroSection() {
   const { openModal } = useContactModal();
@@ -29,9 +30,9 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.6, ease: PREMIUM_EASE }}
-        className="flex items-center justify-center text-blue-500 font-semibold text-sm md:text-md lg:text-lg"
+        className="flex items-center justify-center text-primary font-semibold text-sm md:text-md lg:text-lg mb-3 tracking-wide"
       >
-        Personal Portfolio
+        UI Developer & Designer Portfolio
       </motion.div>
 
       {/* Heading - LCP Element */}
@@ -44,8 +45,8 @@ export default function HeroSection() {
           ease: PREMIUM_EASE,
         }}
       >
-        <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-semibold mb-4 text-gray-700 leading-tight">
-          Building <span className="text-blue-500">User-Centric</span>
+        <h1 className="text-3xl md:text-4xl lg:text-6xl text-center font-semibold mb-4 text-text-secondary leading-tight">
+          Building <span className="text-primary">User-Centric</span>
           <span className="block mt-1">Web Experiences</span>
         </h1>
       </motion.div>
@@ -61,7 +62,7 @@ export default function HeroSection() {
         }}
         className="flex justify-center"
       >
-        <p className="text-md text-center text-gray-500 md:w-7/12 text-sm md:text-lg leading-relaxed">
+        <p className="text-md text-center text-text-muted md:w-7/12 text-sm md:text-lg leading-relaxed">
           Bridging UI/UX excellence with clean, performant code. I specialize
           in transforming complex workflows into intuitive, user-centric web
           applications
@@ -79,34 +80,14 @@ export default function HeroSection() {
         }}
         className="flex items-center justify-center mt-6"
       >
-        <motion.button
+        <Button
           onClick={openModal}
-          whileHover={{ scale: 1.04, y: -2, transition: SPRING_SMOOTH }}
-          whileTap={{ scale: 0.96, transition: SPRING_BOUNCY }}
-          className="
-            bg-gradient-to-b
-            from-blue-400
-            to-blue-600
-            rounded-md
-            text-white
-            h-10
-            w-36
-            font-medium
-            text-[14px]
-            flex
-            items-center
-            gap-2
-            justify-center
-            shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-            hover:from-blue-500
-            hover:to-blue-700
-            transition-colors
-            cursor-pointer
-          "
+          size="md"
+          icon={<MdOutlineArrowOutward className="text-base" />}
+          className="shadow-md shadow-blue-500/20 px-6"
         >
           Get in Touch
-          <MdOutlineArrowOutward aria-hidden="true" />
-        </motion.button>
+        </Button>
       </motion.div>
 
       {/* Technologies */}
@@ -202,10 +183,10 @@ function TechItem({
       transition={{
         duration: 0.3,
       }}
-      className="flex items-center gap-2 text-sm font-medium text-gray-600 cursor-default"
+      className="flex items-center gap-2 text-sm font-medium text-text-body hover:text-text-primary transition-colors cursor-default"
     >
       {icon}
-      {name}
+      <span>{name}</span>
     </motion.div>
   );
 }

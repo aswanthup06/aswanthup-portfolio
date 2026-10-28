@@ -54,11 +54,11 @@ export default function TestimonialSection() {
         viewport={{ once: true, amount: 0.3 }}
         className="max-w-6xl mx-auto mb-12"
       >
-        <h2 className="font-bold text-sm md:text-base text-gray-900">
+        <h2 className="font-bold text-sm md:text-base text-text-primary">
           Testimonials
         </h2>
 
-        <p className="text-2xl md:text-3xl text-slate-500/60 leading-snug">
+        <p className="text-2xl md:text-3xl text-text-muted/60 leading-snug">
           Real feedback from people who experienced my work firsthand.
         </p>
       </motion.div>
@@ -105,7 +105,7 @@ export default function TestimonialSection() {
                 inline-flex
                 items-center
                 gap-2
-                rounded-full
+                rounded-md
                 border
                 border-white/10
                 bg-white/5
@@ -123,8 +123,8 @@ export default function TestimonialSection() {
                 ].map(([src, alt], index) => (
                   <motion.div
                     key={src}
-                    initial={{ opacity: 0, x: 10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{
                       duration: 0.4,
@@ -194,9 +194,9 @@ export default function TestimonialSection() {
                 text-sm
                 font-semibold
                 px-6
-                py-4
-                rounded-2xl
-                hover:bg-gray-200
+                py-3.5
+                rounded-md
+                hover:bg-gray-100
                 transition-colors
                 duration-200
               "

@@ -24,11 +24,11 @@ export default function WhyAswanthSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="max-w-2xl"
         >
-          <h2 className="font-bold text-sm md:text-base text-blue-600">
+          <h2 className="font-bold text-sm md:text-base text-primary">
             Why Aswanth?
           </h2>
 
-          <p className="text-3xl text-slate-500/60 leading-snug mt-2 font-medium">
+          <p className="text-3xl text-text-muted/60 leading-snug mt-2 font-medium">
             Blending UI design and development into seamless products.
           </p>
         </motion.div>
@@ -38,12 +38,12 @@ export default function WhyAswanthSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
-          className="bg-gray-600/10 w-full mt-10 p-2 grid md:grid-cols-2 lg:grid-cols-3 gap-2 rounded-2xl"
+          className="bg-gray-600/10 w-full mt-10 p-2 grid md:grid-cols-2 lg:grid-cols-3 gap-2 rounded-xl"
         >
           <motion.div
             variants={fadeUp}
             whileHover={{ y: -5 }}
-            className="bg-white rounded-xl overflow-hidden relative h-200 sm:min-h-170 lg:h-full group"
+            className="bg-surface-card rounded-xl overflow-hidden relative h-200 sm:min-h-170 lg:h-full group"
           >
             <div className="absolute inset-0 z-10 p-6 flex flex-col justify-between bg-gradient-to-b from-black/20 via-black/10 to-black/60 text-white transition-all duration-500 group-hover:backdrop-blur-sm">
               <div>
@@ -105,7 +105,7 @@ export default function WhyAswanthSection() {
                   >
                     <Link
                       href="/about"
-                      className="w-11 h-11 rounded-full bg-white text-black flex items-center justify-center cursor-pointer"
+                      className="w-11 h-11 rounded-md bg-white text-black flex items-center justify-center cursor-pointer shadow-sm"
                     >
                       <MdOutlineArrowOutward className="text-lg" />
                     </Link>
@@ -132,11 +132,11 @@ export default function WhyAswanthSection() {
             <motion.div
               variants={fadeUp}
               whileHover={{ y: -5 }}
-              className="p-5 bg-white rounded-xl border border-gray-200 flex flex-col justify-between overflow-hidden"
+              className="p-5 bg-surface-card rounded-xl border border-border-default flex flex-col justify-between overflow-hidden"
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-xs tracking-widest uppercase text-blue-500 font-semibold">
+                  <p className="text-xs tracking-widest uppercase text-primary font-semibold">
                     Figma To Code
                   </p>
 
@@ -154,12 +154,12 @@ export default function WhyAswanthSection() {
                   </motion.p>
                 </div>
 
-                <div className="px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-semibold">
+                <div className="px-3 py-1 rounded-md bg-green-50 text-green-600 text-xs font-semibold">
                   Verified
                 </div>
               </div>
 
-              <p className="text-sm text-gray-500 leading-relaxed mt-4">
+              <p className="text-sm text-text-muted leading-relaxed mt-4">
                 Pixel-perfect frontend implementation using Figma Dev Mode,
                 Auto Layout, reusable components, and responsive UI systems.
               </p>
@@ -168,7 +168,7 @@ export default function WhyAswanthSection() {
             <motion.div
               variants={fadeUp}
               whileHover={{ y: -5 }}
-              className="rounded-xl overflow-hidden relative h-full border border-gray-200"
+              className="rounded-xl overflow-hidden relative h-full border border-border-default"
             >
               <div className="absolute inset-0 p-5 h-full flex flex-col justify-between w-full hover:backdrop-blur-xs duration-500 z-10">
                 <div className="w-fit px-3 py-1 rounded-sm bg-white/10 backdrop-blur-md text-white text-xs tracking-widest uppercase">
@@ -243,22 +243,22 @@ export default function WhyAswanthSection() {
             <motion.div
               variants={fadeUp}
               whileHover={cardHover}
-              className="bg-white rounded-xl p-5 border border-gray-200 flex flex-col justify-between"
+              className="bg-surface-card rounded-xl p-5 border border-border-default flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs tracking-widest uppercase text-blue-500 font-semibold">
+                    <p className="text-xs tracking-widest uppercase text-primary font-semibold">
                       Redesign Skill
                     </p>
 
-                    <h3 className="text-2xl font-bold text-black/80 mt-4 leading-tight">
+                    <h3 className="text-2xl font-bold text-text-primary mt-4 leading-tight">
                       Modernizing Existing Products
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-500 leading-relaxed mt-5">
+                <p className="text-sm text-text-muted leading-relaxed mt-5">
                   I redesign outdated products with cleaner layouts, better UX
                   flow, modern UI patterns, and improved responsiveness.
                 </p>
@@ -270,14 +270,14 @@ export default function WhyAswanthSection() {
               >
                 <motion.div
                   variants={fadeUp}
-                  className="border border-gray-200 bg-gray-50 rounded-xl p-4 flex items-center justify-between gap-2"
+                  className="border border-border-default bg-surface-subtle rounded-xl p-4 flex items-center justify-between gap-2"
                 >
                   <div>
-                    <h4 className="text-lg font-bold text-black/80">
+                    <h4 className="text-lg font-bold text-text-primary">
                       Existing Website
                     </h4>
 
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-text-muted mt-1">
                       Old interface with outdated experience.
                     </p>
                   </div>
@@ -295,7 +295,7 @@ export default function WhyAswanthSection() {
 
                 <motion.div
                   variants={fadeUp}
-                  className="border border-gray-200 rounded-xl overflow-hidden"
+                  className="border border-border-default rounded-xl overflow-hidden"
                 >
                   <img
                     src="/images/home/kannur.webp"
@@ -305,14 +305,14 @@ export default function WhyAswanthSection() {
 
                 <motion.div
                   variants={fadeUp}
-                  className="border border-blue-100 bg-blue-50 rounded-xl p-4 flex items-center justify-between gap-2"
+                  className="border border-blue-100 bg-primary-subtle rounded-xl p-4 flex items-center justify-between gap-2"
                 >
                   <div>
-                    <h4 className="text-lg font-bold text-black/80">
+                    <h4 className="text-lg font-bold text-text-primary">
                       Redesigned UI
                     </h4>
 
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-text-muted mt-1">
                       Modern visuals with improved usability.
                     </p>
                   </div>

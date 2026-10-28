@@ -4,10 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { FaLinkedinIn, FaBehance } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
-import { MdOutlineArrowOutward } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
 import { motion, type Variants } from "framer-motion";
-import { useContactModal } from "../context/ContactModalContext";
 
 const containerVariants: Variants = {
   hidden: {
@@ -49,8 +47,6 @@ const itemVariants: Variants = {
 };
 
 export default function Footer() {
-  const { openModal } = useContactModal();
-
   return (
     <footer className="w-full pt-24 pb-6">
       <div className="px-6">
@@ -59,7 +55,7 @@ export default function Footer() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-6xl mx-auto relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-[0_10px_60px_rgba(0,0,0,0.06)]"
+          className="max-w-6xl mx-auto relative overflow-hidden rounded-xl border border-border-default bg-surface-card shadow-[0_10px_60px_rgba(0,0,0,0.06)]"
         >
           <motion.div
             animate={{
@@ -106,11 +102,11 @@ export default function Footer() {
                   </motion.div>
 
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900">
+                    <h4 className="text-lg font-semibold text-text-primary">
                       Aswanth UP
                     </h4>
 
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-text-muted">
                       UI Developer & Designer
                     </p>
                   </div>
@@ -118,65 +114,26 @@ export default function Footer() {
 
                 <motion.p
                   variants={itemVariants}
-                  className="text-sm leading-relaxed text-gray-500 mt-6"
+                  className="text-sm leading-relaxed text-text-muted mt-6"
                 >
                   Passionate about crafting clean digital experiences through
                   frontend development, modern UI systems, responsive
                   interfaces, and scalable design thinking.
                 </motion.p>
-
-                <motion.button
-                  variants={itemVariants}
-                  whileHover={{
-                    scale: 1.04,
-                    y: -2,
-                  }}
-                  whileTap={{
-                    scale: 0.97,
-                  }}
-                  onClick={openModal}
-                  className="
-                    mt-7
-                    w-fit
-                    flex
-                    items-center
-                    gap-2
-                    bg-black
-                    text-white
-                    px-5
-                    py-3
-                    rounded-lg
-                    text-sm
-                    hover:bg-blue-600
-                    duration-300
-                  "
-                >
-                  Let’s Work Together
-                  <motion.span
-                    whileHover={{
-                      x: 3,
-                      y: -3,
-                    }}
-                  >
-                    <MdOutlineArrowOutward />
-                  </motion.span>
-                </motion.button>
               </motion.div>
-
               <motion.div
                 variants={contentVariants}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
               >
                 <motion.div variants={itemVariants}>
-                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                  <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider">
                     Navigation
                   </h3>
-
                   <ul className="space-y-4 mt-5 text-sm">
                     <li>
                       <Link
                         href="/"
-                        className="text-gray-500 hover:text-blue-500 transition"
+                        className="text-text-muted hover:text-primary transition"
                       >
                         Home
                       </Link>
@@ -185,7 +142,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/about"
-                        className="text-gray-500 hover:text-blue-500 transition"
+                        className="text-text-muted hover:text-primary transition"
                       >
                         About
                       </Link>
@@ -194,7 +151,7 @@ export default function Footer() {
                     <li>
                       <Link
                         href="/projects"
-                        className="text-gray-500 hover:text-blue-500 transition"
+                        className="text-text-muted hover:text-primary transition"
                       >
                         Projects
                       </Link>
@@ -203,11 +160,11 @@ export default function Footer() {
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                  <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider">
                     Services
                   </h3>
 
-                  <ul className="space-y-4 mt-5 text-sm text-gray-500">
+                  <ul className="space-y-4 mt-5 text-sm text-text-muted">
                     <li>UI Development</li>
                     <li>Frontend Engineering</li>
                     <li>Responsive Web Design</li>
@@ -216,7 +173,7 @@ export default function Footer() {
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                  <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider">
                     Connect
                   </h3>
 
@@ -237,12 +194,12 @@ export default function Footer() {
                         h-8
                         w-8
                         rounded-full
-                        bg-gray-100
+                        bg-surface-muted
                         flex
                         items-center
                         justify-center
-                        text-gray-600
-                        hover:bg-blue-500
+                        text-text-body
+                        hover:bg-primary
                         hover:text-white
                         transition
                       "
@@ -266,11 +223,11 @@ export default function Footer() {
                         h-8
                         w-8
                         rounded-full
-                        bg-gray-100
+                        bg-surface-muted
                         flex
                         items-center
                         justify-center
-                        text-gray-600
+                        text-text-body
                         hover:bg-green-500
                         hover:text-white
                         transition
@@ -295,12 +252,12 @@ export default function Footer() {
                         h-8
                         w-8
                         rounded-full
-                        bg-gray-100
+                        bg-surface-muted
                         flex
                         items-center
                         justify-center
-                        text-gray-600
-                        hover:bg-blue-500
+                        text-text-body
+                        hover:bg-primary
                         hover:text-white
                         transition
                       "
@@ -314,21 +271,21 @@ export default function Footer() {
 
             <motion.div
               variants={itemVariants}
-              className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4"
+              className="mt-10 pt-6 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4"
             >
-              <p className="text-sm text-gray-500 text-center sm:text-left">
+              <p className="text-sm text-text-muted text-center sm:text-left">
                 © {new Date().getFullYear()} Aswanth UP. All rights reserved.
               </p>
 
-              <div className="flex items-center gap-5 text-sm text-gray-500">
+              <div className="flex items-center gap-5 text-sm text-text-muted">
                 <Link
                   href="/privacy-policy"
-                  className="hover:text-blue-500 transition"
+                  className="hover:text-primary transition"
                 >
                   Privacy Policy
                 </Link>
 
-                <Link href="/terms" className="hover:text-blue-500 transition">
+                <Link href="/terms" className="hover:text-primary transition">
                   Terms
                 </Link>
               </div>

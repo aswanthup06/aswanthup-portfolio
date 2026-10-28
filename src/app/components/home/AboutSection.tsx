@@ -24,11 +24,11 @@ export default function AboutSection() {
         className="md:flex items-end justify-between w-full max-w-6xl"
       >
         <div>
-          <h2 className="font-bold text-sm md:text-base text-gray-900">
+          <h2 className="font-bold text-sm md:text-base text-text-primary">
             About Me
           </h2>
 
-          <p className="text-3xl text-slate-500/60">
+          <p className="text-3xl text-text-muted/60">
             Designing Seamless User Experiences
           </p>
         </div>
@@ -37,29 +37,18 @@ export default function AboutSection() {
           href="/about"
           className="
             md:mt-0 mt-3
-            bg-gradient-to-b
-            from-blue-400
-            to-blue-600
+            btn-primary
             rounded-md
-            text-white
-            h-10
-            w-36
-            font-medium
-            text-[14px]
-            flex
-            items-center
-            gap-2
-            justify-center
-            shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-            hover:from-blue-500
-            hover:to-blue-700
-            active:translate-y-px
-            transition-all
-            duration-200
+            px-6 py-2.5
+            text-sm font-medium
+            inline-flex items-center gap-2
+            hover:shadow-md hover:shadow-blue-500/20
+            transition-all duration-300
+            cursor-pointer
           "
         >
-          Learn More
-          <MdOutlineArrowOutward />
+          <span>Learn More</span>
+          <MdOutlineArrowOutward className="text-base" />
         </Link>
       </motion.div>
 
@@ -76,10 +65,10 @@ export default function AboutSection() {
           variants={fadeUp}
           whileHover={{ y: -5 }}
           transition={{ duration: 0.25 }}
-          className="bg-white lg:row-span-3 border border-gray-200 rounded-xl p-6 hover:shadow-xl flex flex-col justify-between duration-500"
+          className="bg-surface-card lg:row-span-3 border border-border-default rounded-xl p-6 hover:shadow-xl flex flex-col justify-between duration-500"
         >
           <div>
-            <div className="w-20 h-20 border border-gray-200 rounded-full flex items-center justify-center mb-4 overflow-hidden">
+            <div className="w-20 h-20 border border-border-default rounded-full flex items-center justify-center mb-4 overflow-hidden">
               <Image
                 src="/images/about/me.webp"
                 alt="Aswanth UP UI Developer"
@@ -90,15 +79,15 @@ export default function AboutSection() {
               />
             </div>
 
-            <h3 className="text-gray-900 font-bold text-xl leading-tight mb-2">
+            <h3 className="text-text-primary font-bold text-xl leading-tight mb-2">
               Aswanth UP
             </h3>
 
-            <p className="text-blue-600 text-sm font-medium mb-4">
+            <p className="text-primary text-sm font-medium mb-4">
               UI Developer • React Frontend
             </p>
 
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-text-muted text-sm leading-relaxed">
               UI Developer with 3+ years of experience building scalable,
               responsive, and pixel-perfect interfaces using React, Next.js,
               Tailwind CSS, and Figma Dev Mode.
@@ -108,7 +97,7 @@ export default function AboutSection() {
               {["React", "Next.js", "Tailwind", "Figma"].map((item) => (
                 <span
                   key={item}
-                  className="px-3 py-1 rounded-sm bg-gray-100 text-xs text-gray-700"
+                  className="px-3 py-1 rounded-sm bg-surface-muted text-xs text-text-secondary"
                 >
                   {item}
                 </span>
@@ -116,10 +105,10 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="pt-6 border-t border-gray-100 mt-6">
-            <p className="text-sm text-gray-400">Based in Kerala, India</p>
+          <div className="pt-6 border-t border-border-subtle mt-6">
+            <p className="text-sm text-text-caption">Based in Kerala, India</p>
 
-            <p className="text-sm text-gray-900 font-medium mt-1">
+            <p className="text-sm text-text-primary font-medium mt-1">
               Open to Remote Opportunities
             </p>
           </div>
@@ -129,34 +118,34 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-xl flex flex-col justify-between lg:row-span-2 h-full"
+          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-xl flex flex-col justify-between lg:row-span-2 h-full"
         >
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="text-8xl font-black text-gray-900 tracking-tighter">
+              <h3 className="text-8xl font-black text-text-primary tracking-tighter">
                 600
               </h3>
 
-              <h3 className="text-5xl font-black text-gray-900 tracking-tighter h-fit">
+              <h3 className="text-5xl font-black text-text-primary tracking-tighter h-fit">
                 <FaPlus />
               </h3>
             </div>
 
-            <p className="text-gray-900 font-bold text-xl mt-2">
+            <p className="text-text-primary font-bold text-xl mt-2">
               Screens Developed
             </p>
           </div>
 
           <div className="mt-6 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-gray-500 text-sm">
+              <span className="text-text-muted text-sm">
                 Responsive UI Systems
               </span>
 
-              <span className="text-gray-900 font-semibold">100%</span>
+              <span className="text-text-primary font-semibold">100%</span>
             </div>
 
-            <div className="w-full h-2 rounded-full bg-gray-100 overflow-hidden">
+            <div className="w-full h-2 rounded-full bg-surface-muted overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
@@ -170,7 +159,7 @@ export default function AboutSection() {
               />
             </div>
 
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-text-caption text-sm leading-relaxed">
               Built scalable dashboards, SaaS platforms, healthcare interfaces,
               and reusable component systems across web and mobile applications.
             </p>
@@ -181,7 +170,7 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-white border rounded-xl border-gray-200 hover:shadow-xl p-6 flex items-center gap-3 h-fit"
+          className="bg-surface-card border rounded-xl border-border-default hover:shadow-xl p-6 flex items-center gap-3 h-fit"
         >
           <motion.div
             animate={{
@@ -198,9 +187,9 @@ export default function AboutSection() {
           </motion.div>
 
           <div>
-            <p className="text-gray-900 font-bold text-lg">Fast Delivery</p>
+            <p className="text-text-primary font-bold text-lg">Fast Delivery</p>
 
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-text-caption text-sm leading-relaxed">
               Rapid Figma-to-code workflow
             </p>
           </div>
@@ -210,16 +199,16 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-xl h-full"
+          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-xl h-full"
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-900 font-bold text-lg">Figma to Code</p>
+              <p className="text-text-primary font-bold text-lg">Figma to Code</p>
 
-              <p className="text-gray-400 text-sm">Design Accuracy</p>
+              <p className="text-text-caption text-sm">Design Accuracy</p>
             </div>
 
-            <div className="px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-semibold">
+            <div className="px-3 py-1 rounded-md bg-green-50 text-green-600 text-xs font-semibold">
               Verified
             </div>
           </div>
@@ -233,12 +222,12 @@ export default function AboutSection() {
                 duration: 0.6,
                 delay: 0.3,
               }}
-              className="text-6xl font-black text-gray-900 tracking-tight"
+              className="text-6xl font-black text-text-primary tracking-tight"
             >
               99%
             </motion.h3>
 
-            <p className="text-gray-400 text-sm mt-2">
+            <p className="text-text-caption text-sm mt-2">
               Pixel-perfect implementation using Figma Dev Mode, Auto Layout,
               and scalable component systems.
             </p>
@@ -249,12 +238,12 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-white rounded-xl px-6 py-5 border border-gray-200 hover:shadow-xl flex items-center justify-between lg:col-span-2"
+          className="bg-surface-card rounded-xl px-6 py-5 border border-border-default hover:shadow-xl flex items-center justify-between lg:col-span-2"
         >
           <div>
-            <p className="text-gray-900 font-bold text-lg">Follow Me</p>
+            <p className="text-text-primary font-bold text-lg">Follow Me</p>
 
-            <p className="text-gray-400 text-sm mt-1">
+            <p className="text-text-caption text-sm mt-1">
               Let’s connect and build something amazing.
             </p>
           </div>
