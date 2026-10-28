@@ -68,7 +68,7 @@ const PROJECTS: Project[] = [
     title: "MG Orbis",
     slug: "https://www.mgorbis.com/",
     category: ["Website"],
-    image: "/images/projects/posters/mg2.png",
+    image: "/images/projects/posters/mg2.webp",
     tech: ["NextJS", "TailwindCSS"],
   },
   {
@@ -110,21 +110,21 @@ const PROJECTS: Project[] = [
     title: "ASTRO BYTE",
     slug: "/projects/astrobyte",
     category: ["Graphic Design"],
-    image: "/images/projects/posters/poster1.png",
+    image: "/images/projects/posters/poster1.webp",
     tech: ["Photoshop"],
   },
   {
     title: "Chaavie Solutions Poster",
     slug: "/projects/chaaviesolutions",
     category: ["Graphic Design"],
-    image: "/images/projects/posters/poster2.png",
+    image: "/images/projects/posters/poster2.webp",
     tech: ["Photoshop"],
   },
   {
     title: "EID Poster",
     slug: "/projects/eidposter",
     category: ["Graphic Design"],
-    image: "/images/projects/posters/poster3.png",
+    image: "/images/projects/posters/poster3.webp",
     tech: ["Photoshop"],
   },
   {

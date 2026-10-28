@@ -567,11 +567,11 @@ export default function ZenowayCaseStudy() {
 
           {/* Real employer / job-management screenshots */}
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Screen 1: zenad2.png (Content Management / Job Listings) */}
+            {/* Screen 1: zenad2.webp (Content Management / Job Listings) */}
             <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
               <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
                 <Image
-                  src="/images/projects/zenoway/zenad2.png"
+                  src="/images/projects/zenoway/zenad.webp"
                   alt="Zenoway employer dashboard listing management interface"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
@@ -589,11 +589,11 @@ export default function ZenowayCaseStudy() {
               </figcaption>
             </figure>
 
-            {/* Screen 2: zenad3.png (Add / Edit Job Post) */}
+            {/* Screen 2: zenad3.webp (Add / Edit Job Post) */}
             <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
               <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
                 <Image
-                  src="/images/projects/zenoway/zenad3.png"
+                  src="/images/projects/zenoway/zenad.webp"
                   alt="Zenoway employer role creation and post editing form"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
@@ -611,11 +611,11 @@ export default function ZenowayCaseStudy() {
               </figcaption>
             </figure>
 
-            {/* Screen 3: zenad1.png (Dashboard Overview) */}
+            {/* Screen 3: zenad1.webp (Dashboard Overview) */}
             <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
               <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
                 <Image
-                  src="/images/projects/zenoway/zenad1.png"
+                  src="/images/projects/zenoway/zenad.webp"
                   alt="Zenoway administrative dashboard overview"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"

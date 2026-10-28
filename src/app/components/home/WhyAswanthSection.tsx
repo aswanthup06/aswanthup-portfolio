@@ -118,7 +118,7 @@ export default function WhyAswanthSection() {
             </div>
 
             <motion.img
-              src="/images/home/bg2.jpg"
+              src="/images/home/bg2.webp"
               alt="UI Development Workspace"
               initial={{ scale: 1.05 }}
               whileInView={{ scale: 1 }}
@@ -180,7 +180,7 @@ export default function WhyAswanthSection() {
 
                 <div>
                   <motion.img
-                    src="/images/home/Home.png"
+                    src="/images/home/Home.webp"
                     alt=""
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
