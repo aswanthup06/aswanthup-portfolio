@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import { ContactModalProvider } from "../context/ContactModalContext";
 import ContactModal from "../components/ContactModal";
 import GlobalSmoothScroll from "../components/GlobalSmoothScroll";
+import ClarityAnalytics from "../components/ClarityAnalytics";
 
 import "../globals.css";
 
@@ -138,6 +139,7 @@ export default function RootLayout({
 
         <Analytics />
         <SpeedInsights />
+        <ClarityAnalytics />
       </body>
     </html>
   );
