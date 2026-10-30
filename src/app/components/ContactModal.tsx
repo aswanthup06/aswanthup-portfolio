@@ -261,7 +261,7 @@ export default function ContactModal() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             onClick={handleClose}
-            className="fixed inset-0 bg-black/40 z-40"
+            className="fixed inset-0 bg-black/40 z-60"
           />
 
           <motion.div
@@ -273,7 +273,7 @@ export default function ContactModal() {
               ease: "easeOut",
             }}
             data-lenis-prevent
-            className="fixed top-0 right-0 h-dvh w-full md:w-1/3 p-4 z-50"
+            className="fixed top-0 right-0 h-dvh w-full md:w-1/3 p-4 z-70"
           >
             <div
               data-lenis-prevent

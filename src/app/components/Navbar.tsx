@@ -130,7 +130,7 @@ export default function Navbar() {
       variants={navContainerVariants}
       initial="hidden"
       animate="show"
-      className="fixed top-0 left-0 w-full z-30 px-4 md:px-6 flex justify-center"
+      className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 flex justify-center"
     >
       <motion.nav
         initial={{ opacity: 0, scale: 0.96 }}
