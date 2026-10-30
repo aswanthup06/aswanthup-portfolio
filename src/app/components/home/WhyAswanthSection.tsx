@@ -176,20 +176,24 @@ export default function WhyAswanthSection() {
                   Design To Development
                 </div>
 
-                <div>
-                  <motion.img
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.2,
+                  }}
+                  className="rounded-xl overflow-hidden shadow-lg border border-white/10"
+                >
+                  <Image
                     src="/images/home/Home.webp"
                     alt="Design to live product dashboard showcase"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.7,
-                      delay: 0.2,
-                    }}
-                    className="rounded-xl"
+                    width={480}
+                    height={308}
+                    className="w-full h-auto object-cover rounded-xl"
                   />
-                </div>
+                </motion.div>
 
                 <div className="border-white/10 bg-white/5 backdrop-blur-sm rounded-xl p-4 border">
                   <h3 className="text-white text-xl font-semibold leading-tight">
@@ -225,17 +229,12 @@ export default function WhyAswanthSection() {
                 </div>
               </div>
 
-              <motion.img
+              <Image
                 src="/images/home/Dashboard.webp"
                 alt="Figma to Frontend Development"
-                initial={{ scale: 1.05, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.9,
-                  ease: "easeOut",
-                }}
-                className="h-full w-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </motion.div>
           </div>

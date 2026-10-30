@@ -39,7 +39,7 @@ export default function AboutSection() {
 
         <Link
           href="/about"
-          aria-label="Learn more about Aswanth UP on the About page"
+          aria-label="More About Me - Aswanth UP"
           className="
             md:mt-0 mt-3
             btn-primary
