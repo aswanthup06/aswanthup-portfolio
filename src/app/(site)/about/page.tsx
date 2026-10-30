@@ -807,6 +807,7 @@ interface ToolkitItem {
   role: string;
   Icon: React.ComponentType<{ className?: string }>;
   pill?: string;
+  textColor?: string;
 }
 
 interface ToolkitGroup {
@@ -853,24 +854,28 @@ const TOOLKIT_GROUPS: ToolkitGroup[] = [
         role: "AI-native code editor & completions",
         Icon: CursorIcon,
         pill: "AI Code Editor",
+        textColor: "text-blue-600",
       },
       {
         name: "Claude",
         role: "Complex logic & architectural reasoning",
         Icon: SiClaude,
         pill: "Architecture",
+        textColor: "text-amber-600",
       },
       {
         name: "Antigravity",
         role: "Agentic coding & multi-file refactoring",
         Icon: SiGooglegemini,
         pill: "Agentic Assistant",
+        textColor: "text-violet-600",
       },
       {
         name: "ChatGPT",
         role: "Ideation & rapid documentation",
         Icon: SiOpenai,
         pill: "Ideation",
+        textColor: "text-emerald-600",
       },
     ],
   },
@@ -928,13 +933,13 @@ function Workbench() {
               </p>
 
               <ul className="mt-6 divide-y divide-border-subtle/70">
-                {group.items.map(({ name, role, Icon, pill }) => (
+                {group.items.map(({ name, role, Icon, pill, textColor }) => (
                   <li
                     key={name}
                     className="flex items-center justify-between gap-3 py-2.5 first:pt-0 last:pb-0"
                   >
                     <div className="flex min-w-0 items-center gap-3">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center text-primary">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center text-text-secondary">
                         <Icon className="text-base" />
                       </span>
                       <div className="min-w-0">
@@ -948,7 +953,7 @@ function Workbench() {
                     </div>
 
                     {pill && (
-                      <span className="shrink-0 text-[11px] font-medium text-text-muted">
+                      <span className={`shrink-0 text-[11px] font-semibold ${textColor || "text-text-muted"}`}>
                         {pill}
                       </span>
                     )}
