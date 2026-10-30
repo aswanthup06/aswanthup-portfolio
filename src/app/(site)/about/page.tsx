@@ -906,11 +906,7 @@ function Workbench() {
             key={group.title}
             variants={item}
             whileHover={hover}
-            className={`${card} flex flex-col justify-between p-6 ${
-              group.highlight
-                ? "border-blue-200/80 bg-gradient-to-b from-blue-50/40 via-surface-card to-white shadow-sm ring-1 ring-blue-500/10"
-                : ""
-            }`}
+            className={`${card} flex flex-col justify-between p-6`}
           >
             <div>
               <div className="flex items-center justify-between gap-2">
