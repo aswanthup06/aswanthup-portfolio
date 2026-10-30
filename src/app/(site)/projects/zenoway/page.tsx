@@ -181,7 +181,7 @@ export default function ZenowayCaseStudy() {
                         alt="Zenoway platform job discovery interface"
                         fill
                         sizes="(max-width: 1024px) 100vw, 560px"
-                        className="object-cover"
+                        className="object-cover object-top"
                         unoptimized
                       />
                     </div>
@@ -444,13 +444,13 @@ export default function ZenowayCaseStudy() {
 
               <div className="lg:col-span-7">
                 <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
-                  <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
+                  <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                     <Image
                       src="/images/projects/zenoway/zenoway1.webp"
                       alt="Zenoway job discovery interface displaying open positions and filtering options"
                       fill
                       sizes="(max-width: 1024px) 100vw, 680px"
-                      className="object-cover"
+                      className="object-contain object-top"
                       loading="lazy"
                       unoptimized
                     />
@@ -467,13 +467,13 @@ export default function ZenowayCaseStudy() {
             <div className="grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 order-2 lg:order-1">
                 <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
-                  <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
+                  <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                     <Image
                       src="/images/projects/zenoway/zenoway2.webp"
                       alt="Zenoway job details view showing comprehensive role breakdown and requirements"
                       fill
                       sizes="(max-width: 1024px) 100vw, 680px"
-                      className="object-cover"
+                      className="object-contain object-top"
                       loading="lazy"
                       unoptimized
                     />
@@ -527,13 +527,13 @@ export default function ZenowayCaseStudy() {
 
               <div className="lg:col-span-7">
                 <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
-                  <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
+                  <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                     <Image
                       src="/images/projects/zenoway/zenoway3.webp"
                       alt="Zenoway application experience highlighting direct contact with hiring teams"
                       fill
                       sizes="(max-width: 1024px) 100vw, 680px"
-                      className="object-cover"
+                      className="object-contain object-top"
                       loading="lazy"
                       unoptimized
                     />
@@ -568,13 +568,13 @@ export default function ZenowayCaseStudy() {
           <div className="grid md:grid-cols-3 gap-6">
             {/* Screen 1: zenad1.webp (1. Overview) */}
             <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow">
-              <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
+              <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                 <Image
                   src="/images/projects/zenoway/zenad1.webp"
                   alt="Zenoway Admin Portal Dashboard Overview"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
-                  className="object-cover"
+                  className="object-contain object-top"
                   loading="lazy"
                 />
               </div>
@@ -590,13 +590,13 @@ export default function ZenowayCaseStudy() {
 
             {/* Screen 2: zenad2.webp (2. All Jobs and Management) */}
             <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow">
-              <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
+              <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                 <Image
                   src="/images/projects/zenoway/zenad2.webp"
                   alt="Zenoway Admin Portal All Job and Management Listings"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
-                  className="object-cover"
+                  className="object-contain object-top"
                   loading="lazy"
                 />
               </div>
@@ -612,13 +612,13 @@ export default function ZenowayCaseStudy() {
 
             {/* Screen 3: zenad3.webp (3. Add Job) */}
             <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow">
-              <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
+              <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                 <Image
                   src="/images/projects/zenoway/zenad3.webp"
                   alt="Zenoway Admin Portal Add New Job Form"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
-                  className="object-cover"
+                  className="object-contain object-top"
                   loading="lazy"
                 />
               </div>
