@@ -851,9 +851,9 @@ const TOOLKIT_GROUPS: ToolkitGroup[] = [
     items: [
       {
         name: "Cursor",
-        role: "AI-native IDE & smart completions",
+        role: "AI-native code editor & completions",
         Icon: CursorIcon,
-        pill: "Daily Driver",
+        pill: "AI Code Editor",
         pillColor: "bg-blue-50 text-blue-700 border-blue-200",
       },
       {
