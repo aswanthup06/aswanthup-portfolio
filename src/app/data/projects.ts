@@ -117,3 +117,4 @@ export const PROJECTS: Project[] = [
     tech: ["Pencil Art"],
   },
 ];
+

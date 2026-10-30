@@ -15,9 +15,6 @@ import { PREMIUM_EASE } from "../../lib/animations";
 
 import { type Project, CATEGORIES, PROJECTS } from "../../data/projects";
 
-/* -------------------------------------------------------------------------- */
-/*  Motion (same easing/timing as the rest of the site, no blur / no scale)   */
-/* -------------------------------------------------------------------------- */
 
 const container: Variants = {
   hidden: {},
@@ -33,9 +30,6 @@ const item: Variants = {
   },
 };
 
-/* -------------------------------------------------------------------------- */
-/*  Page                                                                      */
-/* -------------------------------------------------------------------------- */
 
 export default function Projects() {
   const [active, setActive] = useState("All");
