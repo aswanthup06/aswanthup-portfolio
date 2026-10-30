@@ -1,6 +1,11 @@
 'use client';
 
 import { createContext, useContext, useState, ReactNode } from 'react';
+import dynamic from 'next/dynamic';
+
+const ContactModal = dynamic(() => import('../components/ContactModal'), {
+  ssr: false,
+});
 
 export interface ContactModalContextType {
   isOpen: boolean;
@@ -21,6 +26,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
       value={{ isOpen, openModal, closeModal }}
     >
       {children}
+      {isOpen && <ContactModal />}
     </ContactModalContext.Provider>
   );
 }

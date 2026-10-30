@@ -76,12 +76,16 @@ function FeaturedProject() {
               group-hover:scale-105
             "
             src="/images/projects/zenoway/zenoway.mp4"
+            poster="/images/projects/zenoway/zenoway-mock.webp"
             autoPlay
             loop
             muted
             playsInline
-            preload="metadata"
-          />
+            preload="none"
+            aria-label="Zenoway platform demonstration preview"
+          >
+            <track kind="captions" srcLang="en" label="No audio" default={false} />
+          </video>
 
           <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent lg:bg-linear-to-r" />
         </Link>

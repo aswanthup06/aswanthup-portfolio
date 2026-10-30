@@ -112,8 +112,8 @@ export default function Navbar() {
   const navLinkClass = (path: string): string =>
     `font-medium text-[14px] transition-colors duration-200 ${
       pathname === path
-        ? "text-primary font-semibold"
-        : "text-text-muted hover:text-text-primary"
+        ? "text-blue-700 font-semibold"
+        : "text-gray-700 hover:text-blue-700"
     }`;
 
   const closeMenu = (): void => {

@@ -109,26 +109,23 @@ export default function WhyAswanthSection() {
                   >
                     <Link
                       href="/about"
-                      className="w-11 h-11 rounded-md bg-white text-black flex items-center justify-center cursor-pointer shadow-sm"
+                      aria-label="Learn more about Aswanth UP on the About page"
+                      className="w-11 h-11 rounded-md bg-white text-black flex items-center justify-center cursor-pointer shadow-sm hover:shadow-md transition-shadow"
                     >
-                      <MdOutlineArrowOutward className="text-lg" />
+                      <MdOutlineArrowOutward aria-hidden="true" className="text-lg" />
+                      <span className="sr-only">Learn more about Aswanth UP</span>
                     </Link>
                   </motion.div>
                 </div>
               </div>
             </div>
 
-            <motion.img
+            <Image
               src="/images/home/bg2.webp"
               alt="UI Development Workspace"
-              initial={{ scale: 1.05 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 1,
-                ease: "easeOut",
-              }}
-              className="h-full w-full object-cover scale-100 group-hover:scale-105 duration-700"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </motion.div>
 
