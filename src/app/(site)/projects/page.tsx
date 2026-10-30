@@ -175,10 +175,10 @@ export default function Projects() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen px-4 sm:px-6 lg:px-8 pb-8 md:pb-12 pt-32 md:pt-36">
+      <div className="relative min-h-screen pb-8 md:pb-12 pt-32 md:pt-36">
         <div className="grid-bg absolute inset-0 -z-10" />
 
-        <div className="mx-auto max-w-6xl">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header (h1 is static so it never delays LCP) */}
           <motion.header
             variants={container}

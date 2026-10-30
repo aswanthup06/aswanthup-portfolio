@@ -198,3 +198,27 @@ input[type="reset"]:disabled,
     linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
   background-size: 62px 62px;
 }
+
+/* Layout Token: Portfolio-wide Container */
+.container-custom {
+  width: 100%;
+  max-width: 72rem; /* 1152px / max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

@@ -52,13 +52,13 @@ export default function Footer() {
       {/* Seamless squares texture behind footer */}
       <div className="grid-bg absolute inset-0 -z-10 pointer-events-none" />
 
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-6xl mx-auto relative overflow-hidden rounded-2xl border border-border-default bg-surface-card shadow-[0_10px_60px_rgba(0,0,0,0.06)]"
+          className="w-full relative overflow-hidden rounded-2xl border border-border-default bg-surface-card shadow-[0_10px_60px_rgba(0,0,0,0.06)]"
         >
           {/* Squares texture inside footer card */}
           <div className="grid-bg absolute inset-0 pointer-events-none opacity-80" />

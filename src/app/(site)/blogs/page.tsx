@@ -26,10 +26,10 @@ export default function Blogs() {
   ];
 
   return (
-    <div className="relative min-h-screen px-4 sm:px-6 lg:px-8 pt-32 pb-8 md:pb-12">
+    <div className="relative min-h-screen pt-32 pb-8 md:pb-12">
       <div className="absolute inset-0 grid-bg z-0" />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-4xl font-semibold text-gray-800">
             Blogs

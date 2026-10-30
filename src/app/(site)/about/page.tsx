@@ -104,10 +104,10 @@ const card =
 export default function About() {
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative flex flex-col items-center overflow-x-clip px-4 sm:px-6 lg:px-8 pb-8 md:pb-12 pt-32 md:pt-36">
+      <div className="relative flex flex-col items-center overflow-x-clip pb-8 md:pb-12 pt-32 md:pt-36 w-full">
         <div className="grid-bg absolute inset-0 -z-10" />
 
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Hero />
           <Marquee />
           <Stats />
