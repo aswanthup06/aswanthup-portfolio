@@ -549,30 +549,29 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION G: FOR EMPLOYERS ---------------- */}
+      {/* ---------------- SECTION G: ADMIN PORTAL ---------------- */}
       <section className="py-16 md:py-24 border-b border-[#E5E7EB]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-[#087F50] mb-3">
-              EMPLOYER PORTAL
+              ADMIN PORTAL
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-[#17251F] mb-4">
-              A straightforward way to share opportunities.
+              Streamlined platform management &amp; control.
             </h2>
             <p className="text-base md:text-lg text-[#52605B] leading-relaxed">
-              Employers can use Zenoway to present job openings with clear role information
-              and an application destination, helping candidates understand where to go next.
+              A comprehensive administrative suite empowering administrators to monitor platform activity, manage all job listings, and publish new openings efficiently.
             </p>
           </div>
 
-          {/* Real employer / job-management screenshots */}
+          {/* Real admin portal screenshots */}
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Screen 1: zenad2.webp (Content Management / Job Listings) */}
-            <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
+            {/* Screen 1: zenad1.webp (1. Overview) */}
+            <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow">
               <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
                 <Image
-                  src="/images/projects/zenoway/zenad.webp"
-                  alt="Zenoway employer dashboard listing management interface"
+                  src="/images/projects/zenoway/zenad1.webp"
+                  alt="Zenoway Admin Portal Dashboard Overview"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
                   className="object-cover"
@@ -581,20 +580,20 @@ export default function ZenowayCaseStudy() {
               </div>
               <figcaption className="p-4 bg-white border-t border-[#E5E7EB]">
                 <h4 className="text-sm font-semibold text-[#17251F] mb-1">
-                  Listings management
+                  1. Overview
                 </h4>
                 <p className="text-xs text-[#52605B] leading-relaxed">
-                  Manage active job posts, update requirements, and review listing availability.
+                  A high-level dashboard displaying total active jobs, recent postings, and quick action shortcuts.
                 </p>
               </figcaption>
             </figure>
 
-            {/* Screen 2: zenad3.webp (Add / Edit Job Post) */}
-            <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
+            {/* Screen 2: zenad2.webp (2. All Jobs and Management) */}
+            <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow">
               <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
                 <Image
-                  src="/images/projects/zenoway/zenad.webp"
-                  alt="Zenoway employer role creation and post editing form"
+                  src="/images/projects/zenoway/zenad2.webp"
+                  alt="Zenoway Admin Portal All Job and Management Listings"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
                   className="object-cover"
@@ -603,20 +602,20 @@ export default function ZenowayCaseStudy() {
               </div>
               <figcaption className="p-4 bg-white border-t border-[#E5E7EB]">
                 <h4 className="text-sm font-semibold text-[#17251F] mb-1">
-                  Role creation
+                  2. All Jobs &amp; Management
                 </h4>
                 <p className="text-xs text-[#52605B] leading-relaxed">
-                  Publish openings with structured fields for role description, location, and apply destination.
+                  Centralized table to oversee all active postings, inspect view counts, and perform instant edit or delete operations.
                 </p>
               </figcaption>
             </figure>
 
-            {/* Screen 3: zenad1.webp (Dashboard Overview) */}
-            <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs">
+            {/* Screen 3: zenad3.webp (3. Add Job) */}
+            <figure className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow">
               <div className="relative aspect-[16/10] w-full bg-[#EDF7F1]/20">
                 <Image
-                  src="/images/projects/zenoway/zenad.webp"
-                  alt="Zenoway administrative dashboard overview"
+                  src="/images/projects/zenoway/zenad3.webp"
+                  alt="Zenoway Admin Portal Add New Job Form"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
                   className="object-cover"
@@ -625,10 +624,10 @@ export default function ZenowayCaseStudy() {
               </div>
               <figcaption className="p-4 bg-white border-t border-[#E5E7EB]">
                 <h4 className="text-sm font-semibold text-[#17251F] mb-1">
-                  Dashboard overview
+                  3. Add Job
                 </h4>
                 <p className="text-xs text-[#52605B] leading-relaxed">
-                  A simple, minimal workspace to track platform activity and listings status.
+                  Structured publishing form to input role titles, company details, salary ranges, experience, and custom application links.
                 </p>
               </figcaption>
             </figure>
