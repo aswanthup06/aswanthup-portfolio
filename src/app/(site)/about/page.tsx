@@ -807,7 +807,6 @@ interface ToolkitItem {
   role: string;
   Icon: React.ComponentType<{ className?: string }>;
   pill?: string;
-  pillColor?: string;
 }
 
 interface ToolkitGroup {
@@ -854,28 +853,24 @@ const TOOLKIT_GROUPS: ToolkitGroup[] = [
         role: "AI-native code editor & completions",
         Icon: CursorIcon,
         pill: "AI Code Editor",
-        pillColor: "bg-blue-50 text-blue-700 border-blue-200",
       },
       {
         name: "Claude",
         role: "Complex logic & architectural reasoning",
         Icon: SiClaude,
         pill: "Architecture",
-        pillColor: "bg-amber-50 text-amber-700 border-amber-200",
       },
       {
         name: "Antigravity",
         role: "Agentic coding & multi-file refactoring",
         Icon: SiGooglegemini,
         pill: "Agentic Assistant",
-        pillColor: "bg-violet-50 text-violet-700 border-violet-200",
       },
       {
         name: "ChatGPT",
         role: "Ideation & rapid documentation",
         Icon: SiOpenai,
         pill: "Ideation",
-        pillColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
       },
     ],
   },
@@ -918,8 +913,8 @@ function Workbench() {
                   {group.kicker}
                 </span>
                 {group.highlight && (
-                  <span className="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-2.5 py-0.5 text-[11px] font-semibold text-blue-700">
-                    <Sparkles className="h-3 w-3 text-blue-600" />
+                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-primary">
+                    <Sparkles className="h-3.5 w-3.5" />
                     Productivity Multiplier
                   </span>
                 )}
@@ -932,14 +927,14 @@ function Workbench() {
                 {group.desc}
               </p>
 
-              <ul className="mt-6 space-y-3">
-                {group.items.map(({ name, role, Icon, pill, pillColor }) => (
+              <ul className="mt-6 divide-y divide-border-subtle/70">
+                {group.items.map(({ name, role, Icon, pill }) => (
                   <li
                     key={name}
-                    className="flex items-center justify-between gap-3 rounded-lg border border-border-subtle bg-surface-subtle/70 px-3 py-2.5 transition-colors hover:bg-surface-muted"
+                    className="flex items-center justify-between gap-3 py-2.5 first:pt-0 last:pb-0"
                   >
                     <div className="flex min-w-0 items-center gap-3">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border-default bg-white text-text-primary shadow-xs">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center text-primary">
                         <Icon className="text-base" />
                       </span>
                       <div className="min-w-0">
@@ -953,11 +948,7 @@ function Workbench() {
                     </div>
 
                     {pill && (
-                      <span
-                        className={`shrink-0 rounded-md border px-2 py-0.5 text-[10px] font-semibold ${
-                          pillColor || "bg-surface-muted text-text-muted border-border-default"
-                        }`}
-                      >
+                      <span className="shrink-0 text-[11px] font-medium text-text-muted">
                         {pill}
                       </span>
                     )}
