@@ -906,19 +906,22 @@ function Workbench() {
             key={group.title}
             variants={item}
             whileHover={hover}
-            className={`${card} flex flex-col justify-between p-6`}
+            className={`${card} relative flex flex-col justify-between p-6 ${
+              group.highlight ? "!border-primary shadow-sm" : ""
+            }`}
           >
+            {group.highlight && (
+              <div className="absolute -top-3 right-6 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-0.5 text-[11px] font-semibold text-white shadow-sm shadow-blue-500/25">
+                <Sparkles className="h-3 w-3 text-white" />
+                Productivity Multiplier
+              </div>
+            )}
+
             <div>
               <div className="flex items-center justify-between gap-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-primary">
                   {group.kicker}
                 </span>
-                {group.highlight && (
-                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-primary">
-                    <Sparkles className="h-3.5 w-3.5" />
-                    Productivity Multiplier
-                  </span>
-                )}
               </div>
 
               <h3 className="mt-2 text-xl font-bold text-text-primary">
