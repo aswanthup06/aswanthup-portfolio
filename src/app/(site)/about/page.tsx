@@ -906,13 +906,12 @@ function Workbench() {
             key={group.title}
             variants={item}
             whileHover={hover}
-            className={`${card} relative flex flex-col justify-between p-6 ${
-              group.highlight ? "!border-primary shadow-sm" : ""
-            }`}
+            className={`${card} relative flex flex-col justify-between p-6 ${group.highlight ? "!border-2 !border-primary shadow-sm" : ""
+              }`}
           >
             {group.highlight && (
-              <div className="absolute -top-3 right-6 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-0.5 text-[11px] font-semibold text-white shadow-sm shadow-blue-500/25">
-                <Sparkles className="h-3 w-3 text-white" />
+              <div className="absolute -top-3 right-6 font-light inline-flex items-center gap-1.5 rounded-sm bg-primary px-3 py-0.5 text-[11px] text-white shadow-sm shadow-blue-500/25">
+                <Sparkles className="h-3 w-3 text-white font-light" />
                 Productivity Multiplier
               </div>
             )}
