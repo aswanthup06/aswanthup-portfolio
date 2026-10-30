@@ -39,6 +39,7 @@ export default function AboutSection() {
 
         <Link
           href="/about"
+          aria-label="Learn more about Aswanth UP on the About page"
           className="
             md:mt-0 mt-3
             btn-primary
@@ -51,8 +52,8 @@ export default function AboutSection() {
             cursor-pointer
           "
         >
-          <span>Learn More</span>
-          <MdOutlineArrowOutward className="text-base" />
+          <span>More About Me</span>
+          <MdOutlineArrowOutward aria-hidden="true" className="text-base" />
         </Link>
       </motion.div>
 
