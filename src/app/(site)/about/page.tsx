@@ -15,8 +15,6 @@ import {
 import { MdOutlineArrowOutward } from "react-icons/md";
 import {
   IoLogoReact,
-  IoLogoHtml5,
-  IoLogoCss3,
   IoLogoJavascript,
 } from "react-icons/io5";
 import {
@@ -25,9 +23,12 @@ import {
   SiTailwindcss,
   SiFigma,
   SiGit,
-  SiSass,
   SiFramer,
+  SiOpenai,
+  SiClaude,
+  SiGooglegemini,
 } from "react-icons/si";
+import { Sparkles } from "lucide-react";
 import {
   FaHammer,
   FaLocationDot,
@@ -113,6 +114,7 @@ export default function About() {
           <Stats />
           <Story />
           <Principles />
+          <Workbench />
           <Craft />
           <Cta />
         </div>
@@ -341,6 +343,23 @@ function Sticker({
   );
 }
 
+function CursorIcon({ className = "text-xl" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      fillRule="evenodd"
+      className={className}
+      width="1em"
+      height="1em"
+      aria-hidden="true"
+    >
+      <title>Cursor</title>
+      <path d="M22.106 5.68L12.5.135a.998.998 0 00-.998 0L1.893 5.68a.84.84 0 00-.419.726v11.186c0 .3.16.577.42.727l9.607 5.547a.999.999 0 00.998 0l9.608-5.547a.84.84 0 00.42-.727V6.407a.84.84 0 00-.42-.726zm-.603 1.176L12.228 22.92c-.063.108-.228.064-.228-.061V12.34a.59.59 0 00-.295-.51l-9.11-5.26c-.107-.062-.063-.228.062-.228h18.55c.264 0 .428.286.296.514z" />
+    </svg>
+  );
+}
+
 /* -------------------------------------------------------------------------- */
 /*  2. Tools marquee                                                          */
 /* -------------------------------------------------------------------------- */
@@ -350,13 +369,14 @@ const TOOLS = [
   { name: "Next.js", Icon: SiNextdotjs },
   { name: "TypeScript", Icon: SiTypescript },
   { name: "Tailwind CSS", Icon: SiTailwindcss },
+  { name: "Cursor", Icon: CursorIcon },
+  { name: "Claude", Icon: SiClaude },
   { name: "Figma", Icon: SiFigma },
+  { name: "Antigravity", Icon: SiGooglegemini },
+  { name: "ChatGPT", Icon: SiOpenai },
   { name: "Framer Motion", Icon: SiFramer },
-  { name: "JavaScript", Icon: IoLogoJavascript },
-  { name: "HTML5", Icon: IoLogoHtml5 },
-  { name: "CSS3", Icon: IoLogoCss3 },
-  { name: "SCSS", Icon: SiSass },
   { name: "Git", Icon: SiGit },
+  { name: "JavaScript", Icon: IoLogoJavascript },
 ];
 
 function Marquee() {
@@ -772,6 +792,186 @@ function Principles() {
               {text}
             </p>
           </motion.article>
+        ))}
+      </motion.div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  6. The Workbench (Tools & AI Workflow)                                    */
+/* -------------------------------------------------------------------------- */
+
+interface ToolkitItem {
+  name: string;
+  role: string;
+  Icon: React.ComponentType<{ className?: string }>;
+  pill?: string;
+  pillColor?: string;
+}
+
+interface ToolkitGroup {
+  kicker: string;
+  title: string;
+  desc: string;
+  highlight?: boolean;
+  items: ToolkitItem[];
+}
+
+const TOOLKIT_GROUPS: ToolkitGroup[] = [
+  {
+    kicker: "Core Stack",
+    title: "Frontend Engineering",
+    desc: "Production-tested technologies for robust, scalable, and responsive web applications.",
+    items: [
+      { name: "Next.js", role: "SSR & App Architecture", Icon: SiNextdotjs },
+      { name: "React", role: "Component Architecture", Icon: IoLogoReact },
+      { name: "TypeScript", role: "Type Safety & Reliability", Icon: SiTypescript },
+      { name: "Tailwind CSS", role: "Design Tokens & Utility UI", Icon: SiTailwindcss },
+      { name: "Framer Motion", role: "Micro-interactions & Physics", Icon: SiFramer },
+      { name: "Git", role: "Version Control & Branching", Icon: SiGit },
+    ],
+  },
+  {
+    kicker: "Visual & Systems",
+    title: "Design & Systems",
+    desc: "Translating concepts into design tokens, accessible components, and polished prototypes.",
+    items: [
+      { name: "Figma", role: "Dev Mode & Auto Layout", Icon: SiFigma },
+      { name: "Design Tokens", role: "Spacing, Color & Typography", Icon: FaRulerCombined },
+      { name: "Adobe Illustrator", role: "Vector Assets & Icons", Icon: FaPencil },
+      { name: "Component Systems", role: "Scalable atomic patterns", Icon: FaPuzzlePiece },
+    ],
+  },
+  {
+    kicker: "Velocity & Multipliers",
+    title: "AI-Augmented Engineering",
+    desc: "Modern AI tooling integrated into daily development for 3× faster delivery, rapid prototyping, and clean refactoring.",
+    highlight: true,
+    items: [
+      {
+        name: "Cursor",
+        role: "AI-native IDE & smart completions",
+        Icon: CursorIcon,
+        pill: "Daily Driver",
+        pillColor: "bg-blue-50 text-blue-700 border-blue-200",
+      },
+      {
+        name: "Claude",
+        role: "Complex logic & architectural reasoning",
+        Icon: SiClaude,
+        pill: "Architecture",
+        pillColor: "bg-amber-50 text-amber-700 border-amber-200",
+      },
+      {
+        name: "Antigravity",
+        role: "Agentic coding & multi-file refactoring",
+        Icon: SiGooglegemini,
+        pill: "Agentic Assistant",
+        pillColor: "bg-violet-50 text-violet-700 border-violet-200",
+      },
+      {
+        name: "ChatGPT",
+        role: "Ideation & rapid documentation",
+        Icon: SiOpenai,
+        pill: "Ideation",
+        pillColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+      },
+    ],
+  },
+];
+
+function Workbench() {
+  return (
+    <section aria-labelledby="workbench-heading" className="mt-28">
+      <Heading
+        kicker="The Workbench"
+        center
+        title={
+          <span id="workbench-heading">
+            Tools & modern{" "}
+            <span className="font-medium text-text-muted">AI workflow</span>
+          </span>
+        }
+        sub="Just like in woodworking, great tools don't replace craftsmanship—they amplify precision and delivery speed."
+      />
+
+      <motion.div
+        variants={container}
+        {...inView}
+        className="mt-12 grid gap-6 lg:grid-cols-3"
+      >
+        {TOOLKIT_GROUPS.map((group) => (
+          <motion.div
+            key={group.title}
+            variants={item}
+            whileHover={hover}
+            className={`${card} flex flex-col justify-between p-6 ${
+              group.highlight
+                ? "border-blue-200/80 bg-gradient-to-b from-blue-50/40 via-surface-card to-white shadow-sm ring-1 ring-blue-500/10"
+                : ""
+            }`}
+          >
+            <div>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                  {group.kicker}
+                </span>
+                {group.highlight && (
+                  <span className="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-2.5 py-0.5 text-[11px] font-semibold text-blue-700">
+                    <Sparkles className="h-3 w-3 text-blue-600" />
+                    Productivity Multiplier
+                  </span>
+                )}
+              </div>
+
+              <h3 className="mt-2 text-xl font-bold text-text-primary">
+                {group.title}
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-text-body">
+                {group.desc}
+              </p>
+
+              <ul className="mt-6 space-y-3">
+                {group.items.map(({ name, role, Icon, pill, pillColor }) => (
+                  <li
+                    key={name}
+                    className="flex items-center justify-between gap-3 rounded-lg border border-border-subtle bg-surface-subtle/70 px-3 py-2.5 transition-colors hover:bg-surface-muted"
+                  >
+                    <div className="flex min-w-0 items-center gap-3">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border-default bg-white text-text-primary shadow-xs">
+                        <Icon className="text-base" />
+                      </span>
+                      <div className="min-w-0">
+                        <p className="truncate text-xs font-bold text-text-primary">
+                          {name}
+                        </p>
+                        <p className="truncate text-[11px] text-text-muted">
+                          {role}
+                        </p>
+                      </div>
+                    </div>
+
+                    {pill && (
+                      <span
+                        className={`shrink-0 rounded-md border px-2 py-0.5 text-[10px] font-semibold ${
+                          pillColor || "bg-surface-muted text-text-muted border-border-default"
+                        }`}
+                      >
+                        {pill}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {group.highlight && (
+              <p className="mt-6 border-t border-border-subtle pt-4 text-[11px] italic leading-relaxed text-text-muted">
+                “I treat AI as a high-precision power tool: it doesn’t replace foundational knowledge, but it multiplies speed and shortens the loop from idea to production.”
+              </p>
+            )}
+          </motion.div>
         ))}
       </motion.div>
     </section>
