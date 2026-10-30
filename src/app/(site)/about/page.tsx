@@ -910,7 +910,7 @@ function Workbench() {
               }`}
           >
             {group.highlight && (
-              <div className="absolute -top-3 right-6 font-light inline-flex items-center gap-1.5 rounded-sm bg-primary px-3 py-0.5 text-[11px] text-white shadow-sm shadow-blue-500/25">
+              <div className="absolute -top-3 right-6 font-light inline-flex items-center gap-1.5 rounded-sm bg-primary px-3 py-1 text-[11px] text-white shadow-sm shadow-blue-500/25">
                 <Sparkles className="h-3 w-3 text-white font-light" />
                 Productivity Multiplier
               </div>
