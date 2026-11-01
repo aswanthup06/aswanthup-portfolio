@@ -231,7 +231,7 @@ export default function HappyERPPage() {
         </section>
 
         {/* ---------------- SECTION 2: STATS & OVERVIEW ---------------- */}
-        <section className="py-16 border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6 space-y-4">
               <span className="text-xs font-semibold uppercase tracking-wider text-primary">
@@ -271,7 +271,7 @@ export default function HappyERPPage() {
         </section>
 
         {/* ---------------- SECTION 3: THE CHALLENGE & SOLUTION ---------------- */}
-        <section className="py-16 border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-8 rounded-2xl border border-border-default bg-surface-subtle">
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 mb-3">
@@ -302,7 +302,7 @@ export default function HappyERPPage() {
         </section>
 
         {/* ---------------- SECTION 4: MY ROLE ---------------- */}
-        <section className="py-16 border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               Core Responsibilities
@@ -339,7 +339,7 @@ export default function HappyERPPage() {
         </section>
 
         {/* ---------------- SECTION 5: KEY FEATURES ---------------- */}
-        <section className="py-16 border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               Functional Capabilities
@@ -378,7 +378,7 @@ export default function HappyERPPage() {
         </section>
 
         {/* ---------------- SECTION 6: SCREEN GALLERY (WALKTHROUGH) ---------------- */}
-        <section ref={galleryRef} className="py-16 border-b border-border-default scroll-mt-24">
+        <section ref={galleryRef} className="mt-16 md:mt-24 scroll-mt-24">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               Visual Walkthrough
@@ -438,7 +438,7 @@ export default function HappyERPPage() {
         </section>
 
         {/* ---------------- SECTION 7: RESULTS & IMPACT ---------------- */}
-        <section className="py-16 border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="rounded-2xl bg-text-primary text-white p-8 sm:p-12 shadow-xl">
             <div className="max-w-2xl mx-auto text-center mb-10">
               <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
@@ -475,7 +475,7 @@ export default function HappyERPPage() {
         </section>
 
         {/* ---------------- SECTION 8: LEARNINGS & BOTTOM CTA ---------------- */}
-        <section className="py-16">
+        <section className="mt-16 md:mt-24">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <span className="text-xs font-semibold uppercase tracking-wider text-primary">

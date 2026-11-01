@@ -234,7 +234,7 @@ function Hero() {
         >
           <Stat to={FEATURED.length} label="Case studies" />
           <Stat to={LIVE_SITES.length} label="Live websites" />
-          <Stat to={DESIGN_WORK.length} label="Design works" />
+          <Stat to={DESIGN_WORK.length} label="Visual systems" />
         </motion.dl>
       </motion.div>
 
@@ -533,7 +533,7 @@ export default function Projects() {
             </ul>
           </section>
 
-          {/* Design & illustration */}
+          {/* Design systems & visual craft */}
           <section
             id="design-work"
             aria-labelledby="design-heading"
@@ -541,15 +541,44 @@ export default function Projects() {
           >
             <SectionHeading
               id="design-heading"
-              kicker="Creative archive"
-              title="Design & illustration"
-              note="Icons, posters, vector art & sketches"
+              kicker="Design systems & vector assets"
+              title="Visual craft"
+              highlight="& systems"
+              note="Icon systems, vector art & brand typography"
             />
-            <ul className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {DESIGN_WORK.map((p) => (
                 <CompactItem key={p.slug} project={p} />
               ))}
             </ul>
+
+            {/* Traditional Art & Behance Archive Card */}
+            <motion.div
+              {...reveal}
+              className="mt-12 rounded-xl border border-border-default bg-surface-card p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm"
+            >
+              <div className="space-y-1.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                  Traditional Art &amp; Creative Archive
+                </span>
+                <h3 className="text-lg md:text-xl font-bold text-text-primary">
+                  Looking for traditional sketches, festival posters &amp; print media?
+                </h3>
+                <p className="text-sm text-text-body max-w-2xl leading-relaxed">
+                  Explore my complete collection of handmade pencil drawings, cultural festival art, and exploratory branding experiments on Behance.
+                </p>
+              </div>
+
+              <a
+                href="https://www.behance.net/ASWANTHUP"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium whitespace-nowrap shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 shrink-0"
+              >
+                View on Behance
+                <MdOutlineArrowOutward className="text-base" />
+              </a>
+            </motion.div>
           </section>
 
           {/* Closing CTA: open, with a rule on top instead of a box */}

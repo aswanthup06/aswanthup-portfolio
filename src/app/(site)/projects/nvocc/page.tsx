@@ -159,7 +159,7 @@ export default function NvoccPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36 pb-16">
+    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36 pb-8 md:pb-12">
       {/* Background Texture */}
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
@@ -174,7 +174,7 @@ export default function NvoccPage() {
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ---------------- BREADCRUMB ---------------- */}
         {/* ---------------- SECTION 1: SPLIT HERO ---------------- */}
-        <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center pb-16 border-b border-border-default">
+        <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Editorial Summary */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Live Indicator Badge */}
@@ -270,7 +270,7 @@ export default function NvoccPage() {
         </section>
 
         {/* ---------------- SECTION 2: STATS & OVERVIEW ---------------- */}
-        <section className="py-16 border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6 space-y-4">
               <span className="text-xs font-semibold uppercase tracking-wider text-primary">
@@ -310,7 +310,7 @@ export default function NvoccPage() {
         </section>
 
         {/* ---------------- SECTION 3: MY ROLE ---------------- */}
-        <section className="py-16 border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               Frontend Engineering Ownership
@@ -347,7 +347,7 @@ export default function NvoccPage() {
         </section>
 
         {/* ---------------- SECTION 4: CORE MODULES WALKTHROUGH ---------------- */}
-        <section ref={modulesRef} className="py-16 border-b border-border-default scroll-mt-24">
+        <section ref={modulesRef} className="mt-16 md:mt-24 scroll-mt-24">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               System Architecture
@@ -439,7 +439,7 @@ export default function NvoccPage() {
         </section>
 
         {/* ---------------- SECTION 5: TECHNICAL IMPLEMENTATION ---------------- */}
-        <section className="py-16 border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 p-8 rounded-2xl border border-border-default bg-surface-subtle">
               <span className="text-xs font-semibold uppercase tracking-wider text-primary">
@@ -448,9 +448,8 @@ export default function NvoccPage() {
               <h2 className="text-2xl font-bold text-text-primary mt-1">
                 Precision Implementation &amp; Reusable Systems
               </h2>
-              <div className="w-12 h-1 bg-primary mt-3 mb-5" />
 
-              <div className="space-y-4 text-sm text-text-body leading-relaxed">
+              <div className="space-y-4 text-sm text-text-body leading-relaxed mt-4">
                 <p>
                   As part of my lead UI role, I translated over 50 dense Figma wireframes and design systems into clean Next.js code using Tailwind CSS, achieving <strong className="text-text-primary">90% design accuracy</strong> without compromising page performance.
                 </p>
@@ -489,7 +488,7 @@ export default function NvoccPage() {
         </section>
 
         {/* ---------------- SECTION 6: RESULTS & METRICS ---------------- */}
-        <section className="py-16 border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="rounded-2xl bg-text-primary text-white p-8 sm:p-12 shadow-xl">
             <div className="max-w-2xl mx-auto text-center mb-10">
               <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">

@@ -231,7 +231,7 @@ export default function DoctorOneCaseStudy() {
         </section>
 
         {/* ---------------- SECTION 2: IMPACT STATS ---------------- */}
-        <section className="mt-20 md:mt-28 grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <section className="mt-16 md:mt-24 grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat, idx) => (
             <div
               key={idx}
@@ -251,7 +251,7 @@ export default function DoctorOneCaseStudy() {
         </section>
 
         {/* ---------------- SECTION 3: THE CHALLENGE ---------------- */}
-        <section className="mt-20 md:mt-28 py-12 border-t border-b border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
               THE CHALLENGE
@@ -264,7 +264,7 @@ export default function DoctorOneCaseStudy() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 pt-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {problems.map((p) => (
               <div
                 key={p.number}
@@ -285,7 +285,7 @@ export default function DoctorOneCaseStudy() {
         </section>
 
         {/* ---------------- SECTION 4: 4-PILLAR ARCHITECTURE ---------------- */}
-        <section className="mt-20 md:mt-28">
+        <section className="mt-16 md:mt-24">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
               PLATFORM ARCHITECTURE
@@ -327,7 +327,7 @@ export default function DoctorOneCaseStudy() {
         </section>
 
         {/* ---------------- SECTION 5: PRODUCT WALKTHROUGHS ---------------- */}
-        <section ref={walkthroughRef} className="mt-20 md:mt-28 scroll-mt-28">
+        <section ref={walkthroughRef} className="mt-16 md:mt-24 scroll-mt-28">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
               PRODUCT WALKTHROUGH
@@ -446,7 +446,7 @@ export default function DoctorOneCaseStudy() {
         </section>
 
         {/* ---------------- SECTION 6: UI/UX PRINCIPLES ---------------- */}
-        <section className="mt-20 md:mt-28 py-12 border-t border-border-default">
+        <section className="mt-16 md:mt-24">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
               DESIGN PHILOSOPHY
@@ -482,7 +482,7 @@ export default function DoctorOneCaseStudy() {
         </section>
 
         {/* ---------------- SECTION 7: TECH STACK BADGES ---------------- */}
-        <section className="mt-16 md:mt-20 rounded-2xl border border-border-default bg-surface-subtle p-6 sm:p-8">
+        <section className="mt-16 md:mt-24 rounded-2xl border border-border-default bg-surface-subtle p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-border-default">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">
@@ -521,7 +521,7 @@ export default function DoctorOneCaseStudy() {
         </section>
 
         {/* ---------------- SECTION 8: CLOSING CTA ---------------- */}
-        <section className="mt-16 md:mt-24 pt-10 border-t border-border-default flex flex-col sm:flex-row items-center justify-between gap-6">
+        <section className="mt-16 md:mt-24 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-xl sm:text-2xl font-bold text-text-primary">
               Interested in building a healthcare or enterprise platform?
