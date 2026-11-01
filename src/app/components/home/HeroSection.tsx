@@ -170,19 +170,16 @@ function Backdrop() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 bottom-0 -top-32"
+      className="pointer-events-none absolute inset-x-0 -bottom-12 -top-32 overflow-hidden"
     >
-      {/* dotted grid, faded at the edges */}
+      {/* Unified square grid with smooth fade-out */}
       <div
-        className="absolute inset-0 opacity-60"
+        className="grid-bg absolute inset-0"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(100,116,139,0.28) 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
           maskImage:
-            "radial-gradient(ellipse 80% 75% at 60% 30%, black 30%, transparent 80%)",
+            "radial-gradient(ellipse 95% 80% at 50% 30%, black 40%, transparent 95%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 80% 75% at 60% 30%, black 30%, transparent 80%)",
+            "radial-gradient(ellipse 95% 80% at 50% 30%, black 40%, transparent 95%)",
         }}
       />
       {/* drifting colour blobs */}

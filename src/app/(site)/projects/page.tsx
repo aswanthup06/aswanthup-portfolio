@@ -484,7 +484,15 @@ export default function Projects() {
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative min-h-screen pb-20 pt-28 md:pb-28 md:pt-36">
-        <div className="grid-bg absolute inset-0 -z-10" />
+        <div
+        className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+        }}
+      />
 
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <Hero />

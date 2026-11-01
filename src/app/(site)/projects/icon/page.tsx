@@ -13,6 +13,7 @@ import {
   LuHeartPulse,
 } from "react-icons/lu";
 import { useContactModal } from "../../../context/ContactModalContext";
+import NextProject from "../../../components/projects/NextProject";
 
 export default function DoctorIconShowcase() {
   const { openModal } = useContactModal();
@@ -61,40 +62,17 @@ export default function DoctorIconShowcase() {
   return (
     <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36 pb-8 md:pb-12">
       {/* Background Texture */}
-      <div className="grid-bg absolute inset-0 -z-10 pointer-events-none" />
+      <div
+        className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+        }}
+      />
 
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" className="mb-8 md:mb-12">
-          <ol className="flex items-center gap-2 text-xs md:text-sm text-text-muted">
-            <li>
-              <Link
-                href="/"
-                className="hover:text-primary transition-colors font-medium"
-              >
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-gray-300">
-              /
-            </li>
-            <li>
-              <Link
-                href="/projects"
-                className="hover:text-primary transition-colors font-medium"
-              >
-                Projects
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-gray-300">
-              /
-            </li>
-            <li className="font-semibold text-text-primary truncate">
-              Doctor Platform Icons
-            </li>
-          </ol>
-        </nav>
-
         {/* 2-Column Showcase */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Sticky Square Showcase Card */}
@@ -257,6 +235,7 @@ export default function DoctorIconShowcase() {
           </div>
         </div>
       </div>
+      <NextProject currentSlug="icon" />
     </div>
   );
 }

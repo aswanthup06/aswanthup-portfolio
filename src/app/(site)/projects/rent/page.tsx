@@ -1,3 +1,4 @@
+import NextProject from "../../../components/projects/NextProject";
 import React from "react";
 import Image from "next/image";
 import { CiGlobe } from "react-icons/ci";
@@ -131,6 +132,7 @@ export default function PosterPage() {
           </div>
         </div>
       </div>
+      <NextProject currentSlug="rent" />
     </div>
   );
 }

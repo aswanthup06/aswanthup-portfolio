@@ -7,7 +7,13 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 import { useContactModal } from "../context/ContactModalContext";
 import { BsGlobe } from "react-icons/bs";
 import { TbMenu3, TbX } from "react-icons/tb";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  type Variants,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
 
 import { PREMIUM_EASE } from "../lib/animations";
 
@@ -29,7 +35,7 @@ const navItems = [
 const navContainerVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: -20,
+    y: -80,
     filter: "blur(4px)",
   },
   show: {
@@ -37,7 +43,16 @@ const navContainerVariants: Variants = {
     y: 0,
     filter: "blur(0px)",
     transition: {
-      duration: 0.6,
+      duration: 0.35,
+      ease: PREMIUM_EASE,
+    },
+  },
+  navHidden: {
+    opacity: 0,
+    y: -80,
+    filter: "blur(4px)",
+    transition: {
+      duration: 0.28,
       ease: PREMIUM_EASE,
     },
   },
@@ -108,6 +123,22 @@ export default function Navbar() {
   const pathname = usePathname();
   const { openModal } = useContactModal();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [hidden, setHidden] = useState<boolean>(false);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest: number) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    const diff = latest - previous;
+    // Ignore micro jitter
+    if (Math.abs(diff) < 6) return;
+
+    if (latest > previous && latest > 100 && !menuOpen) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   const navLinkClass = (path: string): string =>
     `font-medium text-[14px] transition-colors duration-200 ${
@@ -129,8 +160,8 @@ export default function Navbar() {
     <motion.div
       variants={navContainerVariants}
       initial="hidden"
-      animate="show"
-      className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 flex justify-center"
+      animate={hidden ? "navHidden" : "show"}
+      className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 flex justify-center pointer-events-none"
     >
       <motion.nav
         initial={{ opacity: 0, scale: 0.96 }}
@@ -140,7 +171,7 @@ export default function Navbar() {
           delay: 0.1,
           ease: "easeOut",
         }}
-        className="relative border shadow-2xl bg-surface-card border-border-default rounded-lg h-14 flex items-center justify-between px-2 w-full md:w-fit mt-4 md:gap-24"
+        className="pointer-events-auto relative border shadow-2xl bg-surface-card border-border-default rounded-lg h-14 flex items-center justify-between px-2 w-full md:w-fit mt-4 md:gap-24"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -8 }}

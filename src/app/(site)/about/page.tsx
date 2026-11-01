@@ -106,7 +106,15 @@ export default function About() {
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative flex flex-col items-center overflow-x-clip pb-8 md:pb-12 pt-32 md:pt-36 w-full">
-        <div className="grid-bg absolute inset-0 -z-10" />
+        <div
+        className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+        }}
+      />
 
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Hero />

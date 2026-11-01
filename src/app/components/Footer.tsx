@@ -49,9 +49,6 @@ const itemVariants: Variants = {
 export default function Footer() {
   return (
     <footer className="relative w-full pt-8 md:pt-12 pb-8">
-      {/* Seamless squares texture behind footer */}
-      <div className="grid-bg absolute inset-0 -z-10 pointer-events-none" />
-
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -60,8 +57,8 @@ export default function Footer() {
           viewport={{ once: true, amount: 0.15 }}
           className="w-full relative overflow-hidden rounded-2xl border border-border-default bg-surface-card shadow-[0_10px_60px_rgba(0,0,0,0.06)]"
         >
-          {/* Squares texture inside footer card */}
-          <div className="grid-bg absolute inset-0 pointer-events-none opacity-80" />
+          {/* Subtle top border highlight */}
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/25 to-transparent pointer-events-none" />
           <motion.div
             animate={{
               scale: [1, 1.08, 1],
@@ -166,14 +163,42 @@ export default function Footer() {
 
                 <motion.div variants={itemVariants}>
                   <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider">
-                    Services
+                    Featured Work
                   </h3>
 
-                  <ul className="space-y-4 mt-5 text-sm text-text-muted">
-                    <li>UI Development</li>
-                    <li>Frontend Engineering</li>
-                    <li>Responsive Web Design</li>
-                    <li>Figma To Code</li>
+                  <ul className="space-y-4 mt-5 text-sm">
+                    <li>
+                      <Link
+                        href="/projects/zenoway"
+                        className="text-text-muted hover:text-primary transition"
+                      >
+                        Zenoway
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/projects/happy-erp"
+                        className="text-text-muted hover:text-primary transition"
+                      >
+                        Happy ERP
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/projects/nvocc"
+                        className="text-text-muted hover:text-primary transition"
+                      >
+                        ENVOCC
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/projects/doctor-one"
+                        className="text-text-muted hover:text-primary transition"
+                      >
+                        Doctor One
+                      </Link>
+                    </li>
                   </ul>
                 </motion.div>
 
