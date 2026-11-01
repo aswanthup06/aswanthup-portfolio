@@ -71,10 +71,10 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
   const featuredProjects = filtered.slice(0, 3);
 
   return (
-    <section className="w-full pt-16 md:pt-24 pb-14 border-t border-border-default">
+    <section className="w-full pt-8 md:pt-12 pb-6 md:pb-8">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-2">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />

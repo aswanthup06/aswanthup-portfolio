@@ -26,7 +26,7 @@ export default function ZenowayCaseStudy() {
   return (
     <main className="min-h-screen bg-white text-text-primary selection:bg-blue-100 selection:text-blue-900">
       {/* ---------------- SECTION A: SPLIT HERO WITH SOFT BLUE SURFACE & LIVE PREVIEW ---------------- */}
-      <section className="relative pt-24 sm:pt-28 md:pt-36 pb-16 md:pb-24 bg-gradient-to-b from-blue-50/60 via-slate-50/40 to-white border-b border-border-default overflow-hidden">
+      <section className="relative pt-28 md:pt-36 pb-14 md:pb-20 bg-gradient-to-b from-blue-50/60 via-slate-50/40 to-white overflow-hidden">
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
         style={{
@@ -175,7 +175,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION C: THE PROBLEM ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-14 md:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -190,7 +190,7 @@ export default function ZenowayCaseStudy() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 pt-8 border-t border-border-default">
+          <div className="grid md:grid-cols-3 gap-8 mt-8">
             {/* Problem 01 */}
             <div className="space-y-3">
               <div className="text-xs font-mono font-medium text-primary">
@@ -237,7 +237,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION D: THE ZENOWAY APPROACH ---------------- */}
-      <section className="py-16 md:py-24 bg-slate-50/60 border-b border-border-default">
+      <section className="py-14 md:py-20 bg-slate-50/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -309,7 +309,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION E: CORE PRINCIPLES ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-14 md:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -381,7 +381,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION F: THE PRODUCT EXPERIENCE ---------------- */}
-      <section className="py-16 md:py-24 bg-slate-50/60 border-b border-border-default">
+      <section className="py-14 md:py-20 bg-slate-50/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -526,7 +526,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION G: ADMIN PORTAL ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-14 md:py-20">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -612,7 +612,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION H: BEHIND THE PLATFORM ---------------- */}
-      <section className="py-16 md:py-24 bg-slate-50/60 border-b border-border-default">
+      <section className="py-14 md:py-20 bg-slate-50/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -688,7 +688,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION I: CLOSING CTA ---------------- */}
-      <section className="pt-14 pb-8 md:pt-18 md:pb-10">
+      <section className="py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="rounded-2xl border border-blue-200/60 bg-blue-50/40 p-8 sm:p-12 md:p-16">
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-4">
