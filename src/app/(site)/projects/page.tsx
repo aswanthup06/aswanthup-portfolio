@@ -439,18 +439,18 @@ function CompactItem({ project }: { project: Project }) {
   return (
     <motion.li {...reveal}>
       <ProjectLink project={project} className="group block">
-        <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border-default bg-surface-muted shadow-sm transition-shadow duration-300 group-hover:shadow-lg">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border-default bg-surface-muted shadow-sm transition-all duration-300 group-hover:shadow-md group-hover:border-primary/40">
           <Image
             src={project.image}
             alt={`${project.title} preview`}
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
-        <div className="mt-3.5 flex items-start justify-between gap-2">
-          <h3 className="text-base font-semibold leading-snug text-text-primary transition-colors group-hover:text-primary">
+        <div className="mt-3 flex items-center justify-between gap-2">
+          <h3 className="text-sm font-semibold text-text-primary transition-colors group-hover:text-primary truncate">
             {project.title}
             {project.href && (
               <span className="sr-only"> (opens in a new tab)</span>
@@ -458,16 +458,12 @@ function CompactItem({ project }: { project: Project }) {
           </h3>
           <MdOutlineArrowOutward
             aria-hidden="true"
-            className="mt-0.5 shrink-0 text-base text-text-muted transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
+            className="shrink-0 text-sm text-text-muted transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
           />
         </div>
 
-        <p className="mt-1 text-xs font-medium text-text-muted">
-          {project.role} · {project.tech.join(", ")}
-        </p>
-
-        <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-text-body">
-          {project.summary}
+        <p className="mt-0.5 text-xs text-text-muted truncate">
+          {project.role} · {project.tech.slice(0, 2).join(", ")}
         </p>
       </ProjectLink>
     </motion.li>
@@ -521,10 +517,9 @@ export default function Projects() {
           >
             <SectionHeading
               id="websites-heading"
-              kicker="Production deployments"
               title="Client websites"
               highlight="& platforms"
-              note="Live in production · Click to visit"
+              note="Production web applications & business sites"
             />
             <ul className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {LIVE_SITES.map((p) => (
@@ -541,10 +536,9 @@ export default function Projects() {
           >
             <SectionHeading
               id="design-heading"
-              kicker="Design systems & vector assets"
               title="Visual craft"
               highlight="& systems"
-              note="Icon systems, vector art & brand typography"
+              note="Icon systems, vectors & brand typography"
             />
             <ul className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {DESIGN_WORK.map((p) => (
@@ -557,15 +551,15 @@ export default function Projects() {
               {...reveal}
               className="mt-12 rounded-xl border border-border-default bg-surface-card p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm"
             >
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <span className="text-xs font-bold uppercase tracking-wider text-primary">
-                  Traditional Art &amp; Creative Archive
+                  Creative Archive
                 </span>
-                <h3 className="text-lg md:text-xl font-bold text-text-primary">
-                  Looking for traditional sketches, festival posters &amp; print media?
+                <h3 className="text-base md:text-lg font-bold text-text-primary">
+                  Handmade sketches &amp; cultural festival art
                 </h3>
-                <p className="text-sm text-text-body max-w-2xl leading-relaxed">
-                  Explore my complete collection of handmade pencil drawings, cultural festival art, and exploratory branding experiments on Behance.
+                <p className="text-xs md:text-sm text-text-body max-w-xl leading-relaxed">
+                  Traditional drawings, Kerala festival series, and exploratory graphic design experiments on Behance.
                 </p>
               </div>
 
@@ -573,9 +567,9 @@ export default function Projects() {
                 href="https://www.behance.net/ASWANTHUP"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium whitespace-nowrap shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 shrink-0"
+                className="btn-primary inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-xs md:text-sm font-medium whitespace-nowrap shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 shrink-0"
               >
-                View on Behance
+                View Behance Archive
                 <MdOutlineArrowOutward className="text-base" />
               </a>
             </motion.div>
