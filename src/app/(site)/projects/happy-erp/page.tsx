@@ -120,7 +120,7 @@ export default function HappyERPPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36 pb-16">
+    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36 pb-8 md:pb-12">
       {/* Background Texture */}
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
@@ -135,7 +135,7 @@ export default function HappyERPPage() {
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ---------------- BREADCRUMB ---------------- */}
         {/* ---------------- SECTION 1: SPLIT HERO ---------------- */}
-        <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center pb-16 border-b border-border-default">
+        <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Editorial Content */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Live Indicator Badge */}
