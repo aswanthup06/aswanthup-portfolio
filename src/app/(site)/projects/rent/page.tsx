@@ -120,14 +120,14 @@ export default function PosterPage() {
 
             {/* CTA Button */}
             <a
-              href="#"
+              href="https://www.behance.net/ASWANTHUP"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 text-white px-6 py-3 rounded-xl shadow-lg"
+              className="btn-primary inline-flex items-center gap-2 mt-8 text-white px-6 py-3 rounded-lg shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 font-medium text-sm transition-all duration-300"
             >
-              <CiGlobe className="text-xl" />
-              View Full Project
-              <LuArrowUpRight className="text-lg" />
+              <CiGlobe className="text-lg" />
+              View on Behance
+              <LuArrowUpRight className="text-base" />
             </a>
           </div>
         </div>

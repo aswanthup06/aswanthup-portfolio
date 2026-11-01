@@ -50,7 +50,8 @@ export const PROJECTS: Project[] = [
     kind: "case-study",
     featured: true,
     role: "Frontend development",
-    summary: "TODO: one line on what NVOCC does and what you built.",
+    summary:
+      "A modern logistics and shipping management platform engineered for intuitive tracking and container operations.",
     category: ["Web Application"],
     image: "/images/projects/nvocc/nvocc-hero.webp",
     tech: ["NextJS", "Tailwind CSS"],
@@ -61,7 +62,8 @@ export const PROJECTS: Project[] = [
     kind: "case-study",
     featured: true,
     role: "UI design + frontend",
-    summary: "TODO: one line on what Doctor One does and what you built.",
+    summary:
+      "A healthcare-focused digital platform simplifying patient interactions, appointments, and medical record accessibility.",
     category: ["Web Application", "UI Design"],
     image: "/images/projects/doctor-one/doctor.webp",
     tech: ["ReactJS", "Tailwind CSS"],
@@ -156,7 +158,8 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "EID Poster",
-    slug: "/projects/eidposter",
+    slug: "eidposter",
+    href: "https://www.behance.net/ASWANTHUP",
     kind: "design",
     role: "Poster design",
     summary: "Festive greeting poster.",
@@ -166,7 +169,8 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Sketch Art",
-    slug: "/projects/sketch-art",
+    slug: "sketch-art",
+    href: "https://www.behance.net/ASWANTHUP",
     kind: "design",
     role: "Drawing",
     summary: "Pencil sketches.",

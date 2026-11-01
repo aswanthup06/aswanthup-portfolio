@@ -308,16 +308,16 @@ export default function Footer() {
               </p>
 
               <div className="flex items-center gap-5 text-sm text-text-muted">
-                <Link
-                  href="/privacy-policy"
-                  className="hover:text-primary transition"
+                <span className="text-xs text-text-caption hidden sm:inline">
+                  Designed &amp; Built with Next.js &amp; Tailwind CSS
+                </span>
+                <button
+                  type="button"
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  className="hover:text-primary transition-colors text-xs font-medium cursor-pointer"
                 >
-                  Privacy Policy
-                </Link>
-
-                <Link href="/terms" className="hover:text-primary transition">
-                  Terms
-                </Link>
+                  Back to top ↑
+                </button>
               </div>
             </motion.div>
           </motion.div>
