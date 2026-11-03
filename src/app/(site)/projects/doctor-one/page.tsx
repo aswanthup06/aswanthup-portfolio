@@ -101,7 +101,7 @@ export default function DoctorOneCaseStudy() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36 pb-8 md:pb-12">
+    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36">
       {/* Background Texture */}
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"

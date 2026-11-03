@@ -169,7 +169,7 @@ function Hero() {
   return (
     <section
       aria-label="Introduction"
-      className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8"
+      className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 overflow-x-clip"
     >
       <motion.div
         variants={container}
@@ -227,10 +227,10 @@ function Hero() {
           </button>
         </motion.div>
 
-        {/* Proof strip: a rule, not a box */}
+        {/* Proof strip */}
         <motion.dl
           variants={item}
-          className="mt-9 grid w-full max-w-md grid-cols-3 gap-6 border-t border-border-default pt-6"
+          className="mt-8 grid w-full max-w-md grid-cols-3 gap-6"
         >
           <Stat to={FEATURED.length} label="Case studies" />
           <Stat to={LIVE_SITES.length} label="Live websites" />
@@ -289,13 +289,13 @@ function ShotStack() {
 
       {/* slow spinning dashed ring */}
       <motion.div
-        className="absolute -right-4 -top-6 h-24 w-24 rounded-full border-2 border-dashed border-primary/30"
+        className="absolute right-0 -top-6 sm:-right-4 h-24 w-24 rounded-full border-2 border-dashed border-primary/30 pointer-events-none"
         animate={{ rotate: 360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       />
 
       <Sticker
-        className="-left-1 bottom-14 md:-left-6"
+        className="left-0 sm:-left-2 md:-left-6 bottom-14"
         float={[0, -9, 0]}
         duration={5}
         delay={0.9}
@@ -304,7 +304,7 @@ function ShotStack() {
       </Sticker>
 
       <Sticker
-        className="-right-1 top-[50%] md:-right-5"
+        className="right-0 sm:-right-2 md:-right-5 top-[50%]"
         float={[0, 9, 0]}
         duration={6}
         delay={1.1}
@@ -372,8 +372,7 @@ function FeaturedProject({
   return (
     <motion.article
       {...reveal}
-      className={`group grid items-center gap-6 md:grid-cols-12 md:gap-12 ${index > 0 ? "border-t border-border-default pt-12 md:pt-16" : ""
-        }`}
+      className="group grid items-center gap-6 md:grid-cols-12 md:gap-12"
     >
       <ProjectLink
         project={project}
@@ -479,7 +478,7 @@ export default function Projects() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen pb-20 pt-28 md:pb-28 md:pt-36">
+      <div className="relative min-h-screen overflow-x-clip pb-16 pt-28 md:pb-20 md:pt-36">
         <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
         style={{
@@ -497,12 +496,12 @@ export default function Projects() {
           <section
             id="case-studies"
             aria-labelledby="featured-heading"
-            className="mt-24 scroll-mt-24 md:mt-32"
+            className="mt-16 md:mt-24 scroll-mt-24"
           >
             <h2 id="featured-heading" className="sr-only">
               Featured case studies
             </h2>
-            <div className="space-y-12 md:space-y-16">
+            <div className="space-y-16 md:space-y-24">
               {FEATURED.map((p, i) => (
                 <FeaturedProject key={p.slug} project={p} index={i} />
               ))}
@@ -513,7 +512,7 @@ export default function Projects() {
           <section
             id="websites"
             aria-labelledby="websites-heading"
-            className="mt-24 scroll-mt-24 md:mt-32"
+            className="mt-16 md:mt-24 scroll-mt-24"
           >
             <SectionHeading
               id="websites-heading"
@@ -532,7 +531,7 @@ export default function Projects() {
           <section
             id="design-work"
             aria-labelledby="design-heading"
-            className="mt-24 scroll-mt-24 md:mt-32"
+            className="mt-16 md:mt-24 scroll-mt-24"
           >
             <SectionHeading
               id="design-heading"
@@ -575,11 +574,11 @@ export default function Projects() {
             </motion.div>
           </section>
 
-          {/* Closing CTA: open, with a rule on top instead of a box */}
+          {/* Closing CTA */}
           <motion.section
             {...reveal}
             aria-labelledby="cta-heading"
-            className="mt-24 grid items-end gap-8 border-t border-border-default pt-12 md:mt-32 md:pt-16 lg:grid-cols-[1fr_auto]"
+            className="mt-16 md:mt-24 grid items-end gap-8 lg:grid-cols-[1fr_auto]"
           >
             <div className="max-w-2xl">
               <p className="text-sm font-bold text-primary">
