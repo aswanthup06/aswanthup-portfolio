@@ -59,17 +59,20 @@ export default function ContactModal() {
   };
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    if (!isOpen) return;
+
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarWidth > 0) {
+      document.documentElement.style.setProperty("--scrollbar-width", `${scrollbarWidth}px`);
+    }
+    document.documentElement.classList.add("modal-open");
 
     const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
-    if (isOpen) {
-      lenis?.stop();
-    } else {
-      lenis?.start();
-    }
+    lenis?.stop();
 
     return () => {
-      document.body.style.overflow = "";
+      document.documentElement.classList.remove("modal-open");
+      document.documentElement.style.removeProperty("--scrollbar-width");
       lenis?.start();
     };
   }, [isOpen]);
@@ -261,7 +264,7 @@ export default function ContactModal() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             onClick={handleClose}
-            className="fixed inset-0 bg-black/40 z-60"
+            className="fixed inset-0 bg-black/40 z-60 touch-none"
           />
 
           <motion.div
@@ -277,7 +280,7 @@ export default function ContactModal() {
           >
             <div
               data-lenis-prevent
-              className="h-full bg-white rounded-2xl shadow-xl p-6 overflow-y-auto overscroll-contain"
+              className="h-full bg-white rounded-2xl shadow-xl p-6 overflow-y-auto overscroll-contain no-scrollbar"
             >
               <motion.button
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -288,7 +291,7 @@ export default function ContactModal() {
                 }}
                 onClick={handleClose}
                 className="
-                  mb-6
+                  mb-4
                   bg-linear-to-b
                   from-blue-400
                   to-blue-600
@@ -323,14 +326,14 @@ export default function ContactModal() {
 
                 <motion.p
                   variants={itemVariants}
-                  className="text-sm text-gray-500 mb-8"
+                  className="text-sm text-gray-500 mb-5"
                 >
                   {contactData.description}
                 </motion.p>
 
                 <motion.div
                   variants={containerVariants}
-                  className="space-y-6 mb-10"
+                  className="space-y-3.5 mb-6"
                 >
                   {contactData.contactItems.map((item, index) => (
                     <motion.div
@@ -398,7 +401,7 @@ export default function ContactModal() {
 
                 <motion.div
                   variants={itemVariants}
-                  className="h-px w-full bg-gray-200 mb-8"
+                  className="h-px w-full bg-gray-200 mb-5"
                 />
 
                 <motion.form
@@ -407,7 +410,7 @@ export default function ContactModal() {
                   animate="show"
                   onSubmit={handleSubmit}
                   noValidate
-                  className="space-y-4 pb-6"
+                  className="space-y-3 pb-4"
                 >
                   <motion.h3
                     variants={itemVariants}
@@ -475,7 +478,7 @@ export default function ContactModal() {
                   <motion.div variants={itemVariants}>
                     <textarea
                       placeholder="Your Message (at least 10 characters)"
-                      rows={4}
+                      rows={3}
                       value={message}
                       onChange={(e) => handleMessageChange(e.target.value)}
                       onBlur={() => handleBlur("message")}
