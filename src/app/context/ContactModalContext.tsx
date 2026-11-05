@@ -26,7 +26,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
       value={{ isOpen, openModal, closeModal }}
     >
       {children}
-      {isOpen && <ContactModal />}
+      <ContactModal />
     </ContactModalContext.Provider>
   );
 }

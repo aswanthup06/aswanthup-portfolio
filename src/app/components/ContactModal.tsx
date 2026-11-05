@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import { useContactModal } from "../context/ContactModalContext";
 import { IoMdClose } from "react-icons/io";
 import { IoCheckmarkCircle } from "react-icons/io5";
-import { MdOutlinePhone } from "react-icons/md";
+import { MdOutlinePhone, MdOutlineArrowOutward } from "react-icons/md";
 import { LuMailCheck } from "react-icons/lu";
 import { BsWhatsapp } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
-import { containerVariants, itemVariants } from "../lib/animations";
 
 interface FormErrors {
   name?: string;
@@ -31,32 +30,6 @@ export default function ContactModal() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
-
-  const contactData = {
-    title: "Get in Touch Now!",
-    description:
-      "I'm open to new projects and freelance opportunities! Whether you need a UI designer or UI developer, let's collaborate and bring your ideas to life.",
-    contactItems: [
-      {
-        type: "phone",
-        label: "Phone Number",
-        value: "+917559068970",
-        buttonText: "Call Now",
-      },
-      {
-        type: "email",
-        label: "Email Address",
-        value: "aswanthup06@gmail.com",
-        buttonText: "Copy Email",
-      },
-      {
-        type: "whatsapp",
-        label: "WhatsApp",
-        value: "917559068970",
-        buttonText: "Chat Now",
-      },
-    ],
-  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -167,38 +140,6 @@ export default function ContactModal() {
     }, 2000);
   };
 
-  const handleContactAction = (type: string, value: string) => {
-    switch (type) {
-      case "phone":
-        window.location.assign(`tel:${value}`);
-        break;
-
-      case "email":
-        copyToClipboard(value);
-        break;
-
-      case "whatsapp":
-        window.open(`https://wa.me/${value}`, "_blank");
-        break;
-    }
-  };
-
-  const getIcon = (type: string) => {
-    switch (type) {
-      case "phone":
-        return <MdOutlinePhone className="w-4 h-4" />;
-
-      case "email":
-        return <LuMailCheck className="w-4 h-4" />;
-
-      case "whatsapp":
-        return <BsWhatsapp className="w-4 h-4" />;
-
-      default:
-        return null;
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -255,182 +196,90 @@ export default function ContactModal() {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
         <>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
             onClick={handleClose}
-            className="fixed inset-0 bg-black/40 z-60 touch-none"
+            className="fixed inset-0 bg-black/45 backdrop-blur-xs z-60 touch-none"
           />
 
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            initial={{ x: "100%", opacity: 0.95 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
             transition={{
-              duration: 0.4,
-              ease: "easeOut",
+              type: "spring",
+              damping: 30,
+              stiffness: 300,
+              mass: 0.85,
             }}
             data-lenis-prevent
-            className="fixed top-0 right-0 h-dvh w-full md:w-1/3 p-4 z-70"
+            className="fixed top-0 right-0 h-dvh w-full sm:w-[440px] md:w-[460px] p-3 sm:p-4 z-70"
           >
             <div
               data-lenis-prevent
-              className="h-full bg-white rounded-2xl shadow-xl p-6 overflow-y-auto overscroll-contain no-scrollbar"
+              className="relative h-full bg-white rounded-2xl border border-border-default shadow-2xl p-6 overflow-y-auto overscroll-contain no-scrollbar flex flex-col justify-between"
             >
+              {/* Absolute Close Button: exactly 24px (top-6 right-6) matching card p-6 */}
               <motion.button
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.15,
-                }}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.92 }}
                 onClick={handleClose}
-                className="
-                  mb-4
-                  bg-linear-to-b
-                  from-blue-400
-                  to-blue-600
-                  h-10
-                  w-10
-                  rounded-full
-                  text-white
-                  flex
-                  items-center
-                  justify-center
-                  shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-                  hover:from-blue-500
-                  hover:to-blue-700
-                  transition
-                  cursor-pointer
-                "
+                aria-label="Close modal"
+                className="absolute top-6 right-6 z-20 h-8 w-8 rounded-full border border-border-default/70 flex items-center justify-center text-text-muted hover:text-text-primary hover:bg-surface-muted transition-colors cursor-pointer"
               >
-                <IoMdClose />
+                <IoMdClose className="text-base" />
               </motion.button>
 
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="show"
-              >
-                <motion.h2
-                  variants={itemVariants}
-                  className="text-xl font-semibold mb-2"
-                >
-                  {contactData.title}
-                </motion.h2>
+              <div>
+                {/* Title: aligns cleanly with the top-6 right-6 close button */}
+                <div className="pr-10">
+                  <h2 className="text-2xl font-bold tracking-tight text-text-primary leading-8">
+                    Let’s connect
+                  </h2>
+                </div>
 
-                <motion.p
-                  variants={itemVariants}
-                  className="text-sm text-gray-500 mb-5"
-                >
-                  {contactData.description}
-                </motion.p>
+                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-text-muted">
+                  Have an open UI role, an enterprise project, or want to discuss design-to-code architecture? Drop a note below, or email directly at{" "}
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard("aswanthup06@gmail.com")}
+                    className="font-semibold text-primary hover:text-primary-hover hover:underline transition-colors cursor-pointer inline-flex items-center gap-1"
+                  >
+                    aswanthup06@gmail.com
+                    {copiedEmail ? (
+                      <span className="text-xs text-green-600 font-bold">(copied!)</span>
+                    ) : null}
+                  </button>
+                  .
+                </p>
 
-                <motion.div
-                  variants={containerVariants}
-                  className="space-y-3.5 mb-6"
-                >
-                  {contactData.contactItems.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      variants={itemVariants}
-                      className="flex gap-4 items-center justify-between"
-                    >
-                      <div className="flex items-center gap-4 min-w-0">
-                        <motion.div
-                          whileHover={{ scale: 1.08 }}
-                          className="h-12 w-12 shrink-0 rounded-full bg-gray-100 flex items-center justify-center text-sm"
-                        >
-                          {getIcon(item.type)}
-                        </motion.div>
-
-                        <div className="min-w-0">
-                          <p className="text-xs text-gray-500">
-                            {item.label}
-                          </p>
-
-                          <p className="text-sm font-medium truncate">
-                            {item.value}
-                          </p>
-                        </div>
-                      </div>
-
-                      <motion.button
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.96 }}
-                        onClick={() =>
-                          handleContactAction(item.type, item.value)
-                        }
-                        className={`
-                          shrink-0
-                          bg-linear-to-b
-                          from-blue-400
-                          to-blue-600
-                          w-22
-                          h-8
-                          text-xs
-                          rounded-md
-                          text-white
-                          flex
-                          items-center
-                          justify-center
-                          shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-                          hover:from-blue-500
-                          hover:to-blue-700
-                          transition
-                          cursor-pointer
-                          ${
-                            copiedEmail && item.type === "email"
-                              ? "bg-green-100 text-green-700"
-                              : ""
-                          }
-                        `}
-                      >
-                        {copiedEmail && item.type === "email"
-                          ? "Copied!"
-                          : item.buttonText}
-                      </motion.button>
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                <motion.div
-                  variants={itemVariants}
-                  className="h-px w-full bg-gray-200 mb-5"
-                />
-
-                <motion.form
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="show"
+                {/* Form */}
+                <form
                   onSubmit={handleSubmit}
                   noValidate
-                  className="space-y-3 pb-4"
+                  className="mt-6 space-y-3.5"
                 >
-                  <motion.h3
-                    variants={itemVariants}
-                    className="text-lg font-semibold mb-2"
-                  >
-                    Send a Message
-                  </motion.h3>
-
-                  <motion.div variants={itemVariants}>
+                  <div>
+                    <label className="block text-xs font-semibold text-text-secondary mb-1.5">
+                      Your Name
+                    </label>
                     <input
                       type="text"
-                      placeholder="Your Name"
+                      placeholder="e.g. Sarah Jenkins"
                       value={name}
                       onChange={(e) => handleNameChange(e.target.value)}
                       onBlur={() => handleBlur("name")}
                       aria-invalid={Boolean(errors.name && touched.name)}
-                      className={`w-full h-12 text-sm px-4 rounded-md transition focus:outline-none focus:ring-2 ${
+                      className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
                         errors.name && touched.name
-                          ? "bg-red-50/60 border border-red-300 focus:ring-red-400/30 text-gray-900"
-                          : "bg-gray-100 border border-transparent focus:ring-blue-400/30"
+                          ? "bg-red-50/60 border-red-300 focus:ring-red-400/30 text-gray-900"
+                          : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
                       }`}
                     />
                     <AnimatePresence>
@@ -445,20 +294,23 @@ export default function ContactModal() {
                         </motion.p>
                       )}
                     </AnimatePresence>
-                  </motion.div>
+                  </div>
 
-                  <motion.div variants={itemVariants}>
+                  <div>
+                    <label className="block text-xs font-semibold text-text-secondary mb-1.5">
+                      Email Address
+                    </label>
                     <input
                       type="email"
-                      placeholder="Your Email"
+                      placeholder="you@company.com"
                       value={email}
                       onChange={(e) => handleEmailChange(e.target.value)}
                       onBlur={() => handleBlur("email")}
                       aria-invalid={Boolean(errors.email && touched.email)}
-                      className={`w-full h-12 text-sm px-4 rounded-md transition focus:outline-none focus:ring-2 ${
+                      className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
                         errors.email && touched.email
-                          ? "bg-red-50/60 border border-red-300 focus:ring-red-400/30 text-gray-900"
-                          : "bg-gray-100 border border-transparent focus:ring-blue-400/30"
+                          ? "bg-red-50/60 border-red-300 focus:ring-red-400/30 text-gray-900"
+                          : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
                       }`}
                     />
                     <AnimatePresence>
@@ -473,42 +325,43 @@ export default function ContactModal() {
                         </motion.p>
                       )}
                     </AnimatePresence>
-                  </motion.div>
+                  </div>
 
-                  <motion.div variants={itemVariants}>
+                  <div>
+                    <div className="flex justify-between items-center mb-1.5">
+                      <label className="block text-xs font-semibold text-text-secondary">
+                        Message
+                      </label>
+                      <span className="text-[11px] text-text-muted">
+                        {message.length}/1000
+                      </span>
+                    </div>
                     <textarea
-                      placeholder="Your Message (at least 10 characters)"
+                      placeholder="Tell me about your team, product, or role..."
                       rows={3}
                       value={message}
                       onChange={(e) => handleMessageChange(e.target.value)}
                       onBlur={() => handleBlur("message")}
                       aria-invalid={Boolean(errors.message && touched.message)}
-                      className={`w-full px-4 text-sm py-3 rounded-md resize-none transition focus:outline-none focus:ring-2 ${
+                      className={`w-full px-3.5 py-2.5 text-sm rounded-md border resize-none transition-all focus:outline-none focus:ring-2 ${
                         errors.message && touched.message
-                          ? "bg-red-50/60 border border-red-300 focus:ring-red-400/30 text-gray-900"
-                          : "bg-gray-100 border border-transparent focus:ring-blue-400/30"
+                          ? "bg-red-50/60 border-red-300 focus:ring-red-400/30 text-gray-900"
+                          : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
                       }`}
                     />
-                    <div className="flex justify-between items-center mt-1 px-1">
-                      <AnimatePresence>
-                        {errors.message && touched.message ? (
-                          <motion.p
-                            initial={{ opacity: 0, height: 0, y: -4 }}
-                            animate={{ opacity: 1, height: "auto", y: 0 }}
-                            exit={{ opacity: 0, height: 0, y: -4 }}
-                            className="text-xs text-red-500"
-                          >
-                            {errors.message}
-                          </motion.p>
-                        ) : (
-                          <span />
-                        )}
-                      </AnimatePresence>
-                      <span className="text-[11px] text-gray-400 ml-auto">
-                        {message.length}/1000
-                      </span>
-                    </div>
-                  </motion.div>
+                    <AnimatePresence>
+                      {errors.message && touched.message && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0, y: -4 }}
+                          animate={{ opacity: 1, height: "auto", y: 0 }}
+                          exit={{ opacity: 0, height: 0, y: -4 }}
+                          className="text-xs text-red-500 mt-1 pl-1"
+                        >
+                          {errors.message}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
 
                   <AnimatePresence mode="wait">
                     {status && (
@@ -520,7 +373,7 @@ export default function ContactModal() {
                         className={`
                           px-4
                           rounded-md
-                          h-12
+                          h-11
                           flex
                           items-center
                           gap-3
@@ -533,12 +386,12 @@ export default function ContactModal() {
                         `}
                       >
                         {status === "success" ? (
-                          <IoCheckmarkCircle className="text-2xl" />
+                          <IoCheckmarkCircle className="text-xl" />
                         ) : (
-                          <IoMdClose className="text-2xl" />
+                          <IoMdClose className="text-xl" />
                         )}
 
-                        <p className="text-sm font-medium">
+                        <p className="text-xs font-medium">
                           {statusMessage}
                         </p>
                       </motion.div>
@@ -546,32 +399,28 @@ export default function ContactModal() {
                   </AnimatePresence>
 
                   <motion.button
-                    variants={itemVariants}
-                    whileHover={{
-                      scale: 1.01,
-                    }}
-                    whileTap={{
-                      scale: 0.98,
-                    }}
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={loading}
                     className="
-                      h-12
+                      btn-primary
+                      h-11
                       w-full
-                      text-sm
-                      text-white
                       rounded-md
-                      bg-linear-to-b
-                      from-blue-400
-                      to-blue-600
+                      text-sm
+                      font-medium
+                      text-white
                       flex
                       items-center
                       justify-center
                       gap-2
-                      shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-                      hover:from-blue-500
-                      hover:to-blue-700
-                      transition
+                      shadow-md
+                      shadow-blue-500/20
+                      hover:shadow-lg
+                      hover:shadow-blue-500/30
+                      transition-all
+                      duration-300
                       cursor-pointer
                       disabled:opacity-70
                     "
@@ -579,14 +428,52 @@ export default function ContactModal() {
                     {loading ? (
                       <>
                         <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Sending...</span>
+                        <span>Sending message...</span>
                       </>
                     ) : (
-                      "Submit"
+                      <>
+                        <span>Send Message</span>
+                        <MdOutlineArrowOutward className="text-base" />
+                      </>
                     )}
                   </motion.button>
-                </motion.form>
-              </motion.div>
+                </form>
+              </div>
+
+              {/* Quiet Direct Channels Footer */}
+              <div className="pt-4 mt-6 border-t border-border-default/70">
+                <p className="text-[11px] font-medium uppercase tracking-wider text-text-muted mb-2">
+                  Or connect directly
+                </p>
+                <div className="flex flex-wrap items-center gap-2.5 text-xs">
+                  <a
+                    href="https://wa.me/917559068970"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-text-secondary hover:text-green-600 transition-colors font-medium"
+                  >
+                    <BsWhatsapp className="text-sm text-green-600" />
+                    <span>+91 7559068970</span>
+                  </a>
+                  <span className="text-border-default">·</span>
+                  <a
+                    href="tel:+917559068970"
+                    className="inline-flex items-center gap-1.5 text-text-secondary hover:text-primary transition-colors font-medium"
+                  >
+                    <MdOutlinePhone className="text-sm text-primary" />
+                    <span>Call</span>
+                  </a>
+                  <span className="text-border-default">·</span>
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard("aswanthup06@gmail.com")}
+                    className="inline-flex items-center gap-1.5 text-text-secondary hover:text-primary transition-colors font-medium cursor-pointer"
+                  >
+                    <LuMailCheck className="text-sm text-primary" />
+                    <span>{copiedEmail ? "Copied!" : "Copy Email"}</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </motion.div>
         </>
