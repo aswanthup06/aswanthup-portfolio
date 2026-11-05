@@ -30,7 +30,6 @@ import {
 } from "react-icons/si";
 import { Sparkles } from "lucide-react";
 import {
-  FaHammer,
   FaLocationDot,
   FaBriefcase,
 
@@ -196,9 +195,9 @@ function Hero() {
 
         {/* h1 stays static so it never delays LCP */}
         <h1 className="text-4xl font-bold leading-[1.1] text-text-primary md:text-5xl lg:text-6xl">
-          From chisels
+          Designing interfaces
           <span className="block bg-gradient-to-r from-blue-600 via-primary to-cyan-500 bg-clip-text text-transparent">
-            to components.
+            built for production.
           </span>
         </h1>
 
@@ -206,10 +205,11 @@ function Hero() {
           variants={item}
           className="mt-5 max-w-xl text-sm leading-relaxed text-text-body md:text-lg"
         >
-          I’m Aswanth, a UI Developer and Designer from Kozhikode, Kerala. I
-          spent years shaping wood by hand before I started shaping
-          interfaces, and I still build the same way: measure first, join
-          cleanly, and finish the details nobody asks about.
+          I’m Aswanth, a UI Developer and Designer from Kozhikode, Kerala,
+          with a background in Computer Science and physical craft. I bridge
+          Figma design tokens into clean, scalable React and Next.js
+          applications—focusing on responsive architecture, accessibility,
+          and high visual fidelity.
         </motion.p>
 
         <motion.div
@@ -296,7 +296,7 @@ function Portrait() {
         duration={5}
         delay={0.9}
       >
-        <FaHammer className="text-amber-500" /> Ex-carpenter
+        <FaRulerCombined className="text-blue-500" /> UI Engineering
       </Sticker>
 
       <Sticker
@@ -448,8 +448,8 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
 const STATS = [
   { to: 3, suffix: "+", label: "Years building UI" },
   { to: 600, suffix: "+", label: "Screens developed" },
-  { to: 4, suffix: "", label: "Case studies" },
-  { to: 5, suffix: "×", label: "State-level A grade" },
+  { to: 4, suffix: "", label: "Production case studies" },
+  { to: 99, suffix: "%", label: "Figma-to-code fidelity" },
 ];
 
 function Stats() {
@@ -1055,13 +1055,13 @@ function Craft() {
   return (
     <section aria-labelledby="craft-heading" className="mt-28">
       <Heading
-        kicker="From workshop to pixels"
+        kicker="Creative background"
         title={
           <span id="craft-heading">
-            Made by hand<span className="text-amber-500">_</span>
+            Craft & visual foundation<span className="text-primary">_</span>
           </span>
         }
-        sub="Wood grain, pencil strokes, and chisel marks: the foundation of my design philosophy."
+        sub="Pencil sketching, spatial craftsmanship, and physical joinery: the roots of my visual discipline and attention to detail."
       />
 
       <motion.div
@@ -1140,7 +1140,7 @@ function Craft() {
           but essential for structure.
         </blockquote>
         <figcaption className="mt-3 text-xs tracking-wide text-text-muted">
-          from carpenter to designer
+          craft discipline to digital UI
         </figcaption>
       </motion.figure>
     </section>
