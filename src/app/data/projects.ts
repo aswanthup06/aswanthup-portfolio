@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     slug: "/projects/happy-erp",
     kind: "case-study",
     featured: true,
-    role: "UI/UX design + frontend",
+    role: "UI Design & UI Development",
     summary:
       "An ERP platform for toy businesses covering inventory, orders and billing in one place.",
     category: ["Web Application", "UI Design"],
@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
     slug: "/projects/nvocc",
     kind: "case-study",
     featured: true,
-    role: "Frontend development",
+    role: "UI Development",
     summary:
       "A modern logistics and shipping management platform engineered for intuitive tracking and container operations.",
     category: ["Web Application"],
@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
     slug: "/projects/doctor-one",
     kind: "case-study",
     featured: true,
-    role: "UI design + frontend",
+    role: "UI Design & UI Development",
     summary:
       "A healthcare-focused digital platform simplifying patient interactions, appointments, and medical record accessibility.",
     category: ["Web Application", "UI Design"],

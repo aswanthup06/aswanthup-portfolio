@@ -86,7 +86,7 @@ export default function HeroSection() {
               variants={item}
               className="mt-5 max-w-xl text-sm leading-relaxed text-text-body md:text-lg"
             >
-              UI/UX design and clean, performant frontend code from one person.
+              UI/UX design and clean, production-ready UI code from one person.
               I turn complex workflows into intuitive web applications, from
               first sketch to production.
             </motion.p>

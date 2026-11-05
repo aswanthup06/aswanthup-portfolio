@@ -31,7 +31,7 @@ export default function HappyERPPage() {
 
   const projectMeta = [
     { label: "Timeline", value: "3 Months", icon: LuClock },
-    { label: "Role", value: "UI/UX & Frontend Lead", icon: LuUserCheck },
+    { label: "Role", value: "UI/UX & UI Development Lead", icon: LuUserCheck },
     { label: "Tech Stack", value: "React · Next.js · Tailwind", icon: LuCode },
     { label: "Deliverables", value: "40+ Screens · Design System", icon: LuLayers },
   ];
@@ -109,7 +109,7 @@ export default function HappyERPPage() {
     },
     {
       icon: LuCode,
-      title: "Frontend Engineering",
+      title: "UI Development",
       desc: "Built scalable, reusable React components and responsive dashboard layouts with clean state management.",
     },
     {
@@ -311,7 +311,7 @@ export default function HappyERPPage() {
               My Engineering &amp; Design Ownership
             </h2>
             <p className="text-text-muted text-sm mt-2">
-              Leading the frontend implementation and design system creation from Figma concept to production.
+              Leading the UI implementation and design system creation from Figma concept to production.
             </p>
           </div>
 

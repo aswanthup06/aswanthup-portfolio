@@ -119,7 +119,7 @@ export default function Footer() {
                   className="text-sm leading-relaxed text-text-body mt-6"
                 >
                   Passionate about crafting clean digital experiences through
-                  frontend development, modern UI systems, responsive
+                  modern UI development, component design systems, responsive
                   interfaces, and scalable design thinking.
                 </motion.p>
               </motion.div>

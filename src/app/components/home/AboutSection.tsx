@@ -89,7 +89,7 @@ export default function AboutSection() {
             </h3>
 
             <p className="text-primary text-sm font-medium mb-4">
-              UI Developer • React Frontend
+              UI Developer • Design to Code
             </p>
 
             <p className="text-text-body text-sm leading-relaxed">

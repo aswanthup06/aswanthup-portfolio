@@ -294,9 +294,9 @@ export default function ProjectsSection() {
             </p>
 
             <p className="text-text-body text-sm md:text-base leading-relaxed mt-4 max-w-xl">
-              A collection of selected projects focused on frontend development,
-              UI engineering, responsive experiences, and scalable product
-              design across multiple industries.
+              A collection of selected projects focused on UI development,
+              design systems, responsive experiences, and Figma-to-code execution
+              across multiple industries.
             </p>
           </div>
 

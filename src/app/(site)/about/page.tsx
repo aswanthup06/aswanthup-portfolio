@@ -546,7 +546,7 @@ const CHAPTERS: Chapter[] = [
     org: "Chaavie Solutions",
     place: "Kozhikode, Kerala",
     now: true,
-    text: "Working across UI/UX design, frontend development, and branding.",
+    text: "Working across UI/UX design, UI development, and design systems.",
     points: [
       "Led UI development for healthcare platforms",
       "Mentored junior developers",
@@ -558,7 +558,7 @@ const CHAPTERS: Chapter[] = [
       period: "Jan – Aug 2025",
       title: "Contract at 6solve IT Services",
       place: "Tirunelveli, Tamil Nadu",
-      text: "Collaborated on Next.js projects, improving performance and scalability while strengthening modern frontend architecture skills.",
+      text: "Collaborated on Next.js projects, improving performance and scalability while strengthening modern UI architecture and component systems.",
     },
   },
 ];
@@ -831,8 +831,8 @@ interface ToolkitGroup {
 const TOOLKIT_GROUPS: ToolkitGroup[] = [
   {
     kicker: "Core Stack",
-    title: "Frontend Engineering",
-    desc: "Production-tested technologies for robust, scalable, and responsive web applications.",
+    title: "UI Development",
+    desc: "Production-tested technologies for clean component architecture, responsive layouts, and interactive UI systems.",
     items: [
       { name: "JavaScript (ES6+)", role: "Modern DOM, Async & Web APIs", Icon: IoLogoJavascript },
       { name: "TypeScript", role: "Type Safety & Reliability", Icon: SiTypescript },

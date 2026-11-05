@@ -313,7 +313,7 @@ export default function NvoccPage() {
         <section className="mt-16 md:mt-24">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-              Frontend Engineering Ownership
+              UI Development Ownership
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight mt-1">
               My Role &amp; Technical Scope

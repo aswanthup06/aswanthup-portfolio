@@ -594,7 +594,7 @@ export default function Projects() {
                 </span>
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-text-body md:text-base">
-                Open for UI development, frontend engineering, and UI/UX design
+                Open for UI development, design system implementation, and UI/UX design
                 opportunities.
               </p>
             </div>

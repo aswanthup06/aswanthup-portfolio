@@ -455,7 +455,7 @@ export default function DoctorOneCaseStudy() {
               Clinical Empathy Through Clean Code.
             </h2>
             <p className="mt-3 text-sm sm:text-base text-text-body leading-relaxed">
-              Healthcare interfaces demand heightened precision. How design systems and frontend engineering aligned to serve both physicians and patients:
+              Healthcare interfaces demand heightened precision. How design systems and UI development aligned to serve both physicians and patients:
             </p>
           </div>
 
@@ -489,7 +489,7 @@ export default function DoctorOneCaseStudy() {
                 ENGINEERING SPECIFICATION
               </p>
               <h3 className="text-lg sm:text-xl font-bold text-text-primary mt-1">
-                Technologies &amp; Frontend Stack
+                Technologies &amp; UI Stack
               </h3>
             </div>
             <span className="text-xs text-text-muted">
