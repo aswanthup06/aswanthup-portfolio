@@ -204,35 +204,36 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -4 }}
-          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-lg h-full"
+          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-lg h-full flex flex-col justify-between"
         >
-          <div className="flex items-center justify-between gap-3">
-            <p className="text-text-muted text-sm font-medium">
-              Featured Project
-            </p>
+          <div>
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                Component Architecture
+              </span>
+            </div>
 
+            <div className="mt-4">
+              <h3 className="text-2xl font-bold tracking-tight text-text-primary">
+                Design systems first.
+              </h3>
 
-          </div>
-
-          <div className="mt-7">
-            <h3 className="text-2xl font-bold tracking-tight text-text-primary">
-              Built with purpose.
-            </h3>
-
-            <p className="mt-3 text-sm text-text-body leading-relaxed">
-              Zenoway — a career platform built with Next.js, connecting job
-              discovery, detailed listings, and application experiences.
-            </p>
+              <p className="mt-3 text-sm text-text-body leading-relaxed">
+                Building modular, atomic component libraries with standardized
+                spacing tokens, color variables, and accessible states that stay
+                consistent across 50+ screens.
+              </p>
+            </div>
           </div>
 
           <div className="mt-6 pt-5 border-t border-border-default">
             <div className="flex flex-wrap gap-2">
-              {["Next.js", "React", "TypeScript", "Tailwind CSS"].map((tech) => (
+              {["Design Tokens", "Reusable Components", "Tailwind CSS"].map((item) => (
                 <span
-                  key={tech}
+                  key={item}
                   className="px-2.5 py-1 rounded-md bg-[#EDF7F1] text-[#087F50] text-xs font-medium"
                 >
-                  {tech}
+                  {item}
                 </span>
               ))}
             </div>

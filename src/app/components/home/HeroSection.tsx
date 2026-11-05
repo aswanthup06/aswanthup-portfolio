@@ -472,7 +472,7 @@ function DesignToCode() {
         float={{ y: [0, 10, 0] }}
         duration={6}
       >
-        <SiTypescript className="text-blue-600" /> TypeScript
+        <IoLogoJavascript className="text-yellow-500" /> JavaScript
       </Chip>
 
       <Chip
