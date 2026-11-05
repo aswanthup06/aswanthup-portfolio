@@ -94,12 +94,12 @@ export default function AboutSection() {
 
             <p className="text-text-body text-sm leading-relaxed">
               UI Developer with 3+ years of experience building scalable,
-              responsive, and pixel-perfect interfaces using React, Next.js,
-              Tailwind CSS, and Figma Dev Mode.
+              responsive, and pixel-perfect interfaces using modern JavaScript (ES6+),
+              React, Next.js, Tailwind CSS, and Figma Dev Mode.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {["React", "Next.js", "Tailwind", "Figma"].map((item) => (
+              {["JavaScript", "React", "Next.js", "Tailwind", "Figma"].map((item) => (
                 <span
                   key={item}
                   className="px-3 py-1 rounded-sm bg-surface-muted text-xs text-text-body font-medium"

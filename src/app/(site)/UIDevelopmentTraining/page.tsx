@@ -10,7 +10,9 @@ export default function UIDevelopmentTraining() {
       topics: [
         "HTML5 Fundamentals",
         "CSS3 Styling",
+        "SCSS & Modular CSS Basics",
         "Flexbox & CSS Grid",
+        "JavaScript Essentials (ES6+ & DOM)",
         "Responsive Design",
         "Web Accessibility Basics",
         "Landing Page Project",
@@ -84,9 +86,9 @@ export default function UIDevelopmentTraining() {
 </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/60">
-            A structured learning path covering HTML, CSS, Bootstrap,
-            Tailwind CSS, React, responsive design, and Figma-to-code
-            workflows.
+            A structured learning path covering HTML5, CSS3 / SCSS basics,
+            JavaScript (ES6+), Bootstrap, Tailwind CSS, React, responsive design, and
+            Figma-to-code workflows.
           </p>
         </div>
 

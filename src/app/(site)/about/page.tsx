@@ -27,6 +27,7 @@ import {
   SiOpenai,
   SiClaude,
   SiGooglegemini,
+  SiSass,
 } from "react-icons/si";
 import { Sparkles } from "lucide-react";
 import {
@@ -373,18 +374,19 @@ function CursorIcon({ className = "text-xl" }: { className?: string }) {
 /* -------------------------------------------------------------------------- */
 
 const TOOLS = [
+  { name: "JavaScript", Icon: IoLogoJavascript },
+  { name: "TypeScript", Icon: SiTypescript },
   { name: "React", Icon: IoLogoReact },
   { name: "Next.js", Icon: SiNextdotjs },
-  { name: "TypeScript", Icon: SiTypescript },
   { name: "Tailwind CSS", Icon: SiTailwindcss },
+  { name: "Sass / SCSS", Icon: SiSass },
+  { name: "Figma", Icon: SiFigma },
   { name: "Cursor", Icon: CursorIcon },
   { name: "Claude", Icon: SiClaude },
-  { name: "Figma", Icon: SiFigma },
   { name: "Antigravity", Icon: SiGooglegemini },
   { name: "ChatGPT", Icon: SiOpenai },
   { name: "Framer Motion", Icon: SiFramer },
   { name: "Git", Icon: SiGit },
-  { name: "JavaScript", Icon: IoLogoJavascript },
 ];
 
 function Marquee() {
@@ -534,8 +536,8 @@ const CHAPTERS: Chapter[] = [
     title: "UI/UX Design Intern",
     org: "Futura Labs",
     place: "Kozhikode, Kerala",
-    text: "Where the switch started: UI/UX design and frontend basics, including HTML, CSS, and Figma.",
-    tags: ["HTML", "CSS", "Figma"],
+    text: "Where the switch started: UI/UX design and frontend fundamentals, including HTML5, CSS3 / SCSS basics, JavaScript, and Figma.",
+    tags: ["HTML5", "CSS3 / SCSS", "JavaScript", "Figma"],
   },
   {
     period: "Jun 2023 – Present",
@@ -550,7 +552,7 @@ const CHAPTERS: Chapter[] = [
       "Mentored junior developers",
       "Built dashboards, SaaS platforms and reusable component systems for web and mobile",
     ],
-    tags: ["React", "Next.js", "Tailwind", "Figma"],
+    tags: ["JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Tailwind", "Figma"],
     links: [{ label: "Doctor One", href: "/projects/doctor-one" }],
     sub: {
       period: "Jan – Aug 2025",
@@ -751,7 +753,7 @@ const PRINCIPLES = [
     Icon: FaScrewdriverWrench,
     rule: "Know your tools by hand.",
     title: "Depth over buzzwords",
-    text: "React, Next.js, TypeScript, Tailwind and Figma Dev Mode, used daily and understood well enough to bend when needed.",
+    text: "JavaScript (ES6+), React, Next.js, TypeScript, Tailwind CSS, and Figma Dev Mode, used daily and understood well enough to bend when needed.",
   },
 ];
 
@@ -832,10 +834,12 @@ const TOOLKIT_GROUPS: ToolkitGroup[] = [
     title: "Frontend Engineering",
     desc: "Production-tested technologies for robust, scalable, and responsive web applications.",
     items: [
-      { name: "Next.js", role: "SSR & App Architecture", Icon: SiNextdotjs },
-      { name: "React", role: "Component Architecture", Icon: IoLogoReact },
+      { name: "JavaScript (ES6+)", role: "Modern DOM, Async & Web APIs", Icon: IoLogoJavascript },
       { name: "TypeScript", role: "Type Safety & Reliability", Icon: SiTypescript },
+      { name: "React", role: "Component Architecture", Icon: IoLogoReact },
+      { name: "Next.js", role: "SSR & App Architecture", Icon: SiNextdotjs },
       { name: "Tailwind CSS", role: "Design Tokens & Utility UI", Icon: SiTailwindcss },
+      { name: "SCSS / CSS3", role: "Modular styling (Working knowledge)", Icon: SiSass },
       { name: "Framer Motion", role: "Micro-interactions & Physics", Icon: SiFramer },
       { name: "Git", role: "Version Control & Branching", Icon: SiGit },
     ],

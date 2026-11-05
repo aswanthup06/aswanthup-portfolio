@@ -9,11 +9,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { MdOutlineArrowOutward } from "react-icons/md";
-import {
-  IoLogoReact,
-
-
-} from "react-icons/io5";
+import { IoLogoReact, IoLogoJavascript } from "react-icons/io5";
 import {
   SiNextdotjs,
   SiFigma,
@@ -155,9 +151,10 @@ export default function HeroSection() {
 }
 
 const TECH = [
+  { name: "JavaScript", Icon: IoLogoJavascript },
+  { name: "TypeScript", Icon: SiTypescript },
   { name: "React", Icon: IoLogoReact },
   { name: "Next.js", Icon: SiNextdotjs },
-  { name: "TypeScript", Icon: SiTypescript },
   { name: "Tailwind", Icon: SiTailwindcss },
   { name: "Figma", Icon: SiFigma },
 ];
