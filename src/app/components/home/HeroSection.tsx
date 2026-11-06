@@ -49,7 +49,7 @@ export default function HeroSection() {
   return (
     // Respects the user's reduced-motion setting for all transform animations
     <MotionConfig reducedMotion="user">
-      <section className="relative w-full overflow-x-clip pt-24 pb-8 md:pt-28 md:pb-12">
+      <section className="relative w-full overflow-x-clip pt-28 pb-8 md:pt-36 md:pb-12">
         <Backdrop />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8">

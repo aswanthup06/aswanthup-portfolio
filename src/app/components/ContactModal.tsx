@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useContactModal } from "../context/ContactModalContext";
 import { IoMdClose } from "react-icons/io";
-import { IoCheckmarkCircle } from "react-icons/io5";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 import { MdOutlinePhone, MdOutlineArrowOutward } from "react-icons/md";
 import { LuMailCheck } from "react-icons/lu";
 import { BsWhatsapp } from "react-icons/bs";
@@ -27,6 +27,7 @@ export default function ContactModal() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"success" | "error" | null>(null);
   const [statusMessage, setStatusMessage] = useState("");
+  const [sentEmail, setSentEmail] = useState("");
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
@@ -50,11 +51,19 @@ export default function ContactModal() {
     };
   }, [isOpen]);
 
-  const handleClose = () => {
+  const handleResetForm = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
     setErrors({});
     setTouched({});
     setStatus(null);
     setStatusMessage("");
+    setSentEmail("");
+  };
+
+  const handleClose = () => {
+    handleResetForm();
     closeModal();
   };
 
@@ -71,7 +80,7 @@ export default function ContactModal() {
         return undefined;
       case "message":
         if (!trimmed) return "Message is required";
-        if (trimmed.length < 10) return "Message must be at least 10 characters";
+        if (trimmed.length < 5) return "Message must be at least 5 characters";
         return undefined;
     }
   };
@@ -154,45 +163,58 @@ export default function ContactModal() {
     setErrors({});
     setLoading(true);
     setStatus(null);
+    setStatusMessage("");
+
+    const submittedEmail = email.trim();
+    const payload = {
+      name: name.trim(),
+      email: submittedEmail,
+      message: message.trim(),
+    };
 
     try {
-      const response = await fetch("/api/contact", {
+      let response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: name.trim(),
-          email: email.trim(),
-          message: message.trim(),
-        }),
+        body: JSON.stringify(payload),
       });
+
+      // Cold start retry: if initial hit gets 5xx, retry once after 800ms
+      if (!response.ok && response.status >= 500) {
+        await new Promise((resolve) => setTimeout(resolve, 800));
+        response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+      }
 
       const data = await response.json();
 
       if (data.success) {
+        setSentEmail(submittedEmail);
         setStatus("success");
         setStatusMessage("Message sent successfully!");
-
         setName("");
         setEmail("");
         setMessage("");
         setTouched({});
+        setErrors({});
+        // Kept open indefinitely so the user can read the success message calmly at their own pace!
       } else {
         setStatus("error");
         setStatusMessage(data.message || "Failed to send message");
       }
     } catch {
       setStatus("error");
-      setStatusMessage("Something went wrong. Please try again.");
+      setStatusMessage("Unable to connect to server. Please try again or reach out directly on WhatsApp.");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
-
-    setTimeout(() => {
-      setStatus(null);
-      setStatusMessage("");
-    }, 4000);
   };
 
   return (
@@ -236,209 +258,233 @@ export default function ContactModal() {
                 <IoMdClose className="text-base" />
               </motion.button>
 
-              <div>
-                {/* Title: aligns cleanly with the top-6 right-6 close button */}
-                <div className="pr-10">
-                  <h2 className="text-2xl font-bold tracking-tight text-text-primary leading-8">
-                    Let’s connect
-                  </h2>
-                </div>
-
-                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-text-muted">
-                  Have an open UI role, an enterprise project, or want to discuss design-to-code architecture? Drop a note below, or email directly at{" "}
-                  <button
-                    type="button"
-                    onClick={() => copyToClipboard("aswanthup06@gmail.com")}
-                    className="font-semibold text-primary hover:text-primary-hover hover:underline transition-colors cursor-pointer inline-flex items-center gap-1"
+              <AnimatePresence mode="wait">
+                {status === "success" ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="my-auto py-8 text-center flex flex-col items-center"
                   >
-                    aswanthup06@gmail.com
-                    {copiedEmail ? (
-                      <span className="text-xs text-green-600 font-bold">(copied!)</span>
-                    ) : null}
-                  </button>
-                  .
-                </p>
-
-                {/* Form */}
-                <form
-                  onSubmit={handleSubmit}
-                  noValidate
-                  className="mt-6 space-y-3.5"
-                >
-                  <div>
-                    <label className="block text-xs font-semibold text-text-secondary mb-1.5">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Sarah Jenkins"
-                      value={name}
-                      onChange={(e) => handleNameChange(e.target.value)}
-                      onBlur={() => handleBlur("name")}
-                      aria-invalid={Boolean(errors.name && touched.name)}
-                      className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
-                        errors.name && touched.name
-                          ? "bg-red-50/60 border-red-300 focus:ring-red-400/30 text-gray-900"
-                          : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
-                      }`}
-                    />
-                    <AnimatePresence>
-                      {errors.name && touched.name && (
-                        <motion.p
-                          initial={{ opacity: 0, height: 0, y: -4 }}
-                          animate={{ opacity: 1, height: "auto", y: 0 }}
-                          exit={{ opacity: 0, height: 0, y: -4 }}
-                          className="text-xs text-red-500 mt-1 pl-1"
-                        >
-                          {errors.name}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-text-secondary mb-1.5">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="you@company.com"
-                      value={email}
-                      onChange={(e) => handleEmailChange(e.target.value)}
-                      onBlur={() => handleBlur("email")}
-                      aria-invalid={Boolean(errors.email && touched.email)}
-                      className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
-                        errors.email && touched.email
-                          ? "bg-red-50/60 border-red-300 focus:ring-red-400/30 text-gray-900"
-                          : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
-                      }`}
-                    />
-                    <AnimatePresence>
-                      {errors.email && touched.email && (
-                        <motion.p
-                          initial={{ opacity: 0, height: 0, y: -4 }}
-                          animate={{ opacity: 1, height: "auto", y: 0 }}
-                          exit={{ opacity: 0, height: 0, y: -4 }}
-                          className="text-xs text-red-500 mt-1 pl-1"
-                        >
-                          {errors.email}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between items-center mb-1.5">
-                      <label className="block text-xs font-semibold text-text-secondary">
-                        Message
-                      </label>
-                      <span className="text-[11px] text-text-muted">
-                        {message.length}/1000
-                      </span>
+                    <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center shadow-md shadow-emerald-500/10">
+                      <CheckCircle2 className="w-8 h-8 text-emerald-600" />
                     </div>
-                    <textarea
-                      placeholder="Tell me about your team, product, or role..."
-                      rows={3}
-                      value={message}
-                      onChange={(e) => handleMessageChange(e.target.value)}
-                      onBlur={() => handleBlur("message")}
-                      aria-invalid={Boolean(errors.message && touched.message)}
-                      className={`w-full px-3.5 py-2.5 text-sm rounded-md border resize-none transition-all focus:outline-none focus:ring-2 ${
-                        errors.message && touched.message
-                          ? "bg-red-50/60 border-red-300 focus:ring-red-400/30 text-gray-900"
-                          : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
-                      }`}
-                    />
-                    <AnimatePresence>
-                      {errors.message && touched.message && (
-                        <motion.p
-                          initial={{ opacity: 0, height: 0, y: -4 }}
-                          animate={{ opacity: 1, height: "auto", y: 0 }}
-                          exit={{ opacity: 0, height: 0, y: -4 }}
-                          className="text-xs text-red-500 mt-1 pl-1"
-                        >
-                          {errors.message}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
 
-                  <AnimatePresence mode="wait">
-                    {status && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0, y: -10 }}
-                        animate={{ opacity: 1, height: "auto", y: 0 }}
-                        exit={{ opacity: 0, height: 0, y: -10 }}
-                        transition={{ duration: 0.3 }}
-                        className={`
-                          px-4
-                          rounded-md
-                          h-11
-                          flex
-                          items-center
-                          gap-3
-                          border
-                          ${
-                            status === "success"
-                              ? "bg-green-50 border-green-200 text-green-700"
-                              : "bg-red-50 border-red-200 text-red-700"
-                          }
-                        `}
+                    <h3 className="text-2xl font-bold tracking-tight text-text-primary mt-5">
+                      Message received!
+                    </h3>
+
+                    <p className="mt-2.5 text-xs sm:text-sm text-text-muted leading-relaxed max-w-xs mx-auto">
+                      Thanks for reaching out! I&apos;ve received your note and will get back to you within 24 hours.
+                    </p>
+
+                    {sentEmail ? (
+                      <div className="mt-5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-subtle border border-border-default text-xs text-text-secondary">
+                        <span className="text-text-muted">Replying to:</span>
+                        <span className="font-semibold text-text-primary">{sentEmail}</span>
+                      </div>
+                    ) : null}
+
+                    <div className="mt-8 flex flex-col gap-2.5 w-full max-w-xs">
+                      <button
+                        type="button"
+                        onClick={handleClose}
+                        className="btn-primary h-11 w-full rounded-md text-sm font-medium text-white flex items-center justify-center shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all cursor-pointer"
                       >
-                        {status === "success" ? (
-                          <IoCheckmarkCircle className="text-xl" />
-                        ) : (
-                          <IoMdClose className="text-xl" />
-                        )}
-
-                        <p className="text-xs font-medium">
-                          {statusMessage}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    disabled={loading}
-                    className="
-                      btn-primary
-                      h-11
-                      w-full
-                      rounded-md
-                      text-sm
-                      font-medium
-                      text-white
-                      flex
-                      items-center
-                      justify-center
-                      gap-2
-                      shadow-md
-                      shadow-blue-500/20
-                      hover:shadow-lg
-                      hover:shadow-blue-500/30
-                      transition-all
-                      duration-300
-                      cursor-pointer
-                      disabled:opacity-70
-                    "
+                        Done
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleResetForm}
+                        className="h-10 w-full rounded-md text-xs font-medium text-text-muted hover:text-text-primary hover:bg-surface-muted transition-colors cursor-pointer"
+                      >
+                        Send another note
+                      </button>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    {loading ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Sending message...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Send Message</span>
-                        <MdOutlineArrowOutward className="text-base" />
-                      </>
-                    )}
-                  </motion.button>
-                </form>
-              </div>
+                    {/* Title: aligns cleanly with the top-6 right-6 close button */}
+                    <div className="pr-10">
+                      <h2 className="text-2xl font-bold tracking-tight text-text-primary leading-8">
+                        Let’s connect
+                      </h2>
+                    </div>
+
+                    <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-text-muted">
+                      Have an open UI role, an enterprise project, or want to discuss design-to-code architecture? Drop a note below, or email directly at{" "}
+                      <button
+                        type="button"
+                        onClick={() => copyToClipboard("aswanthup06@gmail.com")}
+                        className="font-semibold text-primary hover:text-primary-hover hover:underline transition-colors cursor-pointer inline-flex items-center gap-1"
+                      >
+                        aswanthup06@gmail.com
+                        {copiedEmail ? (
+                          <span className="text-xs text-green-600 font-bold">(copied!)</span>
+                        ) : null}
+                      </button>
+                      .
+                    </p>
+
+                    {/* Form */}
+                    <form
+                      onSubmit={handleSubmit}
+                      noValidate
+                      className="mt-6 space-y-3.5"
+                    >
+                      <div>
+                        <label className="block text-xs font-semibold text-text-secondary mb-1.5">
+                          Your Name
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Sarah Jenkins"
+                          value={name}
+                          onChange={(e) => handleNameChange(e.target.value)}
+                          onBlur={() => handleBlur("name")}
+                          aria-invalid={Boolean(errors.name && touched.name)}
+                          className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
+                            errors.name && touched.name
+                              ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
+                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
+                          }`}
+                        />
+                        <AnimatePresence>
+                          {errors.name && touched.name && (
+                            <motion.p
+                              initial={{ opacity: 0, height: 0, y: -3 }}
+                              animate={{ opacity: 1, height: "auto", y: 0 }}
+                              exit={{ opacity: 0, height: 0, y: -3 }}
+                              className="flex items-center gap-1.5 text-xs text-rose-600 font-medium mt-1.5 pl-0.5"
+                            >
+                              <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                              <span>{errors.name}</span>
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-text-secondary mb-1.5">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          placeholder="you@company.com"
+                          value={email}
+                          onChange={(e) => handleEmailChange(e.target.value)}
+                          onBlur={() => handleBlur("email")}
+                          aria-invalid={Boolean(errors.email && touched.email)}
+                          className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
+                            errors.email && touched.email
+                              ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
+                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
+                          }`}
+                        />
+                        <AnimatePresence>
+                          {errors.email && touched.email && (
+                            <motion.p
+                              initial={{ opacity: 0, height: 0, y: -3 }}
+                              animate={{ opacity: 1, height: "auto", y: 0 }}
+                              exit={{ opacity: 0, height: 0, y: -3 }}
+                              className="flex items-center gap-1.5 text-xs text-rose-600 font-medium mt-1.5 pl-0.5"
+                            >
+                              <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                              <span>{errors.email}</span>
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      <div>
+                        <div className="flex justify-between items-center mb-1.5">
+                          <label className="block text-xs font-semibold text-text-secondary">
+                            Message
+                          </label>
+                          <span className="text-[11px] text-text-muted">
+                            {message.length}/1000
+                          </span>
+                        </div>
+                        <textarea
+                          placeholder="Tell me about your team, product, or role..."
+                          rows={3}
+                          value={message}
+                          onChange={(e) => handleMessageChange(e.target.value)}
+                          onBlur={() => handleBlur("message")}
+                          aria-invalid={Boolean(errors.message && touched.message)}
+                          className={`w-full px-3.5 py-2.5 text-sm rounded-md border resize-none transition-all focus:outline-none focus:ring-2 ${
+                            errors.message && touched.message
+                              ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
+                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
+                          }`}
+                        />
+                        <AnimatePresence>
+                          {errors.message && touched.message && (
+                            <motion.p
+                              initial={{ opacity: 0, height: 0, y: -3 }}
+                              animate={{ opacity: 1, height: "auto", y: 0 }}
+                              exit={{ opacity: 0, height: 0, y: -3 }}
+                              className="flex items-center gap-1.5 text-xs text-rose-600 font-medium mt-1.5 pl-0.5"
+                            >
+                              <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                              <span>{errors.message}</span>
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      {/* API-level Error Banner */}
+                      <AnimatePresence>
+                        {status === "error" && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0, y: -6 }}
+                            animate={{ opacity: 1, height: "auto", y: 0 }}
+                            exit={{ opacity: 0, height: 0, y: -6 }}
+                            transition={{ duration: 0.25 }}
+                            className="rounded-lg border border-rose-200 bg-rose-50/80 p-3 text-xs flex items-start gap-2.5 text-rose-800"
+                          >
+                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                            <div className="flex-1">
+                              <p className="font-semibold text-rose-900">Unable to send message</p>
+                              <p className="mt-0.5 text-rose-700/90 leading-relaxed">
+                                {statusMessage || "Please check your connection and try again, or reach out directly on WhatsApp."}
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      <motion.button
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.98 }}
+                        type="submit"
+                        disabled={loading}
+                        className="btn-primary h-11 w-full rounded-md text-sm font-medium text-white flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 cursor-pointer disabled:opacity-70"
+                      >
+                        {loading ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <span>Sending message...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Send Message</span>
+                            <MdOutlineArrowOutward className="text-base" />
+                          </>
+                        )}
+                      </motion.button>
+                    </form>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {/* Quiet Direct Channels Footer */}
               <div className="pt-4 mt-6 border-t border-border-default/70">

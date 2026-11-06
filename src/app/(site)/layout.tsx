@@ -20,7 +20,7 @@ const questrial = Questrial({
 });
 
 const siteUrl = "https://www.aswanthup.online";
-const ogImage = `${siteUrl}/images/home/banner-img2.webp`;
+const ogImage = `${siteUrl}/og-image.jpg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   publisher: "Aswanth UP",
 
   alternates: {
-    canonical: siteUrl,
+    canonical: "./",
   },
 
   openGraph: {
@@ -77,8 +77,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: ogImage,
-        width: 1734,
-        height: 907,
+        secureUrl: ogImage,
+        width: 1200,
+        height: 630,
         alt: "Aswanth UP — UI Developer & UI/UX Designer",
         type: "image/jpeg",
       },
@@ -96,8 +97,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: ogImage,
-        width: 1734,
-        height: 907,
+        width: 1200,
+        height: 630,
         alt: "Aswanth UP — UI Developer & UI/UX Designer",
       },
     ],

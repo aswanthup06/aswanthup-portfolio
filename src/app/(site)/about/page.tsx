@@ -105,7 +105,7 @@ const card =
 export default function About() {
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative flex flex-col items-center overflow-x-clip pb-8 md:pb-12 pt-32 md:pt-36 w-full">
+      <div className="relative flex flex-col items-center overflow-x-clip pb-8 md:pb-12 pt-28 md:pt-36 w-full">
         <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
         style={{

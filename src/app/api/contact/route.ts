@@ -46,11 +46,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (trimmedMessage.length < 10) {
+    if (trimmedMessage.length < 5) {
       return NextResponse.json(
         {
           success: false,
-          message: "Message must be at least 10 characters",
+          message: "Message must be at least 5 characters",
         },
         { status: 400 }
       );
