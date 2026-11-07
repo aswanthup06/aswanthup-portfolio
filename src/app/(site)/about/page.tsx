@@ -43,24 +43,15 @@ import {
   FaQuoteLeft,
   FaPencil,
   FaEnvelope,
+  FaDownload,
 } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 
 import { useContactModal } from "../../context/ContactModalContext";
 import { PREMIUM_EASE } from "../../lib/animations";
 
-/* -------------------------------------------------------------------------- */
-/*  ⚠ CONFIRM BEFORE DEPLOYING                                                */
-/*  Placeholders / assumptions in this file:                                  */
-/*   - RESUME path (add the file to /public or change the path)               */
-/*   - EMAIL (public on your site, make sure you want that)                   */
-/*   - Role titles on the timeline (Futura Labs, Chaavie, 6solve)             */
-/*   - Which projects link from the Chaavie entry                             */
-/*   - Principles copy (written to fit your craft story)                      */
-/* -------------------------------------------------------------------------- */
-
 const EMAIL = "aswanthup06@gmail.com";
-// const RESUME = "/resume.pdf";
+const RESUME = "/resume.pdf";
 
 const LINKS = {
   github: "https://github.com/aswanthup06",
@@ -225,14 +216,16 @@ function Hero() {
             <MdOutlineArrowOutward className="text-base" />
           </button>
 
-          {/* <a
+          <a
             href={RESUME}
-            download
-            className="inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-2.5 text-sm font-medium text-text-primary transition-colors hover:bg-surface-muted"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Aswanth_UP_Resume.pdf"
+            className="group inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-2.5 text-sm font-medium text-text-primary transition-all duration-300 hover:border-border-strong hover:bg-surface-muted"
           >
-            <FaDownload className="text-xs" />
-            Résumé
-          </a> */}
+            <FaDownload className="text-xs text-text-muted transition-transform group-hover:-translate-y-0.5" />
+            <span>Download Resume</span>
+          </a>
         </motion.div>
 
         <motion.ul
@@ -1263,14 +1256,16 @@ function Cta() {
               <MdOutlineArrowOutward className="text-base" />
             </button>
 
-            {/* <a
+            <a
               href={RESUME}
-              download
-              className="inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-3 text-sm font-medium text-text-primary transition-colors hover:bg-surface-muted"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Aswanth_UP_Resume.pdf"
+              className="group inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-3 text-sm font-medium text-text-primary transition-all duration-300 hover:border-border-strong hover:bg-surface-muted"
             >
-              <FaDownload className="text-xs" />
-              Résumé
-            </a> */}
+              <FaDownload className="text-xs text-text-muted transition-transform group-hover:-translate-y-0.5" />
+              <span>Download Resume</span>
+            </a>
           </div>
         </div>
 
