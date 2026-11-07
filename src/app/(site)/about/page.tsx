@@ -644,14 +644,17 @@ function Story() {
               </span>
 
               <article>
-                <div className="flex flex-wrap items-center gap-2">
-                  <span
-                    className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${KIND[c.kind].chip}`}
-                  >
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <span className="text-xs font-medium text-text-muted">
                     {c.period}
                   </span>
+                  <span
+                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${KIND[c.kind].chip}`}
+                  >
+                    {KIND[c.kind].label}
+                  </span>
                   {c.now && (
-                    <span className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-semibold text-green-600">
+                    <span className="rounded-full bg-green-50 px-2 py-0.5 text-[11px] font-medium text-green-600">
                       Now
                     </span>
                   )}
