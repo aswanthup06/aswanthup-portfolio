@@ -161,8 +161,7 @@ export default function Navbar() {
       variants={navContainerVariants}
       initial="hidden"
       animate={hidden ? "navHidden" : "show"}
-      style={{ paddingRight: "var(--scrollbar-width, 0px)" }}
-      className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 flex justify-center pointer-events-none"
+      className="navbar-fixed-container fixed top-0 left-0 w-full z-50 px-4 md:px-6 flex justify-center pointer-events-none"
     >
       <motion.nav
         initial={{ opacity: 0, scale: 0.96 }}

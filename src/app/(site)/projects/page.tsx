@@ -230,7 +230,7 @@ function Hero() {
         {/* Proof strip */}
         <motion.dl
           variants={item}
-          className="mt-8 grid w-full max-w-md grid-cols-3 gap-6"
+          className="mt-8 grid w-full max-w-md grid-cols-3 gap-3 sm:gap-6"
         >
           <Stat to={FEATURED.length} label="Case studies" />
           <Stat to={LIVE_SITES.length} label="Live websites" />
@@ -243,11 +243,32 @@ function Hero() {
   );
 }
 
-/* Fanned stack of real project screenshots */
+/* Fanned stack of real project screenshots with identical card dimensions */
 const SHOT_STYLE = [
-  { pos: "bottom-0 right-[4%] w-[66%] z-20", rotate: 2, float: [0, -8, 0], d: 6, delay: 0.35 },
-  { pos: "left-0 top-[20%] w-[60%] z-10", rotate: -5, float: [0, 7, 0], d: 7, delay: 0.2 },
-  { pos: "right-0 top-0 w-[56%]", rotate: 5, float: [0, -6, 0], d: 8, delay: 0.05 },
+  {
+    // Foreground card (Zenoway)
+    pos: "bottom-1 right-[4%] sm:bottom-0 sm:right-[6%] z-20",
+    rotate: 2,
+    float: [0, -6, 0],
+    d: 6,
+    delay: 0.35,
+  },
+  {
+    // Middle card (Happy ERP)
+    pos: "left-1 top-[18%] sm:left-2 sm:top-[20%] z-10",
+    rotate: -4,
+    float: [0, 5, 0],
+    d: 7,
+    delay: 0.2,
+  },
+  {
+    // Back card (NVOCC)
+    pos: "right-1 top-1 sm:right-2 sm:top-0 z-0",
+    rotate: 4,
+    float: [0, -5, 0],
+    d: 8,
+    delay: 0.05,
+  },
 ];
 
 function ShotStack() {
@@ -256,14 +277,14 @@ function ShotStack() {
   return (
     <div
       aria-hidden="true"
-      className="relative mx-auto h-[340px] w-full max-w-[460px] sm:h-[420px] lg:h-[460px]"
+      className="relative mx-auto h-[270px] w-full max-w-[340px] sm:h-[330px] sm:max-w-[390px] lg:h-[360px] lg:max-w-[420px]"
     >
       {shots.map((p, i) => {
         const s = SHOT_STYLE[i];
         return (
           <motion.div
             key={p.slug}
-            className={`absolute ${s.pos}`}
+            className={`absolute ${s.pos} w-[60%] sm:w-[58%]`}
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: s.delay, ease: PREMIUM_EASE }}
@@ -272,14 +293,14 @@ function ShotStack() {
               style={{ rotate: s.rotate }}
               animate={{ y: s.float }}
               transition={{ duration: s.d, repeat: Infinity, ease: "easeInOut" }}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border-default bg-surface-muted shadow-xl shadow-black/10"
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-border-default bg-surface-muted shadow-xl shadow-black/10"
             >
               <Image
                 src={p.image}
                 alt=""
                 fill
                 priority={i < 2}
-                sizes="(min-width: 1024px) 300px, 60vw"
+                sizes="(min-width: 1280px) 260px, (min-width: 1024px) 240px, (min-width: 640px) 240px, 60vw"
                 className="object-cover"
               />
             </motion.div>
@@ -289,14 +310,14 @@ function ShotStack() {
 
       {/* slow spinning dashed ring */}
       <motion.div
-        className="absolute right-0 -top-6 sm:-right-4 h-24 w-24 rounded-full border-2 border-dashed border-primary/30 pointer-events-none"
+        className="absolute right-2 -top-3 sm:-right-2 sm:-top-5 h-16 w-16 sm:h-20 sm:w-20 rounded-full border-2 border-dashed border-primary/30 pointer-events-none"
         animate={{ rotate: 360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       />
 
       <Sticker
-        className="left-0 sm:-left-2 md:-left-6 bottom-14"
-        float={[0, -9, 0]}
+        className="left-1 sm:-left-2 md:-left-4 bottom-4 sm:bottom-8"
+        float={[0, -7, 0]}
         duration={5}
         delay={0.9}
       >
@@ -304,8 +325,8 @@ function ShotStack() {
       </Sticker>
 
       <Sticker
-        className="right-0 sm:-right-2 md:-right-5 top-[50%]"
-        float={[0, 9, 0]}
+        className="right-1 sm:-right-1 md:-right-3 top-[44%] sm:top-[46%]"
+        float={[0, 7, 0]}
         duration={6}
         delay={1.1}
       >
@@ -313,8 +334,8 @@ function ShotStack() {
       </Sticker>
 
       <Sticker
-        className="left-4 top-2"
-        float={[0, -7, 0]}
+        className="left-2 top-1 sm:left-3 sm:top-2"
+        float={[0, -5, 0]}
         duration={5.5}
         delay={1.3}
       >
@@ -340,7 +361,7 @@ function Sticker({
 }) {
   return (
     <motion.div
-      className={`absolute z-20 ${className}`}
+      className={`absolute z-30 ${className}`}
       initial={{ opacity: 0, scale: 0.85 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.4, ease: PREMIUM_EASE }}
@@ -348,7 +369,7 @@ function Sticker({
       <motion.div
         animate={{ y: float }}
         transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
-        className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border-default bg-white px-3 py-1.5 text-[11px] font-semibold text-text-primary shadow-lg shadow-black/5 md:text-xs"
+        className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border-default bg-white/95 backdrop-blur-xs px-2.5 py-1 text-[10px] font-semibold text-text-primary shadow-md shadow-black/5 sm:px-3 sm:py-1.5 sm:text-xs"
       >
         {children}
       </motion.div>
