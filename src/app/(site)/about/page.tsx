@@ -540,13 +540,12 @@ const CHAPTERS: Chapter[] = [
     tags: ["HTML5", "CSS3 / SCSS", "JavaScript", "Figma"],
   },
   {
-    period: "Jun 2023 – Present",
+    period: "Jun 2023 – Jul 2026",
     kind: "work",
-    title: "UI Developer & Designer",
+    title: "UI Developer",
     org: "Chaavie Solutions",
     place: "Kozhikode, Kerala",
-    now: true,
-    text: "Working across UI/UX design, UI development, and design systems.",
+    text: "Worked across UI/UX design, UI development, and design systems.",
     points: [
       "Led UI development for healthcare platforms",
       "Mentored junior developers",
