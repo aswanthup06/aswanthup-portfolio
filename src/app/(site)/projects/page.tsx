@@ -169,7 +169,7 @@ function Hero() {
   return (
     <section
       aria-label="Introduction"
-      className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 overflow-x-clip"
+      className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 overflow-x-clip py-4 sm:py-6"
     >
       <motion.div
         variants={container}
@@ -255,7 +255,7 @@ const SHOT_STYLE = [
   },
   {
     // Middle card (Happy ERP)
-    pos: "left-1 top-[18%] sm:left-2 sm:top-[20%] z-10",
+    pos: "left-1 top-[24%] sm:left-2 sm:top-[26%] z-10",
     rotate: -4,
     float: [0, 5, 0],
     d: 7,
@@ -277,7 +277,7 @@ function ShotStack() {
   return (
     <div
       aria-hidden="true"
-      className="relative mx-auto h-[270px] w-full max-w-[340px] sm:h-[330px] sm:max-w-[390px] lg:h-[360px] lg:max-w-[420px]"
+      className="relative mx-auto h-[330px] w-full max-w-[340px] sm:h-[390px] sm:max-w-[390px] lg:h-[430px] lg:max-w-[420px]"
     >
       {shots.map((p, i) => {
         const s = SHOT_STYLE[i];
@@ -316,7 +316,7 @@ function ShotStack() {
       />
 
       <Sticker
-        className="left-1 sm:-left-2 md:-left-4 bottom-4 sm:bottom-8"
+        className="left-1 sm:-left-2 md:-left-4 bottom-5 sm:bottom-9"
         float={[0, -7, 0]}
         duration={5}
         delay={0.9}
@@ -325,7 +325,7 @@ function ShotStack() {
       </Sticker>
 
       <Sticker
-        className="right-1 sm:-right-1 md:-right-3 top-[44%] sm:top-[46%]"
+        className="right-1 sm:-right-1 md:-right-3 top-[46%] sm:top-[48%]"
         float={[0, 7, 0]}
         duration={6}
         delay={1.1}
@@ -517,7 +517,7 @@ export default function Projects() {
           <section
             id="case-studies"
             aria-labelledby="featured-heading"
-            className="mt-16 md:mt-24 scroll-mt-24"
+            className="mt-20 md:mt-28 scroll-mt-24"
           >
             <h2 id="featured-heading" className="sr-only">
               Featured case studies
