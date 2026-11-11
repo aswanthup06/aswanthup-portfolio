@@ -27,17 +27,17 @@ export default function DoctorOneCaseStudy() {
   };
 
   const projectMeta = [
-    { label: "Role", value: "Lead UI Developer & Designer" },
+    { label: "Role", value: "UI Design & UI Development" },
     { label: "Timeline", value: "3 Months (End-to-End)" },
     { label: "Core Stack", value: "Next.js · React · Tailwind · Figma" },
-    { label: "Deliverables", value: "Web Platform · Design System · Video Showcase" },
+    { label: "Deliverables", value: "Web & 30+ Mobile Screens · Design System" },
   ];
 
   const stats = [
-    { value: "500+", label: "Verified Physicians", detail: "Across 25+ medical specializations" },
-    { value: "50k+", label: "Monthly Consultations", detail: "Active patient telehealth interactions" },
-    { value: "4-in-1", label: "Unified Health Hub", detail: "Clinic, lab, pharmacy & emergency locator" },
-    { value: "99%", label: "Design Accuracy", detail: "Pixel-perfect Figma to Next.js components" },
+    { value: "30+", label: "Mobile Screens", detail: "Responsive patient & consultation flows" },
+    { value: "4", label: "Core Care Flows", detail: "Telehealth, labs, pharmacy & hospitals" },
+    { value: "24px", label: "Custom Icon System", detail: "Clinical SVG iconography built on 24px grid" },
+    { value: "Figma", label: "Token-Driven UI", detail: "Built in React, Next.js & Tailwind CSS" },
   ];
 
   const pillars = [
@@ -122,7 +122,7 @@ export default function DoctorOneCaseStudy() {
             {/* Live Indicator Badge */}
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-3">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               Clinical Ecosystem · UI/UX Case Study
@@ -189,9 +189,9 @@ export default function DoctorOneCaseStudy() {
                 <div className="px-4 py-3 border-b border-border-subtle bg-surface-subtle flex items-center justify-between text-xs text-text-muted">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                    <span className="font-medium text-text-primary">doctor-one.health</span>
+                    <span className="font-medium text-text-primary">Doctor One · UI Preview</span>
                   </div>
-                  <span className="text-[11px] text-primary font-medium">Verified Live UI</span>
+                  <span className="text-[11px] text-primary font-medium">UI Case Study</span>
                 </div>
 
                 {/* Autoplaying Live Platform Video */}
@@ -387,14 +387,14 @@ export default function DoctorOneCaseStudy() {
                 Frictionless Slot Reservation &amp; Doctor Vetting
               </h3>
               <p className="text-xs sm:text-sm text-text-body mt-3 leading-relaxed">
-                Rather than multi-page redirects, patients select real-time availability slots directly on the physician card. Includes instant verified badge checks, patient reviews, and encrypted video link generation.
+                Rather than multi-page redirects, patients select real-time availability slots directly on the physician card, alongside doctor credential details, patient review sections, and consultation link views.
               </p>
 
               <div className="space-y-2.5 mt-6">
                 {[
-                  "Real-time timetable slot availability with zero page refresh",
-                  "Verified medical council accreditation credentials display",
-                  "Automated calendar invitations & SMS reminder dispatch",
+                  "Time-slot availability cards without multi-page redirects",
+                  "Medical council accreditation credentials display UI",
+                  "Appointment confirmation & reminder schedule states",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-text-secondary">
                     <LuCircleCheck className="text-primary shrink-0" />
@@ -420,9 +420,9 @@ export default function DoctorOneCaseStudy() {
 
               <div className="space-y-2.5 mt-6">
                 {[
-                  "OCR-assisted prescription image verification system",
-                  "Automated recurring medication refill schedules",
-                  "Encrypted digital report download vault with biometric access",
+                  "Prescription image upload & review status UI",
+                  "Recurring medication refill order interface",
+                  "Digital lab report download & summary view",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-text-secondary">
                     <LuCircleCheck className="text-primary shrink-0" />

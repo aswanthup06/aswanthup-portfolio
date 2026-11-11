@@ -1,10 +1,10 @@
-
 "use client";
 
 import Image from "next/image";
 import TestimonialCard from "./TestimonialCard";
 import { useContactModal } from "../../context/ContactModalContext";
 import { motion } from "framer-motion";
+import { MdOutlineArrowOutward } from "react-icons/md";
 import { fadeUp, stagger } from "../../lib/animations";
 
 interface Testimonial {
@@ -121,7 +121,7 @@ export default function TestimonialSection() {
               <div className="flex -space-x-2">
                 {[
                   ["/images/testimonials/gokul.webp", "Gokul Hari"],
-                  ["/images/testimonials/musthafa.webp", "Muhammad Musthafa"],
+                  ["/images/testimonials/musthafa.webp", "Mohamad Musthafa"],
                   ["/images/testimonials/bav.webp", "Bhavana Raj"],
                 ].map(([src, alt], index) => (
                   <motion.div
@@ -146,7 +146,7 @@ export default function TestimonialSection() {
               </div>
 
               <span className="text-xs text-gray-300">
-                Trusted by founders & developers
+                Colleague &amp; client feedback
               </span>
             </motion.div>
 
@@ -156,30 +156,21 @@ export default function TestimonialSection() {
 
             <p className="text-gray-400 text-sm leading-relaxed mt-6 max-w-sm">
               UI Developer focused on building scalable, modern, and
-              pixel-perfect frontend experiences with React, Tailwind, and
+              accessible frontend experiences with React, Tailwind CSS, and
               Figma workflows.
             </p>
           </div>
 
           <div className="pt-8">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: 0.2,
-              }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <div>
-                <p className="text-3xl font-bold">4.9/5</p>
+            <div className="mb-6 border-t border-white/10 pt-5">
+              <p className="text-base font-semibold text-white">
+                {testimonials.length} recommendations
+              </p>
 
-                <p className="text-sm text-gray-400">
-                  Based on professional collaborations
-                </p>
-              </div>
-            </motion.div>
+              <p className="text-xs text-gray-400 mt-1">
+                From founders, directors &amp; teammates I shipped products with
+              </p>
+            </div>
 
             <motion.button
               onClick={openModal}
@@ -206,6 +197,16 @@ export default function TestimonialSection() {
             >
               Let’s Work Together
             </motion.button>
+
+            <a
+              href="https://www.linkedin.com/in/aswanthup/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex w-full items-center justify-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors"
+            >
+              View work history on LinkedIn
+              <MdOutlineArrowOutward aria-hidden="true" />
+            </a>
           </div>
         </motion.article>
 
@@ -240,4 +241,3 @@ export default function TestimonialSection() {
     </section>
   );
 }
-

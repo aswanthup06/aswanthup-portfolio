@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, animate, MotionConfig, type Variants } from "framer-motion";
+import { motion, MotionConfig, type Variants } from "framer-motion";
 import { MdOutlineArrowOutward, MdArrowForward } from "react-icons/md";
 import { IoLogoReact } from "react-icons/io5";
 import { SiFigma } from "react-icons/si";
@@ -140,22 +140,10 @@ function Stat({
   suffix?: string;
   label: string;
 }) {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    const controls = animate(0, to, {
-      duration: 1.2,
-      delay: 0.5,
-      ease: PREMIUM_EASE,
-      onUpdate: (v) => setValue(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [to]);
-
   return (
     <div>
       <dt className="text-2xl font-bold tabular-nums text-text-primary md:text-3xl">
-        {value}
+        {to}
         <span className="text-primary">{suffix}</span>
       </dt>
       <dd className="mt-0.5 text-xs text-text-body md:text-sm">{label}</dd>
@@ -182,7 +170,7 @@ function Hero() {
           className="mb-5 inline-flex items-center gap-2 text-xs font-medium text-text-body md:text-sm"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+            <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-primary opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
           Selected Work · Design to production

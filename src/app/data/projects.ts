@@ -10,7 +10,7 @@ export type Project = {
   featured?: boolean;
   /** What you did on it. */
   role: string;
-  /** One-line outcome. Edit these, they're placeholders. */
+  /** One-line project summary. */
   summary: string;
   category: string[];
   image: string;
@@ -25,7 +25,7 @@ export const PROJECTS: Project[] = [
     slug: "/projects/zenoway",
     kind: "case-study",
     featured: true,
-    role: "Founder · Design + development",
+    role: "Founder · Design & UI Development",
     summary:
       "My own job portal, built end to end by myself, from product idea and UI/UX design to the live site.",
     category: ["Web Application", "UI Design"],

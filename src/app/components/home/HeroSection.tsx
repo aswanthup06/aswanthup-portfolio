@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   motion,
-  animate,
   MotionConfig,
+  useReducedMotion,
   type Variants,
 } from "framer-motion";
 import { MdOutlineArrowOutward } from "react-icons/md";
@@ -18,6 +17,7 @@ import {
 } from "react-icons/si";
 
 import { useContactModal } from "../../context/ContactModalContext";
+import { FEATURED, LIVE_SITES } from "../../data/projects";
 import { PREMIUM_EASE } from "../../lib/animations";
 import { Button } from "../ui";
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
               className="mb-5 inline-flex items-center gap-2 text-xs font-medium text-text-body md:text-sm"
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+                <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-green-500 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
               </span>
               Aswanth UP · UI Developer · Open to work
@@ -121,8 +121,8 @@ export default function HeroSection() {
               className="mt-9 grid grid-cols-3 gap-6 border-t border-gray-200 pt-6 text-left"
             >
               <Stat to={3} suffix="+" label="Years building UI" />
-              <Stat to={10} suffix="+" label="Flagship Projects" />
-              <Stat to={99} suffix="%" label="Figma-to-code match" />
+              <Stat to={FEATURED.length} label="Product case studies" />
+              <Stat to={LIVE_SITES.length} label="Live client websites" />
             </motion.dl>
 
             {/* Tech */}
@@ -221,35 +221,23 @@ function Underline() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Count-up stat                                                             */
+/*  Hero stat (SSR-safe & reduced-motion compliant)                           */
 /* -------------------------------------------------------------------------- */
 
 function Stat({
   to,
-  suffix,
+  suffix = "",
   label,
 }: {
   to: number;
-  suffix: string;
+  suffix?: string;
   label: string;
 }) {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    const controls = animate(0, to, {
-      duration: 1.4,
-      delay: 0.5,
-      ease: PREMIUM_EASE,
-      onUpdate: (v) => setValue(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [to]);
-
   return (
     <div>
       <dt className="text-2xl font-bold tabular-nums text-text-primary md:text-3xl">
-        {value}
-        <span className="text-primary">{suffix}</span>
+        {to}
+        {suffix && <span className="text-primary">{suffix}</span>}
       </dt>
       <dd className="mt-0.5 text-xs text-text-body md:text-sm">{label}</dd>
     </div>
@@ -296,6 +284,8 @@ const CODE: Tok[][] = [
 ];
 
 function DesignToCode() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
@@ -446,8 +436,10 @@ function DesignToCode() {
                 {i === CODE.length - 1 && (
                   <motion.span
                     className="ml-0.5 inline-block h-3.5 w-1.5 translate-y-0.5 bg-sky-300"
-                    animate={{ opacity: [1, 0, 1] }}
-                    transition={{ duration: 1, repeat: Infinity }}
+                    animate={shouldReduceMotion ? undefined : { opacity: [1, 0, 1] }}
+                    transition={
+                      shouldReduceMotion ? undefined : { duration: 1, repeat: Infinity }
+                    }
                   />
                 )}
               </motion.div>
@@ -481,8 +473,8 @@ function DesignToCode() {
         float={{ y: [0, -8, 0] }}
         duration={5.5}
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-        99% match
+        <SiTypescript className="text-blue-600" />
+        TypeScript
       </Chip>
     </motion.div>
   );

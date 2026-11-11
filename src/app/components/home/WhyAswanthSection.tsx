@@ -9,7 +9,7 @@ import { fadeUp, stagger, cardHover } from "../../lib/animations";
 
 const strengths: string[] = [
   "Pixel-Perfect UI Development",
-  "99% Figma to Code Accuracy",
+  "Figma Dev Mode to Clean React",
   "Clean & Scalable Code",
   "Detail-Oriented Execution",
 ];
@@ -135,34 +135,25 @@ export default function WhyAswanthSection() {
               whileHover={{ y: -5 }}
               className="p-5 bg-surface-card rounded-xl border border-border-default flex flex-col justify-between overflow-hidden"
             >
-              <div className="flex items-start justify-between">
-                <div>
+              <div>
+                <div className="flex items-center justify-between gap-2">
                   <p className="text-xs tracking-widest uppercase text-primary font-semibold">
                     Figma To Code
                   </p>
 
-                  <motion.p
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.6,
-                      delay: 0.2,
-                    }}
-                    className="text-5xl font-black text-text-primary mt-3"
-                  >
-                    99%
-                  </motion.p>
+                  <span className="px-2.5 py-0.5 rounded-md bg-primary-subtle text-primary text-xs font-semibold">
+                    Dev Mode
+                  </span>
                 </div>
 
-                <div className="px-3 py-1 rounded-md bg-green-50 text-green-600 text-xs font-semibold">
-                  Verified
-                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mt-3 tracking-tight">
+                  Token-Driven UI
+                </h3>
               </div>
 
-              <p className="text-sm text-text-body leading-relaxed mt-4">
-                Pixel-perfect frontend implementation using Figma Dev Mode,
-                Auto Layout, reusable components, and responsive UI systems.
+              <p className="text-sm text-text-body leading-relaxed mt-3">
+                Clean frontend implementation using Figma Dev Mode, Auto Layout,
+                reusable components, and responsive UI systems.
               </p>
             </motion.div>
 
@@ -249,7 +240,7 @@ export default function WhyAswanthSection() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs tracking-widest uppercase text-primary font-semibold">
-                      Redesign Skill
+                      Concept Redesign
                     </p>
 
                     <h3 className="text-2xl font-bold text-text-primary mt-4 leading-tight">
@@ -312,11 +303,11 @@ export default function WhyAswanthSection() {
                 >
                   <div>
                     <h4 className="text-lg font-bold text-text-primary">
-                      Redesigned UI
+                      Concept Redesign
                     </h4>
 
                     <p className="text-xs text-text-muted mt-1">
-                      Modern visuals with improved usability.
+                      Self-initiated UX &amp; UI modernization concept.
                     </p>
                   </div>
 

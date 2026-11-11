@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { motion } from "framer-motion";
+import { LIVE_SITES } from "../../data/projects";
 import { fadeUp, stagger } from "../../lib/animations";
 
 const projects = [
@@ -14,17 +15,17 @@ const projects = [
     image: "/images/projects/happy-erp/happy-erp-hero.webp",
     link: "/projects/happy-erp",
     tech: ["React", "ERP", "Dashboard"],
-    type: "Dashboard & Website",
+    type: "Chaavie Solutions · Dashboard & Website",
     role: "UI Design & UI Development",
   },
   {
-    title: "ENVOCC",
+    title: "NVOCC",
     description:
       "A modern logistics and shipping management platform focused on improving operational workflows, dashboard usability, and enterprise-level user experience.",
     image: "/images/projects/nvocc/nvocc-hero.webp",
     link: "/projects/nvocc",
     tech: ["React", "Next.js", "Tailwind"],
-    type: "Dashboard",
+    type: "6solve (via Chaavie) · Dashboard",
     role: "UI Development",
   },
   {
@@ -34,7 +35,7 @@ const projects = [
     image: "/images/projects/doctor-one/dr1.webp",
     link: "/projects/doctor-one",
     tech: ["Healthcare", "Next.js", "UI UX"],
-    type: "Dashboard & Website",
+    type: "Chaavie Solutions · Dashboard & Website",
     role: "UI Design & UI Development",
   },
 ];
@@ -287,7 +288,7 @@ export default function ProjectsSection() {
             </h2>
 
             <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
-              Featured Work
+              Featured Work{" "}
               <span className="text-text-muted font-medium">
                 Built With Modern UI Thinking
               </span>
@@ -463,6 +464,58 @@ export default function ProjectsSection() {
               </div>
             </motion.article>
           ))}
+        </motion.div>
+
+        {/* Live Client Websites Strip */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-14 rounded-2xl border border-border-default bg-surface-subtle p-6"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                Production Websites
+              </p>
+              <h3 className="text-lg font-bold text-text-primary mt-0.5">
+                Live Client Sites
+              </h3>
+            </div>
+            <Link
+              href="/projects#websites"
+              className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1 w-fit"
+            >
+              See all projects
+              <MdOutlineArrowOutward aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {LIVE_SITES.map((site) => (
+              <a
+                key={site.slug}
+                href={site.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-3 rounded-xl border border-border-default bg-surface-card p-4 transition-all hover:border-primary/40 hover:shadow-md"
+              >
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-text-primary group-hover:text-primary transition-colors truncate">
+                    {site.title}
+                  </p>
+                  <p className="text-xs text-text-muted truncate mt-0.5">
+                    {site.role} · {site.tech.join(", ")}
+                  </p>
+                </div>
+                <MdOutlineArrowOutward
+                  aria-hidden="true"
+                  className="shrink-0 text-base text-text-muted group-hover:text-primary transition-colors"
+                />
+              </a>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

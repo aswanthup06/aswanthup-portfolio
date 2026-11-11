@@ -30,16 +30,16 @@ export default function NvoccPage() {
 
   const projectMeta = [
     { label: "Duration", value: "4 Months", icon: LuClock },
-    { label: "Role", value: "Lead UI Developer", icon: LuUserCheck },
+    { label: "Role", value: "UI Development", icon: LuUserCheck },
     { label: "Tech Stack", value: "Next.js · Tailwind · React", icon: LuCode },
-    { label: "Deliverables", value: "50+ Pages · 3 Core Modules", icon: LuLayers },
+    { label: "Deliverables", value: "3 Core Dashboards · Reusable UI", icon: LuLayers },
   ];
 
   const stats = [
-    { value: "50+", label: "Pages Developed", detail: "Comprehensive maritime logistics workflows" },
-    { value: "3", label: "Core Modules", detail: "Export, Import, and Maintenance & Repair (M&R)" },
-    { value: "90%", label: "Figma Fidelity", detail: "High-precision component implementation" },
-    { value: "100%", label: "Responsive", detail: "Full coverage across desktop, tablet, and mobile" },
+    { value: "3", label: "Core Dashboards", detail: "Export, Import, and Maintenance & Repair (M&R)" },
+    { value: "6solve", label: "Client Contract", detail: "Contract via Chaavie Solutions" },
+    { value: "SVG", label: "Icon Components", detail: "Modular React vector shipping & status icons" },
+    { value: "Grid", label: "Responsive Tables", detail: "CSS Grid & Flexbox data-dense layouts" },
   ];
 
   const modules = [
@@ -133,7 +133,7 @@ export default function NvoccPage() {
     {
       icon: LuFileSpreadsheet,
       title: "Figma to Next.js Architecture",
-      desc: "Translated 50+ complex maritime workflow screens into clean, modular Next.js components with strict design fidelity.",
+      desc: "Translated complex maritime workflow specs into clean, modular Next.js and Tailwind CSS components across three core modules.",
     },
     {
       icon: LuCode,
@@ -180,7 +180,7 @@ export default function NvoccPage() {
             {/* Live Indicator Badge */}
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-3">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               Logistics &amp; Maritime · UI Development
@@ -197,7 +197,7 @@ export default function NvoccPage() {
             </p>
 
             <p className="mt-5 text-sm sm:text-base text-text-body leading-relaxed max-w-xl">
-              Contracted by 6solve IT Services to engineer the end-to-end user interface for global shipping logistics. Developed three mission-critical modules—Export, Import, and Maintenance &amp; Repair—transforming 50+ Figma designs into responsive Next.js components.
+              Contracted via Chaavie Solutions for 6solve IT Services to build the shipping logistics user interface. Developed three data-rich dashboard modules—Export, Import, and Maintenance &amp; Repair—using Next.js, Tailwind CSS, CSS Grid, and reusable components.
             </p>
 
             {/* CTAs */}
@@ -250,7 +250,7 @@ export default function NvoccPage() {
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
                 </div>
                 <div className="mx-auto text-[11px] font-medium text-text-muted bg-white/80 border border-border-default px-3 py-0.5 rounded-md">
-                  nvocc.6solve.app/dashboard
+                  NVOCC · Dashboard Preview
                 </div>
               </div>
 
@@ -451,7 +451,7 @@ export default function NvoccPage() {
 
               <div className="space-y-4 text-sm text-text-body leading-relaxed mt-4">
                 <p>
-                  As part of my lead UI role, I translated over 50 dense Figma wireframes and design systems into clean Next.js code using Tailwind CSS, achieving <strong className="text-text-primary">90% design accuracy</strong> without compromising page performance.
+                  Working across the Export, Import, and Maintenance &amp; Repair modules, I translated Figma wireframes and design tokens into clean Next.js code using Tailwind CSS, CSS Grid, and Flexbox without compromising page performance.
                 </p>
                 <p>
                   To optimize application load times, all maritime SVG iconography and custom status tags were refactored into modular React components, minimizing render delays and ensuring consistency across shipping views.
@@ -492,33 +492,33 @@ export default function NvoccPage() {
           <div className="rounded-2xl bg-text-primary text-white p-8 sm:p-12 shadow-xl">
             <div className="max-w-2xl mx-auto text-center mb-10">
               <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
-                Performance Outcomes
+                Delivery Summary
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">
-                Delivered on Time with High Fidelity
+                What Was Built &amp; Shipped
               </h2>
               <p className="text-gray-400 text-sm mt-2">
-                Proven delivery for mission-critical logistics software contracted by 6solve IT Services.
+                Frontend architecture delivered for 6solve IT Services under a contract via Chaavie Solutions.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-3 gap-6 text-center">
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-4xl sm:text-5xl font-bold text-blue-400">50+</p>
-                <p className="text-white font-semibold text-sm mt-2">Pages Developed</p>
-                <p className="text-xs text-gray-400 mt-1">Full shipping life-cycle coverage</p>
+                <p className="text-3xl sm:text-4xl font-bold text-blue-400">3 Modules</p>
+                <p className="text-white font-semibold text-sm mt-2">End-to-End Logistics UI</p>
+                <p className="text-xs text-gray-400 mt-1">Export, Import &amp; Maintenance dashboards</p>
               </div>
 
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-4xl sm:text-5xl font-bold text-blue-400">90%</p>
-                <p className="text-white font-semibold text-sm mt-2">Figma Accuracy</p>
-                <p className="text-xs text-gray-400 mt-1">Pixel-perfect component fidelity</p>
+                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Figma → UI</p>
+                <p className="text-white font-semibold text-sm mt-2">Design-Consistent Code</p>
+                <p className="text-xs text-gray-400 mt-1">Built from Figma specs with Tailwind CSS</p>
               </div>
 
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-4xl sm:text-5xl font-bold text-blue-400">100%</p>
-                <p className="text-white font-semibold text-sm mt-2">Responsive Coverage</p>
-                <p className="text-xs text-gray-400 mt-1">Desktop, tablet, and mobile tested</p>
+                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Grid &amp; Flex</p>
+                <p className="text-white font-semibold text-sm mt-2">Data-Dense Layouts</p>
+                <p className="text-xs text-gray-400 mt-1">Structured tables across desktop and tablet screens</p>
               </div>
             </div>
           </div>

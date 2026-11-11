@@ -3,12 +3,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
-import { FaBehance, FaLinkedinIn, FaPlus } from "react-icons/fa6";
+import {
+  FaBehance,
+  FaDownload,
+  FaGithub,
+  FaLinkedinIn,
+} from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { motion } from "framer-motion";
+import { FEATURED, LIVE_SITES } from "../../data/projects";
 import { fadeUp, stagger } from "../../lib/animations";
 
 export default function AboutSection() {
+  const shippedCount = FEATURED.length + LIVE_SITES.length;
+
   return (
     <section
       id="about"
@@ -95,11 +103,11 @@ export default function AboutSection() {
             <p className="text-text-body text-sm leading-relaxed">
               UI Developer with 3+ years of experience building scalable,
               responsive, and pixel-perfect interfaces using modern JavaScript (ES6+),
-              React, Next.js, Tailwind CSS, and Figma Dev Mode.
+              TypeScript, React, Next.js, Tailwind CSS, and Figma Dev Mode.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {["JavaScript", "React", "Next.js", "Tailwind", "Figma"].map((item) => (
+              {["JavaScript", "TypeScript", "React", "Next.js", "Tailwind", "Figma"].map((item) => (
                 <span
                   key={item}
                   className="px-3 py-1 rounded-sm bg-surface-muted text-xs text-text-body font-medium"
@@ -126,47 +134,32 @@ export default function AboutSection() {
           className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-xl flex flex-col justify-between lg:row-span-2 h-full"
         >
           <div>
-            <div className="flex items-center gap-2">
-              <h3 className="text-8xl font-black text-text-primary tracking-tighter">
-                600
-              </h3>
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+              Shipped Work
+            </p>
 
-              <h3 className="text-5xl font-black text-text-primary tracking-tighter h-fit">
-                <FaPlus />
-              </h3>
-            </div>
+            <h3 className="text-7xl font-black text-text-primary tracking-tighter mt-2">
+              {shippedCount}
+            </h3>
 
             <p className="text-text-primary font-bold text-xl mt-2">
-              Screens Developed
+              Apps &amp; Live Websites
             </p>
           </div>
 
           <div className="mt-6 space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-text-muted text-sm font-medium">
-                Responsive UI Systems
+            <div className="flex flex-wrap gap-2">
+              <span className="px-2.5 py-1 rounded-md bg-primary-subtle text-primary text-xs font-medium">
+                {FEATURED.length} Case Studies
               </span>
-
-              <span className="text-text-primary font-semibold">100%</span>
-            </div>
-
-            <div className="w-full h-2 rounded-full bg-surface-muted overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 1,
-                  delay: 0.4,
-                  ease: "easeOut",
-                }}
-                className="h-full bg-primary rounded-full"
-              />
+              <span className="px-2.5 py-1 rounded-md bg-surface-muted text-text-secondary text-xs font-medium">
+                {LIVE_SITES.length} Live Client Sites
+              </span>
             </div>
 
             <p className="text-text-body text-sm leading-relaxed">
               Built scalable dashboards, SaaS platforms, healthcare interfaces,
-              and reusable component systems across web and mobile applications.
+              and reusable component systems across web and mobile breakpoints.
             </p>
           </div>
         </motion.article>
@@ -195,7 +188,7 @@ export default function AboutSection() {
             <p className="text-text-primary font-bold text-lg">Fast Delivery</p>
 
             <p className="text-text-body text-sm leading-relaxed">
-              Rapid Figma-to-code workflow
+              Direct Figma-to-code workflow
             </p>
           </div>
         </motion.article>
@@ -221,7 +214,7 @@ export default function AboutSection() {
               <p className="mt-3 text-sm text-text-body leading-relaxed">
                 Building modular, atomic component libraries with standardized
                 spacing tokens, color variables, and accessible states that stay
-                consistent across 50+ screens.
+                consistent across multi-module dashboards and web apps.
               </p>
             </div>
           </div>
@@ -244,17 +237,35 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-surface-card rounded-xl px-6 py-5 border border-border-default hover:shadow-xl flex items-center justify-between lg:col-span-2"
+          className="bg-surface-card rounded-xl px-6 py-5 border border-border-default hover:shadow-xl flex flex-wrap items-center justify-between gap-4 lg:col-span-2"
         >
           <div>
-            <p className="text-text-primary font-bold text-lg">Follow Me</p>
+            <p className="text-text-primary font-bold text-lg">Code &amp; Connect</p>
 
             <p className="text-text-body text-sm mt-1">
-              Let’s connect and build something amazing.
+              Explore my GitHub, resume, or reach out directly.
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Aswanth_UP_Resume.pdf"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border-default bg-surface-subtle px-3 py-1.5 text-xs font-semibold text-text-primary hover:border-primary hover:text-primary transition-colors"
+            >
+              <FaDownload size={11} aria-hidden="true" />
+              Resume
+            </a>
+
+            <SocialLink
+              href="https://github.com/aswanthup06"
+              label="GitHub Profile"
+            >
+              <FaGithub size={14} />
+            </SocialLink>
+
             <SocialLink
               href="https://www.linkedin.com/in/aswanthup/"
               label="LinkedIn Profile"
@@ -263,17 +274,17 @@ export default function AboutSection() {
             </SocialLink>
 
             <SocialLink
-              href="https://wa.me/917559068970"
-              label="WhatsApp Contact"
-            >
-              <IoLogoWhatsapp size={14} />
-            </SocialLink>
-
-            <SocialLink
               href="https://www.behance.net/ASWANTHUP"
               label="Behance Portfolio"
             >
               <FaBehance size={14} />
+            </SocialLink>
+
+            <SocialLink
+              href="https://wa.me/917559068970"
+              label="WhatsApp Contact"
+            >
+              <IoLogoWhatsapp size={14} />
             </SocialLink>
           </div>
         </motion.article>

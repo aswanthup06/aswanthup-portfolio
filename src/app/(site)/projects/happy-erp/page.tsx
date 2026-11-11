@@ -31,16 +31,16 @@ export default function HappyERPPage() {
 
   const projectMeta = [
     { label: "Timeline", value: "3 Months", icon: LuClock },
-    { label: "Role", value: "UI/UX & UI Development Lead", icon: LuUserCheck },
+    { label: "Role", value: "UI Design & UI Development", icon: LuUserCheck },
     { label: "Tech Stack", value: "React · Next.js · Tailwind", icon: LuCode },
-    { label: "Deliverables", value: "40+ Screens · Design System", icon: LuLayers },
+    { label: "Deliverables", value: "5 Modules · Design System", icon: LuLayers },
   ];
 
   const stats = [
-    { value: "40+", label: "Custom Screens", detail: "End-to-end interface architecture" },
-    { value: "5", label: "Core Modules", detail: "Inventory, sales, procurement & analytics" },
-    { value: "60%", label: "Manual Effort Cut", detail: "Streamlined order entry & fulfillment" },
-    { value: "100%", label: "Responsive", detail: "Optimized for warehouse & desktop displays" },
+    { value: "5", label: "Core Modules", detail: "Inventory, catalog, sales, procurement & analytics" },
+    { value: "Unified", label: "Order Workflow", detail: "Replaced spreadsheet-based order entry UI" },
+    { value: "Tokens", label: "Design System", detail: "Shared tables, modals & stock status components" },
+    { value: "React", label: "Responsive UI", detail: "Built for warehouse tablets & desktop monitors" },
   ];
 
   const screens = [
@@ -141,7 +141,7 @@ export default function HappyERPPage() {
             {/* Live Indicator Badge */}
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-3">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               Enterprise Resource Planning · Case Study
@@ -211,7 +211,7 @@ export default function HappyERPPage() {
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
                 </div>
                 <div className="mx-auto text-[11px] font-medium text-text-muted bg-white/80 border border-border-default px-3 py-0.5 rounded-md">
-                  happy-erp.internal/dashboard
+                  Happy ERP · Dashboard Preview
                 </div>
               </div>
 
@@ -295,7 +295,7 @@ export default function HappyERPPage() {
                 A Unified, High-Density ERP System
               </h3>
               <p className="text-text-body text-sm leading-relaxed">
-                An engineered enterprise application delivering real-time stock sync across warehouses, automated purchase recommendations based on seasonal sales patterns, structured supplier scorecards, and a sub-second response dashboard for operators.
+                An enterprise web application delivering centralized stock views across warehouses, purchase recommendations based on sales history, supplier scorecards, and a low-friction dashboard for operators.
               </p>
             </div>
           </div>
@@ -442,33 +442,33 @@ export default function HappyERPPage() {
           <div className="rounded-2xl bg-text-primary text-white p-8 sm:p-12 shadow-xl">
             <div className="max-w-2xl mx-auto text-center mb-10">
               <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
-                Measurable Impact
+                Engineering Outcomes
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">
-                Tangible Business Outcomes
+                What Was Built &amp; Delivered
               </h2>
               <p className="text-gray-400 text-sm mt-2">
-                Delivered significant time savings and stock transparency across wholesale and distribution channels.
+                Replaced disconnected spreadsheets with a unified dashboard interface across wholesale and warehouse workflows.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-3 gap-6 text-center">
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-4xl sm:text-5xl font-bold text-blue-400">60%</p>
-                <p className="text-white font-semibold text-sm mt-2">Reduction in Manual Entry</p>
-                <p className="text-xs text-gray-400 mt-1">Automated purchase workflows &amp; batch updates</p>
+                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Unified UI</p>
+                <p className="text-white font-semibold text-sm mt-2">Consolidated Entry Flows</p>
+                <p className="text-xs text-gray-400 mt-1">Moved spreadsheet workflows into structured forms</p>
               </div>
 
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-4xl sm:text-5xl font-bold text-blue-400">2x</p>
-                <p className="text-white font-semibold text-sm mt-2">Faster Order Dispatch</p>
-                <p className="text-xs text-gray-400 mt-1">Instant picking slip generation &amp; validation</p>
+                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Data-Dense</p>
+                <p className="text-white font-semibold text-sm mt-2">Operator-First Tables</p>
+                <p className="text-xs text-gray-400 mt-1">Tabular numeric alignment, filters &amp; quick actions</p>
               </div>
 
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-4xl sm:text-5xl font-bold text-blue-400">100%</p>
-                <p className="text-white font-semibold text-sm mt-2">Inventory Accuracy</p>
-                <p className="text-xs text-gray-400 mt-1">Zero unaccounted warehouse discrepancies</p>
+                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Reusable</p>
+                <p className="text-white font-semibold text-sm mt-2">Shared Component Library</p>
+                <p className="text-xs text-gray-400 mt-1">Consistent dialogs, status badges &amp; API states</p>
               </div>
             </div>
           </div>

@@ -89,7 +89,7 @@ export default function ZenowayCaseStudy() {
                     Role
                   </span>
                   <span className="font-medium text-text-primary">
-                    Product &amp; UI Design
+                    Design &amp; UI Development
                   </span>
                 </div>
                 <div>
@@ -166,7 +166,7 @@ export default function ZenowayCaseStudy() {
 
                 <div className="mt-3.5 px-1 flex items-center justify-between text-xs text-text-muted">
                   <span>Direct job discovery &amp; apply flow</span>
-                  <span className="text-primary font-medium">Verified UI</span>
+                  <span className="text-primary font-medium">Live Production App</span>
                 </div>
               </div>
             </div>
@@ -228,7 +228,7 @@ export default function ZenowayCaseStudy() {
                 Disconnected communication
               </h3>
               <p className="text-sm md:text-base text-text-body leading-relaxed">
-                Candidates benefit from a clear path to the employer or verified application
+                Candidates benefit from a direct path to the employer or official application
                 destination rather than sending resumes into opaque platform silos.
               </p>
             </div>
@@ -491,7 +491,7 @@ export default function ZenowayCaseStudy() {
                   Application experience &mdash; finding the correct way to apply
                 </h3>
                 <p className="text-sm md:text-base text-text-body leading-relaxed">
-                  Clear, verified application guidance. Whether sending an email directly
+                  Clear, direct application guidance. Whether sending an email directly
                   to the hiring team or proceeding to an official application link, candidates
                   always know the exact destination.
                 </p>

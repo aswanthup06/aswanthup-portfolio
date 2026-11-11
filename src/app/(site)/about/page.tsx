@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   motion,
   MotionConfig,
-  animate,
-  useInView,
   useScroll,
   useSpring,
   type Variants,
@@ -48,6 +46,7 @@ import {
 import { IoLogoWhatsapp } from "react-icons/io";
 
 import { useContactModal } from "../../context/ContactModalContext";
+import { DESIGN_WORK, FEATURED, LIVE_SITES } from "../../data/projects";
 import { PREMIUM_EASE } from "../../lib/animations";
 
 const EMAIL = "aswanthup06@gmail.com";
@@ -179,7 +178,7 @@ function Hero() {
           className="mb-5 inline-flex items-center gap-2 text-xs font-medium text-text-body md:text-sm"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+            <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-green-500 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
           </span>
           Open to work · Remote or relocating in India
@@ -417,34 +416,11 @@ function Marquee() {
 /*  3. Stats                                                                  */
 /* -------------------------------------------------------------------------- */
 
-function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const seen = useInView(ref, { once: true, margin: "-40px" });
-  const [v, setV] = useState(0);
-
-  useEffect(() => {
-    if (!seen) return;
-    const controls = animate(0, to, {
-      duration: 1.4,
-      ease: PREMIUM_EASE,
-      onUpdate: (x) => setV(Math.round(x)),
-    });
-    return () => controls.stop();
-  }, [seen, to]);
-
-  return (
-    <span ref={ref}>
-      {v}
-      {suffix}
-    </span>
-  );
-}
-
 const STATS = [
   { to: 3, suffix: "+", label: "Years building UI" },
-  { to: 600, suffix: "+", label: "Screens developed" },
-  { to: 4, suffix: "", label: "Production case studies" },
-  { to: 99, suffix: "%", label: "Figma-to-code fidelity" },
+  { to: FEATURED.length, suffix: "", label: "Product case studies" },
+  { to: LIVE_SITES.length, suffix: "", label: "Live client websites" },
+  { to: DESIGN_WORK.length, suffix: "", label: "Visual & icon systems" },
 ];
 
 function Stats() {
@@ -460,8 +436,9 @@ function Stats() {
           variants={item}
           className="px-4 text-center lg:px-8 lg:text-left lg:first:pl-0"
         >
-          <dt className="text-4xl font-black tracking-tight text-text-primary md:text-5xl">
-            <CountUp to={s.to} suffix={s.suffix} />
+          <dt className="text-4xl font-black tracking-tight tabular-nums text-text-primary md:text-5xl">
+            {s.to}
+            {s.suffix}
           </dt>
           <dd className="mt-1 text-sm font-medium text-text-muted">
             {s.label}
@@ -540,7 +517,7 @@ const CHAPTERS: Chapter[] = [
     place: "Kozhikode, Kerala",
     text: "Worked across UI/UX design, UI development, and design systems.",
     points: [
-      "Led UI development for healthcare platforms",
+      "Built responsive UI and admin dashboards for healthcare and enterprise products",
       "Mentored junior developers",
       "Built dashboards, SaaS platforms and reusable component systems for web and mobile",
     ],
@@ -548,7 +525,7 @@ const CHAPTERS: Chapter[] = [
     links: [{ label: "Doctor One", href: "/projects/doctor-one" }],
     sub: {
       period: "Jan – Aug 2025",
-      title: "Contract at 6solve IT Services",
+      title: "UI Developer (Contract via Chaavie Solutions) · 6solve IT Services",
       place: "Tirunelveli, Tamil Nadu",
       text: "Collaborated on Next.js projects, improving performance and scalability while strengthening modern UI architecture and component systems.",
     },
@@ -853,7 +830,7 @@ const TOOLKIT_GROUPS: ToolkitGroup[] = [
   {
     kicker: "Velocity & Multipliers",
     title: "AI-Augmented Engineering",
-    desc: "Modern AI tooling integrated into daily development for 3× faster delivery, rapid prototyping, and clean refactoring.",
+    desc: "Modern AI tooling integrated into daily development for faster prototyping, component refactoring, and edge-case checks.",
     highlight: true,
     items: [
       {
