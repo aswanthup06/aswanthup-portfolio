@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import {
-  FaBehance,
   FaDownload,
   FaGithub,
   FaLinkedinIn,
@@ -271,13 +270,6 @@ export default function AboutSection() {
               label="LinkedIn Profile"
             >
               <FaLinkedinIn size={14} />
-            </SocialLink>
-
-            <SocialLink
-              href="https://www.behance.net/ASWANTHUP"
-              label="Behance Portfolio"
-            >
-              <FaBehance size={14} />
             </SocialLink>
 
             <SocialLink

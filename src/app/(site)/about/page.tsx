@@ -34,11 +34,9 @@ import {
 
   FaGithub,
   FaLinkedinIn,
-  FaBehance,
   FaRulerCombined,
   FaPuzzlePiece,
   FaScrewdriverWrench,
-  FaQuoteLeft,
   FaPencil,
   FaEnvelope,
   FaDownload,
@@ -55,7 +53,6 @@ const RESUME = "/resume.pdf";
 const LINKS = {
   github: "https://github.com/aswanthup06",
   linkedin: "https://www.linkedin.com/in/aswanthup/",
-  behance: "https://www.behance.net/ASWANTHUP",
   whatsapp: "https://wa.me/917559068970",
 };
 
@@ -113,7 +110,7 @@ export default function About() {
           <Story />
           <Principles />
           <Workbench />
-          <Craft />
+          <BeyondCode />
           <Cta />
         </div>
       </div>
@@ -197,10 +194,9 @@ function Hero() {
           className="mt-5 max-w-xl text-sm leading-relaxed text-text-body md:text-lg"
         >
           I’m Aswanth, a UI Developer and Designer from Kozhikode, Kerala,
-          with a background in Computer Science and physical craft. I bridge
-          Figma design tokens into clean, scalable React and Next.js
-          applications—focusing on responsive architecture, accessibility,
-          and high visual fidelity.
+          with a BSc in Computer Science. I bridge Figma design tokens into
+          clean, scalable React and Next.js applications—focusing on
+          responsive architecture, accessibility, and visual consistency.
         </motion.p>
 
         <motion.div
@@ -453,7 +449,7 @@ function Stats() {
 /*  4. Story / timeline (sticky heading, scroll-filled line)                  */
 /* -------------------------------------------------------------------------- */
 
-type Kind = "craft" | "study" | "work";
+type Kind = "study" | "work";
 
 type Chapter = {
   period: string;
@@ -470,11 +466,6 @@ type Chapter = {
 };
 
 const KIND: Record<Kind, { label: string; chip: string; dot: string }> = {
-  craft: {
-    label: "Craft",
-    chip: "bg-amber-50 text-amber-700",
-    dot: "bg-amber-500",
-  },
   study: {
     label: "Study",
     chip: "bg-violet-50 text-violet-700",
@@ -493,20 +484,12 @@ const CHAPTERS: Chapter[] = [
     text: "Completed my BSc in Computer Science, building academic projects that put practical skills next to the theory.",
   },
   {
-    period: "2019 – 2022",
-    kind: "craft",
-    title: "Carpenter",
-    org: "Joinery & furniture",
-    text: "Hands-on experience in joinery, furniture making, and precision woodworking. I carried the workshop discipline into how I think about digital products.",
-    tags: ["Joinery", "Furniture", "Restoration"],
-  },
-  {
     period: "Nov 2022 – Mar 2023",
     kind: "work",
     title: "UI/UX Design Intern",
     org: "Futura Labs",
     place: "Kozhikode, Kerala",
-    text: "Where the switch started: UI/UX design and frontend fundamentals, including HTML5, CSS3 / SCSS basics, JavaScript, and Figma.",
+    text: "Started in UI/UX design and frontend fundamentals, including HTML5, CSS3 / SCSS basics, JavaScript, and Figma.",
     tags: ["HTML5", "CSS3 / SCSS", "JavaScript", "Figma"],
   },
   {
@@ -522,7 +505,10 @@ const CHAPTERS: Chapter[] = [
       "Built dashboards, SaaS platforms and reusable component systems for web and mobile",
     ],
     tags: ["JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Tailwind", "Figma"],
-    links: [{ label: "Doctor One", href: "/projects/doctor-one" }],
+    links: [
+      { label: "Happy ERP", href: "/projects/happy-erp" },
+      { label: "Doctor One", href: "/projects/doctor-one" },
+    ],
     sub: {
       period: "Jan – Aug 2025",
       title: "UI Developer (Contract via Chaavie Solutions) · 6solve IT Services",
@@ -556,12 +542,12 @@ function Story() {
             id="story-heading"
             className="mt-2 text-3xl font-semibold leading-tight text-text-primary md:text-4xl"
           >
-            A career built{" "}
-            <span className="font-medium text-text-muted">by hand</span>
+            From fundamentals{" "}
+            <span className="font-medium text-text-muted">to production UI</span>
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-text-body">
-            From school-level wood carving to production React, with a few
-            years at the workbench in between.
+            BSc Computer Science graduate building component systems, responsive
+            web apps, and Figma-to-code interfaces.
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2">
@@ -705,27 +691,27 @@ function Story() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  5. Principles (workshop rule -> how it shows up in code)                  */
+/*  5. Principles (how UI engineering decisions are made)                     */
 /* -------------------------------------------------------------------------- */
 
 const PRINCIPLES = [
   {
     Icon: FaRulerCombined,
-    rule: "Measure twice, cut once.",
+    tag: "Architecture",
     title: "Plan before pixels",
     text: "Layout, spacing and tokens get settled in Figma with Auto Layout, so the build is one clean pass instead of rework.",
   },
   {
     Icon: FaPuzzlePiece,
-    rule: "A good joint disappears.",
+    tag: "Polish & A11y",
     title: "Details that hold it together",
     text: "Responsive behavior, states and accessibility are invisible when they work, and that’s exactly the point.",
   },
   {
     Icon: FaScrewdriverWrench,
-    rule: "Know your tools by hand.",
+    tag: "Fundamentals",
     title: "Depth over buzzwords",
-    text: "JavaScript (ES6+), React, Next.js, TypeScript, Tailwind CSS, and Figma Dev Mode, used daily and understood well enough to bend when needed.",
+    text: "JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS, and Figma Dev Mode, used daily and understood well enough to bend when needed.",
   },
 ];
 
@@ -737,8 +723,8 @@ function Principles() {
         center
         title={
           <span id="principles-heading">
-            Workshop rules,{" "}
-            <span className="font-medium text-text-muted">applied to code</span>
+            Engineering principles,{" "}
+            <span className="font-medium text-text-muted">applied to UI</span>
           </span>
         }
       />
@@ -748,7 +734,7 @@ function Principles() {
         {...inView}
         className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8"
       >
-        {PRINCIPLES.map(({ Icon, rule, title, text }, i) => (
+        {PRINCIPLES.map(({ Icon, tag, title, text }, i) => (
           <motion.article
             key={title}
             variants={item}
@@ -764,8 +750,8 @@ function Principles() {
               />
             </div>
 
-            <p className="mt-5 text-sm font-medium italic text-amber-600">
-              “{rule}”
+            <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-primary">
+              {tag}
             </p>
             <h3 className="mt-1 text-lg font-bold text-text-primary">
               {title}
@@ -781,7 +767,7 @@ function Principles() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  6. The Workbench (Tools & AI Workflow)                                    */
+/*  6. Tech Stack & AI Workflow                                               */
 /* -------------------------------------------------------------------------- */
 
 interface ToolkitItem {
@@ -869,15 +855,15 @@ function Workbench() {
   return (
     <section aria-labelledby="workbench-heading" className="mt-28">
       <Heading
-        kicker="The Workbench"
+        kicker="Tech Stack"
         center
         title={
           <span id="workbench-heading">
-            Tools & modern{" "}
+            Tools &amp; modern{" "}
             <span className="font-medium text-text-muted">AI workflow</span>
           </span>
         }
-        sub="Just like in woodworking, great tools don't replace craftsmanship—they amplify precision and delivery speed."
+        sub="Production-tested frontend technologies and modern AI tooling used daily to ship clean, maintainable interfaces."
       />
 
       <motion.div
@@ -957,174 +943,76 @@ function Workbench() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  6. Craft bento                                                            */
+/*  7. Beyond Code (brief early visual roots, 2013–2016)                      */
 /* -------------------------------------------------------------------------- */
 
-function Photo({
-  src,
-  alt,
-  caption,
-  badge,
-  className,
-}: {
-  src: string;
-  alt: string;
-  caption: string;
-  badge?: string;
-  className: string;
-}) {
-  return (
-    <motion.figure
-      variants={item}
-      whileHover={hover}
-      className={`group relative overflow-hidden rounded-xl shadow-sm transition-shadow duration-300 hover:shadow-xl ${className}`}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes="(min-width: 1024px) 50vw, 100vw"
-        className="object-cover transition-transform duration-700 group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
-      {badge && (
-        <span className="absolute left-4 top-4 rounded-md bg-white/90 px-3 py-1 text-xs font-medium text-text-primary shadow-sm backdrop-blur-sm">
-          {badge}
-        </span>
-      )}
-      <figcaption className="absolute bottom-4 left-4 text-sm font-medium text-white drop-shadow">
-        {caption}
-      </figcaption>
-    </motion.figure>
-  );
-}
+const EARLY_AWARDS = [
+  {
+    title: "5× State-level A Grade",
+    detail: "Wood Carving · Kerala State School Sasthrolsavam",
+  },
+  {
+    title: "5 District Prizes",
+    detail: "4× First Prize · 1× Second Prize",
+  },
+  {
+    title: "Sub-district Winner",
+    detail: "Pencil Drawing & Painting",
+  },
+];
 
-function StatTile({
-  big,
-  title,
-  text,
-  className = "",
-}: {
-  big: string;
-  title: string;
-  text: string;
-  className?: string;
-}) {
+function BeyondCode() {
   return (
-    <motion.div
+    <motion.section
       variants={item}
-      whileHover={hover}
-      className={`${card} flex flex-col justify-between p-5 ${className}`}
+      {...inView}
+      aria-labelledby="beyond-code-heading"
+      className="mt-20"
     >
-      <p className="text-4xl font-black tracking-tight text-text-primary">
-        {big}
-      </p>
-      <div>
-        <p className="text-sm font-bold text-text-primary">{title}</p>
-        <p className="mt-0.5 text-xs leading-relaxed text-text-muted">{text}</p>
+      <div className="rounded-2xl border border-border-default bg-surface-subtle p-6 sm:p-8">
+        <div className="max-w-2xl">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+            <span>Beyond Code</span>
+            <span aria-hidden="true" className="text-border-strong">·</span>
+            <span className="text-text-muted font-medium">2013 – 2016</span>
+          </div>
+
+          <h2
+            id="beyond-code-heading"
+            className="mt-2 text-lg sm:text-xl font-bold text-text-primary"
+          >
+            Early visual &amp; drawing background
+          </h2>
+
+          <p className="mt-2 text-sm leading-relaxed text-text-body">
+            Before moving into software, I spent my school years competing in
+            fine arts and wood carving—building the eye for proportion and
+            detail I bring to UI design today.
+          </p>
+        </div>
+
+        <div className="mt-5 pt-5 border-t border-border-default grid gap-3 sm:grid-cols-3">
+          {EARLY_AWARDS.map((award) => (
+            <div
+              key={award.title}
+              className="rounded-xl border border-border-default bg-surface-card p-4"
+            >
+              <p className="text-sm font-bold text-text-primary">
+                {award.title}
+              </p>
+              <p className="mt-1 text-xs text-text-muted leading-relaxed">
+                {award.detail}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-    </motion.div>
-  );
-}
-
-function Craft() {
-  return (
-    <section aria-labelledby="craft-heading" className="mt-28">
-      <Heading
-        kicker="Creative background"
-        title={
-          <span id="craft-heading">
-            Craft & visual foundation<span className="text-primary">_</span>
-          </span>
-        }
-        sub="Pencil sketching, spatial craftsmanship, and physical joinery: the roots of my visual discipline and attention to detail."
-      />
-
-      <motion.div
-        variants={container}
-        {...inView}
-        className="mt-10 grid auto-rows-[170px] grid-cols-2 gap-4 lg:auto-rows-[180px] lg:grid-cols-4"
-      >
-        <Photo
-          src="/images/about/wood.webp"
-          alt="Wood carving detail"
-          caption="Wood carving"
-          badge="✦ Primary craft"
-          className="col-span-2 row-span-2"
-        />
-
-        <StatTile
-          big="5×"
-          title="State-level A grade"
-          text="Wood Carving, Kerala State School Sasthrolsavam"
-        />
-
-        <Photo
-          src="/images/about/wood1.webp"
-          alt="Carpentry workbench with tools"
-          caption="The workbench, 2019–2022"
-          className="row-span-2"
-        />
-
-        <StatTile
-          big="4+1"
-          title="District prizes"
-          text="4× first prize · 1× second prize"
-        />
-
-        <motion.div
-          variants={item}
-          whileHover={hover}
-          className={`${card} col-span-2 flex items-center gap-4 p-5`}
-        >
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-600">
-            <FaPencil aria-hidden="true" />
-          </div>
-          <div>
-            <p className="text-sm font-bold text-text-primary">
-              Pencil drawing & painting
-            </p>
-            <p className="text-xs font-medium text-amber-600">
-              Sub-district level winner
-            </p>
-            <p className="mt-1 text-xs leading-relaxed text-text-muted">
-              Realistic sketches and watercolor: visual storytelling before
-              digital tools.
-            </p>
-          </div>
-        </motion.div>
-
-        <Photo
-          src="/images/about/wood3.webp"
-          alt="Carpenter at work"
-          caption="Carpentry works"
-          className="col-span-2"
-        />
-      </motion.div>
-
-      <motion.figure
-        variants={item}
-        {...inView}
-        className="mx-auto mt-12 max-w-2xl text-center"
-      >
-        <FaQuoteLeft
-          aria-hidden="true"
-          className="mx-auto mb-3 text-2xl text-amber-400/70"
-        />
-        <blockquote className="text-lg font-medium italic leading-relaxed text-text-primary md:text-xl">
-          Every UI component is like a well-cut joint: invisible when perfect,
-          but essential for structure.
-        </blockquote>
-        <figcaption className="mt-3 text-xs tracking-wide text-text-muted">
-          craft discipline to digital UI
-        </figcaption>
-      </motion.figure>
-    </section>
+    </motion.section>
   );
 }
 
 /* -------------------------------------------------------------------------- */
-/*  7. Closing CTA (light)                                                    */
+/*  8. Closing CTA (light)                                                    */
 /* -------------------------------------------------------------------------- */
 
 const CONTACTS = [
@@ -1147,13 +1035,6 @@ const CONTACTS = [
     label: "LinkedIn",
     handle: "linkedin.com/in/aswanthup",
     Icon: FaLinkedinIn,
-    external: true,
-  },
-  {
-    href: LINKS.behance,
-    label: "Behance",
-    handle: "behance.net/ASWANTHUP",
-    Icon: FaBehance,
     external: true,
   },
   {

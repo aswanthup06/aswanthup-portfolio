@@ -553,34 +553,6 @@ export default function Projects() {
                 <CompactItem key={p.slug} project={p} />
               ))}
             </ul>
-
-            {/* Traditional Art & Behance Archive Card */}
-            <motion.div
-              {...reveal}
-              className="mt-12 rounded-xl border border-border-default bg-surface-card p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm"
-            >
-              <div className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-primary">
-                  Creative Archive
-                </span>
-                <h3 className="text-base md:text-lg font-bold text-text-primary">
-                  Handmade sketches &amp; cultural festival art
-                </h3>
-                <p className="text-xs md:text-sm text-text-body max-w-xl leading-relaxed">
-                  Traditional drawings, Kerala festival series, and exploratory graphic design experiments on Behance.
-                </p>
-              </div>
-
-              <a
-                href="https://www.behance.net/ASWANTHUP"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-xs md:text-sm font-medium whitespace-nowrap shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 shrink-0"
-              >
-                View Behance Archive
-                <MdOutlineArrowOutward className="text-base" />
-              </a>
-            </motion.div>
           </section>
 
           {/* Closing CTA */}

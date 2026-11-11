@@ -1,7 +1,7 @@
 import NextProject from "../../../components/projects/NextProject";
 import React from "react";
 import Image from "next/image";
-import { CiGlobe } from "react-icons/ci";
+import Link from "next/link";
 import {
   LuArrowUpRight,
   LuCalendar,
@@ -119,16 +119,13 @@ export default function PosterPage() {
             </div>
 
             {/* CTA Button */}
-            <a
-              href="https://www.behance.net/ASWANTHUP"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/projects"
               className="btn-primary inline-flex items-center gap-2 mt-8 text-white px-6 py-3 rounded-lg shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 font-medium text-sm transition-all duration-300"
             >
-              <CiGlobe className="text-lg" />
-              View on Behance
+              All Projects
               <LuArrowUpRight className="text-base" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { FaLinkedinIn, FaBehance, FaGithub } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { BsGlobe } from "react-icons/bs";
 import { motion, MotionConfig, type Variants } from "framer-motion";
@@ -306,35 +306,6 @@ export default function Footer() {
                         "
                       >
                         <IoLogoWhatsapp size={14} />
-                      </motion.a>
-
-                      <motion.a
-                        whileHover={{
-                          scale: 1.15,
-                          y: -3,
-                        }}
-                        whileTap={{
-                          scale: 0.9,
-                        }}
-                        href="https://www.behance.net/ASWANTHUP"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Behance Portfolio"
-                        className="
-                          h-8
-                          w-8
-                          rounded-full
-                          bg-surface-muted
-                          flex
-                          items-center
-                          justify-center
-                          text-text-body
-                          hover:bg-primary
-                          hover:text-white
-                          transition
-                        "
-                      >
-                        <FaBehance size={14} />
                       </motion.a>
                     </div>
                   </motion.div>
