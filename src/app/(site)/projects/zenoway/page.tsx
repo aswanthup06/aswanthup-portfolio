@@ -28,7 +28,7 @@ export default function ZenowayCaseStudy() {
       {/* ---------------- SECTION A: SPLIT HERO WITH SOFT BLUE SURFACE & LIVE PREVIEW ---------------- */}
       <section className="relative pt-28 md:pt-36 pb-14 md:pb-20 bg-gradient-to-b from-primary-subtle/55 via-surface-subtle/40 to-background overflow-hidden">
       <div
-        className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
+        className="grid-bg absolute inset-x-0 top-0 h-[650px] z-0 pointer-events-none"
         style={{
           maskImage:
             "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
@@ -36,7 +36,7 @@ export default function ZenowayCaseStudy() {
             "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
         }}
       />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Editorial Content */}
             <div className="lg:col-span-7 space-y-6">
