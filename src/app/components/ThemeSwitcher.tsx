@@ -6,7 +6,7 @@ import { Check, Palette } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 export default function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
-  const { theme, setTheme, themes } = useTheme();
+  const { theme, setTheme, themes, radius, setRadius } = useTheme();
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -38,7 +38,7 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        aria-label="Switch color theme"
+        aria-label="Customize theme and corners"
         aria-expanded={open}
         aria-haspopup="listbox"
         title={`Theme: ${activeTheme.name}`}
@@ -73,12 +73,12 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
             exit={{ opacity: 0, y: 6, scale: 0.96 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
             className="
-              absolute right-0 top-12 z-50 w-64 rounded-xl
-              border border-border-default bg-surface-card p-2
+              absolute right-0 top-12 z-50 w-68 rounded-xl
+              border border-border-default bg-surface-card p-2.5
               shadow-2xl
             "
           >
-            <div className="px-2.5 py-1.5 mb-1 flex items-center justify-between">
+            <div className="px-2 py-1 mb-1 flex items-center justify-between">
               <span className="text-[11px] font-semibold uppercase tracking-wider text-text-muted">
                 Color Theme
               </span>
@@ -139,10 +139,53 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
                 );
               })}
             </div>
+
+            {/* Corner Style Toggle */}
+            <div className="mt-2.5 pt-2.5 border-t border-border-subtle px-1">
+              <div className="px-1 mb-1.5 flex items-center justify-between">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-text-muted">
+                  Corner Style
+                </span>
+                <span className="text-[10px] text-text-caption">
+                  {radius === "small" ? "Crisp 6px" : "Pill & Soft"}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-1.5 rounded-lg bg-surface-subtle p-1 border border-border-subtle">
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={radius === "small"}
+                  onClick={() => setRadius("small")}
+                  className={`flex items-center justify-center gap-1.5 rounded-md py-1.5 text-xs font-medium transition-all ${
+                    radius === "small"
+                      ? "bg-surface-card text-text-primary shadow-xs border border-border-default"
+                      : "text-text-muted hover:text-text-primary"
+                  }`}
+                >
+                  <span className="h-3 w-3 rounded-[2px] border-[1.5px] border-current" />
+                  <span>Small</span>
+                </button>
+
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={radius === "rounded"}
+                  onClick={() => setRadius("rounded")}
+                  className={`flex items-center justify-center gap-1.5 rounded-md py-1.5 text-xs font-medium transition-all ${
+                    radius === "rounded"
+                      ? "bg-surface-card text-text-primary shadow-xs border border-border-default"
+                      : "text-text-muted hover:text-text-primary"
+                  }`}
+                >
+                  <span className="h-3 w-3 rounded-full border-[1.5px] border-current" />
+                  <span>Rounded</span>
+                </button>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
 }
-

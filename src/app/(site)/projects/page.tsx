@@ -177,20 +177,19 @@ function Hero() {
         </motion.div>
 
         {/* h1 stays static so it never delays LCP */}
-        <h1 className="text-4xl font-bold leading-[1.1] text-text-primary md:text-5xl lg:text-6xl">
+        <h1 className="text-3xl font-semibold leading-[1.08] tracking-tight text-text-primary sm:text-4xl lg:text-5xl xl:text-[56px]">
           Products I designed
-          <span className="block text-brand-gradient">
+          <span className="mt-1.5 block text-brand-gradient">
             and built.
           </span>
         </h1>
 
         <motion.p
           variants={item}
-          className="mt-5 max-w-xl text-sm leading-relaxed text-text-body md:text-lg"
+          className="mt-5 max-w-lg text-sm leading-relaxed text-text-body sm:text-base"
         >
-          Full-scale web applications, production client websites, and design
-          work. Bridging the gap between Figma design and high-performance
-          React code.
+          Case studies, live client sites, and visual systems—showing both the
+          Figma architecture and the shipped React &amp; Next.js code.
         </motion.p>
 
         <motion.div
@@ -569,14 +568,14 @@ export default function Projects() {
                 id="cta-heading"
                 className="mt-2 text-3xl font-bold leading-tight text-text-primary md:text-4xl"
               >
-                Let&apos;s build something{" "}
+                Let&apos;s ship interfaces{" "}
                 <span className="text-brand-gradient">
-                  exceptional together.
+                  people enjoy using.
                 </span>
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-text-body md:text-base">
-                Open for UI development, design system implementation, and UI/UX design
-                opportunities.
+                Open for full-time UI development, design system implementation,
+                and product UI roles across India or remote.
               </p>
             </div>
 

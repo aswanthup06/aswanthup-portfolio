@@ -11,7 +11,7 @@ const projects = [
   {
     title: "Happy ERP",
     description:
-      "A complete ERP dashboard system designed for managing business operations with clean UI architecture, scalable layouts, and responsive data-driven interfaces.",
+      "Enterprise ERP system built to replace spreadsheet workflows with structured inventory tables, order flows, and real-time operational views.",
     image: "/images/projects/happy-erp/happy-erp-hero.webp",
     link: "/projects/happy-erp",
     tech: ["React", "ERP", "Dashboard"],
@@ -21,7 +21,7 @@ const projects = [
   {
     title: "NVOCC",
     description:
-      "A modern logistics and shipping management platform focused on improving operational workflows, dashboard usability, and enterprise-level user experience.",
+      "Ocean freight and vessel logistics platform featuring export, import, and container maintenance dashboards translated directly from Figma.",
     image: "/images/projects/nvocc/nvocc-hero.webp",
     link: "/projects/nvocc",
     tech: ["React", "Next.js", "Tailwind"],
@@ -31,7 +31,7 @@ const projects = [
   {
     title: "Doctor One",
     description:
-      "A healthcare-focused digital platform built to simplify patient interactions, appointment management, and medical service accessibility through intuitive design.",
+      "Healthcare consultation and clinic management platform designed for clear patient scheduling, prescription access, and mobile booking.",
     image: "/images/projects/doctor-one/dr1.webp",
     link: "/projects/doctor-one",
     tech: ["Healthcare", "Next.js", "UI UX"],
@@ -290,14 +290,14 @@ export default function ProjectsSection() {
             <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
               Featured Work{" "}
               <span className="text-text-muted font-medium">
-                Built With Modern UI Thinking
+                From Sketch to Production
               </span>
             </p>
 
             <p className="text-text-body text-sm md:text-base leading-relaxed mt-4 max-w-xl">
-              A collection of selected projects focused on UI development,
-              design systems, responsive experiences, and Figma-to-code execution
-              across multiple industries.
+              Selected case studies spanning SaaS dashboards, healthcare
+              portals, and production client websites—designed in Figma and
+              shipped in React.
             </p>
           </div>
 

@@ -18,6 +18,7 @@ const questrial = Questrial({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-questrial",
 });
 
 const siteUrl = "https://www.aswanthup.online";
@@ -127,15 +128,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="obsidian" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme="obsidian"
+      data-radius="rounded"
+      className={questrial.variable}
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('portfolio-theme');var v=['emerald','blue','indigo','terracotta','obsidian'];document.documentElement.setAttribute('data-theme',v.indexOf(t)!==-1?t:'obsidian');}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('portfolio-theme');var v=['emerald','blue','indigo','terracotta','obsidian'];document.documentElement.setAttribute('data-theme',v.indexOf(t)!==-1?t:'obsidian');var r=localStorage.getItem('portfolio-radius');document.documentElement.setAttribute('data-radius',r==='small'?'small':'rounded');}catch(e){}})();`,
           }}
         />
       </head>
-      <body className={questrial.className}>
+      <body className={`${questrial.className} ${questrial.variable}`}>
         <ThemeProvider>
           <GlobalSmoothScroll />
           <ContactModalProvider>

@@ -172,7 +172,7 @@ export default function Navbar() {
           delay: 0.1,
           ease: "easeOut",
         }}
-        className="pointer-events-auto relative border shadow-2xl bg-surface-card border-border-default rounded-lg h-14 flex items-center justify-between px-2 w-full md:w-fit mt-4 md:gap-24"
+        className="navbar-pill pointer-events-auto relative border shadow-2xl bg-surface-card border-border-default rounded-lg h-14 flex items-center justify-between px-2 w-full md:w-fit mt-4 md:gap-24"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
@@ -188,6 +188,7 @@ export default function Navbar() {
             href="/"
             aria-label="Home"
             className="
+    navbar-logo
     btn-primary
     h-10 w-10 rounded
     flex items-center justify-center

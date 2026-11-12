@@ -72,23 +72,20 @@ export default function HeroSection() {
             </motion.div>
 
             {/* h1 is the LCP element: no hidden initial state, no delay */}
-            <h1 className="text-4xl font-bold leading-[1.1] text-text-primary md:text-5xl lg:text-6xl">
-              I design it in Figma,
-              <span className="relative mt-1 block w-fit lg:mx-0 mx-auto">
-                <span className="text-brand-gradient">
-                  then ship it in React.
-                </span>
-                <Underline />
+            <h1 className="text-3xl font-semibold leading-[1.08] tracking-tight text-text-primary sm:text-4xl lg:text-5xl xl:text-[56px]">
+              Designed in Figma.
+              <span className="mt-1.5 block text-brand-gradient">
+                Shipped in React.
               </span>
             </h1>
 
             <motion.p
               variants={item}
-              className="mt-5 max-w-xl text-sm leading-relaxed text-text-body md:text-lg"
+              className="mt-5 max-w-lg text-sm leading-relaxed text-text-body sm:text-base"
             >
-              UI/UX design and clean, production-ready UI code from one person.
-              I turn complex workflows into intuitive web applications, from
-              first sketch to production.
+              UI/UX design and production frontend code from one person. I turn
+              complex workflows into fast, intuitive web applications without
+              handoff friction.
             </motion.p>
 
             <motion.div
@@ -199,32 +196,6 @@ function Backdrop() {
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
     </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Headline underline (draws itself)                                         */
-/* -------------------------------------------------------------------------- */
-
-function Underline() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 300 12"
-      preserveAspectRatio="none"
-      className="absolute -bottom-2 left-0 h-2.5 w-full text-primary"
-      fill="none"
-    >
-      <motion.path
-        d="M2 8 C 60 2, 120 11, 180 5 S 270 4, 298 7"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.55 }}
-        transition={{ duration: 0.9, delay: 0.7, ease: PREMIUM_EASE }}
-      />
-    </svg>
   );
 }
 

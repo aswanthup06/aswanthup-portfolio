@@ -178,25 +178,25 @@ function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-green-500 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
           </span>
-          Open to work · Remote or relocating in India
+          Open to work · Remote or on-site across India
         </motion.div>
 
         {/* h1 stays static so it never delays LCP */}
-        <h1 className="text-4xl font-bold leading-[1.1] text-text-primary md:text-5xl lg:text-6xl">
-          Designing interfaces
-          <span className="block text-brand-gradient">
+        <h1 className="text-3xl font-semibold leading-[1.08] tracking-tight text-text-primary sm:text-4xl lg:text-5xl xl:text-[56px]">
+          Design thinking,
+          <span className="mt-1.5 block text-brand-gradient">
             built for production.
           </span>
         </h1>
 
         <motion.p
           variants={item}
-          className="mt-5 max-w-xl text-sm leading-relaxed text-text-body md:text-lg"
+          className="mt-5 max-w-lg text-sm leading-relaxed text-text-body sm:text-base"
         >
           I’m Aswanth, a UI Developer and Designer from Kozhikode, Kerala,
-          with a BSc in Computer Science. I bridge Figma design tokens into
-          clean, scalable React and Next.js applications—focusing on
-          responsive architecture, accessibility, and visual consistency.
+          with a BSc in Computer Science. I turn Figma design systems into
+          fast, accessible React and Next.js applications—sweating spacing,
+          states, and visual consistency.
         </motion.p>
 
         <motion.div

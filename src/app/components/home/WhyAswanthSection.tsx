@@ -30,9 +30,9 @@ export default function WhyAswanthSection() {
           </h2>
 
           <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
-            Blending UI Design{" "}
+            Where UI Design{" "}
             <span className="text-text-muted font-medium">
-              Into Seamless Products
+              Meets Clean Engineering
             </span>
           </p>
         </motion.div>
@@ -56,16 +56,16 @@ export default function WhyAswanthSection() {
                 </div>
 
                 <div className="max-w-sm">
-                  <h3 className="text-3xl font-bold leading-tight mt-6">
+                  <h3 className="text-2xl font-semibold tracking-tight leading-snug mt-6">
                     Designing Interfaces
                     <br />
                     That Feel Natural
                   </h3>
 
                   <p className="text-sm leading-relaxed text-white/75 mt-2">
-                    I bridge the gap between UI design and frontend
-                    development by crafting modern digital products that
-                    are responsive across all devices.
+                    I turn Figma specs into production frontend code—delivering
+                    responsive layouts, clear hierarchy, and maintainable
+                    components.
                   </p>
                 </div>
               </div>
@@ -94,12 +94,12 @@ export default function WhyAswanthSection() {
 
                 <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-5">
                   <div>
-                    <h4 className="text-lg font-semibold">
-                      UI Developer & Designer
+                    <h4 className="text-base font-semibold leading-snug">
+                      UI Developer &amp; Designer
                     </h4>
 
                     <p className="text-xs text-white/60 mt-1">
-                      Focused on scalable frontend experiences.
+                      Focused on fast, accessible frontend UI.
                     </p>
                   </div>
 
@@ -146,7 +146,7 @@ export default function WhyAswanthSection() {
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mt-3 tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-semibold text-text-primary mt-3 tracking-tight leading-snug">
                   Token-Driven UI
                 </h3>
               </div>
@@ -187,7 +187,7 @@ export default function WhyAswanthSection() {
                 </motion.div>
 
                 <div className="border-white/10 bg-white/5 backdrop-blur-sm rounded-xl p-4 border">
-                  <h3 className="text-white text-xl font-semibold leading-tight">
+                  <h3 className="text-white text-xl font-semibold tracking-tight leading-snug">
                     From Design To Live Product
                   </h3>
 
@@ -243,15 +243,15 @@ export default function WhyAswanthSection() {
                       Concept Redesign
                     </p>
 
-                    <h3 className="text-2xl font-bold text-text-primary mt-4 leading-tight">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-text-primary mt-4 tracking-tight leading-snug">
                       Modernizing Existing Products
                     </h3>
                   </div>
                 </div>
 
                 <p className="text-sm text-text-body leading-relaxed mt-4">
-                  I redesign outdated products with cleaner layouts, better UX
-                  flow, modern UI patterns, and improved responsiveness.
+                  I reimagine legacy websites with clearer navigation, sharper
+                  typography, and mobile-first layouts.
                 </p>
               </div>
 
@@ -264,7 +264,7 @@ export default function WhyAswanthSection() {
                   className="border border-border-default bg-surface-subtle rounded-xl p-4 flex items-center justify-between gap-2"
                 >
                   <div>
-                    <h4 className="text-lg font-bold text-text-primary">
+                    <h4 className="text-base font-semibold leading-snug text-text-primary">
                       Existing Website
                     </h4>
 
@@ -302,7 +302,7 @@ export default function WhyAswanthSection() {
                   className="border border-primary-border bg-primary-subtle rounded-xl p-4 flex items-center justify-between gap-2"
                 >
                   <div>
-                    <h4 className="text-lg font-bold text-text-primary">
+                    <h4 className="text-base font-semibold leading-snug text-text-primary">
                       Concept Redesign
                     </h4>
 

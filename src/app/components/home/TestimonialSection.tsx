@@ -62,7 +62,7 @@ export default function TestimonialSection() {
         <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
           Real Feedback{" "}
           <span className="text-text-muted font-medium">
-            From People Who Experienced My Work Firsthand
+            From Teams I Shipped With
           </span>
         </p>
       </motion.div>
@@ -90,9 +90,11 @@ export default function TestimonialSection() {
             flex-col
             justify-between
             rounded-xl
+            border
+            border-white/10
             bg-gradient-to-br
-            from-gray-900
-            to-black
+            from-slate-900
+            to-slate-950
             p-6
             md:p-8
             text-white
@@ -107,13 +109,7 @@ export default function TestimonialSection() {
               className="
                 inline-flex
                 items-center
-                gap-2
-                rounded-md
-                border
-                border-white/10
-                bg-white/5
-                px-4
-                py-2
+                gap-3
                 mb-6
                 flex-wrap
               "
@@ -134,13 +130,15 @@ export default function TestimonialSection() {
                       delay: index * 0.1,
                     }}
                   >
-                    <Image
-                      src={src}
-                      alt={alt}
-                      width={28}
-                      height={28}
-                      className="w-7 h-7 rounded-full border-2 border-black object-cover"
-                    />
+                    <div className="w-8 h-8 rounded-full border-2 border-slate-900 overflow-hidden">
+                      <Image
+                        src={src}
+                        alt={alt}
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-cover scale-110"
+                      />
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -150,14 +148,13 @@ export default function TestimonialSection() {
               </span>
             </motion.div>
 
-            <h3 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight lg:w-[80%]">
-              Real feedback from people I worked with
+            <h3 className="text-2xl font-semibold leading-snug tracking-tight lg:w-[88%]">
+              Trusted by teams I&apos;ve built with
             </h3>
 
-            <p className="text-gray-400 text-sm leading-relaxed mt-6 max-w-sm">
-              UI Developer focused on building scalable, modern, and
-              accessible frontend experiences with React, Tailwind CSS, and
-              Figma workflows.
+            <p className="text-gray-300 text-sm leading-relaxed mt-4 max-w-sm">
+              Trusted by founders, directors, and full-stack engineers across
+              healthcare, logistics, and SaaS builds.
             </p>
           </div>
 
@@ -168,7 +165,7 @@ export default function TestimonialSection() {
               </p>
 
               <p className="text-xs text-gray-400 mt-1">
-                From founders, directors &amp; teammates I shipped products with
+                Verified project &amp; LinkedIn recommendations
               </p>
             </div>
 
@@ -182,17 +179,13 @@ export default function TestimonialSection() {
                 scale: 0.97,
               }}
               className="
+                btn-primary
                 w-full
-                bg-white
-                text-black
                 text-sm
-                font-semibold
+                font-medium
                 px-6
                 py-3.5
                 rounded-md
-                hover:bg-gray-100
-                transition-colors
-                duration-200
               "
             >
               Let’s Work Together

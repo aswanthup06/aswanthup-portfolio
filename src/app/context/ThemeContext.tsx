@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
 export type ThemeId = "emerald" | "blue" | "indigo" | "terracotta" | "obsidian";
+export type RadiusMode = "small" | "rounded";
 
 export interface ThemeOption {
   id: ThemeId;
@@ -59,28 +60,42 @@ export const THEMES: ThemeOption[] = [
 ];
 
 export const DEFAULT_THEME: ThemeId = "obsidian";
+export const DEFAULT_RADIUS: RadiusMode = "rounded";
 const STORAGE_KEY = "portfolio-theme";
+const RADIUS_STORAGE_KEY = "portfolio-radius";
 
 function isValidTheme(value: string | null): value is ThemeId {
   return THEMES.some((t) => t.id === value);
+}
+
+function isValidRadius(value: string | null): value is RadiusMode {
+  return value === "small" || value === "rounded";
 }
 
 interface ThemeContextType {
   theme: ThemeId;
   setTheme: (theme: ThemeId) => void;
   themes: ThemeOption[];
+  radius: RadiusMode;
+  setRadius: (radius: RadiusMode) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<ThemeId>(DEFAULT_THEME);
+  const [radius, setRadiusState] = useState<RadiusMode>(DEFAULT_RADIUS);
 
   useEffect(() => {
-    const stored = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
-    const initial = isValidTheme(stored) ? stored : DEFAULT_THEME;
-    setThemeState(initial);
-    document.documentElement.setAttribute("data-theme", initial);
+    const storedTheme = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+    const initialTheme = isValidTheme(storedTheme) ? storedTheme : DEFAULT_THEME;
+    setThemeState(initialTheme);
+    document.documentElement.setAttribute("data-theme", initialTheme);
+
+    const storedRadius = typeof window !== "undefined" ? localStorage.getItem(RADIUS_STORAGE_KEY) : null;
+    const initialRadius = isValidRadius(storedRadius) ? storedRadius : DEFAULT_RADIUS;
+    setRadiusState(initialRadius);
+    document.documentElement.setAttribute("data-radius", initialRadius);
   }, []);
 
   const setTheme = (next: ThemeId) => {
@@ -93,8 +108,18 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const setRadius = (next: RadiusMode) => {
+    setRadiusState(next);
+    document.documentElement.setAttribute("data-radius", next);
+    try {
+      localStorage.setItem(RADIUS_STORAGE_KEY, next);
+    } catch {
+      // Ignore storage errors in restricted environments
+    }
+  };
+
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, themes: THEMES }}>
+    <ThemeContext.Provider value={{ theme, setTheme, themes: THEMES, radius, setRadius }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -107,4 +132,3 @@ export function useTheme(): ThemeContextType {
   }
   return ctx;
 }
-

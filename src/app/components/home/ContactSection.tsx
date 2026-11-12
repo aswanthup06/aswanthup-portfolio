@@ -43,9 +43,9 @@ export default function ContactSection() {
                 </h2>
 
                 <p className="mt-3 text-sm md:text-base leading-relaxed text-text-body">
-                  Available for full-time UI Developer positions (remote or
-                  relocating in India) and product teams looking for someone who
-                  bridges Figma and React.
+                  Available for full-time UI Developer roles (remote or on-site
+                  across India) with product teams looking for someone who owns
+                  both Figma and React.
                 </p>
               </div>
 

@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-* {
-  font-family: "Questrial", sans-serif;
-}
-
 /* ========================================================================== */
 /*  Theme Definitions (Default: Midnight Obsidian — Dark Mode)                */
 /* ========================================================================== */
@@ -63,12 +59,14 @@
   --scrollbar-thumb: rgba(255, 255, 255, 0.18);
   --scrollbar-thumb-hover: rgba(16, 185, 129, 0.7);
 
-  /* Design System Radii - Small Corner Flow */
-  --radius-xs: 0.125rem;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
+  /* Design System Radii - Fully Rounded Default */
+  --radius-xs: 9999px;
+  --radius-sm: 9999px;
+  --radius-md: 9999px;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.25rem;
 
   /* Layout Token */
   --container-max-width: 80rem;
@@ -289,7 +287,29 @@
   --scrollbar-thumb-hover: rgba(234, 88, 12, 0.65);
 }
 
+/* Small Corner Mode */
+[data-radius="small"] {
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+}
+
+/* Fully Rounded Pill Overrides (Default & Rounded Mode) */
+:root:not([data-radius="small"]) .navbar-pill,
+:root:not([data-radius="small"]) .navbar-logo,
+:root:not([data-radius="small"]) .rounded,
+:root:not([data-radius="small"]) a.rounded-lg,
+:root:not([data-radius="small"]) button.rounded-lg:not([role="option"]) {
+  border-radius: 9999px;
+}
+
 @theme inline {
+  --font-sans: var(--font-questrial), "Questrial", sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -330,7 +350,7 @@ html {
 }
 
 body {
-  font-family: "Questrial", sans-serif;
+  font-family: var(--font-questrial), "Questrial", sans-serif;
   background: var(--background);
   color: var(--foreground);
   width: 100%;

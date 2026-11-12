@@ -42,13 +42,13 @@ export default function TestimonialCard({
         />
 
         <div className="mb-5 flex items-center gap-4">
-          <div className="rounded-full bg-brand-gradient p-[2px]">
+          <div className="h-14 w-14 overflow-hidden rounded-full border border-border-default">
             <Image
               src={testimonial.avatar}
               alt={testimonial.name}
-              width={56}
-              height={56}
-              className="h-14 w-14 rounded-full border-2 border-surface-card object-cover"
+              width={64}
+              height={64}
+              className="h-full w-full object-cover scale-110"
             />
           </div>
         </div>

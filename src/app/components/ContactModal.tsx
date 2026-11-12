@@ -420,7 +420,7 @@ export default function ContactModal() {
                           onChange={(e) => handleMessageChange(e.target.value)}
                           onBlur={() => handleBlur("message")}
                           aria-invalid={Boolean(errors.message && touched.message)}
-                          className={`w-full px-3.5 py-2.5 text-sm rounded-md border resize-none transition-all focus:outline-none focus:ring-2 ${
+                          className={`w-full px-3.5 py-2.5 text-sm rounded-xl border resize-none transition-all focus:outline-none focus:ring-2 ${
                             errors.message && touched.message
                               ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
                               : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-surface-card focus:border-primary focus:ring-primary/20"

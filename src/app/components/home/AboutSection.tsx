@@ -37,9 +37,9 @@ export default function AboutSection() {
           </h2>
 
           <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
-            Designing Seamless{" "}
+            Design Systems,{" "}
             <span className="text-text-muted font-medium">
-              User Experiences
+              Built for Real Users
             </span>
           </p>
         </div>
@@ -99,8 +99,8 @@ export default function AboutSection() {
             </p>
 
             <p className="text-text-body text-sm leading-relaxed">
-              UI Developer with 3+ years of experience building scalable,
-              responsive, and pixel-perfect interfaces using modern JavaScript (ES6+),
+              UI Developer with 3+ years of experience shipping production web
+              apps, dashboards, and component libraries with JavaScript (ES6+),
               TypeScript, React, Next.js, Tailwind CSS, and Figma Dev Mode.
             </p>
 
@@ -120,7 +120,7 @@ export default function AboutSection() {
             <p className="text-sm text-text-muted">Based in Kerala, India</p>
 
             <p className="text-sm text-text-primary font-medium mt-1">
-              Open to Remote Opportunities
+              Open to Remote &amp; On-site Roles
             </p>
           </div>
         </motion.article>
@@ -156,8 +156,8 @@ export default function AboutSection() {
             </div>
 
             <p className="text-text-body text-sm leading-relaxed">
-              Built scalable dashboards, SaaS platforms, healthcare interfaces,
-              and reusable component systems across web and mobile breakpoints.
+              Built multi-module ERP dashboards, SaaS platforms, healthcare
+              portals, and responsive component systems for desktop and mobile.
             </p>
           </div>
         </motion.article>
