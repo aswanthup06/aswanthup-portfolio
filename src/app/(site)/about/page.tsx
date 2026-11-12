@@ -48,7 +48,7 @@ import { DESIGN_WORK, FEATURED, LIVE_SITES } from "../../data/projects";
 import { PREMIUM_EASE } from "../../lib/animations";
 
 const EMAIL = "aswanthup06@gmail.com";
-const RESUME = "/resume.pdf";
+const RESUME = "/Aswanth_UP_Resume.pdf";
 
 const LINKS = {
   github: "https://github.com/aswanthup06",

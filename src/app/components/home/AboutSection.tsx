@@ -247,7 +247,7 @@ export default function AboutSection() {
 
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="/resume.pdf"
+              href="/Aswanth_UP_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download="Aswanth_UP_Resume.pdf"
