@@ -3,10 +3,10 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import Link from "next/link";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowUpRight,
-  Bot,
   RotateCcw,
   SendHorizontal,
   Sparkles,
@@ -23,6 +23,32 @@ import {
 
 function createMessageId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+}
+
+/** Shared portrait avatar with brand ring and optional corner AI spark badge. */
+function AssistantAvatar({ showSparkBadge = false }: { showSparkBadge?: boolean }) {
+  return (
+    <span className="relative h-9 w-9 shrink-0 rounded-full p-[1.5px] bg-brand-gradient shadow-primary-glow block">
+      <span className="block h-full w-full rounded-full overflow-hidden bg-surface-card">
+        <Image
+          src="/images/about/me.webp"
+          alt="Aswanth UP"
+          width={36}
+          height={36}
+          sizes="36px"
+          className="h-full w-full object-cover object-top scale-110"
+        />
+      </span>
+      {showSparkBadge && (
+        <span
+          aria-hidden="true"
+          className="absolute -bottom-0.5 -right-0.5 h-4 w-4 rounded-full bg-brand-gradient ring-2 ring-surface-card flex items-center justify-center text-white"
+        >
+          <Sparkles className="h-2.5 w-2.5 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
+        </span>
+      )}
+    </span>
+  );
 }
 
 function TypingIndicator() {
@@ -578,9 +604,7 @@ export default function ChatWidget() {
             {/* Header */}
             <header className="px-4 py-3.5 pt-[max(0.875rem,env(safe-area-inset-top))] sm:pt-3.5 border-b border-border-default bg-surface-subtle/80 backdrop-blur-md flex items-center justify-between gap-3 shrink-0">
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="h-9 w-9 shrink-0 rounded-full bg-brand-gradient flex items-center justify-center text-white shadow-primary-glow">
-                  <Bot className="h-4.5 w-4.5" />
-                </div>
+                <AssistantAvatar />
                 <div className="min-w-0">
                   <h2 className="text-sm font-semibold text-text-primary leading-tight truncate">
                     Ask Aswanth&apos;s AI
@@ -704,13 +728,7 @@ export default function ChatWidget() {
               transition={{ duration: 0.16 }}
               className="flex items-center gap-2.5"
             >
-              <span className="relative h-9 w-9 shrink-0 rounded bg-brand-gradient flex items-center justify-center text-white shadow-primary-glow">
-                <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
-                <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-primary-light opacity-75" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary-light ring-2 ring-surface-card" />
-                </span>
-              </span>
+              <AssistantAvatar showSparkBadge />
 
               <span className="flex flex-col min-w-[132px] sm:min-w-[144px]">
                 <span className="text-xs sm:text-[13px] font-semibold leading-tight text-text-primary flex items-center gap-1.5">
