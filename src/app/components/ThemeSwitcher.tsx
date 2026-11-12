@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Palette } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { useModal } from "../context/ModalContext";
 
 export default function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
   const { theme, setTheme, themes, radius, setRadius } = useTheme();
-  const [open, setOpen] = useState(false);
+  const { isModalOpen, closeModal, toggleModal } = useModal();
+  const open = isModalOpen("theme");
   const containerRef = useRef<HTMLDivElement>(null);
 
   const activeTheme = themes.find((t) => t.id === theme) ?? themes[0];
@@ -17,12 +19,12 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
 
     const handleClickOutside = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setOpen(false);
+        closeModal("theme");
       }
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") closeModal("theme");
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -31,22 +33,25 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [open]);
+  }, [open, closeModal]);
 
   return (
-    <div ref={containerRef} className="relative">
+    <div
+      ref={containerRef}
+      className={compact ? "flex items-center md:relative" : "relative flex items-center"}
+    >
       <button
         type="button"
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() => toggleModal("theme")}
         aria-label="Customize theme and corners"
         aria-expanded={open}
         aria-haspopup="listbox"
         title={`Theme: ${activeTheme.name}`}
         className={`
-          inline-flex items-center gap-2 rounded-md border border-border-default
+          inline-flex items-center justify-center gap-2 rounded-md border border-border-default
           bg-surface-subtle hover:bg-surface-muted hover:border-border-accent
           text-text-secondary hover:text-text-primary transition-all duration-200
-          ${compact ? "h-10 px-2.5" : "h-10 px-3"}
+          ${compact ? "h-10 w-10 sm:w-auto sm:px-2.5" : "h-10 w-10 sm:w-auto sm:px-3"}
         `}
       >
         <span
@@ -72,11 +77,12 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.96 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="
-              absolute right-0 top-12 z-50 w-68 rounded-xl
+            className={`
+              absolute right-0 z-50 w-68 rounded-xl
               border border-border-default bg-surface-card p-2.5
               shadow-2xl
-            "
+              ${compact ? "top-16 md:top-[57px]" : "top-12"}
+            `}
           >
             <div className="px-2 py-1 mb-1 flex items-center justify-between">
               <span className="text-[11px] font-semibold uppercase tracking-wider text-text-muted">
@@ -98,7 +104,7 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
                     aria-selected={selected}
                     onClick={() => {
                       setTheme(item.id);
-                      setOpen(false);
+                      closeModal("theme");
                     }}
                     className={`
                       w-full flex items-center gap-3 rounded-lg px-2.5 py-2 text-left

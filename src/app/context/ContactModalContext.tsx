@@ -1,7 +1,8 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useCallback, useContext, type ReactNode } from 'react';
 import dynamic from 'next/dynamic';
+import { useModal } from './ModalContext';
 
 const ContactModal = dynamic(() => import('../components/ContactModal'), {
   ssr: false,
@@ -16,10 +17,11 @@ export interface ContactModalContextType {
 const ContactModalContext = createContext<ContactModalContextType | undefined>(undefined);
 
 export function ContactModalProvider({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isModalOpen, openModal: openAppModal, closeModal: closeAppModal } = useModal();
+  const isOpen = isModalOpen('contact');
 
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  const openModal = useCallback(() => openAppModal('contact'), [openAppModal]);
+  const closeModal = useCallback(() => closeAppModal('contact'), [closeAppModal]);
 
   return (
     <ContactModalContext.Provider

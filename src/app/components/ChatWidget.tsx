@@ -1,17 +1,18 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowUpRight,
   Bot,
-  MessageSquare,
   RotateCcw,
   SendHorizontal,
+  Sparkles,
   X,
 } from "lucide-react";
 import { useContactModal } from "../context/ContactModalContext";
+import { useModal } from "../context/ModalContext";
 import { PREMIUM_EASE, SPRING_SMOOTH } from "../lib/animations";
 import {
   INITIAL_MESSAGES,
@@ -210,18 +211,48 @@ function MessageBubble({
   );
 }
 
+const LAUNCHER_PROMPTS = [
+  "Ask about my projects",
+  "Figma → React workflow",
+  "Stack & experience",
+  "Open to roles?",
+] as const;
+
 export default function ChatWidget() {
   const { isOpen: isContactOpen, openModal: openContactModal } = useContactModal();
-  const [isOpen, setIsOpen] = useState(false);
+  const { isModalOpen, closeModal, toggleModal } = useModal();
+  const isOpen = isModalOpen("chat");
+  const prefersReducedMotion = useReducedMotion();
+  const [promptIndex, setPromptIndex] = useState(0);
   const [messages, setMessages] = useState<ChatMessage[]>(INITIAL_MESSAGES);
   const [interactionId, setInteractionId] = useState<string | null>(null);
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const [isWaitingForFirstToken, setIsWaitingForFirstToken] = useState(false);
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const widgetRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+  const [mobileViewport, setMobileViewport] = useState<{
+    isMobile: boolean;
+    height: number | null;
+    offsetTop: number;
+  }>({
+    isMobile: false,
+    height: null,
+    offsetTop: 0,
+  });
+
+  const scrollMessagesToBottom = useCallback((smooth: boolean) => {
+    const container = messagesContainerRef.current;
+    if (!container) return;
+    if (smooth) {
+      container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
+    } else {
+      container.scrollTop = container.scrollHeight;
+    }
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -230,27 +261,108 @@ export default function ChatWidget() {
   }, []);
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (isOpen || isContactOpen || prefersReducedMotion) return;
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
-    };
+    const timer = setInterval(() => {
+      setPromptIndex((prev) => (prev + 1) % LAUNCHER_PROMPTS.length);
+    }, 3400);
 
-    document.addEventListener("keydown", handleKeyDown);
-    const focusTimer = setTimeout(() => inputRef.current?.focus(), 180);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      clearTimeout(focusTimer);
-    };
-  }, [isOpen]);
+    return () => clearInterval(timer);
+  }, [isOpen, isContactOpen, prefersReducedMotion]);
 
   useEffect(() => {
     if (!isOpen) return;
-    messagesEndRef.current?.scrollIntoView({
-      behavior: isStreaming ? "auto" : "smooth",
-    });
-  }, [messages, isWaitingForFirstToken, isStreaming, isOpen]);
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (window.innerWidth < 640) return;
+      if (widgetRef.current && !widgetRef.current.contains(e.target as Node)) {
+        closeModal("chat");
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal("chat");
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    const focusTimer =
+      window.innerWidth >= 640
+        ? setTimeout(() => inputRef.current?.focus(), 180)
+        : null;
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+      if (focusTimer) clearTimeout(focusTimer);
+    };
+  }, [isOpen, closeModal]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const lenis = (
+      window as unknown as { lenis?: { stop: () => void; start: () => void } }
+    ).lenis;
+    let isCurrentlyLocked = false;
+
+    const syncLock = (isMobile: boolean) => {
+      if (isMobile && !isCurrentlyLocked) {
+        document.documentElement.classList.add("modal-open");
+        lenis?.stop();
+        isCurrentlyLocked = true;
+      } else if (!isMobile && isCurrentlyLocked) {
+        document.documentElement.classList.remove("modal-open");
+        lenis?.start();
+        isCurrentlyLocked = false;
+      }
+    };
+
+    const updateViewport = () => {
+      const isMobile = window.innerWidth < 640;
+      syncLock(isMobile);
+
+      if (!isMobile) {
+        setMobileViewport({ isMobile: false, height: null, offsetTop: 0 });
+        return;
+      }
+
+      const vv = window.visualViewport;
+      const height = vv ? Math.round(vv.height) : window.innerHeight;
+      const offsetTop = vv ? Math.round(vv.offsetTop) : 0;
+
+      setMobileViewport({ isMobile: true, height, offsetTop });
+      requestAnimationFrame(() => scrollMessagesToBottom(false));
+    };
+
+    updateViewport();
+
+    const vv = window.visualViewport;
+    vv?.addEventListener("resize", updateViewport);
+    vv?.addEventListener("scroll", updateViewport);
+    window.addEventListener("resize", updateViewport);
+
+    return () => {
+      vv?.removeEventListener("resize", updateViewport);
+      vv?.removeEventListener("scroll", updateViewport);
+      window.removeEventListener("resize", updateViewport);
+      if (isCurrentlyLocked) {
+        document.documentElement.classList.remove("modal-open");
+        lenis?.start();
+      }
+    };
+  }, [isOpen, scrollMessagesToBottom]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    scrollMessagesToBottom(!isStreaming);
+  }, [
+    messages,
+    isWaitingForFirstToken,
+    isStreaming,
+    isOpen,
+    scrollMessagesToBottom,
+  ]);
 
   const resetInputHeight = () => {
     const el = inputRef.current;
@@ -412,7 +524,6 @@ export default function ChatWidget() {
   };
 
   const handleOpenContact = () => {
-    setIsOpen(false);
     openContactModal();
   };
 
@@ -425,21 +536,38 @@ export default function ChatWidget() {
 
   if (isContactOpen) return null;
 
+  const mobileWrapperStyle =
+    isOpen && mobileViewport.isMobile && mobileViewport.height !== null
+      ? {
+          top: `${mobileViewport.offsetTop}px`,
+          bottom: "auto",
+          height: `${mobileViewport.height}px`,
+        }
+      : undefined;
+
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-60 flex flex-col items-end gap-3 pointer-events-none">
+    <div
+      ref={widgetRef}
+      style={mobileWrapperStyle}
+      className={`fixed z-60 flex flex-col pointer-events-none ${
+        isOpen
+          ? "inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:items-end sm:gap-3"
+          : "bottom-4 right-4 sm:bottom-6 sm:right-6 items-end gap-3"
+      }`}
+    >
       <AnimatePresence>
         {isOpen && (
           <motion.section
             role="dialog"
             aria-label="Portfolio chat assistant"
-            initial={{ opacity: 0, y: 18, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 14, scale: 0.96 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
             transition={SPRING_SMOOTH}
-            className="pointer-events-auto w-[calc(100vw-2rem)] sm:w-[390px] h-[min(520px,calc(100dvh-9.5rem))] rounded-[20px] border border-border-default bg-surface-card shadow-[0_20px_50px_-12px_rgba(0,0,0,0.45)] flex flex-col overflow-hidden"
+            className="pointer-events-auto w-full h-full rounded-none border-0 sm:w-[390px] sm:h-[min(520px,calc(100dvh-9.5rem))] sm:rounded-[20px] sm:border sm:border-border-default bg-surface-card sm:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.45)] flex flex-col overflow-hidden overscroll-contain"
           >
             {/* Header */}
-            <header className="px-4 py-3.5 border-b border-border-default bg-surface-subtle/80 backdrop-blur-md flex items-center justify-between gap-3 shrink-0">
+            <header className="px-4 py-3.5 pt-[max(0.875rem,env(safe-area-inset-top))] sm:pt-3.5 border-b border-border-default bg-surface-subtle/80 backdrop-blur-md flex items-center justify-between gap-3 shrink-0">
               <div className="flex items-center gap-2.5 min-w-0">
                 <div className="h-9 w-9 shrink-0 rounded-full bg-brand-gradient flex items-center justify-center text-white shadow-primary-glow">
                   <Bot className="h-4.5 w-4.5" />
@@ -469,7 +597,7 @@ export default function ChatWidget() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => closeModal("chat")}
                   aria-label="Close chat"
                   title="Close"
                   className="h-8 w-8 rounded-full flex items-center justify-center text-text-muted hover:text-text-primary hover:bg-surface-muted transition-colors"
@@ -481,21 +609,20 @@ export default function ChatWidget() {
 
             {/* Messages */}
             <div
+              ref={messagesContainerRef}
               data-lenis-prevent
-              className="flex-1 overflow-y-auto overscroll-contain chat-scrollbar px-4 py-4 space-y-4"
+              className="flex-1 min-h-0 overflow-y-auto overscroll-contain chat-scrollbar px-4 py-4 space-y-4"
             >
               {messages.map((msg) => (
                 <MessageBubble
                   key={msg.id}
                   message={msg}
                   onOpenContact={handleOpenContact}
-                  onNavigate={() => setIsOpen(false)}
+                  onNavigate={() => closeModal("chat")}
                 />
               ))}
 
               {isWaitingForFirstToken && <TypingIndicator />}
-
-              <div ref={messagesEndRef} />
             </div>
 
             {/* Input Bar */}
@@ -504,7 +631,7 @@ export default function ChatWidget() {
                 e.preventDefault();
                 handleSend();
               }}
-              className="p-3 border-t border-border-default bg-surface-subtle/60 shrink-0"
+              className="p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:pb-3 border-t border-border-default bg-surface-subtle/60 shrink-0"
             >
               <div className="flex items-end gap-2 rounded-[14px] border border-border-default bg-surface-card px-3 py-2 focus-within:border-border-accent transition-colors">
                 <textarea
@@ -513,9 +640,10 @@ export default function ChatWidget() {
                   value={input}
                   onChange={handleInputChange}
                   onKeyDown={handleKeyDown}
+                  enterKeyHint="send"
                   placeholder="Message Aswanth's AI..."
                   aria-label="Chat message"
-                  className="chat-scrollbar flex-1 resize-none overflow-y-hidden bg-transparent text-xs sm:text-[13px] text-text-primary placeholder:text-text-muted focus:outline-none max-h-24 py-1 leading-relaxed"
+                  className="chat-scrollbar flex-1 resize-none overflow-y-hidden bg-transparent text-base sm:text-[13px] text-text-primary placeholder:text-text-muted focus:outline-none max-h-24 py-1 leading-relaxed"
                 />
                 <button
                   type="submit"
@@ -537,12 +665,16 @@ export default function ChatWidget() {
       {/* Floating Launcher */}
       <motion.button
         type="button"
-        onClick={() => setIsOpen((prev) => !prev)}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.94 }}
-        aria-label={isOpen ? "Close chat assistant" : "Open chat assistant"}
+        onClick={() => toggleModal("chat")}
+        whileHover={{ y: -2, scale: 1.02 }}
+        whileTap={{ scale: 0.96 }}
+        aria-label={isOpen ? "Close chat assistant" : "Open Aswanth's AI assistant"}
         aria-expanded={isOpen}
-        className="pointer-events-auto btn-primary h-13 px-4 rounded-full flex items-center gap-2.5 text-white shadow-primary-glow"
+        className={`group pointer-events-auto glass-panel rounded-lg items-center text-left transition-all duration-200 hover:border-border-accent hover:shadow-primary-glow ${
+          isOpen
+            ? "hidden sm:flex h-11 w-11 justify-center border-border-accent"
+            : "flex py-1.5 pl-1.5 pr-3.5 gap-2.5 shadow-[0_12px_32px_-8px_rgba(0,0,0,0.4)]"
+        }`}
       >
         <AnimatePresence mode="wait" initial={false}>
           {isOpen ? (
@@ -552,23 +684,51 @@ export default function ChatWidget() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.16 }}
-              className="flex items-center justify-center"
+              className="flex items-center justify-center text-text-primary"
             >
-              <X className="h-5 w-5" />
+              <X className="h-4.5 w-4.5" />
             </motion.span>
           ) : (
             <motion.span
               key="open"
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.16 }}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2.5"
             >
-              <MessageSquare className="h-4.5 w-4.5" />
-              <span className="text-xs sm:text-sm font-medium tracking-wide">
-                Ask AI
+              <span className="relative h-9 w-9 shrink-0 rounded bg-brand-gradient flex items-center justify-center text-white shadow-primary-glow">
+                <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
+                <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-primary-light opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary-light ring-2 ring-surface-card" />
+                </span>
               </span>
+
+              <span className="flex flex-col min-w-[132px] sm:min-w-[144px]">
+                <span className="text-xs sm:text-[13px] font-semibold leading-tight text-text-primary flex items-center gap-1.5">
+                  <span>Aswanth.ai</span>
+                </span>
+                <span className="relative h-4 overflow-hidden text-[11px] leading-4 text-text-muted">
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={LAUNCHER_PROMPTS[promptIndex]}
+                      initial={prefersReducedMotion ? false : { opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={prefersReducedMotion ? undefined : { opacity: 0, y: -6 }}
+                      transition={{ duration: 0.22, ease: PREMIUM_EASE }}
+                      className="block truncate"
+                    >
+                      {LAUNCHER_PROMPTS[promptIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+              </span>
+
+              <ArrowUpRight
+                aria-hidden="true"
+                className="h-3.5 w-3.5 shrink-0 text-text-muted transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-text-accent"
+              />
             </motion.span>
           )}
         </AnimatePresence>

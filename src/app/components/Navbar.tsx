@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { useContactModal } from "../context/ContactModalContext";
+import { useModal } from "../context/ModalContext";
 import { BsGlobe } from "react-icons/bs";
 import { TbMenu3, TbX } from "react-icons/tb";
 import {
@@ -123,10 +124,33 @@ const mobileItemsVariants: Variants = {
 export default function Navbar() {
   const pathname = usePathname();
   const { openModal } = useContactModal();
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const { isModalOpen, closeModal, toggleModal } = useModal();
+  const menuOpen = isModalOpen("mobile-menu");
   const [hidden, setHidden] = useState<boolean>(false);
+  const navRef = useRef<HTMLElement>(null);
 
   const { scrollY } = useScroll();
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        closeModal("mobile-menu");
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal("mobile-menu");
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [menuOpen, closeModal]);
 
   useMotionValueEvent(scrollY, "change", (latest: number) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -149,12 +173,11 @@ export default function Navbar() {
     }`;
 
   const closeMenu = (): void => {
-    setMenuOpen(false);
+    closeModal("mobile-menu");
   };
 
   const handleContact = (): void => {
     openModal();
-    closeMenu();
   };
 
   return (
@@ -165,6 +188,7 @@ export default function Navbar() {
       className="navbar-fixed-container fixed top-0 left-0 w-full z-50 px-4 md:px-6 flex justify-center pointer-events-none"
     >
       <motion.nav
+        ref={navRef}
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -187,6 +211,7 @@ export default function Navbar() {
           <Link
             href="/"
             aria-label="Home"
+            onClick={closeMenu}
             className="
     navbar-logo
     btn-primary
@@ -283,7 +308,7 @@ export default function Navbar() {
             whileTap={{
               scale: 0.9,
             }}
-            onClick={() => setMenuOpen((previous) => !previous)}
+            onClick={() => toggleModal("mobile-menu")}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             className="

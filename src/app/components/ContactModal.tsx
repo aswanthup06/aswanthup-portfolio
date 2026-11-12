@@ -17,6 +17,34 @@ interface FormErrors {
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function getInputClassName(hasError: boolean, shapeClasses: string): string {
+  const baseClasses =
+    "w-full text-sm border transition-all focus:outline-none focus:ring-2 text-text-primary placeholder:text-text-muted/60";
+  const stateClasses = hasError
+    ? "bg-error-subtle border-error-border focus:border-error-text focus:ring-error-text/20"
+    : "bg-surface-subtle border-border-default focus:bg-surface-card focus:border-primary focus:ring-primary/20";
+
+  return `${baseClasses} ${shapeClasses} ${stateClasses}`;
+}
+
+function FieldError({ message }: { message?: string }) {
+  return (
+    <AnimatePresence>
+      {message && (
+        <motion.p
+          initial={{ opacity: 0, height: 0, y: -3 }}
+          animate={{ opacity: 1, height: "auto", y: 0 }}
+          exit={{ opacity: 0, height: 0, y: -3 }}
+          className="flex items-center gap-1.5 text-xs text-error-text font-medium mt-1.5 pl-0.5"
+        >
+          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+          <span>{message}</span>
+        </motion.p>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export default function ContactModal() {
   const { isOpen, closeModal } = useContactModal();
 
@@ -240,6 +268,9 @@ export default function ContactModal() {
               stiffness: 300,
               mass: 0.85,
             }}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) handleClose();
+            }}
             data-lenis-prevent
             className="fixed top-0 right-0 h-dvh w-full sm:w-[440px] md:w-[460px] p-3 sm:p-4 z-70"
           >
@@ -351,25 +382,12 @@ export default function ContactModal() {
                           onChange={(e) => handleNameChange(e.target.value)}
                           onBlur={() => handleBlur("name")}
                           aria-invalid={Boolean(errors.name && touched.name)}
-                          className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
-                            errors.name && touched.name
-                              ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
-                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-surface-card focus:border-primary focus:ring-primary/20"
-                          }`}
-                        />
-                        <AnimatePresence>
-                          {errors.name && touched.name && (
-                            <motion.p
-                              initial={{ opacity: 0, height: 0, y: -3 }}
-                              animate={{ opacity: 1, height: "auto", y: 0 }}
-                              exit={{ opacity: 0, height: 0, y: -3 }}
-                              className="flex items-center gap-1.5 text-xs text-rose-600 font-medium mt-1.5 pl-0.5"
-                            >
-                              <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                              <span>{errors.name}</span>
-                            </motion.p>
+                          className={getInputClassName(
+                            Boolean(errors.name && touched.name),
+                            "h-11 px-3.5 rounded-md"
                           )}
-                        </AnimatePresence>
+                        />
+                        <FieldError message={touched.name ? errors.name : undefined} />
                       </div>
 
                       <div>
@@ -383,25 +401,12 @@ export default function ContactModal() {
                           onChange={(e) => handleEmailChange(e.target.value)}
                           onBlur={() => handleBlur("email")}
                           aria-invalid={Boolean(errors.email && touched.email)}
-                          className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
-                            errors.email && touched.email
-                              ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
-                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-surface-card focus:border-primary focus:ring-primary/20"
-                          }`}
-                        />
-                        <AnimatePresence>
-                          {errors.email && touched.email && (
-                            <motion.p
-                              initial={{ opacity: 0, height: 0, y: -3 }}
-                              animate={{ opacity: 1, height: "auto", y: 0 }}
-                              exit={{ opacity: 0, height: 0, y: -3 }}
-                              className="flex items-center gap-1.5 text-xs text-rose-600 font-medium mt-1.5 pl-0.5"
-                            >
-                              <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                              <span>{errors.email}</span>
-                            </motion.p>
+                          className={getInputClassName(
+                            Boolean(errors.email && touched.email),
+                            "h-11 px-3.5 rounded-md"
                           )}
-                        </AnimatePresence>
+                        />
+                        <FieldError message={touched.email ? errors.email : undefined} />
                       </div>
 
                       <div>
@@ -420,25 +425,12 @@ export default function ContactModal() {
                           onChange={(e) => handleMessageChange(e.target.value)}
                           onBlur={() => handleBlur("message")}
                           aria-invalid={Boolean(errors.message && touched.message)}
-                          className={`w-full px-3.5 py-2.5 text-sm rounded-xl border resize-none transition-all focus:outline-none focus:ring-2 ${
-                            errors.message && touched.message
-                              ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
-                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-surface-card focus:border-primary focus:ring-primary/20"
-                          }`}
-                        />
-                        <AnimatePresence>
-                          {errors.message && touched.message && (
-                            <motion.p
-                              initial={{ opacity: 0, height: 0, y: -3 }}
-                              animate={{ opacity: 1, height: "auto", y: 0 }}
-                              exit={{ opacity: 0, height: 0, y: -3 }}
-                              className="flex items-center gap-1.5 text-xs text-rose-600 font-medium mt-1.5 pl-0.5"
-                            >
-                              <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                              <span>{errors.message}</span>
-                            </motion.p>
+                          className={getInputClassName(
+                            Boolean(errors.message && touched.message),
+                            "px-3.5 py-2.5 rounded-xl resize-none"
                           )}
-                        </AnimatePresence>
+                        />
+                        <FieldError message={touched.message ? errors.message : undefined} />
                       </div>
 
                       {/* API-level Error Banner */}
@@ -449,12 +441,12 @@ export default function ContactModal() {
                             animate={{ opacity: 1, height: "auto", y: 0 }}
                             exit={{ opacity: 0, height: 0, y: -6 }}
                             transition={{ duration: 0.25 }}
-                            className="rounded-lg border border-rose-200 bg-rose-50/80 p-3 text-xs flex items-start gap-2.5 text-rose-800"
+                            className="rounded-lg border border-error-border bg-error-subtle p-3 text-xs flex items-start gap-2.5 text-error-text"
                           >
-                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                            <AlertCircle className="w-4 h-4 text-error-text shrink-0 mt-0.5" />
                             <div className="flex-1">
-                              <p className="font-semibold text-rose-900">Unable to send message</p>
-                              <p className="mt-0.5 text-rose-700/90 leading-relaxed">
+                              <p className="font-semibold text-error-heading">Unable to send message</p>
+                              <p className="mt-0.5 text-error-text/90 leading-relaxed">
                                 {statusMessage || "Please check your connection and try again, or reach out directly on WhatsApp."}
                               </p>
                             </div>

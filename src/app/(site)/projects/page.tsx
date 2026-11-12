@@ -163,7 +163,7 @@ function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex flex-col items-start text-left"
+        className="flex flex-col items-center text-center lg:items-start lg:text-left"
       >
         <motion.div
           variants={item}
@@ -194,7 +194,7 @@ function Hero() {
 
         <motion.div
           variants={item}
-          className="mt-7 flex flex-wrap items-center gap-3"
+          className="mt-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
         >
           <a
             href="#case-studies"
@@ -217,7 +217,7 @@ function Hero() {
         {/* Proof strip */}
         <motion.dl
           variants={item}
-          className="mt-8 grid w-full max-w-md grid-cols-3 gap-3 sm:gap-6"
+          className="mx-auto mt-8 grid w-full max-w-md grid-cols-3 gap-3 sm:gap-6 lg:mx-0"
         >
           <Stat to={FEATURED.length} label="Case studies" />
           <Stat to={LIVE_SITES.length} label="Live websites" />

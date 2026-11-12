@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ChatWidget from "../components/ChatWidget";
 import { ContactModalProvider } from "../context/ContactModalContext";
+import { ModalProvider } from "../context/ModalContext";
 import { ThemeProvider } from "../context/ThemeContext";
 
 import GlobalSmoothScroll from "../components/GlobalSmoothScroll";
@@ -146,16 +147,18 @@ export default function RootLayout({
       <body className={`${questrial.className} ${questrial.variable}`}>
         <ThemeProvider>
           <GlobalSmoothScroll />
-          <ContactModalProvider>
-            <Navbar />
+          <ModalProvider>
+            <ContactModalProvider>
+              <Navbar />
 
-            <main id="main-content" className="flex-1 w-full">
-              {children}
-            </main>
+              <main id="main-content" className="flex-1 w-full">
+                {children}
+              </main>
 
-            <Footer />
-            <ChatWidget />
-          </ContactModalProvider>
+              <Footer />
+              <ChatWidget />
+            </ContactModalProvider>
+          </ModalProvider>
         </ThemeProvider>
 
         <Analytics />

@@ -59,6 +59,12 @@
   --scrollbar-thumb: rgba(255, 255, 255, 0.18);
   --scrollbar-thumb-hover: rgba(16, 185, 129, 0.7);
 
+  /* Status / Error Tokens */
+  --color-status-error-subtle: rgba(244, 63, 94, 0.1);
+  --color-status-error-border: rgba(251, 113, 133, 0.55);
+  --color-status-error-text: #fb7185;
+  --color-status-error-heading: #fecdd3;
+
   /* Design System Radii - Fully Rounded Default */
   --radius-xs: 9999px;
   --radius-sm: 9999px;
@@ -287,6 +293,17 @@
   --scrollbar-thumb-hover: rgba(234, 88, 12, 0.65);
 }
 
+/* Light Theme Status / Error Tokens */
+[data-theme="emerald"],
+[data-theme="blue"],
+[data-theme="indigo"],
+[data-theme="terracotta"] {
+  --color-status-error-subtle: rgba(244, 63, 94, 0.06);
+  --color-status-error-border: #fda4af;
+  --color-status-error-text: #e11d48;
+  --color-status-error-heading: #881337;
+}
+
 /* Small Corner Mode */
 [data-radius="small"] {
   --radius-xs: 0.125rem;
@@ -341,6 +358,12 @@
   --color-surface-card: var(--color-surface-card);
   --color-surface-subtle: var(--color-surface-subtle);
   --color-surface-muted: var(--color-surface-muted);
+
+  /* Status / Error Colors */
+  --color-error-subtle: var(--color-status-error-subtle);
+  --color-error-border: var(--color-status-error-border);
+  --color-error-text: var(--color-status-error-text);
+  --color-error-heading: var(--color-status-error-heading);
 }
 
 html {
