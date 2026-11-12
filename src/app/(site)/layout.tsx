@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ChatWidget from "../components/ChatWidget";
 import { ContactModalProvider } from "../context/ContactModalContext";
 import { ThemeProvider } from "../context/ThemeContext";
 
@@ -153,6 +154,7 @@ export default function RootLayout({
             </main>
 
             <Footer />
+            <ChatWidget />
           </ContactModalProvider>
         </ThemeProvider>
 
