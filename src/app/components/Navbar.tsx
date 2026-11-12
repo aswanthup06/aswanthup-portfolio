@@ -16,6 +16,7 @@ import {
 } from "framer-motion";
 
 import { PREMIUM_EASE } from "../lib/animations";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const navItems = [
   {
@@ -143,8 +144,8 @@ export default function Navbar() {
   const navLinkClass = (path: string): string =>
     `font-medium text-[14px] transition-colors duration-200 ${
       pathname === path
-        ? "text-blue-700 font-semibold"
-        : "text-gray-700 hover:text-blue-700"
+        ? "text-primary font-semibold"
+        : "text-text-secondary hover:text-primary"
     }`;
 
   const closeMenu = (): void => {
@@ -187,14 +188,9 @@ export default function Navbar() {
             href="/"
             aria-label="Home"
             className="
+    btn-primary
     h-10 w-10 rounded
-    bg-linear-to-b
-    from-blue-400 to-blue-600
-    text-white
     flex items-center justify-center
-    shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-    hover:from-blue-500 hover:to-blue-700
-    transition-all duration-200
   "
           >
             <motion.div
@@ -235,6 +231,8 @@ export default function Navbar() {
         </motion.ul>
 
         <div className="flex items-center gap-2">
+          <ThemeSwitcher compact />
+
           <motion.button
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -258,7 +256,6 @@ export default function Navbar() {
               h-10 px-5
               font-medium text-[14px]
               items-center gap-2 justify-center
-              hover:shadow-md hover:shadow-blue-500/20
               cursor-pointer
             "
           >
@@ -294,7 +291,6 @@ export default function Navbar() {
               rounded-md
               h-10 w-10
               flex items-center justify-center
-              hover:shadow-md hover:shadow-blue-500/20
               cursor-pointer
             "
           >
@@ -367,16 +363,11 @@ export default function Navbar() {
                   }}
                   onClick={handleContact}
                   className="
-                    bg-linear-to-b
-                    from-blue-400 to-blue-600
+                    btn-primary
                     rounded-md
-                    text-white
                     h-10
                     font-medium text-[14px]
                     flex items-center gap-2 justify-center
-                    shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
-                    hover:from-blue-500 hover:to-blue-700
-                    transition-all duration-200
                     cursor-pointer
                   "
                 >

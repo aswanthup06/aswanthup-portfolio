@@ -7,7 +7,7 @@ import {
   useReducedMotion,
   type Variants,
 } from "framer-motion";
-import { MdOutlineArrowOutward } from "react-icons/md";
+import { MdOutlineArrowOutward, MdArrowForward } from "react-icons/md";
 import { IoLogoReact, IoLogoJavascript } from "react-icons/io5";
 import {
   SiNextdotjs,
@@ -52,7 +52,7 @@ export default function HeroSection() {
       <section className="relative w-full overflow-x-clip pt-28 pb-8 md:pt-36 md:pb-12">
         <Backdrop />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
           {/* ------------------------------ Copy ------------------------------ */}
           <motion.div
             variants={container}
@@ -75,7 +75,7 @@ export default function HeroSection() {
             <h1 className="text-4xl font-bold leading-[1.1] text-text-primary md:text-5xl lg:text-6xl">
               I design it in Figma,
               <span className="relative mt-1 block w-fit lg:mx-0 mx-auto">
-                <span className="bg-gradient-to-r from-blue-600 via-primary to-cyan-500 bg-clip-text text-transparent">
+                <span className="text-brand-gradient">
                   then ship it in React.
                 </span>
                 <Underline />
@@ -99,26 +99,27 @@ export default function HeroSection() {
                 onClick={openModal}
                 size="md"
                 icon={<MdOutlineArrowOutward className="text-base" />}
-                className="px-6 shadow-md shadow-blue-500/20"
+                className="px-6"
               >
                 Get in Touch
               </Button>
 
               <Link
                 href="/projects"
-                className="group inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-text-primary transition-colors hover:border-gray-400 hover:bg-gray-50"
+                className="group inline-flex h-10 items-center justify-center gap-2 rounded-md border border-border-default bg-surface-card/90 px-5 text-sm font-medium text-text-primary shadow-xs backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-border-accent hover:bg-surface-card hover:text-primary hover:shadow-sm active:scale-[0.98]"
               >
-                View projects
-                <span className="transition-transform group-hover:translate-x-0.5">
-                  →
-                </span>
+                <span>View projects</span>
+                <MdArrowForward
+                  aria-hidden="true"
+                  className="text-base text-text-muted transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary"
+                />
               </Link>
             </motion.div>
 
             {/* Proof strip */}
             <motion.dl
               variants={item}
-              className="mt-9 grid grid-cols-3 gap-6 border-t border-gray-200 pt-6 text-left"
+              className="mt-9 grid grid-cols-3 gap-6 text-left"
             >
               <Stat to={3} suffix="+" label="Years building UI" />
               <Stat to={FEATURED.length} label="Product case studies" />
@@ -167,11 +168,16 @@ function Backdrop() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 -bottom-12 -top-32 overflow-hidden"
+      className="pointer-events-none absolute inset-x-0 -bottom-32 -top-32 overflow-x-clip"
+      style={{
+        maskImage: "linear-gradient(to bottom, black 72%, transparent 100%)",
+        WebkitMaskImage:
+          "linear-gradient(to bottom, black 72%, transparent 100%)",
+      }}
     >
       {/* Unified square grid with smooth fade-out */}
       <div
-        className="grid-bg absolute inset-0"
+        className="grid-bg absolute inset-0 bottom-20"
         style={{
           maskImage:
             "radial-gradient(ellipse 95% 80% at 50% 30%, black 40%, transparent 95%)",
@@ -181,12 +187,14 @@ function Backdrop() {
       />
       {/* drifting colour blobs */}
       <motion.div
-        className="absolute top-0 right-[8%] h-80 w-80 rounded-full bg-blue-400/25 blur-3xl"
+        className="absolute top-0 right-[8%] h-80 w-80 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-blob-1)" }}
         animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-0 left-[4%] h-64 w-64 rounded-full bg-cyan-300/25 blur-3xl"
+        className="absolute bottom-24 left-[4%] h-64 w-64 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-blob-2)" }}
         animate={{ x: [0, -24, 0], y: [0, -18, 0] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -300,51 +308,51 @@ function DesignToCode() {
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="mb-1.5 flex items-center gap-1.5 text-[10px] font-medium text-blue-600 md:text-xs">
+        <div className="mb-1.5 flex items-center gap-1.5 text-[10px] font-medium text-primary md:text-xs">
           <SiFigma className="text-red-500" />
           Hero / Desktop
-          <span className="ml-auto text-blue-500/70">1440 × 900</span>
+          <span className="ml-auto text-primary/70">1440 × 900</span>
         </div>
 
-        <div className="relative rounded-xl border-2 border-blue-500 bg-white p-3 shadow-xl shadow-blue-500/10 md:p-4">
+        <div className="relative rounded-xl border-2 border-primary bg-surface-card p-3 shadow-xl shadow-primary/10 md:p-4">
           {/* selection handles */}
           {["-left-1 -top-1", "-right-1 -top-1", "-left-1 -bottom-1", "-right-1 -bottom-1"].map(
             (pos) => (
               <span
                 key={pos}
-                className={`absolute ${pos} h-2 w-2 rounded-[2px] border border-blue-500 bg-white`}
+                className={`absolute ${pos} h-2 w-2 rounded-[2px] border border-primary bg-surface-card`}
               />
             ),
           )}
 
           {/* tiny dashboard skeleton */}
           <div className="flex items-center gap-2">
-            <div className="h-5 w-5 rounded-md bg-gradient-to-br from-blue-500 to-cyan-400" />
-            <div className="h-2 w-16 rounded-full bg-gray-200" />
-            <div className="ml-auto h-2 w-8 rounded-full bg-gray-200" />
+            <div className="h-5 w-5 rounded-md bg-brand-gradient" />
+            <div className="h-2 w-16 rounded-full bg-surface-muted" />
+            <div className="ml-auto h-2 w-8 rounded-full bg-surface-muted" />
           </div>
 
           <div className="mt-3 grid grid-cols-3 gap-2">
             {[0, 1, 2].map((i) => (
               <motion.div
                 key={i}
-                className="rounded-lg bg-gray-50 p-2"
+                className="rounded-lg bg-surface-subtle p-2"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + i * 0.12, duration: 0.4 }}
               >
-                <div className="h-1.5 w-6 rounded-full bg-gray-200" />
-                <div className="mt-1.5 h-3 w-9 rounded bg-gray-300" />
+                <div className="h-1.5 w-6 rounded-full bg-border-default" />
+                <div className="mt-1.5 h-3 w-9 rounded bg-border-strong" />
               </motion.div>
             ))}
           </div>
 
           {/* bar chart */}
-          <div className="mt-3 flex h-20 items-end gap-1.5 rounded-lg bg-gray-50 p-2 md:h-24">
+          <div className="mt-3 flex h-20 items-end gap-1.5 rounded-lg bg-surface-subtle p-2 md:h-24">
             {[45, 70, 52, 88, 63, 95, 74].map((h, i) => (
               <motion.div
                 key={i}
-                className="flex-1 origin-bottom rounded-sm bg-gradient-to-t from-blue-600 to-cyan-400"
+                className="flex-1 origin-bottom rounded-sm bg-gradient-to-t from-primary to-primary-secondary"
                 style={{ height: `${h}%` }}
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
@@ -381,14 +389,14 @@ function DesignToCode() {
 
       {/* ------------------------- Connector (dashed) ------------------------ */}
       <svg
-        className="absolute inset-0 h-full w-full"
+        className="absolute inset-0 h-full w-full text-primary"
         viewBox="0 0 520 440"
         preserveAspectRatio="none"
         fill="none"
       >
         <motion.path
           d="M300 200 C 380 220, 400 250, 360 290"
-          stroke="#3b82f6"
+          stroke="currentColor"
           strokeWidth="2"
           strokeDasharray="6 6"
           strokeLinecap="round"
@@ -503,7 +511,7 @@ function Chip({
       <motion.div
         animate={float}
         transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
-        className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-text-primary shadow-lg shadow-black/5 md:text-xs"
+        className="flex items-center gap-1.5 rounded-full border border-border-default bg-surface-card px-3 py-1.5 text-[11px] font-semibold text-text-primary shadow-lg shadow-black/5 md:text-xs"
       >
         {children}
       </motion.div>

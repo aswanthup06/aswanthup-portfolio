@@ -22,7 +22,7 @@ export default function AboutSection() {
       aria-label="About Aswanth UP"
       className="w-full"
     >
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           variants={fadeUp}
@@ -54,7 +54,6 @@ export default function AboutSection() {
             px-6 py-2.5
             text-sm font-medium
             inline-flex items-center gap-2
-            hover:shadow-md hover:shadow-blue-500/20
             transition-all duration-300
             cursor-pointer
           "
@@ -314,12 +313,12 @@ function SocialLink({
         h-8
         w-8
         rounded-full
-        bg-gray-100
+        bg-surface-muted
         flex
         items-center
         justify-center
-        text-gray-600
-        hover:bg-blue-500
+        text-text-body
+        hover:bg-primary
         hover:text-white
         transition
       "

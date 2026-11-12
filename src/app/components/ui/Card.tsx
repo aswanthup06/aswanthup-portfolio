@@ -26,9 +26,9 @@ export const Card: React.FC<CardProps> = ({
   }[rounded];
 
   const variantClasses = {
-    glass: "bg-white/80 backdrop-blur-md border border-gray-200/80 shadow-xs",
-    solid: "bg-white border border-gray-200 shadow-sm",
-    subtle: "bg-gray-50/70 border border-gray-100",
+    glass: "bg-surface-card/85 backdrop-blur-md border border-border-default shadow-xs",
+    solid: "bg-surface-card border border-border-default shadow-sm",
+    subtle: "bg-surface-subtle border border-border-subtle",
   }[variant];
 
   return (
@@ -43,7 +43,7 @@ export const Card: React.FC<CardProps> = ({
       }
       className={`
         ${roundedClasses} p-6 transition-all duration-300
-        ${interactive ? "hover:shadow-xl hover:border-blue-400/40 cursor-pointer" : ""}
+        ${interactive ? "hover:shadow-xl hover:border-border-accent cursor-pointer" : ""}
         ${variantClasses}
         ${className}
       `}

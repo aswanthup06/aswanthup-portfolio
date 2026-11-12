@@ -50,7 +50,7 @@ export default function Footer() {
   return (
     <MotionConfig reducedMotion="user">
       <footer className="relative w-full pt-8 md:pt-12 pb-8">
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -59,7 +59,7 @@ export default function Footer() {
             className="w-full relative overflow-hidden rounded-2xl border border-border-default bg-surface-card shadow-[0_10px_60px_rgba(0,0,0,0.06)]"
           >
             {/* Subtle top border highlight */}
-            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/25 to-transparent pointer-events-none" />
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent pointer-events-none" />
             <motion.div
               animate={{
                 scale: [1, 1.08, 1],
@@ -70,7 +70,7 @@ export default function Footer() {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute top-0 right-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-40"
+              className="absolute top-0 right-0 w-72 h-72 bg-primary-subtle rounded-full blur-3xl opacity-50"
             />
 
             <motion.div
@@ -93,12 +93,9 @@ export default function Footer() {
                         stiffness: 300,
                       }}
                       className="
+                        btn-primary
                         h-12 w-12 rounded-xl
-                        bg-gradient-to-b
-                        from-blue-400 to-blue-600
-                        text-white
                         flex items-center justify-center
-                        shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)]
                       "
                     >
                       <BsGlobe className="text-md" />

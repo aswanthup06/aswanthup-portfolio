@@ -101,7 +101,7 @@ export default function DoctorOneCaseStudy() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36">
+    <div className="relative min-h-screen bg-background text-text-primary pt-28 md:pt-36">
       {/* Background Texture */}
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
@@ -113,7 +113,7 @@ export default function DoctorOneCaseStudy() {
         }}
       />
 
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ---------------- BREADCRUMB ---------------- */}
         {/* ---------------- SECTION 1: SPLIT HERO ---------------- */}
         <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -122,7 +122,7 @@ export default function DoctorOneCaseStudy() {
             {/* Live Indicator Badge */}
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-3">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-primary-light opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               Clinical Ecosystem · UI/UX Case Study
@@ -147,7 +147,7 @@ export default function DoctorOneCaseStudy() {
               <button
                 type="button"
                 onClick={scrollToWalkthrough}
-                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold  transition-all duration-300"
               >
                 <LuPlay className="text-xs" />
                 Explore Platform Flow
@@ -156,7 +156,7 @@ export default function DoctorOneCaseStudy() {
               <button
                 type="button"
                 onClick={openModal}
-                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
               >
                 Discuss Similar Project
                 <MdOutlineArrowOutward className="text-base text-text-muted" />
@@ -182,7 +182,7 @@ export default function DoctorOneCaseStudy() {
           <div className="lg:col-span-5">
             <div className="relative">
               {/* Subtle ambient lighting */}
-              <div className="absolute -inset-3 bg-blue-500/10 rounded-2xl blur-xl -z-10 pointer-events-none" />
+              <div className="absolute -inset-3 bg-primary/10 rounded-2xl blur-xl -z-10 pointer-events-none" />
 
               <div className="rounded-2xl border border-border-default bg-surface-card shadow-[0_20px_50px_rgba(37,99,235,0.08)] overflow-hidden">
                 {/* Modern Browser Chrome Header */}
@@ -307,7 +307,7 @@ export default function DoctorOneCaseStudy() {
                   className="rounded-2xl border border-border-default bg-surface-card p-6 shadow-2xs hover:shadow-md hover:border-primary/40 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-primary-subtle text-primary flex items-center justify-center text-xl mb-4 border border-blue-100">
+                    <div className="w-12 h-12 rounded-xl bg-primary-subtle text-primary flex items-center justify-center text-xl mb-4 border border-primary-border">
                       <Icon />
                     </div>
                     <span className="text-[11px] font-semibold text-primary uppercase tracking-wider">
@@ -360,7 +360,7 @@ export default function DoctorOneCaseStudy() {
                 alt="Doctor ONE Telehealth Discovery Platform"
                 fill
                 unoptimized
-                sizes="(max-width: 1200px) 100vw, 1152px"
+                sizes="(max-width: 1280px) 100vw, 1216px"
                 className="object-cover"
               />
             </div>
@@ -535,7 +535,7 @@ export default function DoctorOneCaseStudy() {
             <button
               type="button"
               onClick={openModal}
-              className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+              className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold  transition-all duration-300"
             >
               Get in Touch
               <MdOutlineArrowOutward className="text-base" />
@@ -543,7 +543,7 @@ export default function DoctorOneCaseStudy() {
 
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
             >
               All Projects
             </Link>

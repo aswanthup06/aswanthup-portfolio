@@ -47,7 +47,7 @@ export default function TestimonialSection() {
       aria-label="Client Testimonials"
       className="w-full"
     >
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"

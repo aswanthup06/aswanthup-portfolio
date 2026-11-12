@@ -245,7 +245,7 @@ export default function ContactModal() {
           >
             <div
               data-lenis-prevent
-              className="relative h-full bg-white rounded-2xl border border-border-default shadow-2xl p-6 overflow-y-auto overscroll-contain no-scrollbar flex flex-col justify-between"
+              className="relative h-full bg-surface-card rounded-2xl border border-border-default shadow-2xl p-6 overflow-y-auto overscroll-contain no-scrollbar flex flex-col justify-between"
             >
               {/* Absolute Close Button: exactly 24px (top-6 right-6) matching card p-6 */}
               <motion.button
@@ -291,7 +291,7 @@ export default function ContactModal() {
                       <button
                         type="button"
                         onClick={handleClose}
-                        className="btn-primary h-11 w-full rounded-md text-sm font-medium text-white flex items-center justify-center shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all cursor-pointer"
+                        className="btn-primary h-11 w-full rounded-md text-sm font-medium text-white flex items-center justify-center transition-all cursor-pointer"
                       >
                         Done
                       </button>
@@ -354,7 +354,7 @@ export default function ContactModal() {
                           className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
                             errors.name && touched.name
                               ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
-                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
+                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-surface-card focus:border-primary focus:ring-primary/20"
                           }`}
                         />
                         <AnimatePresence>
@@ -386,7 +386,7 @@ export default function ContactModal() {
                           className={`w-full h-11 text-sm px-3.5 rounded-md border transition-all focus:outline-none focus:ring-2 ${
                             errors.email && touched.email
                               ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
-                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
+                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-surface-card focus:border-primary focus:ring-primary/20"
                           }`}
                         />
                         <AnimatePresence>
@@ -423,7 +423,7 @@ export default function ContactModal() {
                           className={`w-full px-3.5 py-2.5 text-sm rounded-md border resize-none transition-all focus:outline-none focus:ring-2 ${
                             errors.message && touched.message
                               ? "bg-rose-50/40 border-rose-300 focus:border-rose-400 focus:ring-rose-400/20 text-text-primary"
-                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-white focus:border-primary focus:ring-primary/20"
+                              : "bg-surface-subtle border-border-default text-text-primary placeholder:text-text-muted/60 focus:bg-surface-card focus:border-primary focus:ring-primary/20"
                           }`}
                         />
                         <AnimatePresence>
@@ -467,7 +467,7 @@ export default function ContactModal() {
                         whileTap={{ scale: 0.98 }}
                         type="submit"
                         disabled={loading}
-                        className="btn-primary h-11 w-full rounded-md text-sm font-medium text-white flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 cursor-pointer disabled:opacity-70"
+                        className="btn-primary h-11 w-full rounded-md text-sm font-medium text-white flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer disabled:opacity-70"
                       >
                         {loading ? (
                           <>

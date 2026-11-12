@@ -103,7 +103,7 @@ export default function About() {
         }}
       />
 
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Hero />
           <Marquee />
           <Stats />
@@ -184,7 +184,7 @@ function Hero() {
         {/* h1 stays static so it never delays LCP */}
         <h1 className="text-4xl font-bold leading-[1.1] text-text-primary md:text-5xl lg:text-6xl">
           Designing interfaces
-          <span className="block bg-gradient-to-r from-blue-600 via-primary to-cyan-500 bg-clip-text text-transparent">
+          <span className="block text-brand-gradient">
             built for production.
           </span>
         </h1>
@@ -205,7 +205,7 @@ function Hero() {
         >
           <button
             onClick={openModal}
-            className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-2.5 text-sm font-medium shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+            className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-2.5 text-sm font-medium transition-all duration-300"
           >
             Get in Touch
             <MdOutlineArrowOutward className="text-base" />
@@ -216,7 +216,7 @@ function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             download="Aswanth_UP_Resume.pdf"
-            className="group inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-2.5 text-sm font-medium text-text-primary transition-all duration-300 hover:border-border-strong hover:bg-surface-muted"
+            className="group inline-flex items-center gap-2 rounded-md border border-border-default bg-surface-card px-5 py-2.5 text-sm font-medium text-text-primary transition-all duration-300 hover:border-border-strong hover:bg-surface-muted"
           >
             <FaDownload className="text-xs text-text-muted transition-transform group-hover:-translate-y-0.5" />
             <span>Download Resume</span>
@@ -258,8 +258,8 @@ function Portrait() {
       />
 
       {/* arch photo */}
-      <div className="relative aspect-[4/5] rounded-t-[999px] rounded-b-3xl bg-gradient-to-br from-primary to-cyan-400 p-[3px] shadow-xl">
-        <div className="relative h-full w-full overflow-hidden rounded-t-[999px] rounded-b-[22px] bg-white">
+      <div className="relative aspect-[4/5] rounded-t-[999px] rounded-b-3xl bg-brand-gradient p-[3px] shadow-xl">
+        <div className="relative h-full w-full overflow-hidden rounded-t-[999px] rounded-b-[22px] bg-surface-card">
           <Image
             src="/images/about/me.webp"
             alt="Aswanth UP"
@@ -285,7 +285,7 @@ function Portrait() {
         duration={5}
         delay={0.9}
       >
-        <FaRulerCombined className="text-blue-500" /> UI Engineering
+        <FaRulerCombined className="text-primary" /> UI Engineering
       </Sticker>
 
       <Sticker
@@ -332,7 +332,7 @@ function Sticker({
       <motion.div
         animate={{ y: float }}
         transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
-        className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border-default bg-white px-3 py-1.5 text-[11px] font-semibold text-text-primary shadow-lg shadow-black/5 md:text-xs"
+        className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border-default bg-surface-card px-3 py-1.5 text-[11px] font-semibold text-text-primary shadow-lg shadow-black/5 md:text-xs"
       >
         {children}
       </motion.div>
@@ -471,7 +471,7 @@ const KIND: Record<Kind, { label: string; chip: string; dot: string }> = {
     chip: "bg-violet-50 text-violet-700",
     dot: "bg-violet-500",
   },
-  work: { label: "Work", chip: "bg-blue-50 text-blue-700", dot: "bg-primary" },
+  work: { label: "Work", chip: "bg-primary-subtle text-primary", dot: "bg-primary" },
 };
 
 const CHAPTERS: Chapter[] = [
@@ -572,7 +572,7 @@ function Story() {
         >
           <motion.div
             style={{ scaleY }}
-            className="h-full w-full origin-top bg-gradient-to-b from-primary to-cyan-400"
+            className="h-full w-full origin-top bg-gradient-to-b from-primary to-primary-secondary"
           />
         </div>
 
@@ -595,7 +595,7 @@ function Story() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/40" />
                 )}
                 <span
-                  className={`relative h-4 w-4 rounded-full border-4 border-white shadow-sm ring-2 ring-blue-100 ${KIND[c.kind].dot}`}
+                  className={`relative h-4 w-4 rounded-full border-4 border-surface-card shadow-sm ring-2 ring-primary/20 ${KIND[c.kind].dot}`}
                 />
               </span>
 
@@ -880,7 +880,7 @@ function Workbench() {
               }`}
           >
             {group.highlight && (
-              <div className="absolute -top-3 right-6 font-light inline-flex items-center gap-1.5 rounded-sm bg-primary px-3 py-1 text-[11px] text-white shadow-sm shadow-blue-500/25">
+              <div className="absolute -top-3 right-6 font-light inline-flex items-center gap-1.5 rounded-sm bg-primary px-3 py-1 text-[11px] text-white shadow-sm">
                 <Sparkles className="h-3 w-3 text-white font-light" />
                 Productivity Multiplier
               </div>
@@ -1054,7 +1054,7 @@ function Cta() {
       variants={item}
       {...inView}
       aria-labelledby="cta-heading"
-      className="relative mt-16 md:mt-20 overflow-hidden rounded-3xl border border-border-default bg-gradient-to-br from-blue-50 via-white to-cyan-50 p-6 sm:p-8 md:p-14"
+      className="relative mt-16 md:mt-20 overflow-hidden rounded-3xl border border-border-default bg-brand-banner p-6 sm:p-8 md:p-14"
     >
       {/* soft decoration */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -1062,7 +1062,7 @@ function Cta() {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(rgba(59,130,246,0.18) 1px, transparent 1px)",
+              "radial-gradient(var(--color-brand-glow) 1px, transparent 1px)",
             backgroundSize: "22px 22px",
             maskImage:
               "radial-gradient(ellipse 70% 80% at 85% 10%, black 10%, transparent 70%)",
@@ -1071,12 +1071,14 @@ function Cta() {
           }}
         />
         <motion.div
-          className="absolute -left-12 -top-12 h-64 w-64 rounded-full bg-blue-300/30 blur-3xl"
+          className="absolute -left-12 -top-12 h-64 w-64 rounded-full blur-3xl"
+          style={{ backgroundColor: "var(--color-blob-1)" }}
           animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -bottom-16 right-1/3 h-64 w-64 rounded-full bg-cyan-300/30 blur-3xl"
+          className="absolute -bottom-16 right-1/3 h-64 w-64 rounded-full blur-3xl"
+          style={{ backgroundColor: "var(--color-blob-2)" }}
           animate={{ x: [0, -30, 0], y: [0, -20, 0] }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -1094,7 +1096,7 @@ function Cta() {
             className="mt-2 text-3xl font-bold leading-tight text-text-primary md:text-5xl"
           >
             Let’s build something{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-primary to-cyan-500 bg-clip-text text-transparent">
+            <span className="text-brand-gradient">
               people enjoy using.
             </span>
           </h2>
@@ -1108,7 +1110,7 @@ function Cta() {
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <button
               onClick={openModal}
-              className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+              className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-all duration-300"
             >
               Get in Touch
               <MdOutlineArrowOutward className="text-base" />
@@ -1119,7 +1121,7 @@ function Cta() {
               target="_blank"
               rel="noopener noreferrer"
               download="Aswanth_UP_Resume.pdf"
-              className="group inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-3 text-sm font-medium text-text-primary transition-all duration-300 hover:border-border-strong hover:bg-surface-muted"
+              className="group inline-flex items-center gap-2 rounded-md border border-border-default bg-surface-card px-5 py-3 text-sm font-medium text-text-primary transition-all duration-300 hover:border-border-strong hover:bg-surface-muted"
             >
               <FaDownload className="text-xs text-text-muted transition-transform group-hover:-translate-y-0.5" />
               <span>Download Resume</span>

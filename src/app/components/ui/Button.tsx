@@ -39,14 +39,13 @@ export const Button: React.FC<ButtonProps> = ({
   }[rounded];
 
   const variantClasses = {
-    primary:
-      "bg-linear-to-b from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-1px_0_rgba(0,0,0,0.18)] shadow-blue-500/10",
+    primary: "btn-primary",
     secondary:
-      "bg-white/80 hover:bg-white text-gray-700 hover:text-blue-600 border border-gray-200/80 hover:border-blue-300 backdrop-blur-sm shadow-xs",
+      "bg-surface-card/85 hover:bg-surface-card text-text-secondary hover:text-primary border border-border-default hover:border-border-accent backdrop-blur-sm shadow-xs",
     outline:
-      "bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-blue-400 hover:text-blue-600",
+      "bg-transparent border border-border-strong text-text-secondary hover:bg-surface-subtle hover:border-primary hover:text-primary",
     ghost:
-      "bg-transparent text-gray-600 hover:text-blue-600 hover:bg-blue-50/60",
+      "bg-transparent text-text-body hover:text-primary hover:bg-primary-subtle",
   }[variant];
 
   return (

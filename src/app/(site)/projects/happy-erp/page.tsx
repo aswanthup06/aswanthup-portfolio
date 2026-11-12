@@ -120,7 +120,7 @@ export default function HappyERPPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36">
+    <div className="relative min-h-screen bg-background text-text-primary pt-28 md:pt-36">
       {/* Background Texture */}
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
@@ -132,7 +132,7 @@ export default function HappyERPPage() {
         }}
       />
 
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ---------------- BREADCRUMB ---------------- */}
         {/* ---------------- SECTION 1: SPLIT HERO ---------------- */}
         <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -141,7 +141,7 @@ export default function HappyERPPage() {
             {/* Live Indicator Badge */}
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-3">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-primary-light opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               Enterprise Resource Planning · Case Study
@@ -162,22 +162,22 @@ export default function HappyERPPage() {
             </p>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <button
                 type="button"
                 onClick={scrollToGallery}
-                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+                className="btn-primary inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-medium whitespace-nowrap transition-all duration-300"
               >
-                <LuPlay className="text-xs" />
-                Explore Platform Screens
+                <LuPlay className="text-xs shrink-0" />
+                <span>Explore Platform Screens</span>
               </button>
 
               <button
                 type="button"
                 onClick={openModal}
-                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 text-sm font-medium text-text-primary whitespace-nowrap hover:border-border-accent hover:bg-surface-muted transition-colors"
               >
-                Discuss Similar Project
+                <span>Discuss Similar Project</span>
               </button>
             </div>
 
@@ -202,7 +202,7 @@ export default function HappyERPPage() {
 
           {/* Right Column: Hero Mockup */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full rounded-2xl border border-border-default bg-white shadow-2xl overflow-hidden group">
+            <div className="relative w-full rounded-2xl border border-border-default bg-surface-card shadow-2xl overflow-hidden group">
               {/* Browser Header Bar */}
               <div className="flex items-center gap-2 px-4 py-3 border-b border-border-subtle bg-surface-subtle">
                 <div className="flex gap-1.5">
@@ -210,7 +210,7 @@ export default function HappyERPPage() {
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
                 </div>
-                <div className="mx-auto text-[11px] font-medium text-text-muted bg-white/80 border border-border-default px-3 py-0.5 rounded-md">
+                <div className="mx-auto text-[11px] font-medium text-text-muted bg-surface-card/85 border border-border-default px-3 py-0.5 rounded-md">
                   Happy ERP · Dashboard Preview
                 </div>
               </div>
@@ -253,7 +253,7 @@ export default function HappyERPPage() {
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-xl border border-border-default bg-surface-subtle hover:bg-white hover:shadow-md transition-all duration-300"
+                  className="p-5 rounded-xl border border-border-default bg-surface-subtle hover:bg-surface-card hover:shadow-md transition-all duration-300"
                 >
                   <p className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
                     {stat.value}
@@ -321,7 +321,7 @@ export default function HappyERPPage() {
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl border border-border-default bg-white hover:border-primary/40 hover:shadow-md transition-all duration-300"
+                  className="p-6 rounded-2xl border border-border-default bg-surface-card hover:border-primary/40 hover:shadow-md transition-all duration-300"
                 >
                   <div className="w-12 h-12 rounded-xl bg-surface-muted flex items-center justify-center text-primary mb-5">
                     <Icon className="text-xl" />
@@ -358,10 +358,10 @@ export default function HappyERPPage() {
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl border border-border-default bg-surface-subtle hover:bg-white hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                  className="p-6 rounded-2xl border border-border-default bg-surface-subtle hover:bg-surface-card hover:shadow-md transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-lg bg-white border border-border-default flex items-center justify-center text-primary mb-4 shadow-sm">
+                    <div className="w-10 h-10 rounded-lg bg-surface-card border border-border-default flex items-center justify-center text-primary mb-4 shadow-sm">
                       <Icon className="text-lg" />
                     </div>
                     <h3 className="text-base font-bold text-text-primary">
@@ -395,15 +395,15 @@ export default function HappyERPPage() {
             {screens.map((screen) => (
               <div
                 key={screen.id}
-                className="group rounded-2xl border border-border-default bg-white p-4 shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300"
+                className="group rounded-2xl border border-border-default bg-surface-card p-4 shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300"
               >
                 {/* Browser-style frame */}
                 <div className="rounded-xl overflow-hidden border border-border-subtle bg-surface-subtle">
                   <div className="flex items-center justify-between px-3 py-2 border-b border-border-subtle bg-surface-subtle text-[11px] text-text-muted">
                     <div className="flex gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-gray-300" />
-                      <span className="w-2 h-2 rounded-full bg-gray-300" />
-                      <span className="w-2 h-2 rounded-full bg-gray-300" />
+                      <span className="w-2 h-2 rounded-full bg-border-strong" />
+                      <span className="w-2 h-2 rounded-full bg-border-strong" />
+                      <span className="w-2 h-2 rounded-full bg-border-strong" />
                     </div>
                     <span className="font-mono text-[10px] text-text-caption">
                       module-0{screen.id}.screen
@@ -439,9 +439,9 @@ export default function HappyERPPage() {
 
         {/* ---------------- SECTION 7: RESULTS & IMPACT ---------------- */}
         <section className="mt-16 md:mt-24">
-          <div className="rounded-2xl bg-text-primary text-white p-8 sm:p-12 shadow-xl">
+          <div className="rounded-2xl bg-slate-900 border border-slate-800 text-white p-8 sm:p-12 shadow-xl">
             <div className="max-w-2xl mx-auto text-center mb-10">
-              <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary-light">
                 Engineering Outcomes
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">
@@ -454,19 +454,19 @@ export default function HappyERPPage() {
 
             <div className="grid sm:grid-cols-3 gap-6 text-center">
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Unified UI</p>
+                <p className="text-3xl sm:text-4xl font-bold text-primary-light">Unified UI</p>
                 <p className="text-white font-semibold text-sm mt-2">Consolidated Entry Flows</p>
                 <p className="text-xs text-gray-400 mt-1">Moved spreadsheet workflows into structured forms</p>
               </div>
 
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Data-Dense</p>
+                <p className="text-3xl sm:text-4xl font-bold text-primary-light">Data-Dense</p>
                 <p className="text-white font-semibold text-sm mt-2">Operator-First Tables</p>
                 <p className="text-xs text-gray-400 mt-1">Tabular numeric alignment, filters &amp; quick actions</p>
               </div>
 
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Reusable</p>
+                <p className="text-3xl sm:text-4xl font-bold text-primary-light">Reusable</p>
                 <p className="text-white font-semibold text-sm mt-2">Shared Component Library</p>
                 <p className="text-xs text-gray-400 mt-1">Consistent dialogs, status badges &amp; API states</p>
               </div>
@@ -509,27 +509,27 @@ export default function HappyERPPage() {
             </div>
 
             {/* Bottom Contact Banner */}
-            <div className="mt-12 p-8 rounded-2xl border border-border-default bg-white text-center shadow-sm">
+            <div className="mt-12 p-8 rounded-2xl border border-border-default bg-surface-card text-center shadow-sm">
               <h3 className="text-xl font-bold text-text-primary">
                 Interested in building or modernizing an enterprise tool?
               </h3>
               <p className="text-sm text-text-muted mt-2 max-w-md mx-auto">
                 Let&apos;s collaborate to design and engineer intuitive, high-performance dashboards and business applications.
               </p>
-              <div className="mt-6 flex justify-center gap-4">
+              <div className="mt-6 flex flex-wrap justify-center gap-3.5">
                 <button
                   type="button"
                   onClick={openModal}
-                  className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20"
+                  className="btn-primary inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-medium whitespace-nowrap"
                 >
-                  Get in Touch
-                  <LuArrowUpRight />
+                  <span>Get in Touch</span>
+                  <LuArrowUpRight className="shrink-0" />
                 </button>
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 text-sm font-medium text-text-primary whitespace-nowrap hover:border-border-accent hover:bg-surface-muted transition-colors"
                 >
-                  View All Projects
+                  <span>View All Projects</span>
                 </Link>
               </div>
             </div>

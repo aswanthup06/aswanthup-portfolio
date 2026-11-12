@@ -51,7 +51,7 @@ export default function KathakaliPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36 pb-8 md:pb-12">
+    <div className="relative min-h-screen bg-background text-text-primary pt-28 md:pt-36 pb-8 md:pb-12">
       {/* Background Texture */}
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
@@ -63,7 +63,7 @@ export default function KathakaliPage() {
         }}
       />
 
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 2-Column Showcase */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Sticky Square Artwork Card */}
@@ -189,7 +189,7 @@ export default function KathakaliPage() {
               <button
                 type="button"
                 onClick={openModal}
-                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold  transition-all duration-300"
               >
                 Inquire for Work
                 <MdOutlineArrowOutward className="text-base" />
@@ -197,7 +197,7 @@ export default function KathakaliPage() {
 
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
               >
                 All Projects
               </Link>

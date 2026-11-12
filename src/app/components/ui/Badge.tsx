@@ -54,10 +54,10 @@ export const Badge: React.FC<BadgeProps> = ({
   }[beaconColor];
 
   const variantClasses = {
-    beacon: `bg-white/90 border border-gray-200/80 text-gray-700 backdrop-blur-md shadow-2xs`,
-    pill: `bg-white/80 border border-gray-200/80 text-gray-700 backdrop-blur-sm shadow-2xs`,
+    beacon: `bg-surface-card/90 border border-border-default text-text-secondary backdrop-blur-md shadow-2xs`,
+    pill: `bg-surface-card/80 border border-border-default text-text-secondary backdrop-blur-sm shadow-2xs`,
     subtle: `${beaconColors.bg} border ${beaconColors.border} ${beaconColors.text}`,
-    outline: `bg-transparent border border-gray-200 text-gray-600`,
+    outline: `bg-transparent border border-border-default text-text-body`,
   }[variant];
 
   return (

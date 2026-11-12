@@ -72,7 +72,7 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
 
   return (
     <section className="w-full pt-8 md:pt-12 pb-6 md:pb-8">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
           <div>
@@ -99,8 +99,6 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
               items-center
               gap-2
               w-fit
-              shadow-md shadow-blue-500/20
-              hover:shadow-lg hover:shadow-blue-500/30
               transition-all
               duration-200
             "

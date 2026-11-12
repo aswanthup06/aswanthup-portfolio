@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ContactModalProvider } from "../context/ContactModalContext";
+import { ThemeProvider } from "../context/ThemeContext";
 
 import GlobalSmoothScroll from "../components/GlobalSmoothScroll";
 import ClarityAnalytics from "../components/ClarityAnalytics";
@@ -126,20 +127,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="obsidian" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('portfolio-theme');var v=['emerald','blue','indigo','terracotta','obsidian'];document.documentElement.setAttribute('data-theme',v.indexOf(t)!==-1?t:'obsidian');}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className={questrial.className}>
-        <GlobalSmoothScroll />
-        <ContactModalProvider>
-          <Navbar />
+        <ThemeProvider>
+          <GlobalSmoothScroll />
+          <ContactModalProvider>
+            <Navbar />
 
-          <main id="main-content" className="flex-1 w-full">
-            {children}
-          </main>
+            <main id="main-content" className="flex-1 w-full">
+              {children}
+            </main>
 
-
-
-          <Footer />
-        </ContactModalProvider>
+            <Footer />
+          </ContactModalProvider>
+        </ThemeProvider>
 
         <Analytics />
         <SpeedInsights />

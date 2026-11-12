@@ -179,7 +179,7 @@ function Hero() {
         {/* h1 stays static so it never delays LCP */}
         <h1 className="text-4xl font-bold leading-[1.1] text-text-primary md:text-5xl lg:text-6xl">
           Products I designed
-          <span className="block bg-gradient-to-r from-blue-600 via-primary to-cyan-500 bg-clip-text text-transparent">
+          <span className="block text-brand-gradient">
             and built.
           </span>
         </h1>
@@ -199,7 +199,7 @@ function Hero() {
         >
           <a
             href="#case-studies"
-            className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-2.5 text-sm font-medium shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+            className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-2.5 text-sm font-medium transition-all duration-300"
           >
             View case studies
             <MdArrowForward aria-hidden="true" className="rotate-90 text-base" />
@@ -208,7 +208,7 @@ function Hero() {
           <button
             type="button"
             onClick={openModal}
-            className="inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-2.5 text-sm font-medium text-text-primary transition-colors hover:bg-surface-muted"
+            className="inline-flex items-center gap-2 rounded-md border border-border-default bg-surface-card px-5 py-2.5 text-sm font-medium text-text-primary transition-colors hover:bg-surface-muted"
           >
             Get in Touch
             <MdOutlineArrowOutward aria-hidden="true" className="text-base" />
@@ -357,7 +357,7 @@ function Sticker({
       <motion.div
         animate={{ y: float }}
         transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
-        className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border-default bg-white/95 backdrop-blur-xs px-2.5 py-1 text-[10px] font-semibold text-text-primary shadow-md shadow-black/5 sm:px-3 sm:py-1.5 sm:text-xs"
+        className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border-default bg-surface-card/95 backdrop-blur-xs px-2.5 py-1 text-[10px] font-semibold text-text-primary shadow-md shadow-black/5 sm:px-3 sm:py-1.5 sm:text-xs"
       >
         {children}
       </motion.div>
@@ -421,7 +421,7 @@ function FeaturedProject({
         <div className="mt-6">
           <ProjectLink
             project={project}
-            className="btn-primary inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="btn-primary inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             {ctaLabel(project)}
             {project.href ? (
@@ -498,7 +498,7 @@ export default function Projects() {
         }}
       />
 
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <Hero />
 
           {/* Featured case studies */}
@@ -570,7 +570,7 @@ export default function Projects() {
                 className="mt-2 text-3xl font-bold leading-tight text-text-primary md:text-4xl"
               >
                 Let&apos;s build something{" "}
-                <span className="bg-gradient-to-r from-blue-600 via-primary to-cyan-500 bg-clip-text text-transparent">
+                <span className="text-brand-gradient">
                   exceptional together.
                 </span>
               </h2>
@@ -584,14 +584,14 @@ export default function Projects() {
               <button
                 type="button"
                 onClick={openModal}
-                className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium shadow-md shadow-blue-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+                className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-all duration-300"
               >
                 Get in Touch
                 <MdOutlineArrowOutward aria-hidden="true" className="text-base" />
               </button>
               <a
                 href={`mailto:${EMAIL}`}
-                className="inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-3 text-sm font-medium text-text-primary transition-colors hover:bg-surface-muted"
+                className="inline-flex items-center gap-2 rounded-md border border-border-default bg-surface-card px-5 py-3 text-sm font-medium text-text-primary transition-colors hover:bg-surface-muted"
               >
                 Send Email
               </a>

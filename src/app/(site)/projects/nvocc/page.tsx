@@ -159,7 +159,7 @@ export default function NvoccPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white text-text-primary pt-28 md:pt-36">
+    <div className="relative min-h-screen bg-background text-text-primary pt-28 md:pt-36">
       {/* Background Texture */}
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
@@ -171,7 +171,7 @@ export default function NvoccPage() {
         }}
       />
 
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ---------------- BREADCRUMB ---------------- */}
         {/* ---------------- SECTION 1: SPLIT HERO ---------------- */}
         <section className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -180,7 +180,7 @@ export default function NvoccPage() {
             {/* Live Indicator Badge */}
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-3">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                <span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-primary-light opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               Logistics &amp; Maritime · UI Development
@@ -205,7 +205,7 @@ export default function NvoccPage() {
               <button
                 type="button"
                 onClick={scrollToModules}
-                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold  transition-all duration-300"
               >
                 <LuPlay className="text-xs" />
                 Explore Core Modules
@@ -214,7 +214,7 @@ export default function NvoccPage() {
               <button
                 type="button"
                 onClick={openModal}
-                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
               >
                 Discuss Similar Project
               </button>
@@ -241,7 +241,7 @@ export default function NvoccPage() {
 
           {/* Right Column: Hero Preview Mockup */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full rounded-2xl border border-border-default bg-white shadow-2xl overflow-hidden group">
+            <div className="relative w-full rounded-2xl border border-border-default bg-surface-card shadow-2xl overflow-hidden group">
               {/* Browser Header Bar */}
               <div className="flex items-center gap-2 px-4 py-3 border-b border-border-subtle bg-surface-subtle">
                 <div className="flex gap-1.5">
@@ -249,7 +249,7 @@ export default function NvoccPage() {
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
                 </div>
-                <div className="mx-auto text-[11px] font-medium text-text-muted bg-white/80 border border-border-default px-3 py-0.5 rounded-md">
+                <div className="mx-auto text-[11px] font-medium text-text-muted bg-surface-card/85 border border-border-default px-3 py-0.5 rounded-md">
                   NVOCC · Dashboard Preview
                 </div>
               </div>
@@ -292,7 +292,7 @@ export default function NvoccPage() {
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-xl border border-border-default bg-surface-subtle hover:bg-white hover:shadow-md transition-all duration-300"
+                  className="p-5 rounded-xl border border-border-default bg-surface-subtle hover:bg-surface-card hover:shadow-md transition-all duration-300"
                 >
                   <p className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
                     {stat.value}
@@ -329,7 +329,7 @@ export default function NvoccPage() {
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl border border-border-default bg-white hover:border-primary/40 hover:shadow-md transition-all duration-300"
+                  className="p-6 rounded-2xl border border-border-default bg-surface-card hover:border-primary/40 hover:shadow-md transition-all duration-300"
                 >
                   <div className="w-12 h-12 rounded-xl bg-surface-muted flex items-center justify-center text-primary mb-5">
                     <Icon className="text-xl" />
@@ -414,7 +414,7 @@ export default function NvoccPage() {
                       {mod.screens.map((scr, sIdx) => (
                         <div
                           key={sIdx}
-                          className="group rounded-xl border border-border-default bg-white p-2.5 shadow-sm hover:shadow-lg transition-all duration-300"
+                          className="group rounded-xl border border-border-default bg-surface-card p-2.5 shadow-sm hover:shadow-lg transition-all duration-300"
                         >
                           <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-muted">
                             <Image
@@ -489,9 +489,9 @@ export default function NvoccPage() {
 
         {/* ---------------- SECTION 6: RESULTS & METRICS ---------------- */}
         <section className="mt-16 md:mt-24">
-          <div className="rounded-2xl bg-text-primary text-white p-8 sm:p-12 shadow-xl">
+          <div className="rounded-2xl bg-slate-900 border border-slate-800 text-white p-8 sm:p-12 shadow-xl">
             <div className="max-w-2xl mx-auto text-center mb-10">
-              <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary-light">
                 Delivery Summary
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">
@@ -504,19 +504,19 @@ export default function NvoccPage() {
 
             <div className="grid sm:grid-cols-3 gap-6 text-center">
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-3xl sm:text-4xl font-bold text-blue-400">3 Modules</p>
+                <p className="text-3xl sm:text-4xl font-bold text-primary-light">3 Modules</p>
                 <p className="text-white font-semibold text-sm mt-2">End-to-End Logistics UI</p>
                 <p className="text-xs text-gray-400 mt-1">Export, Import &amp; Maintenance dashboards</p>
               </div>
 
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Figma → UI</p>
+                <p className="text-3xl sm:text-4xl font-bold text-primary-light">Figma → UI</p>
                 <p className="text-white font-semibold text-sm mt-2">Design-Consistent Code</p>
                 <p className="text-xs text-gray-400 mt-1">Built from Figma specs with Tailwind CSS</p>
               </div>
 
               <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-3xl sm:text-4xl font-bold text-blue-400">Grid &amp; Flex</p>
+                <p className="text-3xl sm:text-4xl font-bold text-primary-light">Grid &amp; Flex</p>
                 <p className="text-white font-semibold text-sm mt-2">Data-Dense Layouts</p>
                 <p className="text-xs text-gray-400 mt-1">Structured tables across desktop and tablet screens</p>
               </div>
@@ -549,7 +549,7 @@ export default function NvoccPage() {
             </div>
 
             {/* Bottom Contact Banner */}
-            <div className="mt-14 p-8 rounded-2xl border border-border-default bg-white text-center shadow-sm">
+            <div className="mt-14 p-8 rounded-2xl border border-border-default bg-surface-card text-center shadow-sm">
               <h3 className="text-xl font-bold text-text-primary">
                 Need enterprise-grade web development for your team?
               </h3>
@@ -560,14 +560,14 @@ export default function NvoccPage() {
                 <button
                   type="button"
                   onClick={openModal}
-                  className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold shadow-md shadow-blue-500/20"
+                  className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold "
                 >
                   Discuss a Project
                   <LuArrowUpRight />
                 </button>
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-white px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
                 >
                   View All Projects
                 </Link>

@@ -18,13 +18,13 @@ export default function ContactSection() {
         aria-labelledby="home-contact-heading"
         className="w-full"
       >
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative overflow-hidden rounded-2xl border border-border-default bg-gradient-to-br from-blue-50/70 via-white to-cyan-50/60 p-6 sm:p-10 md:p-12"
+            className="relative overflow-hidden rounded-2xl border border-border-default bg-brand-banner p-6 sm:p-10 md:p-12"
           >
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div className="max-w-xl">
@@ -54,7 +54,7 @@ export default function ContactSection() {
                   <button
                     type="button"
                     onClick={openModal}
-                    className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 cursor-pointer"
+                    className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-all duration-300 cursor-pointer"
                   >
                     Get in Touch
                     <MdOutlineArrowOutward aria-hidden="true" className="text-base" />
@@ -65,7 +65,7 @@ export default function ContactSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     download="Aswanth_UP_Resume.pdf"
-                    className="inline-flex items-center gap-2 rounded-md border border-border-default bg-white px-5 py-3 text-sm font-medium text-text-primary hover:bg-surface-muted transition-colors"
+                    className="inline-flex items-center gap-2 rounded-md border border-border-default bg-surface-card px-5 py-3 text-sm font-medium text-text-primary hover:bg-surface-muted transition-colors"
                   >
                     <FaDownload aria-hidden="true" className="text-xs text-text-muted" />
                     Resume

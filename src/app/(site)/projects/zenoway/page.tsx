@@ -24,9 +24,9 @@ export const metadata: Metadata = {
 
 export default function ZenowayCaseStudy() {
   return (
-    <main className="min-h-screen bg-white text-text-primary selection:bg-blue-100 selection:text-blue-900">
+    <main className="min-h-screen bg-background text-text-primary selection:bg-primary-subtle selection:text-primary">
       {/* ---------------- SECTION A: SPLIT HERO WITH SOFT BLUE SURFACE & LIVE PREVIEW ---------------- */}
-      <section className="relative pt-28 md:pt-36 pb-14 md:pb-20 bg-gradient-to-b from-blue-50/60 via-slate-50/40 to-white overflow-hidden">
+      <section className="relative pt-28 md:pt-36 pb-14 md:pb-20 bg-gradient-to-b from-primary-subtle/55 via-surface-subtle/40 to-background overflow-hidden">
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
         style={{
@@ -36,7 +36,7 @@ export default function ZenowayCaseStudy() {
             "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
         }}
       />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Editorial Content */}
             <div className="lg:col-span-7 space-y-6">
@@ -75,7 +75,7 @@ export default function ZenowayCaseStudy() {
                   href="https://www.zenoway.online/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-text-primary hover:text-primary bg-white border border-border-default hover:border-primary/50 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 shadow-2xs"
+                  className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-text-primary hover:text-primary bg-surface-card border border-border-default hover:border-primary/50 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 shadow-2xs"
                 >
                   Visit Zenoway
                   <ExternalLink size={15} />
@@ -123,11 +123,11 @@ export default function ZenowayCaseStudy() {
             <div className="lg:col-span-5">
               <div className="relative">
                 {/* Subtle blue ambient glow */}
-                <div className="absolute -inset-3 bg-blue-400/20 rounded-2xl blur-xl -z-10 pointer-events-none" />
+                <div className="absolute -inset-3 bg-primary/15 rounded-2xl blur-xl -z-10 pointer-events-none" />
 
-                <div className="rounded-2xl border border-border-default bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden">
+                <div className="rounded-2xl border border-border-default bg-surface-card shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden">
                   {/* Clean browser preview header */}
-                  <div className="px-4 py-3 border-b border-border-default bg-slate-50/80 flex items-center justify-between text-xs text-text-body">
+                  <div className="px-4 py-3 border-b border-border-default bg-surface-subtle flex items-center justify-between text-xs text-text-body">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                       <span className="font-medium text-text-primary">zenoway.online</span>
@@ -176,7 +176,7 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION C: THE PROBLEM ---------------- */}
       <section className="py-14 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               THE CHALLENGE
@@ -237,8 +237,8 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION D: THE ZENOWAY APPROACH ---------------- */}
-      <section className="py-14 md:py-20 bg-slate-50/60">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 md:py-20 bg-surface-subtle/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               THE APPROACH
@@ -255,9 +255,9 @@ export default function ZenowayCaseStudy() {
           {/* Clean 3-step horizontal flow on desktop, stacked on mobile */}
           <div className="grid md:grid-cols-3 gap-8 relative">
             {/* Step 01 */}
-            <div className="relative bg-white border border-border-default rounded-xl p-6 sm:p-7 shadow-xs">
+            <div className="relative bg-surface-card border border-border-default rounded-xl p-6 sm:p-7 shadow-xs">
               <div className="flex items-center justify-between mb-5">
-                <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-blue-50 text-blue-800 border border-blue-200/60">
+                <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-primary-subtle text-primary border border-primary-border">
                   Step 01
                 </span>
                 <Compass size={18} className="text-primary" strokeWidth={1.75} />
@@ -272,9 +272,9 @@ export default function ZenowayCaseStudy() {
             </div>
 
             {/* Step 02 */}
-            <div className="relative bg-white border border-border-default rounded-xl p-6 sm:p-7 shadow-xs">
+            <div className="relative bg-surface-card border border-border-default rounded-xl p-6 sm:p-7 shadow-xs">
               <div className="flex items-center justify-between mb-5">
-                <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-blue-50 text-blue-800 border border-blue-200/60">
+                <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-primary-subtle text-primary border border-primary-border">
                   Step 02
                 </span>
                 <FileText size={18} className="text-primary" strokeWidth={1.75} />
@@ -289,9 +289,9 @@ export default function ZenowayCaseStudy() {
             </div>
 
             {/* Step 03 */}
-            <div className="relative bg-white border border-border-default rounded-xl p-6 sm:p-7 shadow-xs">
+            <div className="relative bg-surface-card border border-border-default rounded-xl p-6 sm:p-7 shadow-xs">
               <div className="flex items-center justify-between mb-5">
-                <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-blue-50 text-blue-800 border border-blue-200/60">
+                <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-primary-subtle text-primary border border-primary-border">
                   Step 03
                 </span>
                 <Send size={18} className="text-primary" strokeWidth={1.75} />
@@ -310,7 +310,7 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION E: CORE PRINCIPLES ---------------- */}
       <section className="py-14 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               FOUNDATIONAL DESIGN
@@ -326,8 +326,8 @@ export default function ZenowayCaseStudy() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Principle 01 */}
-            <div className="p-6 rounded-xl border border-border-default bg-white space-y-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-50 text-primary flex items-center justify-center">
+            <div className="p-6 rounded-xl border border-border-default bg-surface-card space-y-3">
+              <div className="w-9 h-9 rounded-lg bg-primary-subtle text-primary flex items-center justify-center">
                 <Search size={18} strokeWidth={1.75} />
               </div>
               <h3 className="text-base font-semibold text-text-primary">
@@ -339,8 +339,8 @@ export default function ZenowayCaseStudy() {
             </div>
 
             {/* Principle 02 */}
-            <div className="p-6 rounded-xl border border-border-default bg-white space-y-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-50 text-primary flex items-center justify-center">
+            <div className="p-6 rounded-xl border border-border-default bg-surface-card space-y-3">
+              <div className="w-9 h-9 rounded-lg bg-primary-subtle text-primary flex items-center justify-center">
                 <FileText size={18} strokeWidth={1.75} />
               </div>
               <h3 className="text-base font-semibold text-text-primary">
@@ -352,8 +352,8 @@ export default function ZenowayCaseStudy() {
             </div>
 
             {/* Principle 03 */}
-            <div className="p-6 rounded-xl border border-border-default bg-white space-y-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-50 text-primary flex items-center justify-center">
+            <div className="p-6 rounded-xl border border-border-default bg-surface-card space-y-3">
+              <div className="w-9 h-9 rounded-lg bg-primary-subtle text-primary flex items-center justify-center">
                 <Send size={18} strokeWidth={1.75} />
               </div>
               <h3 className="text-base font-semibold text-text-primary">
@@ -365,8 +365,8 @@ export default function ZenowayCaseStudy() {
             </div>
 
             {/* Principle 04 */}
-            <div className="p-6 rounded-xl border border-border-default bg-white space-y-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-50 text-primary flex items-center justify-center">
+            <div className="p-6 rounded-xl border border-border-default bg-surface-card space-y-3">
+              <div className="w-9 h-9 rounded-lg bg-primary-subtle text-primary flex items-center justify-center">
                 <Smartphone size={18} strokeWidth={1.75} />
               </div>
               <h3 className="text-base font-semibold text-text-primary">
@@ -381,8 +381,8 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION F: THE PRODUCT EXPERIENCE ---------------- */}
-      <section className="py-14 md:py-20 bg-slate-50/60">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 md:py-20 bg-surface-subtle/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               WALKTHROUGH
@@ -419,7 +419,7 @@ export default function ZenowayCaseStudy() {
               </div>
 
               <div className="lg:col-span-7">
-                <figure className="rounded-xl border border-border-default bg-white overflow-hidden shadow-xs">
+                <figure className="rounded-xl border border-border-default bg-surface-card overflow-hidden shadow-xs">
                   <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                     <Image
                       src="/images/projects/zenoway/zenoway1.webp"
@@ -431,7 +431,7 @@ export default function ZenowayCaseStudy() {
                       unoptimized
                     />
                   </div>
-                  <figcaption className="px-4 py-3 border-t border-border-default bg-slate-50/80 text-xs text-text-body flex justify-between items-center">
+                  <figcaption className="px-4 py-3 border-t border-border-default bg-surface-subtle text-xs text-text-body flex justify-between items-center">
                     <span>Job discovery feed</span>
                     <span className="text-text-muted">zenoway.online/jobs</span>
                   </figcaption>
@@ -442,7 +442,7 @@ export default function ZenowayCaseStudy() {
             {/* Item 2: Job Details */}
             <div className="grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 order-2 lg:order-1">
-                <figure className="rounded-xl border border-border-default bg-white overflow-hidden shadow-xs">
+                <figure className="rounded-xl border border-border-default bg-surface-card overflow-hidden shadow-xs">
                   <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                     <Image
                       src="/images/projects/zenoway/zenoway2.webp"
@@ -454,7 +454,7 @@ export default function ZenowayCaseStudy() {
                       unoptimized
                     />
                   </div>
-                  <figcaption className="px-4 py-3 border-t border-border-default bg-slate-50/80 text-xs text-text-body flex justify-between items-center">
+                  <figcaption className="px-4 py-3 border-t border-border-default bg-surface-subtle text-xs text-text-body flex justify-between items-center">
                     <span>Job detail overview</span>
                     <span className="text-text-muted">Role context &amp; details</span>
                   </figcaption>
@@ -502,7 +502,7 @@ export default function ZenowayCaseStudy() {
               </div>
 
               <div className="lg:col-span-7">
-                <figure className="rounded-xl border border-border-default bg-white overflow-hidden shadow-xs">
+                <figure className="rounded-xl border border-border-default bg-surface-card overflow-hidden shadow-xs">
                   <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                     <Image
                       src="/images/projects/zenoway/zenoway3.webp"
@@ -514,7 +514,7 @@ export default function ZenowayCaseStudy() {
                       unoptimized
                     />
                   </div>
-                  <figcaption className="px-4 py-3 border-t border-border-default bg-slate-50/80 text-xs text-text-body flex justify-between items-center">
+                  <figcaption className="px-4 py-3 border-t border-border-default bg-surface-subtle text-xs text-text-body flex justify-between items-center">
                     <span>Direct application action</span>
                     <span className="text-text-muted">Direct HR contact &amp; link</span>
                   </figcaption>
@@ -527,7 +527,7 @@ export default function ZenowayCaseStudy() {
 
       {/* ---------------- SECTION G: ADMIN PORTAL ---------------- */}
       <section className="py-14 md:py-20">
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               ADMIN PORTAL
@@ -543,7 +543,7 @@ export default function ZenowayCaseStudy() {
           {/* Real admin portal screenshots */}
           <div className="grid md:grid-cols-3 gap-6">
             {/* Screen 1: zenad1.webp (1. Overview) */}
-            <figure className="rounded-xl border border-border-default bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow">
+            <figure className="rounded-xl border border-border-default bg-surface-card overflow-hidden shadow-xs hover:shadow-md transition-shadow">
               <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                 <Image
                   src="/images/projects/zenoway/zenad1.webp"
@@ -554,7 +554,7 @@ export default function ZenowayCaseStudy() {
                   loading="lazy"
                 />
               </div>
-              <figcaption className="p-4 bg-white border-t border-border-default">
+              <figcaption className="p-4 bg-surface-card border-t border-border-default">
                 <h4 className="text-sm font-semibold text-text-primary mb-1">
                   1. Overview
                 </h4>
@@ -565,7 +565,7 @@ export default function ZenowayCaseStudy() {
             </figure>
 
             {/* Screen 2: zenad2.webp (2. All Jobs and Management) */}
-            <figure className="rounded-xl border border-border-default bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow">
+            <figure className="rounded-xl border border-border-default bg-surface-card overflow-hidden shadow-xs hover:shadow-md transition-shadow">
               <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                 <Image
                   src="/images/projects/zenoway/zenad2.webp"
@@ -576,7 +576,7 @@ export default function ZenowayCaseStudy() {
                   loading="lazy"
                 />
               </div>
-              <figcaption className="p-4 bg-white border-t border-border-default">
+              <figcaption className="p-4 bg-surface-card border-t border-border-default">
                 <h4 className="text-sm font-semibold text-text-primary mb-1">
                   2. All Jobs &amp; Management
                 </h4>
@@ -587,7 +587,7 @@ export default function ZenowayCaseStudy() {
             </figure>
 
             {/* Screen 3: zenad3.webp (3. Add Job) */}
-            <figure className="rounded-xl border border-border-default bg-white overflow-hidden shadow-xs hover:shadow-md transition-shadow">
+            <figure className="rounded-xl border border-border-default bg-surface-card overflow-hidden shadow-xs hover:shadow-md transition-shadow">
               <div className="relative aspect-[16/9] w-full bg-white overflow-hidden">
                 <Image
                   src="/images/projects/zenoway/zenad3.webp"
@@ -598,7 +598,7 @@ export default function ZenowayCaseStudy() {
                   loading="lazy"
                 />
               </div>
-              <figcaption className="p-4 bg-white border-t border-border-default">
+              <figcaption className="p-4 bg-surface-card border-t border-border-default">
                 <h4 className="text-sm font-semibold text-text-primary mb-1">
                   3. Add Job
                 </h4>
@@ -612,8 +612,8 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION H: BEHIND THE PLATFORM ---------------- */}
-      <section className="py-14 md:py-20 bg-slate-50/60">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 md:py-20 bg-surface-subtle/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               ENGINEERING &amp; DESIGN
@@ -628,7 +628,7 @@ export default function ZenowayCaseStudy() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl border border-border-default bg-white">
+            <div className="p-6 rounded-xl border border-border-default bg-surface-card">
               <div className="flex items-center gap-2.5 mb-3 text-text-primary font-semibold text-base">
                 <Layers size={18} className="text-primary" />
                 <span>Clear information architecture</span>
@@ -639,7 +639,7 @@ export default function ZenowayCaseStudy() {
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-border-default bg-white">
+            <div className="p-6 rounded-xl border border-border-default bg-surface-card">
               <div className="flex items-center gap-2.5 mb-3 text-text-primary font-semibold text-base">
                 <Smartphone size={18} className="text-primary" />
                 <span>Responsive layouts</span>
@@ -650,7 +650,7 @@ export default function ZenowayCaseStudy() {
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-border-default bg-white">
+            <div className="p-6 rounded-xl border border-border-default bg-surface-card">
               <div className="flex items-center gap-2.5 mb-3 text-text-primary font-semibold text-base">
                 <ShieldCheck size={18} className="text-primary" />
                 <span>Accessible interactions</span>
@@ -661,7 +661,7 @@ export default function ZenowayCaseStudy() {
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-border-default bg-white">
+            <div className="p-6 rounded-xl border border-border-default bg-surface-card">
               <div className="flex items-center gap-2.5 mb-3 text-text-primary font-semibold text-base">
                 <span className="w-4 h-4 rounded-full bg-primary inline-block" />
                 <span>Consistent visual language</span>
@@ -672,7 +672,7 @@ export default function ZenowayCaseStudy() {
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-border-default bg-white sm:col-span-2">
+            <div className="p-6 rounded-xl border border-border-default bg-surface-card sm:col-span-2">
               <div className="flex items-center gap-2.5 mb-3 text-text-primary font-semibold text-base">
                 <CheckCircle2 size={18} className="text-primary" />
                 <span>Reliable job discovery &amp; detail pages</span>
@@ -690,7 +690,7 @@ export default function ZenowayCaseStudy() {
       {/* ---------------- SECTION I: CLOSING CTA ---------------- */}
       <section className="py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="rounded-2xl border border-blue-200/60 bg-blue-50/40 p-8 sm:p-12 md:p-16">
+          <div className="rounded-2xl border border-primary-border bg-primary-subtle/60 p-8 sm:p-12 md:p-16">
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               GET STARTED
@@ -719,7 +719,7 @@ export default function ZenowayCaseStudy() {
                 href="https://www.zenoway.online/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-medium text-text-primary hover:text-primary bg-white border border-border-default hover:border-primary/40 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20"
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-medium text-text-primary hover:text-primary bg-surface-card border border-border-default hover:border-primary/40 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20"
               >
                 Visit Zenoway
                 <ExternalLink size={15} />

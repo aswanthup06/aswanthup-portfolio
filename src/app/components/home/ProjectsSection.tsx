@@ -216,7 +216,7 @@ function FeaturedProject() {
                 rounded-md
                 bg-primary-subtle
                 border
-                border-blue-100
+                border-primary-border
                 text-xs
                 text-primary
                 tracking-wide
@@ -238,7 +238,7 @@ function FeaturedProject() {
               gap-2
               text-sm
               font-semibold
-              text-gray-900
+              text-text-primary
               w-fit
             "
           >
@@ -258,7 +258,7 @@ function FeaturedProject() {
               gap-2
               text-sm
               font-semibold
-              text-gray-900
+              text-text-primary
               w-fit
             "
           >
@@ -274,7 +274,7 @@ function FeaturedProject() {
 export default function ProjectsSection() {
   return (
     <section id="projects" aria-label="Featured Projects" className="w-full">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -318,7 +318,6 @@ export default function ProjectsSection() {
               gap-2
               w-fit
               justify-center
-              shadow-md shadow-blue-500/20
               transition-all
               duration-300
             "

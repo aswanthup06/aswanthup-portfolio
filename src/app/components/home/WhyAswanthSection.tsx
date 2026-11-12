@@ -17,7 +17,7 @@ const strengths: string[] = [
 export default function WhyAswanthSection() {
   return (
     <section className="w-full">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -81,8 +81,8 @@ export default function WhyAswanthSection() {
                       variants={fadeUp}
                       className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm px-4 py-3"
                     >
-                      <div className="w-8 h-8 rounded-full bg-blue-400/10 border border-blue-300/20 flex items-center justify-center">
-                        <LuCircleArrowRight className="text-blue-200 text-sm" />
+                      <div className="w-8 h-8 rounded-full bg-primary/15 border border-primary-light/30 flex items-center justify-center">
+                        <LuCircleArrowRight className="text-primary-light text-sm" />
                       </div>
 
                       <p className="text-sm text-white/90 font-medium">
@@ -299,7 +299,7 @@ export default function WhyAswanthSection() {
 
                 <motion.div
                   variants={fadeUp}
-                  className="border border-blue-100 bg-primary-subtle rounded-xl p-4 flex items-center justify-between gap-2"
+                  className="border border-primary-border bg-primary-subtle rounded-xl p-4 flex items-center justify-between gap-2"
                 >
                   <div>
                     <h4 className="text-lg font-bold text-text-primary">

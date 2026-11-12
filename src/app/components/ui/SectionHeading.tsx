@@ -26,7 +26,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       {badge && (
         <motion.div variants={fadeUp} className="inline-block mb-3">
           {typeof badge === "string" ? (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200/60 uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold text-primary bg-primary-subtle border border-primary-border uppercase tracking-wider">
               {badge}
             </span>
           ) : (
@@ -37,7 +37,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
 
       <motion.h2
         variants={blurFadeUp}
-        className="text-2xl md:text-4xl font-bold tracking-tight text-gray-900 leading-tight"
+        className="text-2xl md:text-4xl font-bold tracking-tight text-text-primary leading-tight"
       >
         {title}
       </motion.h2>
@@ -45,7 +45,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       {subtitle && (
         <motion.p
           variants={fadeUp}
-          className="text-gray-500 text-sm md:text-base mt-3 leading-relaxed"
+          className="text-text-muted text-sm md:text-base mt-3 leading-relaxed"
         >
           {subtitle}
         </motion.p>
