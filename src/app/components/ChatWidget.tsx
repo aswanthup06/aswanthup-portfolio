@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -220,7 +221,7 @@ const LAUNCHER_PROMPTS = [
 
 export default function ChatWidget() {
   const { isOpen: isContactOpen, openModal: openContactModal } = useContactModal();
-  const { isModalOpen, closeModal, toggleModal } = useModal();
+  const { isModalOpen, openModal, closeModal } = useModal();
   const isOpen = isModalOpen("chat");
   const prefersReducedMotion = useReducedMotion();
   const [promptIndex, setPromptIndex] = useState(0);
@@ -286,15 +287,10 @@ export default function ChatWidget() {
 
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleKeyDown);
-    const focusTimer =
-      window.innerWidth >= 640
-        ? setTimeout(() => inputRef.current?.focus(), 180)
-        : null;
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
-      if (focusTimer) clearTimeout(focusTimer);
     };
   }, [isOpen, closeModal]);
 
@@ -393,6 +389,7 @@ export default function ChatWidget() {
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     resetInputHeight();
+    inputRef.current?.focus({ preventScroll: true });
     setIsStreaming(true);
     setIsWaitingForFirstToken(true);
 
@@ -520,7 +517,19 @@ export default function ChatWidget() {
     setMessages(INITIAL_MESSAGES);
     setInput("");
     resetInputHeight();
-    inputRef.current?.focus();
+    inputRef.current?.focus({ preventScroll: true });
+  };
+
+  const handleLauncherClick = () => {
+    if (isOpen) {
+      closeModal("chat");
+      return;
+    }
+
+    flushSync(() => {
+      openModal("chat");
+    });
+    inputRef.current?.focus({ preventScroll: true });
   };
 
   const handleOpenContact = () => {
@@ -579,7 +588,7 @@ export default function ChatWidget() {
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                     <span className="text-[11px] text-text-muted truncate">
-                      Powered by Gemini · Portfolio Assistant
+                      Portfolio Assistant
                     </span>
                   </div>
                 </div>
@@ -648,15 +657,13 @@ export default function ChatWidget() {
                 <button
                   type="submit"
                   disabled={!input.trim() || isStreaming}
+                  onMouseDown={(e) => e.preventDefault()}
                   aria-label="Send message"
                   className="btn-primary h-8 w-8 shrink-0 rounded-full flex items-center justify-center text-white disabled:opacity-40 disabled:pointer-events-none"
                 >
                   <SendHorizontal className="h-3.5 w-3.5" />
                 </button>
               </div>
-              <p className="mt-1.5 text-center text-[10px] text-text-caption">
-                Enter to send · Powered by Gemini
-              </p>
             </form>
           </motion.section>
         )}
@@ -665,7 +672,7 @@ export default function ChatWidget() {
       {/* Floating Launcher */}
       <motion.button
         type="button"
-        onClick={() => toggleModal("chat")}
+        onClick={handleLauncherClick}
         whileHover={{ y: -2, scale: 1.02 }}
         whileTap={{ scale: 0.96 }}
         aria-label={isOpen ? "Close chat assistant" : "Open Aswanth's AI assistant"}
