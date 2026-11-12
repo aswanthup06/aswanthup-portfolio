@@ -39,7 +39,7 @@ About Aswanth UP:
 - Experience: 3+ years shipping production web apps, dashboards, and component libraries.
 - Location & Availability: Based in Kozhikode, Kerala, India. Left his previous role at Chaavie Solutions in July 2026 and is currently not employed at any company; actively open to full-time UI Developer roles (remote or on-site across India) with product teams looking for someone who owns both Figma and React/Next.js, while also building his own platform ZENOWAY.
 - Core Skills: JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS, HTML5, CSS3, SCSS/Sass, Bootstrap 5, Framer Motion, Figma (Auto Layout, Design Systems, Variables/Tokens, Dev Mode, Prototyping), Adobe Illustrator, WCAG Accessibility, REST API UI Integration, Git/GitHub, custom SVG icon & vector systems.
-- Contact: Email aswanthup06@gmail.com | GitHub https://github.com/aswanthup06 | LinkedIn https://www.linkedin.com/in/aswanthup/ | WhatsApp https://wa.me/917559068970 | Resume /Aswanth_UP_Resume.pdf | In-page Contact Form.
+- Contact: Phone +91 7559068970 (Call & WhatsApp) | WhatsApp https://wa.me/917559068970 | Email aswanthup06@gmail.com | GitHub https://github.com/aswanthup06 | LinkedIn https://www.linkedin.com/in/aswanthup/ | Resume /Aswanth_UP_Resume.pdf | In-page Contact Form.
 
 Previous Work Experience (Past Companies — all roles completed):
 - UI Developer — Chaavie Solutions (Kozhikode, Kerala, India | Jun 2023 – Jul 2026 — Former role, left in July 2026):
@@ -72,7 +72,7 @@ export function shouldSuggestContact(
   assistantReply: string
 ): boolean {
   const combined = `${userMessage} ${assistantReply}`.toLowerCase();
-  return /\b(hire|hiring|contact|reach out|email|collaborat|freelance|job|role|resume|get in touch|message aswanth)\b/.test(
+  return /\b(hire|hiring|contact|reach out|email|phone|number|call|whatsapp|collaborat|freelance|job|role|resume|get in touch|message aswanth)\b/.test(
     combined
   );
 }
