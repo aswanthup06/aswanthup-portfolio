@@ -416,7 +416,137 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 5: SCREEN 1 - DUAL-PANE DESKTOP WORKBENCH (/jobs) ---------------- */}
+      {/* ---------------- SECTION 5: THE 5-STAGE USER JOURNEY & COMPONENT OWNERSHIP ---------------- */}
+      <section className="py-16 md:py-24 border-b border-border-default">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
+              END-TO-END PRODUCT ARCHITECTURE
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+              The 5-Stage User Journey &amp; Component Ownership.
+            </h2>
+            <p className="text-base md:text-lg text-text-body leading-relaxed">
+              Every stage of the candidate and employer lifecycle is driven by bespoke, accessible React 19 components engineered code-first without third-party UI libraries:
+            </p>
+          </div>
+
+          {/* 5-Stage Stepper Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+            {/* Stage 1 */}
+            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-3 relative shadow-xs">
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-primary-subtle text-primary font-mono text-xs font-bold flex items-center justify-center">
+                  01
+                </span>
+                <span className="text-[10px] font-mono text-primary font-medium px-2 py-0.5 rounded-full bg-primary-subtle">
+                  JobsClient.tsx
+                </span>
+              </div>
+              <h4 className="text-sm font-bold text-text-primary">1. Discover</h4>
+              <p className="text-xs text-text-body leading-relaxed">
+                Dual-pane workbench with sticky facet sidebar, combobox autocomplete, and Indian alias resolution.
+              </p>
+            </div>
+
+            {/* Stage 2 */}
+            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-3 relative shadow-xs">
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-primary-subtle text-primary font-mono text-xs font-bold flex items-center justify-center">
+                  02
+                </span>
+                <span className="text-[10px] font-mono text-primary font-medium px-2 py-0.5 rounded-full bg-primary-subtle">
+                  Modal.tsx
+                </span>
+              </div>
+              <h4 className="text-sm font-bold text-text-primary">2. Inspect</h4>
+              <p className="text-xs text-text-body leading-relaxed">
+                In-feed quick preview modal without page navigation, displaying compensation and regional residency requirements.
+              </p>
+            </div>
+
+            {/* Stage 3 */}
+            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-3 relative shadow-xs">
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-primary-subtle text-primary font-mono text-xs font-bold flex items-center justify-center">
+                  03
+                </span>
+                <span className="text-[10px] font-mono text-primary font-medium px-2 py-0.5 rounded-full bg-primary-subtle">
+                  JobDetailsClient.tsx
+                </span>
+              </div>
+              <h4 className="text-sm font-bold text-text-primary">3. Apply</h4>
+              <p className="text-xs text-text-body leading-relaxed">
+                Frictionless 1-click HR email clipboard copy with tactile confirmation toast (eliminating disruptive mailto: popups).
+              </p>
+            </div>
+
+            {/* Stage 4 */}
+            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-3 relative shadow-xs">
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-primary-subtle text-primary font-mono text-xs font-bold flex items-center justify-center">
+                  04
+                </span>
+                <span className="text-[10px] font-mono text-primary font-medium px-2 py-0.5 rounded-full bg-primary-subtle">
+                  JobFormWizard.tsx
+                </span>
+              </div>
+              <h4 className="text-sm font-bold text-text-primary">4. Publish</h4>
+              <p className="text-xs text-text-body leading-relaxed">
+                4-step progressive disclosure wizard with Gemini AI raw text importer and keyboard-driven navigation (1–4, arrows).
+              </p>
+            </div>
+
+            {/* Stage 5 */}
+            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-3 relative shadow-xs">
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-primary-subtle text-primary font-mono text-xs font-bold flex items-center justify-center">
+                  05
+                </span>
+                <span className="text-[10px] font-mono text-primary font-medium px-2 py-0.5 rounded-full bg-primary-subtle">
+                  JobPosterCreator.tsx
+                </span>
+              </div>
+              <h4 className="text-sm font-bold text-text-primary">5. Amplify</h4>
+              <p className="text-xs text-text-body leading-relaxed">
+                In-browser canvas graphics studio rendering 2160×2700px high-resolution social posters with dynamic vector QR codes.
+              </p>
+            </div>
+          </div>
+
+          {/* Component Ownership & Engineering Highlights Table */}
+          <div className="rounded-2xl border border-border-default bg-surface-card overflow-hidden shadow-xs">
+            <div className="px-5 py-3.5 border-b border-border-default bg-surface-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+              <span className="font-semibold text-text-primary uppercase tracking-wider">Custom Component Ownership Matrix</span>
+              <span className="font-mono text-primary font-medium">100% Bespoke Code · 0 UI Component Libraries</span>
+            </div>
+            <div className="divide-y divide-border-default text-xs">
+              <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
+                <div className="sm:col-span-3 font-mono font-semibold text-text-primary">JobsClient.tsx</div>
+                <div className="sm:col-span-3 text-primary font-medium">Desktop Viewport Workbench</div>
+                <div className="sm:col-span-6 text-text-body">Root <code className="text-primary font-mono text-[11px]">h-dvh</code> container, isolated overscroll containment, dynamic category count filtering, and active work-mode segmented pills.</div>
+              </div>
+              <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
+                <div className="sm:col-span-3 font-mono font-semibold text-text-primary">Location Combobox</div>
+                <div className="sm:col-span-3 text-primary font-medium">Accessible Autocomplete</div>
+                <div className="sm:col-span-6 text-text-body">WCAG compliant <code className="text-primary font-mono text-[11px]">role="combobox"</code> with arrow-key navigation (<code className="text-primary font-mono text-[11px]">ArrowDown/Up</code>, <code className="text-primary font-mono text-[11px]">Enter</code>, <code className="text-primary font-mono text-[11px]">Esc</code>) and Indian city alias fuzzy lookup.</div>
+              </div>
+              <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
+                <div className="sm:col-span-3 font-mono font-semibold text-text-primary">JobDetailsClient.tsx</div>
+                <div className="sm:col-span-3 text-primary font-medium">1-Click Direct Application UX</div>
+                <div className="sm:col-span-6 text-text-body">Replaces broken <code className="text-primary font-mono text-[11px]">mailto:</code> links with async clipboard copy, pre-composed subject lines, native Web Share API, and local storage job bookmarking.</div>
+              </div>
+              <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
+                <div className="sm:col-span-3 font-mono font-semibold text-text-primary">JobPosterCreator.tsx</div>
+                <div className="sm:col-span-3 text-primary font-medium">Client-Side Canvas Rasterizer</div>
+                <div className="sm:col-span-6 text-text-body">Pre-decodes images (<code className="text-primary font-mono text-[11px]">img.decode()</code>) and injects base64 Google fonts into a virtual DOM to export unshifted 2160×2700px 2x retina social posters.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- SECTION 6: SCREEN 1 - DUAL-PANE DESKTOP WORKBENCH (/jobs) ---------------- */}
       <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
