@@ -6,7 +6,6 @@ import Image from "next/image";
 import {
   ArrowRight,
   ExternalLink,
-  Search,
   FileText,
   Send,
   Smartphone,
@@ -29,12 +28,18 @@ import {
   RefreshCw,
   Eye,
   Zap,
+  BarChart3,
+  Users,
+  Globe,
+  Activity,
+  TrendingUp,
+  MousePointerClick,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Zenoway — UI Developer & Frontend Engineering Case Study | Aswanth U P",
+  title: "Zenoway — UI Developer & Design Engineer Case Study | Aswanth U P",
   description:
-    "A comprehensive UI/UX development case study on Zenoway: Tailwind v4 design tokens, desktop workbench layout, canvas social poster studio, and zero-friction recruitment UX.",
+    "A comprehensive UI/UX development case study on Zenoway: code-first design engineering, Tailwind v4 design tokens, desktop workbench layout, canvas social poster studio, and zero-friction recruitment UX.",
 };
 
 export default function ZenowayCaseStudy() {
@@ -68,9 +73,9 @@ export default function ZenowayCaseStudy() {
               </h1>
 
               <p className="text-base sm:text-lg text-text-body leading-relaxed max-w-2xl">
-                A production-grade recruitment portal engineered from the ground up for UI/UX and
+                A production-grade recruitment portal designed and engineered code-first for UI/UX and
                 Frontend professionals. Replaces traditional 10-step applicant forms with a
-                direct-to-HR action model, an in-browser Social Poster Studio, and an isolated
+                direct-to-HR copy model, an in-browser Social Poster Studio, and an isolated
                 desktop workbench powered by Tailwind CSS v4.
               </p>
 
@@ -109,10 +114,10 @@ export default function ZenowayCaseStudy() {
                 </div>
                 <div>
                   <span className="text-text-muted uppercase tracking-wider block mb-1">
-                    Styling Architecture
+                    Methodology
                   </span>
                   <span className="font-medium text-text-primary">
-                    Tailwind CSS v4 (@theme)
+                    Code-First Design Engineering
                   </span>
                 </div>
                 <div>
@@ -125,10 +130,10 @@ export default function ZenowayCaseStudy() {
                 </div>
                 <div>
                   <span className="text-text-muted uppercase tracking-wider block mb-1">
-                    Data &amp; Security
+                    Styling Tokens
                   </span>
                   <span className="font-medium text-text-primary">
-                    Supabase · Edge HMAC Auth
+                    Tailwind CSS v4 (@theme)
                   </span>
                 </div>
               </div>
@@ -188,78 +193,121 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 2: THE UI ENGINEERING CHALLENGE ---------------- */}
-      <section className="py-16 md:py-24">
+      {/* ---------------- SECTION 2: MY ROLE & ENGINEERING OWNERSHIP ---------------- */}
+      <section className="py-16 md:py-24 border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-14">
+          <div className="max-w-3xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
-              THE PROBLEM &amp; SYSTEM GOALS
+              MY CONTRIBUTION &amp; OWNERSHIP
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
-              Eliminating recruitment friction through design engineering.
+              Solo Design Engineering from Concept to Production.
             </h2>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
-              Standard hiring boards (Naukri, Indeed, LinkedIn) impose massive cognitive and
-              interaction overhead on job seekers: forced multi-step account registration,
-              clunky modal-inside-page double scrollbars, unverified dead HR emails, and opaque ATS
-              rejections. Zenoway was engineered to replace this with high-performance UI patterns.
+              As the sole UI Developer and Frontend Engineer on Zenoway, I designed and built the entire user-facing product code-first. Rather than translating static mockups with visual drift, I engineered the component hierarchy, interaction states, and accessibility tokens directly in the browser.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Challenge 01 */}
             <div className="p-7 rounded-2xl border border-border-default bg-surface-card space-y-4 shadow-xs">
               <div className="w-10 h-10 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-mono font-bold text-sm">
                 01
               </div>
               <h3 className="text-lg font-semibold text-text-primary">
-                Desktop Workbench Double-Scrollbars
+                Code-First Token Architecture
               </h3>
               <p className="text-sm text-text-body leading-relaxed">
-                When combining fixed-width filter sidebars with dynamic job feeds, browsers
-                frequently produce nested double-scrollbars. I solved this by locking the root
-                viewport to <code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">h-dvh</code> and
-                implementing isolated scroll containers with overscroll containment.
+                Authored the visual identity and complete CSS-first design token system in Tailwind CSS v4 (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">@theme</code>), eliminating legacy configuration scripts and establishing strict semantic roles for surfaces, borders, and interaction states.
               </p>
             </div>
 
-            {/* Challenge 02 */}
             <div className="p-7 rounded-2xl border border-border-default bg-surface-card space-y-4 shadow-xs">
               <div className="w-10 h-10 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-mono font-bold text-sm">
                 02
               </div>
               <h3 className="text-lg font-semibold text-text-primary">
-                The "1-Action" Application Paradigm
+                Bespoke Component Engineering
               </h3>
               <p className="text-sm text-text-body leading-relaxed">
-                Instead of requiring users to register before applying, every role features an
-                interactive apply modal providing direct recruiter emails, pre-composed subject lines,
-                instant <code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">mailto:</code> deep links,
-                and an asynchronous clipboard copy tracker with legacy textarea fallbacks.
+                Engineered 100% custom UI components without heavy third-party UI runtime kits (no MUI, no AntD). Developed the viewport dual-pane layout (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">h-dvh</code>), the keyboard-accessible combobox, segmented filters, and in-feed preview drawer from scratch.
               </p>
             </div>
 
-            {/* Challenge 03 */}
             <div className="p-7 rounded-2xl border border-border-default bg-surface-card space-y-4 shadow-xs">
               <div className="w-10 h-10 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-mono font-bold text-sm">
                 03
               </div>
               <h3 className="text-lg font-semibold text-text-primary">
-                Automated Listing &amp; Mail Verification
+                Canvas Graphics &amp; Edge Security
               </h3>
               <p className="text-sm text-text-body leading-relaxed">
-                To guarantee zero dead-end applications, I engineered a background DNS MX record
-                validator (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">dns/promises</code>)
-                that verifies employer domains have active mail exchange servers before allowing a
-                job to be published to the catalog.
+                Constructed an in-browser canvas poster creator (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">JobPosterCreator.tsx</code>) that generates 2160×2700px high-resolution social posters with dynamic vector QR codes, paired with Next.js Edge proxy middleware and HMAC-SHA256 session protection.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ---------------- SECTION 3: DESIGN SYSTEM & TAILWIND V4 ARCHITECTURE ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70 border-y border-border-default">
+      {/* ---------------- SECTION 3: THE RECRUITMENT FRICTION PROBLEM & UX DECISIONS ---------------- */}
+      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-14">
+            <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
+              THE PROBLEM &amp; INTENTIONAL UX DECISIONS
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+              Eliminating recruitment friction through design engineering.
+            </h2>
+            <p className="text-base md:text-lg text-text-body leading-relaxed">
+              Standard hiring boards (Naukri, Indeed, LinkedIn) impose massive interaction friction on candidates: forced multi-step registration, clunky double-scrollbars, dead HR inboxes, and frustrating OS-level <code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">mailto:</code> popups. Zenoway replaces these with deliberate, empathetic UI patterns:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* UX Decision 01 */}
+            <div className="p-7 rounded-2xl border border-border-default bg-surface-card space-y-4 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-mono font-bold text-sm">
+                <Copy size={18} />
+              </div>
+              <h3 className="text-lg font-semibold text-text-primary">
+                1-Click Copy Email (No mailto: Popups)
+              </h3>
+              <p className="text-sm text-text-body leading-relaxed">
+                Clicking <code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">mailto:</code> links is notoriously frustrating on desktop because it forcefully opens unconfigured native mail clients (like Outlook or Apple Mail). Zenoway replaces this with an instant <strong>1-Click Copy HR Email</strong> action with tactile copied feedback, letting candidates paste directly into Gmail or their preferred webmail.
+              </p>
+            </div>
+
+            {/* UX Decision 02 */}
+            <div className="p-7 rounded-2xl border border-border-default bg-surface-card space-y-4 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-mono font-bold text-sm">
+                <Laptop size={18} />
+              </div>
+              <h3 className="text-lg font-semibold text-text-primary">
+                Dual-Pane Layout Without Double-Scrollbars
+              </h3>
+              <p className="text-sm text-text-body leading-relaxed">
+                Combining a fixed filter sidebar with dynamic job feeds usually causes annoying nested double-scrollbars. I locked the root container to <code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">h-dvh</code> and isolated scroll boundaries with <code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">overscroll-contain</code> so the sidebar and job cards scroll independently with zero viewport jumping.
+              </p>
+            </div>
+
+            {/* UX Decision 03 */}
+            <div className="p-7 rounded-2xl border border-border-default bg-surface-card space-y-4 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-mono font-bold text-sm">
+                <ShieldCheck size={18} />
+              </div>
+              <h3 className="text-lg font-semibold text-text-primary">
+                Automated DNS MX Record Verification
+              </h3>
+              <p className="text-sm text-text-body leading-relaxed">
+                To guarantee zero dead-end applications, I engineered a background DNS MX record validator (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">dns/promises</code>) in the publishing pipeline. The system validates that employer domains possess active mail exchange servers before allowing listings into the public feed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- SECTION 4: DESIGN SYSTEM & TAILWIND V4 ARCHITECTURE ---------------- */}
+      <section className="py-16 md:py-24 border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left: Design System Explanation */}
@@ -368,8 +416,8 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 4: SCREEN 1 - DUAL-PANE DESKTOP WORKBENCH (zenoway1.webp) ---------------- */}
-      <section className="py-16 md:py-24">
+      {/* ---------------- SECTION 5: SCREEN 1 - DUAL-PANE DESKTOP WORKBENCH (/jobs) ---------------- */}
+      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Visual Figure matching live-jobs-catalog.png */}
@@ -406,7 +454,7 @@ export default function ZenowayCaseStudy() {
               </figure>
             </div>
 
-            {/* Description accurately matching zenoway1.webp */}
+            {/* Description */}
             <div className="lg:col-span-5 space-y-5">
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider">
                 <Laptop size={16} />
@@ -449,11 +497,11 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 5: SCREEN 2 - INTERACTIVE ROLE PREVIEW MODAL (zenoway3.webp) ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70 border-y border-border-default">
+      {/* ---------------- SECTION 6: SCREEN 2 - INTERACTIVE ROLE PREVIEW MODAL ---------------- */}
+      <section className="py-16 md:py-24 border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
-            {/* Description accurately matching zenoway3.webp */}
+            {/* Description */}
             <div className="lg:col-span-5 space-y-5 order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider">
                 <Layers size={16} />
@@ -492,12 +540,11 @@ export default function ZenowayCaseStudy() {
 
                 <div className="p-3.5 rounded-xl border border-border-default bg-surface-card">
                   <div className="flex items-center gap-2 text-xs font-semibold text-text-primary">
-                    <Send size={14} className="text-primary" />
-                    <span>One-Click Action Bar</span>
+                    <Copy size={14} className="text-primary" />
+                    <span>1-Click Copy Email Action Bar</span>
                   </div>
                   <p className="text-xs text-text-body mt-1">
-                    Instant access to Save Job (persisted via <code className="text-primary font-mono text-xs">localStorage</code>),
-                    native Web Share API, and the primary "Apply via Email" trigger.
+                    Instant clipboard copy with tactile confirmation toast, Save Job (persisted via <code className="text-primary font-mono text-xs">localStorage</code>), and native Web Share API.
                   </p>
                 </div>
               </div>
@@ -533,8 +580,8 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 6: SCREEN 3 - CANONICAL SEO & STRUCTURED DETAILS (zenoway2.webp) ---------------- */}
-      <section className="py-16 md:py-24">
+      {/* ---------------- SECTION 7: SCREEN 3 - CANONICAL SEO & STRUCTURED DETAILS ---------------- */}
+      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Visual Figure matching live-job-detail.png */}
@@ -571,7 +618,7 @@ export default function ZenowayCaseStudy() {
               </figure>
             </div>
 
-            {/* Description accurately matching zenoway2.webp */}
+            {/* Description */}
             <div className="lg:col-span-5 space-y-5">
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider">
                 <FileText size={16} />
@@ -614,8 +661,8 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 7: SCREEN 4 - JOB ADDING FLOW & AI WIZARD (post-job-wizard.png) ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70 border-y border-border-default">
+      {/* ---------------- SECTION 8: SCREEN 4 - JOB ADDING FLOW & AI WIZARD ---------------- */}
+      <section className="py-16 md:py-24 border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Description */}
@@ -707,8 +754,8 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 8: SOCIAL POSTER CREATOR WORKSPACE & OUTPUTS ---------------- */}
-      <section className="py-16 md:py-24">
+      {/* ---------------- SECTION 9: SOCIAL POSTER CREATOR WORKSPACE & OUTPUTS ---------------- */}
+      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-3">
@@ -822,8 +869,8 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 8: ADMIN OPERATIONS & SECURITY (zenad1, zenad2, zenad3) ---------------- */}
-      <section className="py-16 md:py-24">
+      {/* ---------------- SECTION 10: ADMIN OPERATIONS & SECURITY ---------------- */}
+      <section className="py-16 md:py-24 border-b border-border-default">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -928,84 +975,193 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 9: ACCESSIBILITY & DATA RESILIENCE ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70 border-t border-border-default">
+      {/* ---------------- SECTION 11: VERIFIED PRODUCTION IMPACT & REAL-WORLD TRAFFIC ---------------- */}
+      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
-            <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
-              ENGINEERING RIGOR
-            </p>
+            <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-3">
+              <TrendingUp size={16} />
+              <span>Verified Analytics &amp; Adoption</span>
+            </div>
+
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
-              Accessibility (a11y) &amp; Edge Resilience.
+              Real-World Adoption &amp; Production Metrics.
             </h2>
+
             <p className="text-base md:text-lg text-text-body leading-relaxed">
-              A great UI developer cares as much about keyboard navigation, edge fallbacks, and
-              database pagination as visual polish.
+              Unlike theoretical concepts, Zenoway serves live job seekers across India. Live telemetry from Vercel Analytics and Google Analytics (GA4) demonstrates real-world organic traction, peak concurrent concurrency, and cross-state engagement:
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl border border-border-default bg-surface-card space-y-3">
-              <div className="flex items-center gap-2.5 text-text-primary font-semibold text-base">
-                <ShieldCheck size={18} className="text-primary" />
-                <span>WCAG Accessible Combobox</span>
+          {/* Metric Highlights Banner */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-1">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">Real-Time Concurrency</span>
+              <div className="text-2xl sm:text-3xl font-bold text-primary flex items-baseline gap-2">
+                <span>128</span>
+                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">peak live</span>
               </div>
-              <p className="text-sm text-text-body leading-relaxed">
-                The location filter popover features full keyboard arrow navigation (<code className="text-primary font-mono text-xs">ArrowDown</code>, <code className="text-primary font-mono text-xs">Enter</code>, <code className="text-primary font-mono text-xs">Escape</code>)
-                and alias resolution (typing "Bangalore" resolves to "Bengaluru").
+              <p className="text-xs text-text-body">Active candidates exploring live jobs simultaneously</p>
+            </div>
+
+            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-1">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">24h Page Views</span>
+              <div className="text-2xl sm:text-3xl font-bold text-text-primary flex items-baseline gap-2">
+                <span>654</span>
+                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">+91%</span>
+              </div>
+              <p className="text-xs text-text-body">High catalog browsing depth across design roles</p>
+            </div>
+
+            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-1">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">Unique Visitors</span>
+              <div className="text-2xl sm:text-3xl font-bold text-text-primary flex items-baseline gap-2">
+                <span>306</span>
+                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">+132%</span>
+              </div>
+              <p className="text-xs text-text-body">Organic discovery surge from LinkedIn &amp; Search</p>
+            </div>
+
+            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-1">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">Organic Reach</span>
+              <div className="text-2xl sm:text-3xl font-bold text-text-primary flex items-baseline gap-2">
+                <span>10+</span>
+                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">metro hubs</span>
+              </div>
+              <p className="text-xs text-text-body">Bengaluru, Mumbai, Pune, Kerala, Jaipur, Lucknow</p>
+            </div>
+          </div>
+
+          {/* Real Analytics Dashboards Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            {/* Analytics Figure 1: Vercel Analytics */}
+            <figure className="rounded-2xl border border-border-default bg-surface-card overflow-hidden shadow-sm space-y-0">
+              <div className="px-4 py-3 border-b border-border-default bg-surface-subtle flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <BarChart3 size={15} className="text-primary" />
+                  <span className="font-semibold text-text-primary">Vercel Production Analytics</span>
+                </div>
+                <span className="font-mono text-text-muted text-[11px]">24-Hour Surge Telemetry</span>
+              </div>
+              <a
+                href="/images/projects/zenoway/analytics-vercel.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group cursor-zoom-in relative aspect-[16/10] w-full bg-slate-950 overflow-hidden"
+                title="Click to view full uncropped Vercel Analytics screenshot"
+              >
+                <Image
+                  src="/images/projects/zenoway/analytics-vercel.png"
+                  alt="Vercel Analytics dashboard showing 306 visitors, 654 page views, 128 live online, and top referrers"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
+                  loading="lazy"
+                  unoptimized
+                />
+              </a>
+              <figcaption className="p-4 border-t border-border-default bg-surface-card text-xs text-text-body flex justify-between items-center">
+                <span>Verified 306 visitors, 654 pageviews, and 128 online users</span>
+                <span className="text-text-muted font-mono">uxion (zenoway.com)</span>
+              </figcaption>
+            </figure>
+
+            {/* Analytics Figure 2: Google Analytics GA4 Realtime */}
+            <figure className="rounded-2xl border border-border-default bg-surface-card overflow-hidden shadow-sm space-y-0">
+              <div className="px-4 py-3 border-b border-border-default bg-surface-subtle flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <Globe size={15} className="text-primary" />
+                  <span className="font-semibold text-text-primary">Google Analytics (GA4) Realtime Map</span>
+                </div>
+                <span className="font-mono text-text-muted text-[11px]">Live Geographical Distribution</span>
+              </div>
+              <a
+                href="/images/projects/zenoway/analytics-ga.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group cursor-zoom-in relative aspect-[16/10] w-full bg-slate-100 overflow-hidden"
+                title="Click to view full uncropped Google Analytics screenshot"
+              >
+                <Image
+                  src="/images/projects/zenoway/analytics-ga.jpg"
+                  alt="Google Analytics Realtime Overview showing 72 active users in last 30 minutes across India cities"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
+                  loading="lazy"
+                  unoptimized
+                />
+              </a>
+              <figcaption className="p-4 border-t border-border-default bg-surface-card text-xs text-text-body flex justify-between items-center">
+                <span>Verified 72 active users in 30m across Bengaluru, Mumbai, Pune, Kerala</span>
+                <span className="text-text-muted font-mono">GA4 Realtime Feed</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- SECTION 12: TECHNICAL INTERVIEW DEFENSE TALKING POINTS ---------------- */}
+      <section className="py-16 md:py-24 border-b border-border-default">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-14">
+            <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
+              TECHNICAL INTERVIEW PREPARATION
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+              How I Explain Zenoway in UI Engineering Interviews.
+            </h2>
+            <p className="text-base md:text-lg text-text-body leading-relaxed">
+              When technical hiring managers ask about frontend architecture, responsive layout trade-offs, and design systems, here is how I defend my engineering decisions:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl border border-border-default bg-surface-card space-y-3">
+              <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+                <Code2 size={16} />
+                <span>Q1: Why design code-first instead of starting in Figma?</span>
+              </div>
+              <p className="text-xs sm:text-sm text-text-body leading-relaxed">
+                "Designing directly in code using Tailwind CSS v4 design tokens allowed me to eliminate the 'translation gap' between static mockups and production. I could stress-test responsive breakpoints, dynamic text wrapping, keyboard navigation states, and micro-interactions with real live data from day one, rather than discovering layout breaks after building a Figma file."
               </p>
             </div>
 
             <div className="p-6 rounded-2xl border border-border-default bg-surface-card space-y-3">
-              <div className="flex items-center gap-2.5 text-text-primary font-semibold text-base">
-                <Zap size={18} className="text-primary" />
-                <span>DNS Mail Server Checks</span>
+              <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+                <MousePointerClick size={16} />
+                <span>Q2: Why choose 1-Click Copy Email over a standard mailto: link?</span>
               </div>
-              <p className="text-sm text-text-body leading-relaxed">
-                Node.js <code className="text-primary font-mono text-xs">dns/promises</code> validates employer email domains
-                have live MX records before allowing postings, preventing dead-end applications without third-party fees.
+              <p className="text-xs sm:text-sm text-text-body leading-relaxed">
+                "<code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">mailto:</code> links are one of the most frustrating patterns on desktop web: clicking them launches unconfigured native email clients (like Outlook or Apple Mail), which jars candidates and breaks their flow. I replaced this with an asynchronous clipboard copy with tactile confirmation toast, allowing job seekers to paste cleanly into Gmail or webmail without interruption."
               </p>
             </div>
 
             <div className="p-6 rounded-2xl border border-border-default bg-surface-card space-y-3">
-              <div className="flex items-center gap-2.5 text-text-primary font-semibold text-base">
-                <RefreshCw size={18} className="text-primary" />
-                <span>PostgREST Chunking</span>
+              <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+                <Laptop size={16} />
+                <span>Q3: How did you eliminate double-scrollbars in the desktop workbench?</span>
               </div>
-              <p className="text-sm text-text-body leading-relaxed">
-                Supabase database queries execute in 500-row chunks to prevent silent pagination
-                truncation caused by PostgREST row limits, integrated with Next.js <code className="text-primary font-mono text-xs">unstable_cache</code>.
+              <p className="text-xs sm:text-sm text-text-body leading-relaxed">
+                "Traditional dual-pane layouts suffer from nested viewport jumping. I solved this by locking the root container to <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">h-dvh</code> and applying <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">overscroll-behavior: contain</code> to both the sticky filter sidebar and the primary job stream. This isolates scroll chaining and gives the web app the solid, fluid feel of a native desktop application."
               </p>
             </div>
 
             <div className="p-6 rounded-2xl border border-border-default bg-surface-card space-y-3">
-              <div className="flex items-center gap-2.5 text-text-primary font-semibold text-base">
-                <Lock size={18} className="text-primary" />
-                <span>HMAC-SHA256 Admin Auth</span>
+              <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+                <QrCode size={16} />
+                <span>Q4: How did you prevent blurry exports and layout shifts in the Poster Studio?</span>
               </div>
-              <p className="text-sm text-text-body leading-relaxed">
-                Cryptographically signed admin session tokens with constant-time string comparisons
-                (<code className="text-primary font-mono text-xs">timingSafeEqualStrings</code>) defend administrative surfaces against timing attacks.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl border border-border-default bg-surface-card space-y-3 sm:col-span-2">
-              <div className="flex items-center gap-2.5 text-text-primary font-semibold text-base">
-                <CheckCircle2 size={18} className="text-primary" />
-                <span>Rich Google JobPosting JSON-LD</span>
-              </div>
-              <p className="text-sm text-text-body leading-relaxed">
-                Every job detail route automatically renders Schema.org <code className="text-primary font-mono text-xs">JobPosting</code> structured
-                data with <code className="text-primary font-mono text-xs">TELECOMMUTE</code> flags and geographical applicant requirements, directly
-                integrated with the Google Indexing API.
+              <p className="text-xs sm:text-sm text-text-body leading-relaxed">
+                "Client-side canvas rasterization often fails if web fonts or candidate headshots are still streaming. I implemented pre-decoding via <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">HTMLImageElement.decode()</code>, base64 Google Font injection into the virtual canvas DOM, and rendered at a 2x device pixel ratio to export razor-sharp 2160×2700px assets ready for LinkedIn and Instagram feeds."
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ---------------- SECTION 10: CLOSING CTA & NEXT PROJECT ---------------- */}
-      <section className="py-16 md:py-20 border-t border-border-default">
+      {/* ---------------- SECTION 13: CLOSING CTA & NEXT PROJECT ---------------- */}
+      <section className="py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="rounded-3xl border border-primary-border bg-primary-subtle/50 p-8 sm:p-12 md:p-16">
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-4">
@@ -1018,8 +1174,8 @@ export default function ZenowayCaseStudy() {
             </h2>
 
             <p className="text-base md:text-lg text-text-body max-w-xl mx-auto mb-8 leading-relaxed">
-              Explore Zenoway live in production or get in touch to discuss UI Developer and
-              Frontend Engineering opportunities.
+              Explore Zenoway live in production or get in touch to discuss UI Developer,
+              Frontend Developer, and Design Engineer opportunities.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
