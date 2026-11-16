@@ -174,7 +174,7 @@ function FeaturedProject() {
           href="/projects/zenoway"
           className="inline-block w-fit mt-2 group-hover:text-primary transition-colors"
         >
-          <h3 className="text-text-primary group-hover:text-primary font-bold text-2xl md:text-3xl transition-colors">
+          <h3 className="text-text-primary group-hover:text-primary font-semibold text-2xl md:text-3xl transition-colors">
             zenoway.online
           </h3>
         </Link>
@@ -438,7 +438,7 @@ export default function ProjectsSection() {
                       href={project.link}
                       className="inline-block group-hover:text-primary transition-colors"
                     >
-                      <h3 className="text-text-primary group-hover:text-primary font-bold text-xl transition-colors">
+                      <h3 className="text-text-primary group-hover:text-primary font-medium text-lg sm:text-xl transition-colors">
                         {project.title}
                       </h3>
                     </Link>
@@ -455,7 +455,7 @@ export default function ProjectsSection() {
                       {project.type}
                     </p>
 
-                    <p className="text-sm font-semibold text-text-primary mt-1">
+                    <p className="text-sm font-medium text-text-primary mt-1">
                       {project.role}
                     </p>
                   </div>
@@ -478,7 +478,7 @@ export default function ProjectsSection() {
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                 Production Websites
               </p>
-              <h3 className="text-lg font-bold text-text-primary mt-0.5">
+              <h3 className="text-base sm:text-lg font-medium text-text-primary mt-0.5">
                 Live Client Sites
               </h3>
             </div>
@@ -501,7 +501,7 @@ export default function ProjectsSection() {
                 className="group flex items-center justify-between gap-3 rounded-xl border border-border-default bg-surface-card p-4 transition-all hover:border-primary/40 hover:shadow-md"
               >
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-text-primary group-hover:text-primary transition-colors truncate">
+                  <p className="text-sm font-medium text-text-primary group-hover:text-primary transition-colors truncate">
                     {site.title}
                   </p>
                   <p className="text-xs text-text-muted truncate mt-0.5">

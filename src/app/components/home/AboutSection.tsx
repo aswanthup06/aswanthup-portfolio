@@ -90,7 +90,7 @@ export default function AboutSection() {
               />
             </div>
 
-            <h3 className="text-text-primary font-bold text-xl leading-tight mb-2">
+            <h3 className="text-text-primary font-semibold text-xl leading-tight mb-2">
               Aswanth UP
             </h3>
 
@@ -140,7 +140,7 @@ export default function AboutSection() {
               {shippedCount}
             </h3>
 
-            <p className="text-text-primary font-bold text-xl mt-2">
+            <p className="text-text-primary font-medium text-lg sm:text-xl mt-2">
               Apps &amp; Live Websites
             </p>
           </div>
@@ -183,7 +183,7 @@ export default function AboutSection() {
           </motion.div>
 
           <div>
-            <p className="text-text-primary font-bold text-lg">Fast Delivery</p>
+            <p className="text-text-primary font-medium text-base sm:text-lg">Fast Delivery</p>
 
             <p className="text-text-body text-sm leading-relaxed">
               Direct Figma-to-code workflow
@@ -205,7 +205,7 @@ export default function AboutSection() {
             </div>
 
             <div className="mt-4">
-              <h3 className="text-2xl font-bold tracking-tight text-text-primary">
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-primary">
                 Design systems first.
               </h3>
 
@@ -238,7 +238,7 @@ export default function AboutSection() {
           className="bg-surface-card rounded-xl px-6 py-5 border border-border-default hover:shadow-xl flex flex-wrap items-center justify-between gap-4 lg:col-span-2"
         >
           <div>
-            <p className="text-text-primary font-bold text-lg">Code &amp; Connect</p>
+            <p className="text-text-primary font-medium text-base sm:text-lg">Code &amp; Connect</p>
 
             <p className="text-text-body text-sm mt-1">
               Explore my GitHub, resume, or reach out directly.

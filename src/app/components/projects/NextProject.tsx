@@ -76,7 +76,7 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-primary mb-2">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span>Selected Work</span>
             </div>
@@ -134,7 +134,7 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
                     {project.category}
                   </span>
 
-                  <h3 className="text-xl font-semibold text-text-primary group-hover:text-primary transition-colors flex items-center justify-between">
+                  <h3 className="text-lg sm:text-xl font-medium text-text-primary group-hover:text-primary transition-colors flex items-center justify-between">
                     <span>{project.title}</span>
                     <MdOutlineArrowOutward className="text-lg text-primary opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200" />
                   </h3>
