@@ -1116,14 +1116,14 @@ export default function ZenowayCaseStudy() {
           {/* Metric Highlights Strip */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-14">
             <div className="space-y-2">
-              <span className="text-xs font-semibold text-text-muted uppercase tracking-wider block">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
                 Real-Time Concurrency
               </span>
               <div className="flex items-center gap-2.5">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   128
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-emerald-700 bg-emerald-500/10 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/25 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   peak live
                 </span>
@@ -1141,7 +1141,7 @@ export default function ZenowayCaseStudy() {
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   654
                 </span>
-                <span className="inline-flex items-center text-[11px] font-medium text-emerald-700 bg-emerald-500/10 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/25 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
                   +91%
                 </span>
               </div>
@@ -1158,7 +1158,7 @@ export default function ZenowayCaseStudy() {
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   306
                 </span>
-                <span className="inline-flex items-center text-[11px] font-medium text-emerald-700 bg-emerald-500/10 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/25 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
                   +132%
                 </span>
               </div>
@@ -1175,7 +1175,7 @@ export default function ZenowayCaseStudy() {
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   10+
                 </span>
-                <span className="inline-flex items-center text-[11px] font-medium text-emerald-700 bg-emerald-500/10 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                <span className="inline-flex items-center text-xs font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/25 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
                   metro hubs
                 </span>
               </div>
