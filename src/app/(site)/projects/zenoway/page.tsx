@@ -7,8 +7,6 @@ import {
   ArrowRight,
   ExternalLink,
   FileText,
-  Send,
-  Smartphone,
   CheckCircle2,
   Layers,
   ShieldCheck,
@@ -19,19 +17,11 @@ import {
   Sliders,
   Sparkles,
   Laptop,
-  Check,
   Copy,
   Terminal,
-  ArrowUpRight,
-  Lock,
-  Cpu,
-  RefreshCw,
-  Eye,
   Zap,
   BarChart3,
-  Users,
   Globe,
-  Activity,
   TrendingUp,
   MousePointerClick,
 } from "lucide-react";
@@ -318,12 +308,12 @@ export default function ZenowayCaseStudy() {
               </div>
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary">
-                The "Zenoway Emerald" Design System in Tailwind CSS v4.
+                The &ldquo;Zenoway Emerald&rdquo; Design System in Tailwind CSS v4.
               </h2>
 
               <p className="text-base text-text-body leading-relaxed">
                 Rather than relying on legacy JavaScript configuration files (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">tailwind.config.ts</code>),
-                Zenoway adopts Tailwind CSS v4's modern <code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">@theme</code> directive.
+                Zenoway adopts Tailwind CSS v4&apos;s modern <code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">@theme</code> directive.
                 All tokens are defined directly as native CSS custom properties across three distinct layers.
               </p>
 
@@ -529,7 +519,7 @@ export default function ZenowayCaseStudy() {
               <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
                 <div className="sm:col-span-3 font-mono font-semibold text-text-primary">Location Combobox</div>
                 <div className="sm:col-span-3 text-primary font-medium">Accessible Autocomplete</div>
-                <div className="sm:col-span-6 text-text-body">WCAG compliant <code className="text-primary font-mono text-[11px]">role="combobox"</code> with arrow-key navigation (<code className="text-primary font-mono text-[11px]">ArrowDown/Up</code>, <code className="text-primary font-mono text-[11px]">Enter</code>, <code className="text-primary font-mono text-[11px]">Esc</code>) and Indian city alias fuzzy lookup.</div>
+                <div className="sm:col-span-6 text-text-body">WCAG compliant <code className="text-primary font-mono text-[11px]">role=&quot;combobox&quot;</code> with arrow-key navigation (<code className="text-primary font-mono text-[11px]">ArrowDown/Up</code>, <code className="text-primary font-mono text-[11px]">Enter</code>, <code className="text-primary font-mono text-[11px]">Esc</code>) and Indian city alias fuzzy lookup.</div>
               </div>
               <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
                 <div className="sm:col-span-3 font-mono font-semibold text-text-primary">JobDetailsClient.tsx</div>
@@ -612,7 +602,7 @@ export default function ZenowayCaseStudy() {
                   <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
                   <span>
                     <strong>Accessible Location Combobox:</strong> Autocomplete input supporting Indian city/state aliases
-                    (typing "Bangalore" resolves to "Bengaluru") with full keyboard navigation (<code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">ArrowDown</code>, <code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">Enter</code>).
+                    (typing &ldquo;Bangalore&rdquo; resolves to &ldquo;Bengaluru&rdquo;) with full keyboard navigation (<code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">ArrowDown</code>, <code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">Enter</code>).
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
@@ -664,7 +654,7 @@ export default function ZenowayCaseStudy() {
                     <span>Location Preference Callout</span>
                   </div>
                   <p className="text-xs text-text-body mt-1">
-                    Explicitly informs candidates if an employer prioritizes local residency (e.g., "Kerala preferred").
+                    Explicitly informs candidates if an employer prioritizes local residency (e.g., &ldquo;Kerala preferred&rdquo;).
                   </p>
                 </div>
 
@@ -1285,7 +1275,7 @@ export default function ZenowayCaseStudy() {
                 <span>Q1: Why design code-first instead of starting in Figma?</span>
               </div>
               <p className="text-xs sm:text-sm text-text-body leading-relaxed">
-                "Designing directly in code using Tailwind CSS v4 design tokens allowed me to eliminate the 'translation gap' between static mockups and production. I could stress-test responsive breakpoints, dynamic text wrapping, keyboard navigation states, and micro-interactions with real live data from day one, rather than discovering layout breaks after building a Figma file."
+                &ldquo;Designing directly in code using Tailwind CSS v4 design tokens allowed me to eliminate the &apos;translation gap&apos; between static mockups and production. I could stress-test responsive breakpoints, dynamic text wrapping, keyboard navigation states, and micro-interactions with real live data from day one, rather than discovering layout breaks after building a Figma file.&rdquo;
               </p>
             </div>
 
@@ -1295,7 +1285,7 @@ export default function ZenowayCaseStudy() {
                 <span>Q2: Why choose 1-Click Copy Email over a standard mailto: link?</span>
               </div>
               <p className="text-xs sm:text-sm text-text-body leading-relaxed">
-                "<code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">mailto:</code> links are one of the most frustrating patterns on desktop web: clicking them launches unconfigured native email clients (like Outlook or Apple Mail), which jars candidates and breaks their flow. I replaced this with an asynchronous clipboard copy with tactile confirmation toast, allowing job seekers to paste cleanly into Gmail or webmail without interruption."
+                &ldquo;<code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">mailto:</code> links are one of the most frustrating patterns on desktop web: clicking them launches unconfigured native email clients (like Outlook or Apple Mail), which jars candidates and breaks their flow. I replaced this with an asynchronous clipboard copy with tactile confirmation toast, allowing job seekers to paste cleanly into Gmail or webmail without interruption.&rdquo;
               </p>
             </div>
 
@@ -1305,7 +1295,7 @@ export default function ZenowayCaseStudy() {
                 <span>Q3: How did you eliminate double-scrollbars in the desktop workbench?</span>
               </div>
               <p className="text-xs sm:text-sm text-text-body leading-relaxed">
-                "Traditional dual-pane layouts suffer from nested viewport jumping. I solved this by locking the root container to <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">h-dvh</code> and applying <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">overscroll-behavior: contain</code> to both the sticky filter sidebar and the primary job stream. This isolates scroll chaining and gives the web app the solid, fluid feel of a native desktop application."
+                &ldquo;Traditional dual-pane layouts suffer from nested viewport jumping. I solved this by locking the root container to <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">h-dvh</code> and applying <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">overscroll-behavior: contain</code> to both the sticky filter sidebar and the primary job stream. This isolates scroll chaining and gives the web app the solid, fluid feel of a native desktop application.&rdquo;
               </p>
             </div>
 
@@ -1315,7 +1305,7 @@ export default function ZenowayCaseStudy() {
                 <span>Q4: How did you prevent blurry exports and layout shifts in the Poster Studio?</span>
               </div>
               <p className="text-xs sm:text-sm text-text-body leading-relaxed">
-                "Client-side canvas rasterization often fails if web fonts or candidate headshots are still streaming. I implemented pre-decoding via <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">HTMLImageElement.decode()</code>, base64 Google Font injection into the virtual canvas DOM, and rendered at a 2x device pixel ratio to export razor-sharp 2160×2700px assets ready for LinkedIn and Instagram feeds."
+                &ldquo;Client-side canvas rasterization often fails if web fonts or candidate headshots are still streaming. I implemented pre-decoding via <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">HTMLImageElement.decode()</code>, base64 Google Font injection into the virtual canvas DOM, and rendered at a 2x device pixel ratio to export razor-sharp 2160×2700px assets ready for LinkedIn and Instagram feeds.&rdquo;
               </p>
             </div>
           </div>
