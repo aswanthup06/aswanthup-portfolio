@@ -17,6 +17,7 @@ import {
 } from "react-icons/lu";
 import { useContactModal } from "../../../context/ContactModalContext";
 import NextProject from "../../../components/projects/NextProject";
+import ProjectHeroMeta from "../../../components/projects/ProjectHeroMeta";
 
 export default function NvoccPage() {
   const { openModal } = useContactModal();
@@ -198,6 +199,9 @@ export default function NvoccPage() {
               Contracted via Chaavie Solutions for 6solve IT Services to build the shipping logistics user interface. Developed three data-rich dashboard modules—Export, Import, and Maintenance &amp; Repair—using Next.js, Tailwind CSS, CSS Grid, and reusable components.
             </p>
 
+            {/* Quick Spec Tags */}
+            <ProjectHeroMeta items={projectMeta} className="mt-6" />
+
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <button
@@ -216,24 +220,6 @@ export default function NvoccPage() {
               >
                 Discuss Similar Project
               </button>
-            </div>
-
-            {/* Quick Meta Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-6 border-t border-border-subtle">
-              {projectMeta.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div key={idx}>
-                    <div className="flex items-center gap-1.5 text-xs text-text-muted uppercase tracking-wider font-medium">
-                      <Icon className="text-text-caption" />
-                      <span>{item.label}</span>
-                    </div>
-                    <p className="font-semibold text-text-primary text-sm mt-1">
-                      {item.value}
-                    </p>
-                  </div>
-                );
-              })}
             </div>
           </div>
 

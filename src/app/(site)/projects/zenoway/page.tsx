@@ -1,4 +1,5 @@
 import NextProject from "../../../components/projects/NextProject";
+import ProjectHeroMeta from "../../../components/projects/ProjectHeroMeta";
 import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -32,10 +33,33 @@ export const metadata: Metadata = {
 };
 
 export default function ZenowayCaseStudy() {
+  const projectMeta = [
+    {
+      label: "My Role",
+      value: "UI Developer & Design Engineer",
+      icon: Sliders,
+    },
+    {
+      label: "Methodology",
+      value: "Code-First Design Engineering",
+      icon: Compass,
+    },
+    {
+      label: "Frontend Core",
+      value: "Next.js 16 · React 19",
+      icon: Code2,
+    },
+    {
+      label: "Styling Tokens",
+      value: "Tailwind CSS v4 (@theme)",
+      icon: Palette,
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-background text-text-primary selection:bg-primary-subtle selection:text-primary">
       {/* ---------------- SECTION 1: HERO & TECHNICAL SPECIFICATION ---------------- */}
-      <section className="relative pt-28 md:pt-36 pb-14 md:pb-20 bg-gradient-to-b from-primary-subtle/55 via-surface-subtle/40 to-background overflow-hidden">
+      <section className="relative pt-28 md:pt-36 pb-8 md:pb-10 bg-gradient-to-b from-primary-subtle/55 via-surface-subtle/40 to-background overflow-hidden">
         <div
           className="grid-bg absolute inset-x-0 top-0 h-[650px] z-0 pointer-events-none"
           style={{
@@ -68,6 +92,9 @@ export default function ZenowayCaseStudy() {
                 desktop workbench powered by Tailwind CSS v4.
               </p>
 
+              {/* Quick Spec Tags */}
+              <ProjectHeroMeta items={projectMeta} />
+
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <a
@@ -90,50 +117,12 @@ export default function ZenowayCaseStudy() {
                   <ArrowRight size={16} />
                 </a>
               </div>
-
-              {/* Technical Spec Strip */}
-              <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-                <div>
-                  <span className="text-text-muted uppercase tracking-wider block mb-1">
-                    My Role
-                  </span>
-                  <span className="font-medium text-text-primary">
-                    UI Developer &amp; Design Engineer
-                  </span>
-                </div>
-                <div>
-                  <span className="text-text-muted uppercase tracking-wider block mb-1">
-                    Methodology
-                  </span>
-                  <span className="font-medium text-text-primary">
-                    Code-First Design Engineering
-                  </span>
-                </div>
-                <div>
-                  <span className="text-text-muted uppercase tracking-wider block mb-1">
-                    Frontend Core
-                  </span>
-                  <span className="font-medium text-primary">
-                    Next.js 16 · React 19
-                  </span>
-                </div>
-                <div>
-                  <span className="text-text-muted uppercase tracking-wider block mb-1">
-                    Styling Tokens
-                  </span>
-                  <span className="font-medium text-text-primary">
-                    Tailwind CSS v4 (@theme)
-                  </span>
-                </div>
-              </div>
             </div>
 
             {/* Right Column: Hero Mockup / Video Showcase */}
             <div className="lg:col-span-5">
               <div className="relative">
-                <div className="absolute -inset-3 bg-primary/20 rounded-2xl blur-xl -z-10 pointer-events-none" />
-
-                <div className="rounded-2xl border border-border-default bg-surface-card shadow-[0_20px_50px_rgba(0,0,0,0.12)] overflow-hidden">
+                <div className="rounded-2xl border border-border-default bg-surface-card shadow-md overflow-hidden">
                   <div className="px-4 py-3 border-b border-border-default bg-surface-subtle flex items-center justify-between text-xs text-text-body">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
@@ -183,7 +172,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 2: MY ROLE & ENGINEERING OWNERSHIP ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-12 md:mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -238,7 +227,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 3: THE RECRUITMENT FRICTION PROBLEM & UX DECISIONS ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -296,7 +285,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 4: DESIGN SYSTEM & TAILWIND V4 ARCHITECTURE ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left: Design System Explanation */}
@@ -407,7 +396,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 5: THE 5-STAGE USER JOURNEY & COMPONENT OWNERSHIP ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -537,7 +526,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 6: SCREEN 1 - DUAL-PANE DESKTOP WORKBENCH (/jobs) ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Visual Figure matching live-jobs-catalog.png */}
@@ -618,7 +607,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 6: SCREEN 2 - INTERACTIVE ROLE PREVIEW MODAL ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Description */}
@@ -701,7 +690,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 7: SCREEN 3 - CANONICAL SEO & STRUCTURED DETAILS ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Visual Figure matching live-job-detail.png */}
@@ -782,7 +771,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 8: SCREEN 4 - JOB ADDING FLOW & AI WIZARD ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Description */}
@@ -875,7 +864,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 9: SOCIAL POSTER CREATOR WORKSPACE & OUTPUTS ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-3">
@@ -990,7 +979,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 10: ADMIN OPERATIONS & SECURITY ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -1095,7 +1084,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 11: VERIFIED PRODUCTION IMPACT & REAL-WORLD TRAFFIC ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-3">
@@ -1254,7 +1243,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 12: TECHNICAL INTERVIEW DEFENSE TALKING POINTS ---------------- */}
-      <section className="py-16 md:py-24">
+      <section className="mt-16 md:mt-24 mb-4 sm:mb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">

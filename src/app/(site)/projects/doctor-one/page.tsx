@@ -13,9 +13,13 @@ import {
   LuCircleCheck,
   LuCode,
   LuPlay,
+  LuClock,
+  LuUserCheck,
+  LuLayers,
 } from "react-icons/lu";
 import { useContactModal } from "../../../context/ContactModalContext";
 import NextProject from "../../../components/projects/NextProject";
+import ProjectHeroMeta from "../../../components/projects/ProjectHeroMeta";
 
 export default function DoctorOneCaseStudy() {
   const { openModal } = useContactModal();
@@ -26,10 +30,10 @@ export default function DoctorOneCaseStudy() {
   };
 
   const projectMeta = [
-    { label: "Role", value: "UI Design & UI Development" },
-    { label: "Timeline", value: "3 Months (End-to-End)" },
-    { label: "Core Stack", value: "Next.js · React · Tailwind · Figma" },
-    { label: "Deliverables", value: "Web & 30+ Mobile Screens · Design System" },
+    { label: "Role", value: "UI Design & UI Development", icon: LuUserCheck },
+    { label: "Timeline", value: "3 Months (End-to-End)", icon: LuClock },
+    { label: "Core Stack", value: "Next.js · React · Tailwind · Figma", icon: LuCode },
+    { label: "Deliverables", value: "Web & 30+ Mobile Screens · Design System", icon: LuLayers },
   ];
 
   const stats = [
@@ -141,6 +145,9 @@ export default function DoctorOneCaseStudy() {
               An end-to-end digital health platform designed and engineered to replace disjointed medical workflows with one fluid experience—from symptom search and video appointments to encrypted pathology reports and prescription fulfillment.
             </p>
 
+            {/* Quick Spec Tags */}
+            <ProjectHeroMeta items={projectMeta} className="mt-6" />
+
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <button
@@ -160,20 +167,6 @@ export default function DoctorOneCaseStudy() {
                 Discuss Similar Project
                 <MdOutlineArrowOutward className="text-base text-text-muted" />
               </button>
-            </div>
-
-            {/* Metadata Spec Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 pt-8 border-t border-border-default">
-              {projectMeta.map(({ label, value }) => (
-                <div key={label}>
-                  <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">
-                    {label}
-                  </p>
-                  <p className="text-xs sm:text-sm font-medium text-text-primary mt-1 leading-snug">
-                    {value}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
 
