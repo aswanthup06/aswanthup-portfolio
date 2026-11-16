@@ -32,7 +32,7 @@ export default function AboutSection() {
           className="md:flex items-end justify-between w-full"
         >
         <div>
-          <h2 className="font-bold text-sm md:text-base text-primary">
+          <h2 className="font-medium text-sm md:text-base text-primary">
             About Me
           </h2>
 
@@ -79,6 +79,10 @@ export default function AboutSection() {
           className="bg-surface-card lg:row-span-3 border border-border-default rounded-xl p-6 hover:shadow-xl flex flex-col justify-between duration-500"
         >
           <div>
+            <p className="text-xs font-medium uppercase tracking-wider text-primary mb-4">
+              Profile
+            </p>
+
             <div className="w-20 h-20 border border-border-default rounded-full flex items-center justify-center mb-4 overflow-hidden">
               <Image
                 src="/images/about/me.webp"
@@ -90,7 +94,7 @@ export default function AboutSection() {
               />
             </div>
 
-            <h3 className="text-text-primary font-semibold text-xl leading-tight mb-2">
+            <h3 className="text-text-primary font-medium text-lg sm:text-xl leading-tight mb-1">
               Aswanth UP
             </h3>
 
@@ -132,17 +136,17 @@ export default function AboutSection() {
           className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-xl flex flex-col justify-between lg:row-span-2 h-full"
         >
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+            <p className="text-xs font-medium uppercase tracking-wider text-primary">
               Shipped Work
             </p>
 
-            <h3 className="text-7xl font-black text-text-primary tracking-tighter mt-2">
+            <span className="block text-6xl sm:text-7xl font-bold text-text-primary tracking-tighter mt-2">
               {shippedCount}
-            </h3>
+            </span>
 
-            <p className="text-text-primary font-medium text-lg sm:text-xl mt-2">
+            <h3 className="text-text-primary font-medium text-lg sm:text-xl leading-tight mt-2">
               Apps &amp; Live Websites
-            </p>
+            </h3>
           </div>
 
           <div className="mt-6 space-y-4">
@@ -166,7 +170,7 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-surface-card border rounded-xl border-border-default hover:shadow-xl p-6 flex items-center gap-3 h-fit"
+          className="bg-surface-card border rounded-xl border-border-default hover:shadow-xl p-6 flex items-center gap-4 h-fit"
         >
           <motion.div
             animate={{
@@ -177,15 +181,21 @@ export default function AboutSection() {
               repeat: Infinity,
               repeatDelay: 2,
             }}
-            className="min-w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs"
+            className="w-10 h-10 shrink-0 rounded-xl bg-primary-subtle text-primary border border-primary-border flex items-center justify-center font-bold text-sm"
           >
             ⚡
           </motion.div>
 
           <div>
-            <p className="text-text-primary font-medium text-base sm:text-lg">Fast Delivery</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-primary">
+              Workflow
+            </p>
 
-            <p className="text-text-body text-sm leading-relaxed">
+            <h3 className="text-text-primary font-medium text-lg sm:text-xl leading-tight mt-0.5">
+              Fast Delivery
+            </h3>
+
+            <p className="text-text-body text-sm leading-relaxed mt-0.5">
               Direct Figma-to-code workflow
             </p>
           </div>
@@ -198,23 +208,19 @@ export default function AboutSection() {
           className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-lg h-full flex flex-col justify-between"
         >
           <div>
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                Component Architecture
-              </span>
-            </div>
+            <p className="text-xs font-medium uppercase tracking-wider text-primary">
+              Component Architecture
+            </p>
 
-            <div className="mt-4">
-              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-primary">
-                Design systems first.
-              </h3>
+            <h3 className="text-lg sm:text-xl font-medium tracking-tight text-text-primary leading-tight mt-2">
+              Design Systems First
+            </h3>
 
-              <p className="mt-3 text-sm text-text-body leading-relaxed">
-                Building modular, atomic component libraries with standardized
-                spacing tokens, color variables, and accessible states that stay
-                consistent across multi-module dashboards and web apps.
-              </p>
-            </div>
+            <p className="mt-3 text-sm text-text-body leading-relaxed">
+              Building modular, atomic component libraries with standardized
+              spacing tokens, color variables, and accessible states that stay
+              consistent across multi-module dashboards and web apps.
+            </p>
           </div>
 
           <div className="mt-6 pt-5 border-t border-border-default">
@@ -222,7 +228,7 @@ export default function AboutSection() {
               {["Design Tokens", "Reusable Components", "Tailwind CSS"].map((item) => (
                 <span
                   key={item}
-                  className="px-2.5 py-1 rounded-md bg-[#EDF7F1] text-[#087F50] text-xs font-medium"
+                  className="px-2.5 py-1 rounded-md bg-primary-subtle text-primary border border-primary-border/40 text-xs font-medium"
                 >
                   {item}
                 </span>
@@ -238,9 +244,15 @@ export default function AboutSection() {
           className="bg-surface-card rounded-xl px-6 py-5 border border-border-default hover:shadow-xl flex flex-wrap items-center justify-between gap-4 lg:col-span-2"
         >
           <div>
-            <p className="text-text-primary font-medium text-base sm:text-lg">Code &amp; Connect</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-primary">
+              Connect
+            </p>
 
-            <p className="text-text-body text-sm mt-1">
+            <h3 className="text-text-primary font-medium text-lg sm:text-xl leading-tight mt-0.5">
+              Code &amp; Connect
+            </h3>
+
+            <p className="text-text-body text-sm mt-0.5">
               Explore my GitHub, resume, or reach out directly.
             </p>
           </div>
