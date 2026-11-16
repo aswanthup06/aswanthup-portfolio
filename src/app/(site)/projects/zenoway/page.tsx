@@ -228,10 +228,10 @@ export default function ZenowayCaseStudy() {
                 03
               </div>
               <h3 className="text-lg font-semibold text-text-primary">
-                Canvas Graphics &amp; Social Studio
+                In-Browser Social Poster Studio
               </h3>
               <p className="text-sm text-text-body leading-relaxed">
-                Constructed an in-browser canvas poster creator (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">JobPosterCreator.tsx</code>) that generates 2160×2700px high-resolution social posters with dynamic vector QR codes, asset pre-decoding, and base64 typography embedding for immediate LinkedIn and Instagram distribution.
+                Designed and engineered an in-browser social poster studio (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">JobPosterCreator.tsx</code>) with customizable layouts, live typography switching, and dynamic QR codes, allowing hiring teams to instantly export high-resolution social graphics for LinkedIn and Instagram without third-party design tools.
               </p>
             </div>
           </div>
@@ -357,42 +357,43 @@ export default function ZenowayCaseStudy() {
             <div className="lg:col-span-6">
               <div className="rounded-2xl border border-border-default bg-surface-card overflow-hidden shadow-lg">
                 <div className="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                  <div className="flex items-center gap-2">
-                    <Terminal size={14} className="text-primary" />
-                    <span className="font-mono text-slate-200">src/app/globals.css</span>
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                    </div>
+                    <div className="flex items-center gap-1.5 ml-1">
+                      <Terminal size={13} className="text-primary" />
+                      <span className="font-mono text-slate-200">src/app/globals.css</span>
+                    </div>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-400">Tailwind CSS v4</span>
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-primary border border-slate-700/60">
+                    Tailwind CSS v4 · @theme
+                  </span>
                 </div>
 
-                <div className="p-5 bg-slate-950 font-mono text-xs text-slate-300 leading-relaxed overflow-x-auto">
+                <div className="p-5 bg-slate-950 font-mono text-xs leading-relaxed overflow-x-auto">
                   <pre>
-                    {`@import "tailwindcss";
-
-@theme {
-  --font-sans: var(--font-manrope);
-
-  /* Brand Palette (Zenoway Emerald) */
-  --color-brand: #087f50;
-  --color-brand-hover: #066640;
-  --color-brand-accent: #0fa968;
-  --color-brand-soft: #edf7f1;
-
-  /* Surfaces & Backgrounds */
-  --color-surface-base: #ffffff;
-  --color-surface-subtle: #f8faf8;
-  --color-surface-card: #ffffff;
-
-  /* Typography / Text Roles */
-  --color-text-primary: #17251f;
-  --color-text-secondary: #536258;
-  --color-text-muted: #596b5e;
-
-  /* Radii & Focus Tokens */
-  --radius-control: 4px;
-  --radius-card: 8px;
-  --radius-pill: 9999px;
-  --color-focus-ring: rgba(8, 127, 80, 0.2);
-}`}
+                    <span className="text-violet-400">@import</span> <span className="text-emerald-300">&quot;tailwindcss&quot;</span>;{'\n\n'}
+                    <span className="text-violet-400">@theme</span> {'{\n'}
+                    {'  '}<span className="text-slate-500">{'/* Micro-Typography Scale for High-Density Workbench */'}</span>{'\n'}
+                    {'  '}<span className="text-sky-300">--text-3xs</span>: <span className="text-emerald-400">10px</span>;{'\n'}
+                    {'  '}<span className="text-sky-300">--text-2xs</span>: <span className="text-emerald-400">11px</span>;{'\n'}
+                    {'  '}<span className="text-sky-300">--text-xs-compact</span>: <span className="text-emerald-400">13px</span>;{'\n\n'}
+                    {'  '}<span className="text-slate-500">{'/* Brand Semantic Palette: Zenoway Emerald */'}</span>{'\n'}
+                    {'  '}<span className="text-sky-300">--color-brand</span>: <span className="text-emerald-400">#087f50</span>;{'\n'}
+                    {'  '}<span className="text-sky-300">--color-brand-hover</span>: <span className="text-emerald-400">#066640</span>;{'\n'}
+                    {'  '}<span className="text-sky-300">--color-brand-soft</span>: <span className="text-emerald-400">#edf7f1</span>;{'\n\n'}
+                    {'  '}<span className="text-slate-500">{'/* Surfaces & Container Tokens */'}</span>{'\n'}
+                    {'  '}<span className="text-sky-300">--color-surface-base</span>: <span className="text-emerald-400">#ffffff</span>;{'\n'}
+                    {'  '}<span className="text-sky-300">--color-surface-subtle</span>: <span className="text-emerald-400">#f8faf8</span>;{'\n'}
+                    {'  '}<span className="text-sky-300">--color-surface-card</span>: <span className="text-emerald-400">#ffffff</span>;{'\n\n'}
+                    {'  '}<span className="text-slate-500">{'/* Interaction & Focus Rings */'}</span>{'\n'}
+                    {'  '}<span className="text-sky-300">--radius-control</span>: <span className="text-emerald-400">4px</span>;{'\n'}
+                    {'  '}<span className="text-sky-300">--radius-card</span>: <span className="text-emerald-400">8px</span>;{'\n'}
+                    {'  '}<span className="text-sky-300">--color-focus-ring</span>: <span className="text-emerald-400">rgba(8, 127, 80, 0.2)</span>;{'\n'}
+                    {'}'}
                   </pre>
                 </div>
 
@@ -528,8 +529,8 @@ export default function ZenowayCaseStudy() {
               </div>
               <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
                 <div className="sm:col-span-3 font-mono font-semibold text-text-primary">JobPosterCreator.tsx</div>
-                <div className="sm:col-span-3 text-primary font-medium">Client-Side Canvas Rasterizer</div>
-                <div className="sm:col-span-6 text-text-body">Pre-decodes images (<code className="text-primary font-mono text-[11px]">img.decode()</code>) and injects base64 Google fonts into a virtual DOM to export unshifted 2160×2700px 2x retina social posters.</div>
+                <div className="sm:col-span-3 text-primary font-medium">In-Browser Social Poster Studio</div>
+                <div className="sm:col-span-6 text-text-body">Interactive layout studio with live typography switches, dynamic vector QR codes, template format selection, and 1-click social poster export.</div>
               </div>
             </div>
           </div>
@@ -981,10 +982,10 @@ export default function ZenowayCaseStudy() {
 
           <div className="mt-8 p-5 rounded-xl border border-border-default bg-surface-card text-xs text-text-body flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <strong className="text-text-primary">Client-Side Canvas Rasterization: </strong>
-              <span>Pre-decodes images (<code className="text-primary font-mono text-[11px]">img.decode()</code>) and embeds base64 Google Fonts to guarantee 2x retina sharpness without layout shifts.</span>
+              <strong className="text-text-primary">Studio UI Capabilities: </strong>
+              <span>Supports real-time typography switching, dynamic vector QR codes linked to the live job URL, aspect-ratio previews (4:5 Feed &amp; 9:16 Story), and 1-click high-resolution social downloads.</span>
             </div>
-            <span className="font-mono text-primary shrink-0">html-to-image + @ttsalpha/qrcode</span>
+            <span className="font-mono text-primary shrink-0">Custom Studio Controls + @ttsalpha/qrcode</span>
           </div>
         </div>
       </section>
@@ -1302,10 +1303,10 @@ export default function ZenowayCaseStudy() {
             <div className="p-6 rounded-2xl border border-border-default bg-surface-card space-y-3">
               <div className="flex items-center gap-2 text-primary font-semibold text-sm">
                 <QrCode size={16} />
-                <span>Q4: How did you prevent blurry exports and layout shifts in the Poster Studio?</span>
+                <span>Q4: Why build an in-browser Poster Studio instead of letting employers create graphics in Canva?</span>
               </div>
               <p className="text-xs sm:text-sm text-text-body leading-relaxed">
-                &ldquo;Client-side canvas rasterization often fails if web fonts or candidate headshots are still streaming. I implemented pre-decoding via <code className="text-xs font-mono bg-surface-muted px-1 rounded text-primary">HTMLImageElement.decode()</code>, base64 Google Font injection into the virtual canvas DOM, and rendered at a 2x device pixel ratio to export razor-sharp 2160×2700px assets ready for LinkedIn and Instagram feeds.&rdquo;
+                &ldquo;Most hiring managers and early-stage founders don&apos;t have in-house designers, leading to messy, text-heavy job posts on LinkedIn and WhatsApp. By building a dedicated studio directly inside Zenoway, live job data (title, company, salary, work mode) instantly populates branded templates with scannable QR codes, enabling 1-click professional social sharing.&rdquo;
               </p>
             </div>
           </div>
