@@ -2,13 +2,11 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   LuShip,
   LuCompass,
   LuContainer,
   LuWrench,
-  LuArrowUpRight,
   LuCode,
   LuCircleCheck,
   LuLayers,
@@ -546,32 +544,6 @@ export default function NvoccPage() {
                   {tech}
                 </span>
               ))}
-            </div>
-
-            {/* Bottom Contact Banner */}
-            <div className="mt-14 p-8 rounded-2xl border border-border-default bg-surface-card text-center shadow-sm">
-              <h3 className="text-xl font-bold text-text-primary">
-                Need enterprise-grade web development for your team?
-              </h3>
-              <p className="text-sm text-text-muted mt-2 max-w-md mx-auto">
-                Let&apos;s build fast, accessible, and scalable platforms with modern Next.js and Tailwind CSS.
-              </p>
-              <div className="mt-6 flex justify-center gap-4">
-                <button
-                  type="button"
-                  onClick={openModal}
-                  className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold "
-                >
-                  Discuss a Project
-                  <LuArrowUpRight />
-                </button>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
-                >
-                  View All Projects
-                </Link>
-              </div>
             </div>
           </div>
         </section>

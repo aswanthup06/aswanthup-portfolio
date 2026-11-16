@@ -2,7 +2,6 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import {
   LuStethoscope,
@@ -517,36 +516,6 @@ export default function DoctorOneCaseStudy() {
                 {tech}
               </span>
             ))}
-          </div>
-        </section>
-
-        {/* ---------------- SECTION 8: CLOSING CTA ---------------- */}
-        <section className="mt-16 md:mt-24 mb-4 sm:mb-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-text-primary">
-              Interested in building a healthcare or enterprise platform?
-            </h3>
-            <p className="text-xs sm:text-sm text-text-muted mt-1.5">
-              Let&apos;s collaborate on your next telemedicine portal, web application, or design system.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-4 shrink-0">
-            <button
-              type="button"
-              onClick={openModal}
-              className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold  transition-all duration-300"
-            >
-              Get in Touch
-              <MdOutlineArrowOutward className="text-base" />
-            </button>
-
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
-            >
-              All Projects
-            </Link>
           </div>
         </section>
       </div>

@@ -1,7 +1,6 @@
 import NextProject from "../../../components/projects/NextProject";
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -239,7 +238,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 3: THE RECRUITMENT FRICTION PROBLEM & UX DECISIONS ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -538,7 +537,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 6: SCREEN 1 - DUAL-PANE DESKTOP WORKBENCH (/jobs) ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Visual Figure matching live-jobs-catalog.png */}
@@ -702,7 +701,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 7: SCREEN 3 - CANONICAL SEO & STRUCTURED DETAILS ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Visual Figure matching live-job-detail.png */}
@@ -876,7 +875,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 9: SOCIAL POSTER CREATOR WORKSPACE & OUTPUTS ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-3">
@@ -1096,7 +1095,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 11: VERIFIED PRODUCTION IMPACT & REAL-WORLD TRAFFIC ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-3">
@@ -1308,47 +1307,6 @@ export default function ZenowayCaseStudy() {
               <p className="text-xs sm:text-sm text-text-body leading-relaxed">
                 &ldquo;Most hiring managers and early-stage founders don&apos;t have in-house designers, leading to messy, text-heavy job posts on LinkedIn and WhatsApp. By building a dedicated studio directly inside Zenoway, live job data (title, company, salary, work mode) instantly populates branded templates with scannable QR codes, enabling 1-click professional social sharing.&rdquo;
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------- SECTION 13: CLOSING CTA & NEXT PROJECT ---------------- */}
-      <section className="pt-16 md:pt-20 pb-6 md:pb-8">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="rounded-3xl border border-primary-border bg-primary-subtle/50 p-8 sm:p-12 md:p-16">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              EXPLORE THE LIVE CODE
-            </span>
-
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
-              Interested in how I engineer responsive user interfaces?
-            </h2>
-
-            <p className="text-base md:text-lg text-text-body max-w-xl mx-auto mb-8 leading-relaxed">
-              Explore Zenoway live in production or get in touch to discuss UI Developer,
-              Frontend Developer, and Design Engineer opportunities.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="https://www.zenoway.online"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold btn-primary transition-all rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
-              >
-                Visit zenoway.online
-                <ExternalLink size={16} />
-              </a>
-
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-medium text-text-primary hover:text-primary bg-surface-card border border-border-default hover:border-primary/40 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20"
-              >
-                Get in Touch
-                <ArrowRight size={16} />
-              </Link>
             </div>
           </div>
         </div>

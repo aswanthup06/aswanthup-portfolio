@@ -2,7 +2,6 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   LuPackage,
   LuTruck,
@@ -13,7 +12,6 @@ import {
   LuWorkflow,
   LuCircleCheck,
   LuPlay,
-  LuArrowUpRight,
   LuLayers,
   LuClock,
   LuUserCheck,
@@ -505,32 +503,6 @@ export default function HappyERPPage() {
                 <p className="text-sm text-text-body mt-2 leading-relaxed">
                   Handling concurrent inventory updates across warehouse and sales departments required modular component state machines and instant feedback patterns to prevent race conditions during order bookings.
                 </p>
-              </div>
-            </div>
-
-            {/* Bottom Contact Banner */}
-            <div className="mt-12 p-8 rounded-2xl border border-border-default bg-surface-card text-center shadow-sm">
-              <h3 className="text-xl font-bold text-text-primary">
-                Interested in building or modernizing an enterprise tool?
-              </h3>
-              <p className="text-sm text-text-muted mt-2 max-w-md mx-auto">
-                Let&apos;s collaborate to design and engineer intuitive, high-performance dashboards and business applications.
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3.5">
-                <button
-                  type="button"
-                  onClick={openModal}
-                  className="btn-primary inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-medium whitespace-nowrap"
-                >
-                  <span>Get in Touch</span>
-                  <LuArrowUpRight className="shrink-0" />
-                </button>
-                <Link
-                  href="/projects"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 text-sm font-medium text-text-primary whitespace-nowrap hover:border-border-accent hover:bg-surface-muted transition-colors"
-                >
-                  <span>View All Projects</span>
-                </Link>
               </div>
             </div>
           </div>

@@ -1150,9 +1150,9 @@ function Cta() {
 
         {/* Contact list */}
         <motion.ul variants={container} {...inView} className="border-t border-border-default">
-          {CONTACTS.map((itemContact) => (
-            <motion.li key={itemContact.label} variants={item}>
-              {itemContact.type === "copy-email" ? (
+          {CONTACTS.map((contact) => (
+            <motion.li key={contact.label} variants={item}>
+              {contact.type === "copy-email" ? (
                 <button
                   type="button"
                   onClick={handleCopyEmail}
@@ -1160,18 +1160,18 @@ function Cta() {
                   aria-label="Copy email address to clipboard"
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-text-body duration-300 transition-colors group-hover:text-primary">
-                    {copiedEmail ? <Check size={18} className="text-primary" /> : <itemContact.Icon aria-hidden="true" />}
+                    {copiedEmail ? <Check size={18} className="text-primary" /> : <contact.Icon aria-hidden="true" />}
                   </span>
 
                   <span className="min-w-0 flex-1">
                     <span className="block text-sm font-semibold text-text-primary transition-colors duration-300 group-hover:text-primary">
-                      {itemContact.label}
+                      {contact.label}
                     </span>
                     <span className="block truncate text-xs text-text-muted transition-colors duration-300 group-hover:text-primary">
                       {copiedEmail ? (
                         <span className="text-primary font-semibold">Email copied to clipboard!</span>
                       ) : (
-                        itemContact.handle
+                        contact.handle
                       )}
                     </span>
                   </span>
@@ -1182,21 +1182,21 @@ function Cta() {
                 </button>
               ) : (
                 <a
-                  href={itemContact.href}
+                  href={contact.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-4 border-b border-border-default py-4 transition-colors duration-500"
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-text-body duration-300 transition-colors group-hover:text-primary">
-                    <itemContact.Icon aria-hidden="true" />
+                    <contact.Icon aria-hidden="true" />
                   </span>
 
                   <span className="min-w-0 flex-1">
                     <span className="block text-sm font-semibold text-text-primary transition-colors duration-300 group-hover:text-primary">
-                      {itemContact.label}
+                      {contact.label}
                     </span>
                     <span className="block truncate text-xs text-text-muted transition-colors duration-300 group-hover:text-primary">
-                      {itemContact.handle}
+                      {contact.handle}
                     </span>
                   </span>
 
