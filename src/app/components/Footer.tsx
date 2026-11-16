@@ -78,9 +78,9 @@ export default function Footer() {
 
             <motion.div
               variants={contentVariants}
-              className="relative z-10 px-6 md:px-10 py-10"
+              className="relative z-10 px-5 sm:px-8 md:px-10 py-8 sm:py-10"
             >
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-12">
                 <motion.div variants={itemVariants} className="max-w-md">
                   <motion.div
                     variants={itemVariants}
@@ -126,7 +126,7 @@ export default function Footer() {
                 </motion.div>
                 <motion.div
                   variants={contentVariants}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+                  className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-8 sm:gap-10"
                 >
                   <motion.div variants={itemVariants}>
                     <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider">

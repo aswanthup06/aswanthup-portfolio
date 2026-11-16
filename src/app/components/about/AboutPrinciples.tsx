@@ -28,7 +28,7 @@ const inView = {
 
 export default function AboutPrinciples() {
   return (
-    <section aria-labelledby="principles-heading" className="mt-28">
+    <section aria-labelledby="principles-heading" className="mt-16 md:mt-24 lg:mt-28">
       <SectionHeading
         kicker="How I work"
         align="center"

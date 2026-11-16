@@ -91,8 +91,10 @@ function FeaturedProject() {
             right-4
             w-fit
             max-w-[calc(100%-2rem)]
-            px-4
-            py-2
+            px-3
+            py-1.5
+            sm:px-4
+            sm:py-2
             rounded-md
             bg-white/10
             backdrop-blur-xl
@@ -134,7 +136,7 @@ function FeaturedProject() {
         </Link>
       </div>
 
-      <div className="flex flex-col justify-center p-8 lg:p-10">
+      <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-10">
         <p className="text-xs uppercase tracking-wider text-text-muted font-semibold">
           Case Study
         </p>

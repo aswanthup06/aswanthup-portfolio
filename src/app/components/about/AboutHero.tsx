@@ -62,12 +62,12 @@ function Portrait() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.15, ease: PREMIUM_EASE }}
-      className="relative mx-auto w-[260px] md:w-[320px]"
+      className="relative mx-auto w-[240px] sm:w-[260px] md:w-[320px]"
     >
       {/* offset outline */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 translate-x-4 translate-y-4 rounded-t-[999px] rounded-b-3xl border-2 border-primary/30"
+        className="absolute inset-0 translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4 rounded-t-[999px] rounded-b-3xl border-2 border-primary/30"
       />
 
       {/* arch photo */}
@@ -78,7 +78,7 @@ function Portrait() {
             alt={SITE_CONFIG.name}
             fill
             priority
-            sizes="(min-width: 768px) 320px, 260px"
+            sizes="(min-width: 768px) 320px, (min-width: 640px) 260px, 240px"
             className="object-cover"
           />
         </div>
@@ -87,13 +87,13 @@ function Portrait() {
       {/* slow spinning dashed ring */}
       <motion.div
         aria-hidden="true"
-        className="absolute -right-10 -top-8 h-28 w-28 rounded-full border-2 border-dashed border-primary/30"
+        className="absolute -right-4 -top-6 sm:-right-8 sm:-top-8 md:-right-10 h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 rounded-full border-2 border-dashed border-primary/30"
         animate={{ rotate: 360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       />
 
       <Sticker
-        className="-left-6 top-16 md:-left-14"
+        className="-left-2 sm:-left-6 top-16 md:-left-14"
         float={[0, -9, 0]}
         duration={5}
         delay={0.9}
@@ -102,7 +102,7 @@ function Portrait() {
       </Sticker>
 
       <Sticker
-        className="-right-4 top-[48%] md:-right-12"
+        className="-right-2 sm:-right-4 top-[48%] md:-right-12"
         float={[0, 9, 0]}
         duration={6}
         delay={1.1}
@@ -111,7 +111,7 @@ function Portrait() {
       </Sticker>
 
       <Sticker
-        className="-left-2 bottom-8 md:-left-10"
+        className="left-0 sm:-left-2 bottom-8 md:-left-10"
         float={[0, -7, 0]}
         duration={5.5}
         delay={1.3}

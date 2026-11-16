@@ -287,9 +287,9 @@ export default function ZenowayCaseStudy() {
       {/* ---------------- SECTION 4: DESIGN SYSTEM & TAILWIND V4 ARCHITECTURE ---------------- */}
       <section className="mt-16 md:mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center min-w-0">
             {/* Left: Design System Explanation */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-6 min-w-0">
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider">
                 <Palette size={16} />
                 <span>CSS-First Design Tokens</span>
@@ -342,8 +342,8 @@ export default function ZenowayCaseStudy() {
             </div>
 
             {/* Right: Code Token Preview Card */}
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl border border-border-default bg-surface-card overflow-hidden shadow-lg">
+            <div className="lg:col-span-6 min-w-0 w-full">
+              <div className="rounded-2xl border border-border-default bg-surface-card overflow-hidden shadow-lg w-full max-w-full">
                 <div className="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
                   <div className="flex items-center gap-2.5">
                     <div className="flex items-center gap-1.5">
@@ -361,7 +361,7 @@ export default function ZenowayCaseStudy() {
                   </span>
                 </div>
 
-                <div className="p-5 bg-slate-950 font-mono text-xs leading-relaxed overflow-x-auto">
+                <div className="p-4 sm:p-5 bg-slate-950 font-mono text-xs leading-relaxed overflow-x-auto max-w-full">
                   <pre>
                     <span className="text-violet-400">@import</span> <span className="text-emerald-300">&quot;tailwindcss&quot;</span>;{'\n\n'}
                     <span className="text-violet-400">@theme</span> {'{\n'}
@@ -1102,12 +1102,12 @@ export default function ZenowayCaseStudy() {
           </div>
 
           {/* Metric Highlights Strip */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-14">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-14">
             <div className="space-y-2">
               <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
                 Real-Time Concurrency
               </span>
-              <div className="flex items-center gap-2.5">
+              <div className="flex flex-wrap items-baseline gap-2">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   128
                 </span>
@@ -1125,7 +1125,7 @@ export default function ZenowayCaseStudy() {
               <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
                 24h Page Views
               </span>
-              <div className="flex items-center gap-2.5">
+              <div className="flex flex-wrap items-baseline gap-2">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   654
                 </span>
@@ -1142,7 +1142,7 @@ export default function ZenowayCaseStudy() {
               <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
                 Unique Visitors
               </span>
-              <div className="flex items-center gap-2.5">
+              <div className="flex flex-wrap items-baseline gap-2">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   306
                 </span>
@@ -1159,7 +1159,7 @@ export default function ZenowayCaseStudy() {
               <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
                 Organic Reach
               </span>
-              <div className="flex items-center gap-2.5">
+              <div className="flex flex-wrap items-baseline gap-2">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   10+
                 </span>

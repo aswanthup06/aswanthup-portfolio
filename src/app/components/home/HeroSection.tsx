@@ -116,7 +116,7 @@ export default function HeroSection() {
             {/* Proof strip */}
             <motion.dl
               variants={item}
-              className="mt-9 grid grid-cols-3 gap-6 text-left"
+              className="mt-9 grid grid-cols-3 gap-3 sm:gap-6 text-left"
             >
               <Stat to={3} suffix="+" label="Years building UI" />
               <Stat to={FEATURED.length} label="Product case studies" />
@@ -126,7 +126,7 @@ export default function HeroSection() {
             {/* Tech */}
             <motion.ul
               variants={item}
-              className="mt-7 flex flex-wrap justify-center gap-x-5 gap-y-3 lg:justify-start"
+              className="mt-7 flex flex-wrap justify-center gap-x-3.5 sm:gap-x-5 gap-y-2.5 sm:gap-y-3 lg:justify-start"
             >
               {TECH.map(({ name, Icon }) => (
                 <li
@@ -438,7 +438,7 @@ function DesignToCode() {
       </Chip>
 
       <Chip
-        className="-left-1 bottom-24 md:left-2"
+        className="left-1 sm:-left-1 bottom-24 md:left-2"
         delay={1.2}
         float={{ y: [0, 10, 0] }}
         duration={6}
@@ -447,7 +447,7 @@ function DesignToCode() {
       </Chip>
 
       <Chip
-        className="right-0 top-[46%]"
+        className="right-1 sm:right-0 top-[46%]"
         delay={1.4}
         float={{ y: [0, -8, 0] }}
         duration={5.5}

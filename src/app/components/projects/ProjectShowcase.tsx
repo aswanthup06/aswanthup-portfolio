@@ -143,14 +143,14 @@ export default function ProjectShowcase({
 
             {/* Specification Grid */}
             {specs && specs.length > 0 && (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-8">
                 {specs.map(({ label, value, icon: Icon }) => (
                   <div
                     key={label}
-                    className="rounded-xl border border-border-default bg-surface-card p-3.5 shadow-2xs"
+                    className="rounded-xl border border-border-default bg-surface-card p-3 sm:p-3.5 shadow-2xs min-w-0"
                   >
                     {Icon && <Icon className="text-primary text-base mb-1.5" />}
-                    <p className="text-[11px] text-text-muted uppercase tracking-wider font-medium">
+                    <p className="text-[11px] text-text-muted uppercase tracking-wider font-medium truncate">
                       {label}
                     </p>
                     <p className="text-xs sm:text-sm font-semibold text-text-primary mt-0.5 truncate">
@@ -169,14 +169,14 @@ export default function ProjectShowcase({
                   {curriculum.title}
                 </h2>
 
-                <div className="grid sm:grid-cols-2 gap-2.5">
+                <div className="grid sm:grid-cols-2 gap-2 sm:gap-2.5">
                   {curriculum.items.map((topic, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 text-xs sm:text-sm text-text-secondary bg-surface-card px-3.5 py-2.5 rounded-lg border border-border-subtle"
+                      className="flex items-center gap-2 text-xs sm:text-sm text-text-secondary bg-surface-card px-3 sm:px-3.5 py-2.5 rounded-lg border border-border-subtle min-w-0"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <span>{topic}</span>
+                      <span className="truncate">{topic}</span>
                     </div>
                   ))}
                 </div>

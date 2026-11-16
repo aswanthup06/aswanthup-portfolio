@@ -36,7 +36,7 @@ export default function AboutSection() {
             About Me
           </p>
 
-          <h2 className="text-3xl md:text-4xl text-text-primary font-semibold tracking-tight leading-tight mt-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-text-primary font-semibold tracking-tight leading-tight mt-2">
             Design Systems,{" "}
             <span className="text-text-muted font-medium">
               Built for Real Users
@@ -69,14 +69,14 @@ export default function AboutSection() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-[1fr_auto_1fr] gap-5 w-full mt-10 md:mt-12"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-[1fr_auto_1fr] gap-5 w-full mt-10 md:mt-12"
       >
         {/* Box 1 */}
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
           transition={{ duration: 0.25 }}
-          className="bg-surface-card lg:row-span-3 border border-border-default rounded-xl p-6 hover:shadow-xl flex flex-col justify-between duration-500"
+          className="bg-surface-card md:col-span-1 lg:row-span-3 border border-border-default rounded-xl p-5 sm:p-6 hover:shadow-xl flex flex-col justify-between duration-500"
         >
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-4">
@@ -133,14 +133,14 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-xl flex flex-col justify-between lg:row-span-2 h-full"
+          className="bg-surface-card rounded-xl p-5 sm:p-6 border border-border-default hover:shadow-xl flex flex-col justify-between md:col-span-1 lg:row-span-2 h-full"
         >
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-primary">
               Shipped Work
             </p>
 
-            <span className="block text-6xl sm:text-7xl font-bold text-text-primary tracking-tighter mt-2">
+            <span className="block text-5xl sm:text-6xl md:text-7xl font-bold text-text-primary tracking-tighter mt-2">
               {shippedCount}
             </span>
 
@@ -170,7 +170,7 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-surface-card border rounded-xl border-border-default hover:shadow-xl p-6 flex items-center gap-4 h-fit"
+          className="bg-surface-card border rounded-xl border-border-default hover:shadow-xl p-5 sm:p-6 flex items-center gap-4 h-fit md:col-span-1"
         >
           <motion.div
             animate={{
@@ -205,7 +205,7 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -4 }}
-          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-lg h-full flex flex-col justify-between"
+          className="bg-surface-card rounded-xl p-5 sm:p-6 border border-border-default hover:shadow-lg h-full flex flex-col justify-between md:col-span-1"
         >
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-primary">
@@ -241,7 +241,7 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-xl flex flex-wrap items-center justify-between gap-4 lg:col-span-2"
+          className="bg-surface-card rounded-xl p-5 sm:p-6 border border-border-default hover:shadow-xl flex flex-wrap items-center justify-between gap-4 md:col-span-2 lg:col-span-2"
         >
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-primary">

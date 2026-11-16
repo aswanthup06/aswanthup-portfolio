@@ -365,13 +365,13 @@ export default function Navbar() {
                 variants={mobileItemsVariants}
                 initial="hidden"
                 animate="show"
-                className="flex flex-col gap-4"
+                className="flex flex-col gap-2"
               >
                 {navItems.map((item) => (
                   <motion.div key={item.href} variants={navItemVariants}>
                     <Link
                       href={item.href}
-                      className={navLinkClass(item.href)}
+                      className={`block py-2 px-1 ${navLinkClass(item.href)}`}
                       onClick={closeMenu}
                     >
                       {item.label}
@@ -389,9 +389,10 @@ export default function Navbar() {
                   }}
                   onClick={handleContact}
                   className="
+                    mt-2
                     btn-primary
                     rounded-md
-                    h-10
+                    h-11
                     font-semibold text-sm
                     flex items-center gap-2 justify-center
                     cursor-pointer

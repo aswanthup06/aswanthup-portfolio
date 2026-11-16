@@ -78,7 +78,7 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
             exit={{ opacity: 0, y: 6, scale: 0.96 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
             className={`
-              absolute right-0 z-50 w-68 rounded-xl
+              absolute right-0 z-50 w-[calc(100vw-2rem)] max-w-[272px] sm:w-68 rounded-xl
               border border-border-default bg-surface-card p-2.5
               shadow-2xl
               ${compact ? "top-16 md:top-[57px]" : "top-12"}
