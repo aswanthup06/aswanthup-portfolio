@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { Questrial } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -16,11 +16,10 @@ import ClarityAnalytics from "../components/ClarityAnalytics";
 
 import "../globals.css";
 
-const questrial = Questrial({
-  weight: "400",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-questrial",
+  variable: "--font-space-grotesk",
 });
 
 const siteUrl = "https://www.aswanthup.online";
@@ -134,7 +133,7 @@ export default function RootLayout({
       lang="en"
       data-theme="obsidian"
       data-radius="rounded"
-      className={questrial.variable}
+      className={spaceGrotesk.variable}
       suppressHydrationWarning
     >
       <head>
@@ -144,7 +143,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${questrial.className} ${questrial.variable}`}>
+      <body className={`${spaceGrotesk.className} ${spaceGrotesk.variable}`}>
         <ThemeProvider>
           <GlobalSmoothScroll />
           <ModalProvider>

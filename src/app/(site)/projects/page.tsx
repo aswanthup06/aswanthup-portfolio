@@ -110,11 +110,11 @@ function SectionHeading({
     >
       <div>
         {kicker && (
-          <p className="mb-1 text-sm font-bold text-primary">{kicker}</p>
+          <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">{kicker}</p>
         )}
         <h2
           id={id}
-          className="text-2xl font-semibold text-text-primary md:text-3xl"
+          className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-text-primary"
         >
           {title}{" "}
           {highlight && (
@@ -486,7 +486,7 @@ export default function Projects() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen overflow-x-clip pb-16 pt-28 md:pb-20 md:pt-36">
+      <div className="relative min-h-screen overflow-x-clip pb-12 pt-28 md:pb-16 md:pt-36">
         <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
         style={{
@@ -504,12 +504,12 @@ export default function Projects() {
           <section
             id="case-studies"
             aria-labelledby="featured-heading"
-            className="mt-20 md:mt-28 scroll-mt-24"
+            className="mt-16 md:mt-24 scroll-mt-24"
           >
             <h2 id="featured-heading" className="sr-only">
               Featured case studies
             </h2>
-            <div className="space-y-16 md:space-y-24">
+            <div className="space-y-14 md:space-y-20">
               {FEATURED.map((p, i) => (
                 <FeaturedProject key={p.slug} project={p} index={i} />
               ))}
@@ -561,12 +561,12 @@ export default function Projects() {
             className="mt-16 md:mt-24 grid items-end gap-8 lg:grid-cols-[1fr_auto]"
           >
             <div className="max-w-2xl">
-              <p className="text-sm font-bold text-primary">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
                 Have a project in mind?
               </p>
               <h2
                 id="cta-heading"
-                className="mt-2 text-3xl font-bold leading-tight text-text-primary md:text-4xl"
+                className="mt-2 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-text-primary"
               >
                 Let&apos;s ship interfaces{" "}
                 <span className="text-brand-gradient">

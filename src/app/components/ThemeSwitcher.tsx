@@ -85,10 +85,10 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
             `}
           >
             <div className="px-2 py-1 mb-1 flex items-center justify-between">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-text-muted">
+              <span className="text-xs font-semibold uppercase tracking-wider text-text-muted">
                 Color Theme
               </span>
-              <span className="text-[10px] font-medium text-primary">
+              <span className="text-xs font-medium text-primary">
                 Live Preview
               </span>
             </div>
@@ -133,7 +133,7 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
                       <p className="text-xs font-semibold text-text-primary truncate">
                         {item.name}
                       </p>
-                      <p className="text-[11px] text-text-muted truncate">
+                      <p className="text-xs text-text-muted truncate">
                         {item.description}
                       </p>
                     </div>
@@ -149,10 +149,10 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
             {/* Corner Style Toggle */}
             <div className="mt-2.5 pt-2.5 border-t border-border-subtle px-1">
               <div className="px-1 mb-1.5 flex items-center justify-between">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-text-muted">
+                <span className="text-xs font-semibold uppercase tracking-wider text-text-muted">
                   Corner Style
                 </span>
-                <span className="text-[10px] text-text-caption">
+                <span className="text-xs text-text-caption">
                   {radius === "small" ? "Crisp 6px" : "Pill & Soft"}
                 </span>
               </div>

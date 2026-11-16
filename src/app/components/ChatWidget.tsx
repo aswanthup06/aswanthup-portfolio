@@ -83,7 +83,7 @@ function ActionButton({
   onNavigate: () => void;
 }) {
   const baseClass =
-    "inline-flex items-center gap-1 rounded-full border border-border-default bg-surface-card hover:border-border-accent hover:bg-primary-subtle px-2.5 py-1 text-[11px] font-medium text-text-secondary hover:text-text-primary transition-colors";
+    "inline-flex items-center gap-1 rounded-full border border-border-default bg-surface-card hover:border-border-accent hover:bg-primary-subtle px-2.5 py-1 text-xs font-medium text-text-secondary hover:text-text-primary transition-colors";
 
   if (action.actionType === "open-contact") {
     return (
@@ -606,12 +606,12 @@ export default function ChatWidget() {
               <div className="flex items-center gap-2.5 min-w-0">
                 <AssistantAvatar />
                 <div className="min-w-0">
-                  <h2 className="text-sm font-medium text-text-primary leading-tight truncate">
+                  <h2 className="text-sm font-semibold text-text-primary leading-tight truncate">
                     Ask Aswanth&apos;s AI
                   </h2>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                    <span className="text-[11px] text-text-muted truncate">
+                    <span className="text-xs text-text-muted truncate">
                       Portfolio Assistant
                     </span>
                   </div>
@@ -683,7 +683,7 @@ export default function ChatWidget() {
                   disabled={!input.trim() || isStreaming}
                   onMouseDown={(e) => e.preventDefault()}
                   aria-label="Send message"
-                  className="btn-primary h-8 w-8 shrink-0 rounded-full flex items-center justify-center text-white disabled:opacity-40 disabled:pointer-events-none"
+                  className="btn-primary h-8 w-8 shrink-0 rounded-full flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none"
                 >
                   <SendHorizontal className="h-3.5 w-3.5" />
                 </button>
@@ -731,10 +731,10 @@ export default function ChatWidget() {
               <AssistantAvatar showSparkBadge />
 
               <span className="flex flex-col min-w-[132px] sm:min-w-[144px]">
-                <span className="text-xs sm:text-[13px] font-medium leading-tight text-text-primary flex items-center gap-1.5">
+                <span className="text-xs sm:text-sm font-semibold leading-tight text-text-primary flex items-center gap-1.5">
                   <span>Aswanth.ai</span>
                 </span>
-                <span className="relative h-4 overflow-hidden text-[11px] leading-4 text-text-muted">
+                <span className="relative h-4 overflow-hidden text-xs leading-4 text-text-muted">
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.span
                       key={LAUNCHER_PROMPTS[promptIndex]}

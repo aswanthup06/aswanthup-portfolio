@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Questrial } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { motion } from "framer-motion";
 import {
   Home,
@@ -13,8 +13,7 @@ import {
 import { MdOutlineArrowOutward } from "react-icons/md";
 import "./globals.css";
 
-const questrial = Questrial({
-  weight: "400",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
 });
@@ -22,7 +21,7 @@ const questrial = Questrial({
 export default function NotFound() {
   return (
     <div
-      className={`${questrial.className} relative flex min-h-screen w-full items-center justify-center overflow-x-clip bg-background px-4 py-12 text-text-primary selection:bg-primary-subtle selection:text-primary`}
+      className={`${spaceGrotesk.className} relative flex min-h-screen w-full items-center justify-center overflow-x-clip bg-background px-4 py-12 text-text-primary selection:bg-primary-subtle selection:text-primary`}
     >
       {/* ----------------- Atmospheric Background ----------------- */}
       <div
@@ -105,7 +104,7 @@ export default function NotFound() {
         <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <Link
             href="/"
-            className="btn-primary inline-flex items-center justify-center gap-2 h-11 px-6 rounded-lg text-white text-sm font-medium transition-all duration-200 cursor-pointer active:scale-[0.98]"
+            className="btn-primary inline-flex items-center justify-center gap-2 h-11 px-6 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer active:scale-[0.98]"
           >
             <Home className="h-4 w-4" />
             <span>Return Home</span>
@@ -122,7 +121,7 @@ export default function NotFound() {
 
         {/* Quick Navigation Strip */}
         <div className="mt-8 border-t border-border-subtle pt-5">
-          <p className="text-[11px] font-medium uppercase tracking-wider text-text-caption text-center mb-3">
+          <p className="text-xs font-semibold uppercase tracking-wider text-text-caption text-center mb-3">
             Quick Navigation
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2">

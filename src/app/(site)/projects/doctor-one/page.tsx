@@ -521,7 +521,7 @@ export default function DoctorOneCaseStudy() {
         </section>
 
         {/* ---------------- SECTION 8: CLOSING CTA ---------------- */}
-        <section className="mt-16 md:mt-24 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <section className="mt-16 md:mt-24 mb-4 sm:mb-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-xl sm:text-2xl font-bold text-text-primary">
               Interested in building a healthcare or enterprise platform?

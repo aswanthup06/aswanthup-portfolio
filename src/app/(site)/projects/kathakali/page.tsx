@@ -51,7 +51,7 @@ export default function KathakaliPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-background text-text-primary pt-28 md:pt-36 pb-8 md:pb-12">
+    <div className="relative min-h-screen bg-background text-text-primary pt-28 md:pt-36 pb-4 md:pb-6">
       {/* Background Texture */}
       <div
         className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
@@ -145,7 +145,7 @@ export default function KathakaliPage() {
 
             {/* Key Design Highlights */}
             <div className="mt-8 rounded-2xl border border-border-default bg-surface-subtle p-5 sm:p-6">
-              <h2 className="text-sm font-semibold uppercase tracking-wider text-text-primary flex items-center gap-2 mb-4">
+              <h2 className="text-base sm:text-lg font-semibold tracking-tight text-text-primary flex items-center gap-2 mb-4">
                 <LuSparkles className="text-primary" />
                 Craft &amp; Execution Highlights
               </h2>

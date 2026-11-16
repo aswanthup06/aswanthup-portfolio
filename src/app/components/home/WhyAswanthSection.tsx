@@ -5,7 +5,15 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeUp, stagger, cardHover } from "../../lib/animations";
+import { fadeUp, stagger, PREMIUM_EASE } from "../../lib/animations";
+
+const smoothHover = {
+  y: -5,
+  transition: {
+    duration: 0.28,
+    ease: PREMIUM_EASE,
+  },
+};
 
 const strengths: string[] = [
   "Pixel-Perfect UI Development",
@@ -25,16 +33,16 @@ export default function WhyAswanthSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="max-w-2xl"
         >
-          <h2 className="font-bold text-sm md:text-base text-primary">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
             Why Aswanth?
-          </h2>
+          </p>
 
-          <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
+          <h2 className="text-3xl md:text-4xl text-text-primary font-semibold tracking-tight leading-tight mt-2">
             Where UI Design{" "}
             <span className="text-text-muted font-medium">
               Meets Clean Engineering
             </span>
-          </p>
+          </h2>
         </motion.div>
 
         <motion.div
@@ -42,16 +50,16 @@ export default function WhyAswanthSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
-          className="bg-gray-600/10 w-full mt-10 p-2 grid md:grid-cols-2 lg:grid-cols-3 gap-2 rounded-xl"
+          className="bg-gray-600/10 w-full mt-10 md:mt-12 p-2 grid md:grid-cols-2 lg:grid-cols-3 gap-2 rounded-xl"
         >
           <motion.div
             variants={fadeUp}
-            whileHover={{ y: -5 }}
-            className="bg-surface-card rounded-xl overflow-hidden relative h-200 sm:min-h-170 lg:h-full group"
+            whileHover={smoothHover}
+            className="bg-surface-card rounded-xl overflow-hidden relative h-200 sm:min-h-170 lg:h-full group border border-border-default hover:border-border-accent transition-colors duration-300"
           >
-            <div className="absolute inset-0 z-10 p-6 flex flex-col justify-between bg-gradient-to-b from-black/20 via-black/10 to-black/60 text-white transition-all duration-500 group-hover:backdrop-blur-sm">
+            <div className="absolute inset-0 z-10 p-6 flex flex-col justify-between bg-gradient-to-b from-black/25 via-black/15 to-black/65 text-white transition-colors duration-300">
               <div>
-                <div className="w-fit px-3 py-1 rounded-sm bg-white/10 border border-white/10 backdrop-blur-md text-[11px] tracking-[0.2em] uppercase text-white/90">
+                <div className="w-fit px-3 py-1 rounded-sm bg-white/10 border border-white/10 backdrop-blur-md text-xs font-semibold tracking-wider uppercase text-white/90">
                   Work Approach
                 </div>
 
@@ -125,19 +133,19 @@ export default function WhyAswanthSection() {
               alt="UI Development Workspace"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </motion.div>
 
           <div className="sm:min-h-170 h-190 lg:h-full grid grid-rows-[190px_1fr] gap-2">
             <motion.div
               variants={fadeUp}
-              whileHover={{ y: -5 }}
-              className="p-5 bg-surface-card rounded-xl border border-border-default flex flex-col justify-between overflow-hidden"
+              whileHover={smoothHover}
+              className="p-6 bg-surface-card rounded-xl border border-border-default hover:border-border-accent flex flex-col justify-between overflow-hidden transition-colors duration-300"
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <p className="text-xs tracking-widest uppercase text-primary font-semibold">
+                  <p className="text-xs tracking-wider uppercase text-primary font-semibold">
                     Figma To Code
                   </p>
 
@@ -159,11 +167,11 @@ export default function WhyAswanthSection() {
 
             <motion.div
               variants={fadeUp}
-              whileHover={{ y: -5 }}
-              className="rounded-xl overflow-hidden relative h-full border border-border-default"
+              whileHover={smoothHover}
+              className="rounded-xl overflow-hidden relative h-full border border-border-default hover:border-border-accent group transition-colors duration-300"
             >
-              <div className="absolute inset-0 p-5 h-full flex flex-col justify-between w-full hover:backdrop-blur-xs duration-500 z-10">
-                <div className="w-fit px-3 py-1 rounded-sm bg-white/10 backdrop-blur-md text-white text-xs tracking-widest uppercase">
+              <div className="absolute inset-0 p-5 h-full flex flex-col justify-between w-full z-10">
+                <div className="w-fit px-3 py-1 rounded-sm bg-white/10 backdrop-blur-md text-white text-xs tracking-wider uppercase font-semibold">
                   Design To Development
                 </div>
 
@@ -225,7 +233,7 @@ export default function WhyAswanthSection() {
                 alt="Figma to Frontend Development"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
             </motion.div>
           </div>
@@ -233,13 +241,13 @@ export default function WhyAswanthSection() {
           <div className="h-full grid gap-2">
             <motion.div
               variants={fadeUp}
-              whileHover={cardHover}
-              className="bg-surface-card rounded-xl p-5 border border-border-default flex flex-col justify-between"
+              whileHover={smoothHover}
+              className="bg-surface-card rounded-xl p-6 border border-border-default hover:border-border-accent flex flex-col justify-between transition-colors duration-300"
             >
               <div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs tracking-widest uppercase text-primary font-semibold">
+                    <p className="text-xs tracking-wider uppercase text-primary font-semibold">
                       Concept Redesign
                     </p>
 

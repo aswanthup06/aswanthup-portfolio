@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Questrial } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   RotateCcw,
@@ -18,8 +18,7 @@ import {
 import { MdOutlineArrowOutward } from "react-icons/md";
 import "./globals.css";
 
-const questrial = Questrial({
-  weight: "400",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
 });
@@ -57,7 +56,7 @@ export default function Error({ error, reset }: ErrorProps) {
 
   return (
     <div
-      className={`${questrial.className} relative flex min-h-screen w-full items-center justify-center overflow-x-clip bg-background px-4 py-12 text-text-primary selection:bg-primary-subtle selection:text-primary`}
+      className={`${spaceGrotesk.className} relative flex min-h-screen w-full items-center justify-center overflow-x-clip bg-background px-4 py-12 text-text-primary selection:bg-primary-subtle selection:text-primary`}
     >
       {/* ----------------- Atmospheric Background ----------------- */}
       <div
@@ -89,7 +88,7 @@ export default function Error({ error, reset }: ErrorProps) {
         initial={{ opacity: 0, y: 18, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-lg rounded-2xl border border-border-default bg-surface-card/90 p-6 shadow-xl backdrop-blur-xl sm:p-10"
+        className="relative z-10 w-full max-w-lg rounded-2xl border border-border-default bg-surface-card/90 p-6 text-center shadow-xl backdrop-blur-xl sm:p-10"
       >
         {/* Top subtle highlight border */}
         <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
@@ -106,12 +105,12 @@ export default function Error({ error, reset }: ErrorProps) {
         </div>
 
         {/* Status Beacon & Icon */}
-        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-rose-200/80 bg-rose-50/80 text-rose-600 shadow-xs ring-4 ring-rose-500/10">
-          <AlertTriangle className="h-6 w-6 text-rose-600" strokeWidth={2.2} />
+        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-rose-500/25 bg-rose-500/10 text-rose-500 shadow-xs ring-4 ring-rose-500/10">
+          <AlertTriangle className="h-6 w-6 text-rose-500 dark:text-rose-400" strokeWidth={2.2} />
         </div>
 
         <div className="flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-rose-200/70 bg-rose-50/70 px-3 py-1 text-xs font-medium text-rose-700">
+          <span className="inline-flex items-center gap-2 rounded-full border border-rose-500/25 bg-rose-500/10 px-3 py-1 text-xs font-medium text-rose-600 dark:text-rose-400">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-rose-500" />
@@ -121,11 +120,11 @@ export default function Error({ error, reset }: ErrorProps) {
         </div>
 
         {/* Headline & Description */}
-        <h1 className="mt-4 text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
+        <h1 className="mt-4 text-2xl font-bold tracking-tight text-text-primary sm:text-3xl text-center">
           Something went wrong
         </h1>
 
-        <p className="mx-auto mt-2.5 max-w-sm text-sm leading-relaxed text-text-body">
+        <p className="mx-auto mt-2.5 max-w-sm text-sm leading-relaxed text-text-body text-center">
           An unexpected error occurred while processing this interface. You can
           attempt to recover the page or return to safety.
         </p>
@@ -134,7 +133,7 @@ export default function Error({ error, reset }: ErrorProps) {
         <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <button
             onClick={() => reset()}
-            className="btn-primary inline-flex items-center justify-center gap-2 h-11 px-6 rounded-lg text-white text-sm font-medium transition-all duration-200 cursor-pointer active:scale-[0.98]"
+            className="btn-primary inline-flex items-center justify-center gap-2 h-11 px-6 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer active:scale-[0.98]"
           >
             <RotateCcw className="h-4 w-4" />
             <span>Try again</span>
@@ -219,7 +218,7 @@ export default function Error({ error, reset }: ErrorProps) {
 
         {/* Quick Navigation Strip */}
         <div className="mt-6 border-t border-border-subtle pt-5">
-          <p className="text-[11px] font-medium uppercase tracking-wider text-text-caption text-center mb-3">
+          <p className="text-xs font-semibold uppercase tracking-wider text-text-caption text-center mb-3">
             Explore Aswanth&apos;s Portfolio
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2">

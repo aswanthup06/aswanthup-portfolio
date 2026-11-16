@@ -475,7 +475,7 @@ export default function HappyERPPage() {
         </section>
 
         {/* ---------------- SECTION 8: LEARNINGS & BOTTOM CTA ---------------- */}
-        <section className="mt-16 md:mt-24">
+        <section className="mt-16 md:mt-24 mb-4 sm:mb-6">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <span className="text-xs font-semibold uppercase tracking-wider text-primary">

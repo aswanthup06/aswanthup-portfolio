@@ -92,16 +92,16 @@ const card =
 export default function About() {
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative flex flex-col items-center overflow-x-clip pb-8 md:pb-12 pt-28 md:pt-36 w-full">
+      <div className="relative flex flex-col items-center overflow-x-clip pb-12 md:pb-16 pt-28 md:pt-36 w-full">
         <div
-        className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
-        style={{
-          maskImage:
-            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
-        }}
-      />
+          className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
+          style={{
+            maskImage:
+              "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+          }}
+        />
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Hero />
@@ -139,8 +139,8 @@ function Heading({
       {...inView}
       className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}
     >
-      <p className="text-sm font-bold text-primary">{kicker}</p>
-      <h2 className="mt-2 text-3xl font-semibold leading-tight text-text-primary md:text-4xl">
+      <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">{kicker}</p>
+      <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-text-primary">
         {title}
       </h2>
       {sub && (
@@ -205,7 +205,7 @@ function Hero() {
         >
           <button
             onClick={openModal}
-            className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-2.5 text-sm font-medium transition-all duration-300"
+            className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-2.5 text-sm font-semibold transition-all duration-300"
           >
             Get in Touch
             <MdOutlineArrowOutward className="text-base" />
@@ -384,7 +384,7 @@ function Marquee() {
 
   return (
     <div
-      className="mt-24 overflow-hidden"
+      className="mt-14 md:mt-20 overflow-hidden"
       style={{ maskImage: fade, WebkitMaskImage: fade }}
       aria-label="Tools I work with"
     >
@@ -424,7 +424,7 @@ function Stats() {
     <motion.dl
       variants={container}
       {...inView}
-      className="mt-16 grid grid-cols-2 gap-y-8 border-y border-border-default py-8 lg:grid-cols-4 lg:divide-x lg:divide-border-default"
+      className="mt-14 md:mt-20 grid grid-cols-2 gap-y-8 border-y border-border-default py-8 lg:grid-cols-4 lg:divide-x lg:divide-border-default"
     >
       {STATS.map((s) => (
         <motion.div
@@ -468,10 +468,14 @@ type Chapter = {
 const KIND: Record<Kind, { label: string; chip: string; dot: string }> = {
   study: {
     label: "Study",
-    chip: "bg-violet-50 text-violet-700",
-    dot: "bg-violet-500",
+    chip: "bg-surface-muted text-text-secondary border border-border-default",
+    dot: "bg-text-muted",
   },
-  work: { label: "Work", chip: "bg-primary-subtle text-primary", dot: "bg-primary" },
+  work: {
+    label: "Work",
+    chip: "bg-primary-subtle text-primary border border-brand-border/40",
+    dot: "bg-primary",
+  },
 };
 
 const CHAPTERS: Chapter[] = [
@@ -533,14 +537,14 @@ function Story() {
   return (
     <section
       aria-labelledby="story-heading"
-      className="mt-28 grid gap-10 lg:grid-cols-[300px_1fr] lg:gap-16"
+      className="mt-16 md:mt-24 grid gap-10 lg:grid-cols-[300px_1fr] lg:gap-16"
     >
       <div className="lg:sticky lg:top-28 lg:self-start">
         <motion.div variants={item} {...inView}>
-          <p className="text-sm font-bold text-primary">My Journey</p>
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">My Journey</p>
           <h2
             id="story-heading"
-            className="mt-2 text-3xl font-semibold leading-tight text-text-primary md:text-4xl"
+            className="mt-2 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-text-primary"
           >
             From fundamentals{" "}
             <span className="font-medium text-text-muted">to production UI</span>
@@ -605,12 +609,12 @@ function Story() {
                     {c.period}
                   </span>
                   <span
-                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${KIND[c.kind].chip}`}
+                    className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${KIND[c.kind].chip}`}
                   >
                     {KIND[c.kind].label}
                   </span>
                   {c.now && (
-                    <span className="rounded-full bg-green-50 px-2 py-0.5 text-[11px] font-medium text-green-600">
+                    <span className="rounded-full bg-primary-subtle px-2.5 py-0.5 text-xs font-semibold text-primary border border-brand-border/40">
                       Now
                     </span>
                   )}
@@ -853,7 +857,7 @@ const TOOLKIT_GROUPS: ToolkitGroup[] = [
 
 function Workbench() {
   return (
-    <section aria-labelledby="workbench-heading" className="mt-28">
+    <section aria-labelledby="workbench-heading" className="mt-16 md:mt-24">
       <Heading
         kicker="Tech Stack"
         center
@@ -880,8 +884,8 @@ function Workbench() {
               }`}
           >
             {group.highlight && (
-              <div className="absolute -top-3 right-6 font-light inline-flex items-center gap-1.5 rounded-sm bg-primary px-3 py-1 text-[11px] text-white shadow-sm">
-                <Sparkles className="h-3 w-3 text-white font-light" />
+              <div className="absolute -top-3 right-6 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-0.5 text-xs font-semibold text-[var(--color-btn-primary-text,#ffffff)] shadow-sm">
+                <Sparkles className="h-3.5 w-3.5" />
                 Productivity Multiplier
               </div>
             )}
@@ -967,7 +971,7 @@ function BeyondCode() {
       variants={item}
       {...inView}
       aria-labelledby="beyond-code-heading"
-      className="mt-20"
+      className="mt-16 md:mt-20"
     >
       <div className="rounded-2xl border border-border-default bg-surface-subtle p-6 sm:p-8">
         <div className="max-w-2xl">
@@ -991,7 +995,7 @@ function BeyondCode() {
           </p>
         </div>
 
-        <div className="mt-5 pt-5 border-t border-border-default grid gap-3 sm:grid-cols-3">
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
           {EARLY_AWARDS.map((award) => (
             <div
               key={award.title}
@@ -1087,13 +1091,13 @@ function Cta() {
       <div className="relative grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
         {/* Copy */}
         <div>
-          <p className="text-sm font-bold text-primary">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
             Let’s work together
           </p>
 
           <h2
             id="cta-heading"
-            className="mt-2 text-3xl font-bold leading-tight text-text-primary md:text-5xl"
+            className="mt-2 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-[1.15] text-text-primary"
           >
             Let’s build something{" "}
             <span className="text-brand-gradient">
@@ -1110,7 +1114,7 @@ function Cta() {
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <button
               onClick={openModal}
-              className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-all duration-300"
+              className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold transition-all duration-300"
             >
               Get in Touch
               <MdOutlineArrowOutward className="text-base" />

@@ -53,18 +53,18 @@ export default function TestimonialSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="max-w-2xl mb-12"
+          className="max-w-2xl mb-10 md:mb-12"
         >
-        <h2 className="font-bold text-sm md:text-base text-primary">
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
           Testimonials
-        </h2>
+        </p>
 
-        <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
+        <h2 className="text-3xl md:text-4xl text-text-primary font-semibold tracking-tight leading-tight mt-2">
           Real Feedback{" "}
           <span className="text-text-muted font-medium">
             From Teams I Shipped With
           </span>
-        </p>
+        </h2>
       </motion.div>
 
       <motion.div

@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { motion } from "framer-motion";
-import { LIVE_SITES } from "../../data/projects";
 import { fadeUp, stagger } from "../../lib/animations";
 
 const projects = [
@@ -58,7 +57,7 @@ function FeaturedProject() {
         border
         border-border-default
         bg-surface-card
-        mt-14
+        mt-10 md:mt-12
       "
     >
       <div className="relative h-64 lg:h-full min-h-[320px] overflow-hidden">
@@ -166,7 +165,7 @@ function FeaturedProject() {
       </div>
 
       <div className="flex flex-col justify-center p-8 lg:p-10">
-        <p className="text-xs uppercase tracking-widest text-text-muted font-medium">
+        <p className="text-xs uppercase tracking-wider text-text-muted font-semibold">
           Case Study
         </p>
 
@@ -174,7 +173,7 @@ function FeaturedProject() {
           href="/projects/zenoway"
           className="inline-block w-fit mt-2 group-hover:text-primary transition-colors"
         >
-          <h3 className="text-text-primary group-hover:text-primary font-semibold text-2xl md:text-3xl transition-colors">
+          <h3 className="text-text-primary group-hover:text-primary font-semibold text-2xl md:text-3xl tracking-tight transition-colors">
             zenoway.online
           </h3>
         </Link>
@@ -283,16 +282,16 @@ export default function ProjectsSection() {
           className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6"
         >
           <div className="max-w-2xl">
-            <h2 className="font-bold text-sm md:text-base text-primary">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
               Projects
-            </h2>
+            </p>
 
-            <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
+            <h2 className="text-3xl md:text-4xl text-text-primary font-semibold tracking-tight leading-tight mt-2">
               Featured Work{" "}
               <span className="text-text-muted font-medium">
                 From Sketch to Production
               </span>
-            </p>
+            </h2>
 
             <p className="text-text-body text-sm md:text-base leading-relaxed mt-4 max-w-xl">
               Selected case studies spanning SaaS dashboards, healthcare
@@ -308,10 +307,9 @@ export default function ProjectsSection() {
               group
               btn-primary
               rounded-md
-              text-white
               h-11
               px-6
-              font-medium
+              font-semibold
               text-sm
               flex
               items-center
@@ -334,7 +332,7 @@ export default function ProjectsSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-14 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-10 md:mt-12 gap-6"
         >
           {projects.map((project, index) => (
             <motion.article
@@ -438,7 +436,7 @@ export default function ProjectsSection() {
                       href={project.link}
                       className="inline-block group-hover:text-primary transition-colors"
                     >
-                      <h3 className="text-text-primary group-hover:text-primary font-medium text-lg sm:text-xl transition-colors">
+                      <h3 className="text-text-primary group-hover:text-primary font-semibold text-lg sm:text-xl tracking-tight transition-colors">
                         {project.title}
                       </h3>
                     </Link>
@@ -451,7 +449,7 @@ export default function ProjectsSection() {
 
                 <div className="flex items-center justify-between pt-5">
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-text-muted font-medium">
+                    <p className="text-xs uppercase tracking-wider text-text-muted font-semibold">
                       {project.type}
                     </p>
 
@@ -463,58 +461,6 @@ export default function ProjectsSection() {
               </div>
             </motion.article>
           ))}
-        </motion.div>
-
-        {/* Live Client Websites Strip */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="mt-14 rounded-2xl border border-border-default bg-surface-subtle p-6"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                Production Websites
-              </p>
-              <h3 className="text-base sm:text-lg font-medium text-text-primary mt-0.5">
-                Live Client Sites
-              </h3>
-            </div>
-            <Link
-              href="/projects#websites"
-              className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1 w-fit"
-            >
-              See all projects
-              <MdOutlineArrowOutward aria-hidden="true" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {LIVE_SITES.map((site) => (
-              <a
-                key={site.slug}
-                href={site.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 rounded-xl border border-border-default bg-surface-card p-4 transition-all hover:border-primary/40 hover:shadow-md"
-              >
-                <div className="min-w-0">
-                  <p className="text-sm font-medium text-text-primary group-hover:text-primary transition-colors truncate">
-                    {site.title}
-                  </p>
-                  <p className="text-xs text-text-muted truncate mt-0.5">
-                    {site.role} · {site.tech.join(", ")}
-                  </p>
-                </div>
-                <MdOutlineArrowOutward
-                  aria-hidden="true"
-                  className="shrink-0 text-base text-text-muted group-hover:text-primary transition-colors"
-                />
-              </a>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>

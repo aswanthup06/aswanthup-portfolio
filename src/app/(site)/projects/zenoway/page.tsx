@@ -58,7 +58,7 @@ export default function ZenowayCaseStudy() {
               </div>
 
               {/* Title & Subheadline */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[48px] font-bold tracking-tight text-text-primary leading-[1.14]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text-primary leading-[1.12]">
                 Zenoway: Engineering a Zero-Friction Career Platform &amp; Design System
               </h1>
 
@@ -75,7 +75,7 @@ export default function ZenowayCaseStudy() {
                   href="https://www.zenoway.online"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-white btn-primary transition-all rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold btn-primary transition-all rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
                 >
                   Launch Live App
                   <ExternalLink size={16} />
@@ -203,7 +203,7 @@ export default function ZenowayCaseStudy() {
               <div className="w-10 h-10 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-mono font-medium text-sm">
                 01
               </div>
-              <h3 className="text-lg font-medium text-text-primary">
+              <h3 className="text-lg font-semibold tracking-tight text-text-primary">
                 Code-First Token Architecture
               </h3>
               <p className="text-sm text-text-body leading-relaxed">
@@ -215,7 +215,7 @@ export default function ZenowayCaseStudy() {
               <div className="w-10 h-10 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-mono font-medium text-sm">
                 02
               </div>
-              <h3 className="text-lg font-medium text-text-primary">
+              <h3 className="text-lg font-semibold tracking-tight text-text-primary">
                 Bespoke Component Engineering
               </h3>
               <p className="text-sm text-text-body leading-relaxed">
@@ -227,7 +227,7 @@ export default function ZenowayCaseStudy() {
               <div className="w-10 h-10 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-mono font-medium text-sm">
                 03
               </div>
-              <h3 className="text-lg font-medium text-text-primary">
+              <h3 className="text-lg font-semibold tracking-tight text-text-primary">
                 In-Browser Social Poster Studio
               </h3>
               <p className="text-sm text-text-body leading-relaxed">
@@ -1314,8 +1314,8 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 13: CLOSING CTA & NEXT PROJECT ---------------- */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="pt-16 md:pt-20 pb-6 md:pb-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="rounded-3xl border border-primary-border bg-primary-subtle/50 p-8 sm:p-12 md:p-16">
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -1336,7 +1336,7 @@ export default function ZenowayCaseStudy() {
                 href="https://www.zenoway.online"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-medium text-white btn-primary transition-all rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold btn-primary transition-all rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
               >
                 Visit zenoway.online
                 <ExternalLink size={16} />

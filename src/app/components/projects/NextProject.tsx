@@ -71,16 +71,16 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
   const featuredProjects = filtered.slice(0, 3);
 
   return (
-    <section className="w-full pt-8 md:pt-12 pb-6 md:pb-8">
+    <section className="w-full pt-10 md:pt-16 pb-4 sm:pb-6">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 md:mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-primary mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary mb-2">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span>Selected Work</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-text-primary tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-text-primary tracking-tight leading-tight">
               Explore More Projects
             </h2>
           </div>
@@ -90,10 +90,9 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
             className="
               btn-primary
               rounded-md
-              text-white
               h-10
               px-5
-              font-medium
+              font-semibold
               text-sm
               inline-flex
               items-center
@@ -130,16 +129,16 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
               {/* Card Content */}
               <div className="flex flex-col flex-1 p-5 sm:p-6 justify-between space-y-4">
                 <div className="space-y-2">
-                  <span className="text-xs font-medium text-primary">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">
                     {project.category}
                   </span>
 
-                  <h3 className="text-lg sm:text-xl font-medium text-text-primary group-hover:text-primary transition-colors flex items-center justify-between">
+                  <h3 className="text-lg sm:text-xl font-semibold text-text-primary group-hover:text-primary tracking-tight transition-colors flex items-center justify-between">
                     <span>{project.title}</span>
                     <MdOutlineArrowOutward className="text-lg text-primary opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200" />
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-text-body leading-relaxed line-clamp-2">
+                  <p className="text-sm text-text-body leading-relaxed line-clamp-2">
                     {project.description}
                   </p>
                 </div>
@@ -149,7 +148,7 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 rounded text-[11px] font-medium bg-surface-muted text-text-muted"
+                      className="px-2.5 py-0.5 rounded text-xs font-medium bg-surface-muted text-text-muted"
                     >
                       {t}
                     </span>

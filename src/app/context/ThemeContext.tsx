@@ -31,15 +31,15 @@ export const THEMES: ThemeOption[] = [
     description: "Warm alabaster & forest green",
     primary: "#059669",
     secondary: "#14b8a6",
-    surface: "#fafaf9",
+    surface: "#f0f3f1",
   },
   {
     id: "blue",
     name: "Classic Blue",
-    description: "Original crisp white & sky blue",
+    description: "Cool slate & sky blue",
     primary: "#3b82f6",
     secondary: "#06b6d4",
-    surface: "#ffffff",
+    surface: "#f1f5f9",
   },
   {
     id: "indigo",
@@ -47,7 +47,7 @@ export const THEMES: ThemeOption[] = [
     description: "Cool slate & indigo-violet",
     primary: "#4f46e5",
     secondary: "#8b5cf6",
-    surface: "#f8fafc",
+    surface: "#f0f3f9",
   },
   {
     id: "terracotta",
@@ -55,7 +55,7 @@ export const THEMES: ThemeOption[] = [
     description: "Editorial cream & burnt orange",
     primary: "#ea580c",
     secondary: "#d97706",
-    surface: "#fcf9f5",
+    surface: "#f5efe8",
   },
 ];
 
@@ -83,20 +83,30 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<ThemeId>(DEFAULT_THEME);
-  const [radius, setRadiusState] = useState<RadiusMode>(DEFAULT_RADIUS);
+  const [theme, setThemeState] = useState<ThemeId>(() => {
+    if (typeof window === "undefined") return DEFAULT_THEME;
+    try {
+      const storedTheme = localStorage.getItem(STORAGE_KEY);
+      return isValidTheme(storedTheme) ? storedTheme : DEFAULT_THEME;
+    } catch {
+      return DEFAULT_THEME;
+    }
+  });
+
+  const [radius, setRadiusState] = useState<RadiusMode>(() => {
+    if (typeof window === "undefined") return DEFAULT_RADIUS;
+    try {
+      const storedRadius = localStorage.getItem(RADIUS_STORAGE_KEY);
+      return isValidRadius(storedRadius) ? storedRadius : DEFAULT_RADIUS;
+    } catch {
+      return DEFAULT_RADIUS;
+    }
+  });
 
   useEffect(() => {
-    const storedTheme = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
-    const initialTheme = isValidTheme(storedTheme) ? storedTheme : DEFAULT_THEME;
-    setThemeState(initialTheme);
-    document.documentElement.setAttribute("data-theme", initialTheme);
-
-    const storedRadius = typeof window !== "undefined" ? localStorage.getItem(RADIUS_STORAGE_KEY) : null;
-    const initialRadius = isValidRadius(storedRadius) ? storedRadius : DEFAULT_RADIUS;
-    setRadiusState(initialRadius);
-    document.documentElement.setAttribute("data-radius", initialRadius);
-  }, []);
+    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.setAttribute("data-radius", radius);
+  }, [theme, radius]);
 
   const setTheme = (next: ThemeId) => {
     setThemeState(next);

@@ -348,7 +348,7 @@ export default function NvoccPage() {
 
         {/* ---------------- SECTION 4: CORE MODULES WALKTHROUGH ---------------- */}
         <section ref={modulesRef} className="mt-16 md:mt-24 scroll-mt-24">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               System Architecture
             </span>
@@ -525,7 +525,7 @@ export default function NvoccPage() {
         </section>
 
         {/* ---------------- SECTION 7: TECH STACK & CTA ---------------- */}
-        <section className="py-16">
+        <section className="mt-16 md:mt-24 mb-4 sm:mb-6">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               Core Technologies

@@ -32,16 +32,16 @@ export default function AboutSection() {
           className="md:flex items-end justify-between w-full"
         >
         <div>
-          <h2 className="font-medium text-sm md:text-base text-primary">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
             About Me
-          </h2>
+          </p>
 
-          <p className="text-3xl md:text-4xl text-text-primary font-semibold leading-tight mt-2">
+          <h2 className="text-3xl md:text-4xl text-text-primary font-semibold tracking-tight leading-tight mt-2">
             Design Systems,{" "}
             <span className="text-text-muted font-medium">
               Built for Real Users
             </span>
-          </p>
+          </h2>
         </div>
 
         <Link
@@ -69,7 +69,7 @@ export default function AboutSection() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-[1fr_auto_1fr] gap-5 w-full mt-12"
+        className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-[1fr_auto_1fr] gap-5 w-full mt-10 md:mt-12"
       >
         {/* Box 1 */}
         <motion.article
@@ -79,7 +79,7 @@ export default function AboutSection() {
           className="bg-surface-card lg:row-span-3 border border-border-default rounded-xl p-6 hover:shadow-xl flex flex-col justify-between duration-500"
         >
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-primary mb-4">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-4">
               Profile
             </p>
 
@@ -94,7 +94,7 @@ export default function AboutSection() {
               />
             </div>
 
-            <h3 className="text-text-primary font-medium text-lg sm:text-xl leading-tight mb-1">
+            <h3 className="text-text-primary font-semibold text-lg sm:text-xl tracking-tight leading-snug mb-1">
               Aswanth UP
             </h3>
 
@@ -136,7 +136,7 @@ export default function AboutSection() {
           className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-xl flex flex-col justify-between lg:row-span-2 h-full"
         >
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-primary">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
               Shipped Work
             </p>
 
@@ -144,7 +144,7 @@ export default function AboutSection() {
               {shippedCount}
             </span>
 
-            <h3 className="text-text-primary font-medium text-lg sm:text-xl leading-tight mt-2">
+            <h3 className="text-text-primary font-semibold text-lg sm:text-xl tracking-tight leading-snug mt-2">
               Apps &amp; Live Websites
             </h3>
           </div>
@@ -187,11 +187,11 @@ export default function AboutSection() {
           </motion.div>
 
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-primary">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
               Workflow
             </p>
 
-            <h3 className="text-text-primary font-medium text-lg sm:text-xl leading-tight mt-0.5">
+            <h3 className="text-text-primary font-semibold text-lg sm:text-xl tracking-tight leading-snug mt-0.5">
               Fast Delivery
             </h3>
 
@@ -208,11 +208,11 @@ export default function AboutSection() {
           className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-lg h-full flex flex-col justify-between"
         >
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-primary">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
               Component Architecture
             </p>
 
-            <h3 className="text-lg sm:text-xl font-medium tracking-tight text-text-primary leading-tight mt-2">
+            <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-text-primary leading-snug mt-2">
               Design Systems First
             </h3>
 
@@ -241,10 +241,10 @@ export default function AboutSection() {
         <motion.article
           variants={fadeUp}
           whileHover={{ y: -5 }}
-          className="bg-surface-card rounded-xl px-6 py-5 border border-border-default hover:shadow-xl flex flex-wrap items-center justify-between gap-4 lg:col-span-2"
+          className="bg-surface-card rounded-xl p-6 border border-border-default hover:shadow-xl flex flex-wrap items-center justify-between gap-4 lg:col-span-2"
         >
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-primary">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
               Connect
             </p>
 

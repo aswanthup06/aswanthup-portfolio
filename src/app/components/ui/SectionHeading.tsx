@@ -22,9 +22,9 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   const alignClasses = align === "center" ? "text-center mx-auto" : "text-left";
 
   return (
-    <div className={`max-w-2xl mb-14 ${alignClasses} ${className}`}>
+    <div className={`max-w-2xl mb-10 md:mb-12 ${alignClasses} ${className}`}>
       {badge && (
-        <motion.div variants={fadeUp} className="inline-block mb-3">
+        <motion.div variants={fadeUp} className="inline-block mb-2.5">
           {typeof badge === "string" ? (
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold text-primary bg-primary-subtle border border-primary-border uppercase tracking-wider">
               {badge}
@@ -37,7 +37,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
 
       <motion.h2
         variants={blurFadeUp}
-        className="text-2xl md:text-4xl font-bold tracking-tight text-text-primary leading-tight"
+        className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-text-primary leading-tight"
       >
         {title}
       </motion.h2>
@@ -45,7 +45,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       {subtitle && (
         <motion.p
           variants={fadeUp}
-          className="text-text-muted text-sm md:text-base mt-3 leading-relaxed"
+          className="text-text-body text-sm md:text-base mt-3 leading-relaxed"
         >
           {subtitle}
         </motion.p>

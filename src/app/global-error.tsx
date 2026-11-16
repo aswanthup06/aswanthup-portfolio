@@ -2,12 +2,11 @@
 
 import React, { useEffect } from "react";
 import Link from "next/link";
-import { Questrial } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { RotateCcw, Home, AlertTriangle } from "lucide-react";
 import "./globals.css";
 
-const questrial = Questrial({
-  weight: "400",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
 });
@@ -26,7 +25,7 @@ export default function GlobalError({
   return (
     <html lang="en">
       <body
-        className={`${questrial.className} relative flex min-h-screen w-full items-center justify-center overflow-x-clip bg-white px-4 py-12 text-gray-900 selection:bg-blue-100 selection:text-blue-900`}
+        className={`${spaceGrotesk.className} relative flex min-h-screen w-full items-center justify-center overflow-x-clip bg-white px-4 py-12 text-gray-900 selection:bg-blue-100 selection:text-blue-900`}
       >
         {/* Atmospheric Background */}
         <div
@@ -50,12 +49,12 @@ export default function GlobalError({
           <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
           {/* Icon */}
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-rose-200/80 bg-rose-50/80 text-rose-600 shadow-xs ring-4 ring-rose-500/10">
-            <AlertTriangle className="h-6 w-6 text-rose-600" strokeWidth={2.2} />
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-rose-500/25 bg-rose-500/10 text-rose-500 shadow-xs ring-4 ring-rose-500/10">
+            <AlertTriangle className="h-6 w-6 text-rose-500" strokeWidth={2.2} />
           </div>
 
           <div className="flex justify-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-rose-200/70 bg-rose-50/70 px-3 py-1 text-xs font-medium text-rose-700">
+            <span className="inline-flex items-center gap-2 rounded-full border border-rose-500/25 bg-rose-500/10 px-3 py-1 text-xs font-medium text-rose-600">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-rose-500" />

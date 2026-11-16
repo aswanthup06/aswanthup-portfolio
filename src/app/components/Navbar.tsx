@@ -166,7 +166,7 @@ export default function Navbar() {
   });
 
   const navLinkClass = (path: string): string =>
-    `font-medium text-[14px] transition-colors duration-200 ${
+    `font-medium text-sm transition-colors duration-200 ${
       pathname === path
         ? "text-primary font-semibold"
         : "text-text-secondary hover:text-primary"
@@ -280,7 +280,7 @@ export default function Navbar() {
               btn-primary
               rounded-md
               h-10 px-5
-              font-medium text-[14px]
+              font-semibold text-sm
               items-center gap-2 justify-center
               cursor-pointer
             "
@@ -392,7 +392,7 @@ export default function Navbar() {
                     btn-primary
                     rounded-md
                     h-10
-                    font-medium text-[14px]
+                    font-semibold text-sm
                     flex items-center gap-2 justify-center
                     cursor-pointer
                   "

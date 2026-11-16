@@ -49,7 +49,7 @@ export default function HeroSection() {
   return (
     // Respects the user's reduced-motion setting for all transform animations
     <MotionConfig reducedMotion="user">
-      <section className="relative w-full overflow-x-clip pt-28 pb-8 md:pt-36 md:pb-12">
+      <section className="relative w-full overflow-x-clip pt-28 pb-0 sm:pb-2 md:pt-36">
         <Backdrop />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
@@ -352,7 +352,7 @@ function DesignToCode() {
               strokeLinejoin="round"
             />
           </svg>
-          <span className="ml-3 -mt-0.5 inline-block rounded-md rounded-tl-none bg-primary px-1.5 py-0.5 text-[10px] font-semibold text-white">
+          <span className="ml-3 -mt-0.5 inline-block rounded-md rounded-tl-none bg-primary px-1.5 py-0.5 text-[10px] font-semibold text-[var(--color-btn-primary-text,#ffffff)]">
             Aswanth
           </span>
         </motion.div>

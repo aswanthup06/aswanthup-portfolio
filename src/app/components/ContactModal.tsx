@@ -322,7 +322,7 @@ export default function ContactModal() {
                       <button
                         type="button"
                         onClick={handleClose}
-                        className="btn-primary h-11 w-full rounded-md text-sm font-medium text-white flex items-center justify-center transition-all cursor-pointer"
+                        className="btn-primary h-11 w-full rounded-md text-sm font-semibold flex items-center justify-center transition-all cursor-pointer"
                       >
                         Done
                       </button>
@@ -345,12 +345,12 @@ export default function ContactModal() {
                   >
                     {/* Title: aligns cleanly with the top-6 right-6 close button */}
                     <div className="pr-10">
-                      <h2 className="text-2xl font-bold tracking-tight text-text-primary leading-8">
+                      <h2 className="text-2xl font-bold tracking-tight text-text-primary leading-tight">
                         Let’s connect
                       </h2>
                     </div>
 
-                    <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-text-muted">
+                    <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-text-body">
                       Have an open UI role, an enterprise project, or want to discuss design-to-code architecture? Drop a note below, or email directly at{" "}
                       <button
                         type="button"
@@ -459,11 +459,11 @@ export default function ContactModal() {
                         whileTap={{ scale: 0.98 }}
                         type="submit"
                         disabled={loading}
-                        className="btn-primary h-11 w-full rounded-md text-sm font-medium text-white flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer disabled:opacity-70"
+                        className="btn-primary h-11 w-full rounded-md text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer disabled:opacity-70"
                       >
                         {loading ? (
                           <>
-                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <div className="w-4 h-4 border-2 border-current/30 border-t-current rounded-full animate-spin" />
                             <span>Sending message...</span>
                           </>
                         ) : (

@@ -28,13 +28,13 @@ export default function ContactSection() {
           >
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div className="max-w-xl">
-                <p className="text-xs sm:text-sm font-bold text-primary uppercase tracking-wider">
+                <p className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">
                   Open to UI Developer Roles
                 </p>
 
                 <h2
                   id="home-contact-heading"
-                  className="mt-2 text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-text-primary"
+                  className="mt-2 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-text-primary"
                 >
                   Let&apos;s build clean,{" "}
                   <span className="text-text-muted font-medium">
@@ -54,7 +54,7 @@ export default function ContactSection() {
                   <button
                     type="button"
                     onClick={openModal}
-                    className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-all duration-300 cursor-pointer"
+                    className="btn-primary inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold transition-all duration-300 cursor-pointer"
                   >
                     Get in Touch
                     <MdOutlineArrowOutward aria-hidden="true" className="text-base" />

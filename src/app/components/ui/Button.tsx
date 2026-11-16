@@ -63,7 +63,7 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       className={`
         inline-flex items-center justify-center gap-2
-        ${roundedClasses} font-medium transition-colors
+        ${roundedClasses} font-semibold transition-colors
         cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed
         ${fullWidth ? "w-full" : "w-auto"}
         ${sizeClasses}
