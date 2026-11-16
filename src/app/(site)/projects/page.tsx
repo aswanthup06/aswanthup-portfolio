@@ -599,9 +599,9 @@ export default function Projects() {
           <motion.section
             {...reveal}
             aria-labelledby="cta-heading"
-            className="mt-16 md:mt-24 flex flex-col items-center text-center"
+            className="mt-16 md:mt-24 flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between"
           >
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl text-left">
               <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
                 Have a project in mind?
               </p>
@@ -620,7 +620,7 @@ export default function Projects() {
               </p>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
               <button
                 type="button"
                 onClick={openModal}
