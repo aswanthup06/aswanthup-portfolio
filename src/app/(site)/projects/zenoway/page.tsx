@@ -190,7 +190,7 @@ export default function ZenowayCaseStudy() {
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               MY CONTRIBUTION &amp; OWNERSHIP
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold tracking-tight text-text-primary mb-4">
               Design Engineering from Concept to Production.
             </h2>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
@@ -245,7 +245,7 @@ export default function ZenowayCaseStudy() {
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               THE PROBLEM &amp; INTENTIONAL UX DECISIONS
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold tracking-tight text-text-primary mb-4">
               Eliminating recruitment friction through design engineering.
             </h2>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
@@ -307,7 +307,7 @@ export default function ZenowayCaseStudy() {
                 <span>CSS-First Design Tokens</span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary">
+              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold tracking-tight text-text-primary">
                 The &ldquo;Zenoway Emerald&rdquo; Design System in Tailwind CSS v4.
               </h2>
 
@@ -414,7 +414,7 @@ export default function ZenowayCaseStudy() {
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               END-TO-END PRODUCT ARCHITECTURE
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold tracking-tight text-text-primary mb-4">
               The 5-Stage User Journey &amp; Component Ownership.
             </h2>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
@@ -434,7 +434,7 @@ export default function ZenowayCaseStudy() {
                   JobsClient.tsx
                 </span>
               </div>
-              <h4 className="text-sm font-bold text-text-primary">1. Discover</h4>
+              <h4 className="text-sm font-semibold text-text-primary">1. Discover</h4>
               <p className="text-xs text-text-body leading-relaxed">
                 Dual-pane workbench with sticky facet sidebar, combobox autocomplete, and Indian alias resolution.
               </p>
@@ -450,7 +450,7 @@ export default function ZenowayCaseStudy() {
                   Modal.tsx
                 </span>
               </div>
-              <h4 className="text-sm font-bold text-text-primary">2. Inspect</h4>
+              <h4 className="text-sm font-semibold text-text-primary">2. Inspect</h4>
               <p className="text-xs text-text-body leading-relaxed">
                 In-feed quick preview modal without page navigation, displaying compensation and regional residency requirements.
               </p>
@@ -466,7 +466,7 @@ export default function ZenowayCaseStudy() {
                   JobDetailsClient.tsx
                 </span>
               </div>
-              <h4 className="text-sm font-bold text-text-primary">3. Apply</h4>
+              <h4 className="text-sm font-semibold text-text-primary">3. Apply</h4>
               <p className="text-xs text-text-body leading-relaxed">
                 Frictionless 1-click HR email clipboard copy with tactile confirmation toast (eliminating disruptive mailto: popups).
               </p>
@@ -482,7 +482,7 @@ export default function ZenowayCaseStudy() {
                   JobFormWizard.tsx
                 </span>
               </div>
-              <h4 className="text-sm font-bold text-text-primary">4. Publish</h4>
+              <h4 className="text-sm font-semibold text-text-primary">4. Publish</h4>
               <p className="text-xs text-text-body leading-relaxed">
                 4-step progressive disclosure wizard with Gemini AI raw text importer and keyboard-driven navigation (1–4, arrows).
               </p>
@@ -498,7 +498,7 @@ export default function ZenowayCaseStudy() {
                   JobPosterCreator.tsx
                 </span>
               </div>
-              <h4 className="text-sm font-bold text-text-primary">5. Amplify</h4>
+              <h4 className="text-sm font-semibold text-text-primary">5. Amplify</h4>
               <p className="text-xs text-text-body leading-relaxed">
                 In-browser canvas graphics studio rendering 2160×2700px high-resolution social posters with dynamic vector QR codes.
               </p>
@@ -582,7 +582,7 @@ export default function ZenowayCaseStudy() {
                 <span>Screen 01: Catalog Architecture</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-primary">
                 Desktop Workbench &amp; Dual-Pane Job Catalog
               </h3>
 
@@ -629,7 +629,7 @@ export default function ZenowayCaseStudy() {
                 <span>Screen 02: Quick Preview</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-primary">
                 Zero-Friction Quick Details &amp; Role Preview Modal
               </h3>
 
@@ -746,7 +746,7 @@ export default function ZenowayCaseStudy() {
                 <span>Screen 03: Canonical Job Architecture</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-primary">
                 Dedicated Job Route &amp; Schema.org Structured Data
               </h3>
 
@@ -793,7 +793,7 @@ export default function ZenowayCaseStudy() {
                 <span>Screen 04: Employer Job Posting Suite</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-primary">
                 Multi-Step Job Creation Wizard &amp; Gemini AI Importer
               </h3>
 
@@ -884,7 +884,7 @@ export default function ZenowayCaseStudy() {
               <span>Canvas Tooling &amp; Live Studio</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold tracking-tight text-text-primary mb-4">
               Social Job Poster Creator: Live Studio &amp; Real Outputs.
             </h2>
 
@@ -997,7 +997,7 @@ export default function ZenowayCaseStudy() {
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               PLATFORM MANAGEMENT &amp; SECURITY
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold tracking-tight text-text-primary mb-4">
               Administrative Operations &amp; Moderation Workflow.
             </h2>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
@@ -1104,7 +1104,7 @@ export default function ZenowayCaseStudy() {
               <span>Verified Analytics &amp; Adoption</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold tracking-tight text-text-primary mb-4">
               Real-World Adoption &amp; Production Metrics.
             </h2>
 
@@ -1261,7 +1261,7 @@ export default function ZenowayCaseStudy() {
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               TECHNICAL INTERVIEW PREPARATION
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold tracking-tight text-text-primary mb-4">
               How I Explain Zenoway in UI Engineering Interviews.
             </h2>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
@@ -1322,7 +1322,7 @@ export default function ZenowayCaseStudy() {
               EXPLORE THE LIVE CODE
             </span>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold tracking-tight text-text-primary mb-4">
               Interested in how I engineer responsive user interfaces?
             </h2>
 
