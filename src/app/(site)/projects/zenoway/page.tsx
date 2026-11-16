@@ -46,7 +46,7 @@ export default function ZenowayCaseStudy() {
   return (
     <main className="min-h-screen bg-background text-text-primary selection:bg-primary-subtle selection:text-primary">
       {/* ---------------- SECTION 1: HERO & TECHNICAL SPECIFICATION ---------------- */}
-      <section className="relative pt-28 md:pt-36 pb-14 md:pb-20 bg-gradient-to-b from-primary-subtle/55 via-surface-subtle/40 to-background overflow-hidden border-b border-border-default">
+      <section className="relative pt-28 md:pt-36 pb-14 md:pb-20 bg-gradient-to-b from-primary-subtle/55 via-surface-subtle/40 to-background overflow-hidden">
         <div
           className="grid-bg absolute inset-x-0 top-0 h-[650px] z-0 pointer-events-none"
           style={{
@@ -103,13 +103,13 @@ export default function ZenowayCaseStudy() {
               </div>
 
               {/* Technical Spec Strip */}
-              <div className="pt-6 border-t border-border-default grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+              <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
                 <div>
                   <span className="text-text-muted uppercase tracking-wider block mb-1">
                     My Role
                   </span>
                   <span className="font-medium text-text-primary">
-                    Solo UI &amp; Frontend Engineer
+                    UI Developer &amp; Design Engineer
                   </span>
                 </div>
                 <div>
@@ -194,17 +194,17 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 2: MY ROLE & ENGINEERING OWNERSHIP ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               MY CONTRIBUTION &amp; OWNERSHIP
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
-              Solo Design Engineering from Concept to Production.
+              Design Engineering from Concept to Production.
             </h2>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
-              As the sole UI Developer and Frontend Engineer on Zenoway, I designed and built the entire user-facing product code-first. Rather than translating static mockups with visual drift, I engineered the component hierarchy, interaction states, and accessibility tokens directly in the browser.
+              As the UI Developer and creator of Zenoway, I designed and built the user interface code-first. Rather than translating static mockups with visual drift, I engineered the component hierarchy, interaction states, and accessibility tokens directly in the browser.
             </p>
           </div>
 
@@ -238,10 +238,10 @@ export default function ZenowayCaseStudy() {
                 03
               </div>
               <h3 className="text-lg font-semibold text-text-primary">
-                Canvas Graphics &amp; Edge Security
+                Canvas Graphics &amp; Social Studio
               </h3>
               <p className="text-sm text-text-body leading-relaxed">
-                Constructed an in-browser canvas poster creator (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">JobPosterCreator.tsx</code>) that generates 2160×2700px high-resolution social posters with dynamic vector QR codes, paired with Next.js Edge proxy middleware and HMAC-SHA256 session protection.
+                Constructed an in-browser canvas poster creator (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">JobPosterCreator.tsx</code>) that generates 2160×2700px high-resolution social posters with dynamic vector QR codes, asset pre-decoding, and base64 typography embedding for immediate LinkedIn and Instagram distribution.
               </p>
             </div>
           </div>
@@ -249,7 +249,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 3: THE RECRUITMENT FRICTION PROBLEM & UX DECISIONS ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
+      <section className="py-16 md:py-24 bg-surface-subtle/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -307,7 +307,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 4: DESIGN SYSTEM & TAILWIND V4 ARCHITECTURE ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left: Design System Explanation */}
@@ -417,7 +417,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 5: THE 5-STAGE USER JOURNEY & COMPONENT OWNERSHIP ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -547,7 +547,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 6: SCREEN 1 - DUAL-PANE DESKTOP WORKBENCH (/jobs) ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
+      <section className="py-16 md:py-24 bg-surface-subtle/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Visual Figure matching live-jobs-catalog.png */}
@@ -628,7 +628,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 6: SCREEN 2 - INTERACTIVE ROLE PREVIEW MODAL ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Description */}
@@ -711,7 +711,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 7: SCREEN 3 - CANONICAL SEO & STRUCTURED DETAILS ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
+      <section className="py-16 md:py-24 bg-surface-subtle/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Visual Figure matching live-job-detail.png */}
@@ -792,7 +792,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 8: SCREEN 4 - JOB ADDING FLOW & AI WIZARD ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Description */}
@@ -885,7 +885,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 9: SOCIAL POSTER CREATOR WORKSPACE & OUTPUTS ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
+      <section className="py-16 md:py-24 bg-surface-subtle/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-3">
@@ -1000,19 +1000,18 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 10: ADMIN OPERATIONS & SECURITY ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-16 md:py-24">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               PLATFORM MANAGEMENT &amp; SECURITY
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
-              Administrative Suite &amp; Edge Security.
+              Administrative Operations &amp; Moderation Workflow.
             </h2>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
-              To maintain listing quality and manage employer submissions safely, I built a comprehensive
-              admin suite protected by Next.js 16 Edge proxy middleware (<code className="text-xs bg-surface-muted px-1.5 py-0.5 rounded text-primary font-mono">src/proxy.ts</code>)
-              and cryptographic HMAC-SHA256 session tokens.
+              To maintain high listing quality and curate employer submissions before publication, I engineered a responsive
+              administrative moderation interface with status filtering, review queues, and instant social poster generation.
             </p>
           </div>
 
@@ -1106,7 +1105,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 11: VERIFIED PRODUCTION IMPACT & REAL-WORLD TRAFFIC ---------------- */}
-      <section className="py-16 md:py-24 bg-surface-subtle/70 border-b border-border-default">
+      <section className="py-16 md:py-24 bg-surface-subtle/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-3">
@@ -1123,42 +1122,75 @@ export default function ZenowayCaseStudy() {
             </p>
           </div>
 
-          {/* Metric Highlights Banner */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-1">
-              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">Real-Time Concurrency</span>
-              <div className="text-2xl sm:text-3xl font-bold text-primary flex items-baseline gap-2">
-                <span>128</span>
-                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">peak live</span>
+          {/* Metric Highlights Strip */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-14">
+            <div className="space-y-2">
+              <span className="text-xs font-semibold text-text-muted uppercase tracking-wider block">
+                Real-Time Concurrency
+              </span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
+                  128
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-500/10 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  peak live
+                </span>
               </div>
-              <p className="text-xs text-text-body">Active candidates exploring live jobs simultaneously</p>
+              <p className="text-xs text-text-body leading-relaxed">
+                Active candidates exploring live jobs simultaneously
+              </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-1">
-              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">24h Page Views</span>
-              <div className="text-2xl sm:text-3xl font-bold text-text-primary flex items-baseline gap-2">
-                <span>654</span>
-                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">+91%</span>
+            <div className="space-y-2">
+              <span className="text-xs font-semibold text-text-muted uppercase tracking-wider block">
+                24h Page Views
+              </span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
+                  654
+                </span>
+                <span className="inline-flex items-center text-[11px] font-semibold text-emerald-700 bg-emerald-500/10 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                  +91%
+                </span>
               </div>
-              <p className="text-xs text-text-body">High catalog browsing depth across design roles</p>
+              <p className="text-xs text-text-body leading-relaxed">
+                High catalog browsing depth across design roles
+              </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-1">
-              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">Unique Visitors</span>
-              <div className="text-2xl sm:text-3xl font-bold text-text-primary flex items-baseline gap-2">
-                <span>306</span>
-                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">+132%</span>
+            <div className="space-y-2">
+              <span className="text-xs font-semibold text-text-muted uppercase tracking-wider block">
+                Unique Visitors
+              </span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
+                  306
+                </span>
+                <span className="inline-flex items-center text-[11px] font-semibold text-emerald-700 bg-emerald-500/10 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                  +132%
+                </span>
               </div>
-              <p className="text-xs text-text-body">Organic discovery surge from LinkedIn &amp; Search</p>
+              <p className="text-xs text-text-body leading-relaxed">
+                Organic discovery surge from LinkedIn &amp; Search
+              </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-border-default bg-surface-card space-y-1">
-              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">Organic Reach</span>
-              <div className="text-2xl sm:text-3xl font-bold text-text-primary flex items-baseline gap-2">
-                <span>10+</span>
-                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">metro hubs</span>
+            <div className="space-y-2">
+              <span className="text-xs font-semibold text-text-muted uppercase tracking-wider block">
+                Organic Reach
+              </span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
+                  10+
+                </span>
+                <span className="inline-flex items-center text-[11px] font-semibold text-emerald-700 bg-emerald-500/10 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                  metro hubs
+                </span>
               </div>
-              <p className="text-xs text-text-body">Bengaluru, Mumbai, Pune, Kerala, Jaipur, Lucknow</p>
+              <p className="text-xs text-text-body leading-relaxed">
+                Bengaluru, Mumbai, Pune, Kerala, Jaipur, Lucknow
+              </p>
             </div>
           </div>
 
@@ -1232,7 +1264,7 @@ export default function ZenowayCaseStudy() {
       </section>
 
       {/* ---------------- SECTION 12: TECHNICAL INTERVIEW DEFENSE TALKING POINTS ---------------- */}
-      <section className="py-16 md:py-24 border-b border-border-default">
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
