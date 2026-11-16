@@ -6,37 +6,7 @@ import { useContactModal } from "../../context/ContactModalContext";
 import { motion } from "framer-motion";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { fadeUp, stagger } from "../../lib/animations";
-
-interface Testimonial {
-  avatar: string;
-  quote: string;
-  name: string;
-  role: string;
-}
-
-const testimonials: Testimonial[] = [
-  {
-    avatar: "/images/testimonials/gokul.webp",
-    quote:
-      "As a co-founder, I’ve had the opportunity to work closely with Aswanth on multiple projects, and his contribution has always been exceptional. He has a strong eye for UI/UX, excellent frontend development skills, and a deep understanding of creating modern, user-friendly digital experiences. What impressed me most was his dedication, creativity, and ability to turn ideas into polished products with precision. He consistently brings professionalism, clear communication, and a problem-solving mindset to every project. Any team would benefit from having someone as talented and committed as Aswanth.",
-    name: "Gokul Hari",
-    role: "Co-Founder of Chaavie Solutions",
-  },
-  {
-    avatar: "/images/testimonials/musthafa.webp",
-    quote:
-      "Working with Aswanth has been a great experience. His UI/UX skills, creative thinking, and development knowledge help transform ideas into practical and user-friendly digital products. He has a professional approach and consistently delivers quality results.",
-    name: "Mohamad Musthafa",
-    role: "Managing Director at G tec Kunnumpuram",
-  },
-  {
-    avatar: "/images/testimonials/bav.webp",
-    quote:
-      "An exceptional UI developer who consistently delivered clean, modern, and user-friendly designs. His attention to detail, creativity, and understanding of user experience greatly improved the quality of projects. As a full-stack developer, working with him made development smoother and the final product much more polished and professional.",
-    name: "Bhavana Raj",
-    role: "MERN Stack Developer at Chaavie Solutions",
-  },
-];
+import { TESTIMONIALS } from "../../data/testimonials";
 
 export default function TestimonialSection() {
   const { openModal } = useContactModal();
@@ -161,7 +131,7 @@ export default function TestimonialSection() {
           <div className="pt-8">
             <div className="mb-6 border-t border-white/10 pt-5">
               <p className="text-base font-semibold text-white">
-                {testimonials.length} recommendations
+                {TESTIMONIALS.length} recommendations
               </p>
 
               <p className="text-xs text-gray-400 mt-1">
@@ -209,7 +179,7 @@ export default function TestimonialSection() {
           transition={{ duration: 0.25 }}
           className="lg:col-span-2"
         >
-          <TestimonialCard testimonial={testimonials[0]} />
+          <TestimonialCard testimonial={TESTIMONIALS[0]} />
         </motion.div>
 
         <motion.div
@@ -218,7 +188,7 @@ export default function TestimonialSection() {
           transition={{ duration: 0.25 }}
           className="h-full"
         >
-          <TestimonialCard testimonial={testimonials[1]} />
+          <TestimonialCard testimonial={TESTIMONIALS[1]} />
         </motion.div>
 
         <motion.div
@@ -227,7 +197,7 @@ export default function TestimonialSection() {
           transition={{ duration: 0.25 }}
           className="h-full"
         >
-          <TestimonialCard testimonial={testimonials[2]} />
+          <TestimonialCard testimonial={TESTIMONIALS[2]} />
         </motion.div>
       </motion.div>
       </div>

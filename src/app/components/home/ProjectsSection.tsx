@@ -5,39 +5,11 @@ import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "../../lib/animations";
+import { PROJECTS } from "../../data/projects";
 
-const projects = [
-  {
-    title: "Happy ERP",
-    description:
-      "Enterprise ERP system built to replace spreadsheet workflows with structured inventory tables, order flows, and real-time operational views.",
-    image: "/images/projects/happy-erp/happy-erp-hero.webp",
-    link: "/projects/happy-erp",
-    tech: ["React", "ERP", "Dashboard"],
-    type: "Chaavie Solutions · Dashboard & Website",
-    role: "UI Design & UI Development",
-  },
-  {
-    title: "NVOCC",
-    description:
-      "Ocean freight and vessel logistics platform featuring export, import, and container maintenance dashboards translated directly from Figma.",
-    image: "/images/projects/nvocc/nvocc-hero.webp",
-    link: "/projects/nvocc",
-    tech: ["React", "Next.js", "Tailwind"],
-    type: "6solve (via Chaavie) · Dashboard",
-    role: "UI Development",
-  },
-  {
-    title: "Doctor One",
-    description:
-      "Healthcare consultation and clinic management platform designed for clear patient scheduling, prescription access, and mobile booking.",
-    image: "/images/projects/doctor-one/dr1.webp",
-    link: "/projects/doctor-one",
-    tech: ["Healthcare", "Next.js", "UI UX"],
-    type: "Chaavie Solutions · Dashboard & Website",
-    role: "UI Design & UI Development",
-  },
-];
+const caseStudyGrid = PROJECTS.filter(
+  (p) => p.slug !== "/projects/zenoway" && p.featured
+);
 
 function FeaturedProject() {
   return (
@@ -123,8 +95,6 @@ function FeaturedProject() {
             py-2
             rounded-md
             bg-white/10
-            border
-            border-white/25
             backdrop-blur-xl
             shadow-[0_4px_24px_rgba(0,0,0,0.15)]
             flex
@@ -193,8 +163,6 @@ function FeaturedProject() {
                 py-1
                 rounded-md
                 bg-surface-muted
-                border
-                border-border-default
                 text-xs
                 text-text-secondary
                 tracking-wide
@@ -214,8 +182,6 @@ function FeaturedProject() {
                 py-1
                 rounded-md
                 bg-primary-subtle
-                border
-                border-primary-border
                 text-xs
                 text-primary
                 tracking-wide
@@ -334,9 +300,9 @@ export default function ProjectsSection() {
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-10 md:mt-12 gap-6"
         >
-          {projects.map((project, index) => (
+          {caseStudyGrid.map((project) => (
             <motion.article
-              key={index}
+              key={project.slug}
               variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ duration: 0.25 }}
@@ -359,7 +325,7 @@ export default function ProjectsSection() {
                   className="overflow-hidden rounded-xl relative border border-border-default"
                 >
                   <Link
-                    href={project.link}
+                    href={project.slug}
                     aria-label={`View ${project.title} project`}
                     className="block relative cursor-pointer"
                   >
@@ -405,7 +371,7 @@ export default function ProjectsSection() {
                   </div>
 
                   <Link
-                    href={project.link}
+                    href={project.slug}
                     aria-label={`View ${project.title} project`}
                     className="
                       absolute
@@ -433,7 +399,7 @@ export default function ProjectsSection() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <Link
-                      href={project.link}
+                      href={project.slug}
                       className="inline-block group-hover:text-primary transition-colors"
                     >
                       <h3 className="text-text-primary group-hover:text-primary font-semibold text-lg sm:text-xl tracking-tight transition-colors">

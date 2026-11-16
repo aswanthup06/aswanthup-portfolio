@@ -1,6 +1,5 @@
-"use client";
-
-import React, { useRef } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   LuPackage,
@@ -16,18 +15,20 @@ import {
   LuClock,
   LuUserCheck,
 } from "react-icons/lu";
-import { useContactModal } from "../../../context/ContactModalContext";
+import { createPageMetadata } from "../../../lib/siteMetadata";
 import NextProject from "../../../components/projects/NextProject";
 import ProjectHeroMeta from "../../../components/projects/ProjectHeroMeta";
+import ContactModalButton from "../../../components/ui/ContactModalButton";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Happy ERP — Enterprise Management Platform",
+  description:
+    "Enterprise ERP system built to replace spreadsheet workflows with structured inventory tables, order flows, and real-time operational views.",
+  path: "/projects/happy-erp",
+  image: "https://www.aswanthup.online/images/projects/happy-erp/happy-erp-hero.webp",
+});
 
 export default function HappyERPPage() {
-  const { openModal } = useContactModal();
-  const galleryRef = useRef<HTMLDivElement>(null);
-
-  const scrollToGallery = () => {
-    galleryRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const projectMeta = [
     { label: "Timeline", value: "3 Months", icon: LuClock },
     { label: "Role", value: "UI Design & UI Development", icon: LuUserCheck },
@@ -165,22 +166,21 @@ export default function HappyERPPage() {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <button
-                type="button"
-                onClick={scrollToGallery}
+              <a
+                href="#gallery"
                 className="btn-primary inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-medium whitespace-nowrap transition-all duration-300"
               >
                 <LuPlay className="text-xs shrink-0" />
                 <span>Explore Platform Screens</span>
-              </button>
+              </a>
 
-              <button
-                type="button"
-                onClick={openModal}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 text-sm font-medium text-text-primary whitespace-nowrap hover:border-border-accent hover:bg-surface-muted transition-colors"
+              <ContactModalButton
+                variant="secondary"
+                showIcon={false}
+                className="h-11 px-5 whitespace-nowrap hover:border-border-accent"
               >
-                <span>Discuss Similar Project</span>
-              </button>
+                Discuss Similar Project
+              </ContactModalButton>
             </div>
           </div>
 
@@ -362,7 +362,7 @@ export default function HappyERPPage() {
         </section>
 
         {/* ---------------- SECTION 6: SCREEN GALLERY (WALKTHROUGH) ---------------- */}
-        <section ref={galleryRef} className="mt-16 md:mt-24 scroll-mt-24">
+        <section id="gallery" className="mt-16 md:mt-24 scroll-mt-24">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               Visual Walkthrough

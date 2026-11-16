@@ -1,33 +1,18 @@
 "use client";
 
-import { useState } from "react";
 import { motion, MotionConfig } from "framer-motion";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaDownload, FaEnvelope, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { Check } from "lucide-react";
 import { useContactModal } from "../../context/ContactModalContext";
+import { useClipboard } from "../../hooks/useClipboard";
 import { fadeUp } from "../../lib/animations";
-
-const EMAIL = "aswanthup06@gmail.com";
+import { SITE_CONFIG } from "../../data/site";
+import { Container } from "../ui/Container";
 
 export default function ContactSection() {
   const { openModal } = useContactModal();
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(EMAIL);
-    } catch {
-      const textarea = document.createElement("textarea");
-      textarea.value = EMAIL;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-    }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const { copied, copy } = useClipboard();
 
   return (
     <MotionConfig reducedMotion="user">
@@ -36,7 +21,7 @@ export default function ContactSection() {
         aria-labelledby="home-contact-heading"
         className="w-full"
       >
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container>
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -79,7 +64,7 @@ export default function ContactSection() {
                   </button>
 
                   <a
-                    href="/Aswanth_UP_Resume.pdf"
+                    href={SITE_CONFIG.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     download="Aswanth_UP_Resume.pdf"
@@ -93,7 +78,7 @@ export default function ContactSection() {
                 <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-text-muted">
                   <button
                     type="button"
-                    onClick={copyEmail}
+                    onClick={() => copy(SITE_CONFIG.email)}
                     className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer"
                     aria-label="Copy email address"
                   >
@@ -105,13 +90,13 @@ export default function ContactSection() {
                     ) : (
                       <>
                         <FaEnvelope aria-hidden="true" />
-                        <span>{EMAIL}</span>
+                        <span>{SITE_CONFIG.email}</span>
                       </>
                     )}
                   </button>
                   <span aria-hidden="true" className="text-border-strong">·</span>
                   <a
-                    href="https://github.com/aswanthup06"
+                    href={SITE_CONFIG.socials.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
@@ -121,7 +106,7 @@ export default function ContactSection() {
                   </a>
                   <span aria-hidden="true" className="text-border-strong">·</span>
                   <a
-                    href="https://www.linkedin.com/in/aswanthup/"
+                    href={SITE_CONFIG.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
@@ -133,7 +118,7 @@ export default function ContactSection() {
               </div>
             </div>
           </motion.div>
-        </div>
+        </Container>
       </section>
     </MotionConfig>
   );

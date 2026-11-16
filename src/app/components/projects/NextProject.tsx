@@ -1,74 +1,15 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import { getTopProjects } from "../../data/projects";
 
-export type ProjectItem = {
-  slug: string;
-  title: string;
-  category: string;
-  role: string;
-  tech: string[];
-  image: string;
-  href: string;
-  description: string;
-};
+export interface NextProjectProps {
+  currentSlug: string;
+}
 
-export const TOP_PROJECTS: ProjectItem[] = [
-  {
-    slug: "zenoway",
-    title: "Zenoway",
-    category: "Career Platform · UI/UX",
-    role: "Founder · Design & UI Development",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
-    image: "/images/projects/zenoway/zenoway-mock.webp",
-    href: "/projects/zenoway",
-    description:
-      "Direct job discovery platform with zero forced logins and direct employer application routes.",
-  },
-  {
-    slug: "happy-erp",
-    title: "Happy ERP",
-    category: "Enterprise Dashboard System",
-    role: "UI Design & UI Development",
-    tech: ["React", "Dashboard", "ERP"],
-    image: "/images/projects/happy-erp/happy-erp-hero.webp",
-    href: "/projects/happy-erp",
-    description:
-      "Complete enterprise ERP platform streamlining inventory, orders, and real-time operations.",
-  },
-  {
-    slug: "nvocc",
-    title: "NVOCC",
-    category: "Logistics & Vessel Management",
-    role: "UI Development",
-    tech: ["React", "Next.js", "Tailwind CSS"],
-    image: "/images/projects/nvocc/nvocc-hero.webp",
-    href: "/projects/nvocc",
-    description:
-      "Enterprise shipping and container logistics management system for tracking and port operations.",
-  },
-  {
-    slug: "doctor-one",
-    title: "Doctor One",
-    category: "Healthcare Platform & Dashboard",
-    role: "UI Design & UI Development",
-    tech: ["Healthcare", "Next.js", "UI UX"],
-    image: "/images/projects/doctor-one/dr1.webp",
-    href: "/projects/doctor-one",
-    description:
-      "Modern clinical scheduling and patient management interface designed for effortless medical workflows.",
-  },
-];
-
-export default function NextProject({ currentSlug }: { currentSlug: string }) {
-  // Filter out the currently active project and take top 3
-  const filtered = TOP_PROJECTS.filter(
-    (p) => p.slug.toLowerCase() !== currentSlug.toLowerCase()
-  );
-  const featuredProjects = filtered.slice(0, 3);
+export default function NextProject({ currentSlug }: NextProjectProps) {
+  const featuredProjects = getTopProjects(currentSlug, 3);
 
   return (
     <section className="w-full pt-10 md:pt-16 pb-4 sm:pb-6">
@@ -112,7 +53,7 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
           {featuredProjects.map((project) => (
             <Link
               key={project.slug}
-              href={project.href}
+              href={project.href || project.slug}
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-border-default bg-surface-card hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1"
             >
               {/* Thumbnail */}
@@ -130,7 +71,7 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
               <div className="flex flex-col flex-1 p-5 sm:p-6 justify-between space-y-4">
                 <div className="space-y-2">
                   <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                    {project.category}
+                    {project.type || project.category.join(" · ")}
                   </span>
 
                   <h3 className="text-lg sm:text-xl font-semibold text-text-primary group-hover:text-primary tracking-tight transition-colors flex items-center justify-between">
@@ -139,7 +80,7 @@ export default function NextProject({ currentSlug }: { currentSlug: string }) {
                   </h3>
 
                   <p className="text-sm text-text-body leading-relaxed line-clamp-2">
-                    {project.description}
+                    {project.description || project.summary}
                   </p>
                 </div>
 

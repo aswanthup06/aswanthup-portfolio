@@ -8,6 +8,8 @@ import { MdOutlinePhone, MdOutlineArrowOutward } from "react-icons/md";
 import { LuMailCheck } from "react-icons/lu";
 import { BsWhatsapp } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
+import { copyToClipboard } from "../lib/clipboard";
+import { SITE_CONFIG } from "../data/site";
 
 interface FormErrors {
   name?: string;
@@ -157,24 +159,14 @@ export default function ContactModal() {
     }
   };
 
-  const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch {
-      const textarea = document.createElement("textarea");
-
-      textarea.value = text;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
+  const handleCopy = async (text: string) => {
+    const success = await copyToClipboard(text);
+    if (success) {
+      setCopiedEmail(true);
+      setTimeout(() => {
+        setCopiedEmail(false);
+      }, 2000);
     }
-
-    setCopiedEmail(true);
-
-    setTimeout(() => {
-      setCopiedEmail(false);
-    }, 2000);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -354,10 +346,10 @@ export default function ContactModal() {
                       Have an open UI role, an enterprise project, or want to discuss design-to-code architecture? Drop a note below, or email directly at{" "}
                       <button
                         type="button"
-                        onClick={() => copyToClipboard("aswanthup06@gmail.com")}
+                        onClick={() => handleCopy(SITE_CONFIG.email)}
                         className="font-semibold text-primary hover:text-primary-hover hover:underline transition-colors cursor-pointer"
                       >
-                        aswanthup06@gmail.com
+                        {SITE_CONFIG.email}
                       </button>
                       .
                     </p>
@@ -501,7 +493,7 @@ export default function ContactModal() {
                   <span className="text-border-default">·</span>
                   <button
                     type="button"
-                    onClick={() => copyToClipboard("aswanthup06@gmail.com")}
+                    onClick={() => handleCopy(SITE_CONFIG.email)}
                     aria-label="Copy email address"
                     className={`inline-flex items-center gap-1.5 transition-colors font-medium cursor-pointer ${
                       copiedEmail ? "text-primary font-semibold" : "text-text-secondary hover:text-primary"

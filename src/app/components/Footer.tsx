@@ -6,6 +6,9 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { BsGlobe } from "react-icons/bs";
 import { motion, MotionConfig, type Variants } from "framer-motion";
+import { SITE_CONFIG } from "../data/site";
+import { FEATURED } from "../data/projects";
+import { Container } from "./ui/Container";
 
 const containerVariants: Variants = {
   hidden: {
@@ -50,7 +53,7 @@ export default function Footer() {
   return (
     <MotionConfig reducedMotion="user">
       <footer className="relative w-full pt-8 md:pt-12 pb-8 md:pb-12">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container>
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -159,7 +162,7 @@ export default function Footer() {
 
                       <li>
                         <a
-                          href="/Aswanth_UP_Resume.pdf"
+                          href={SITE_CONFIG.resumeUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           download="Aswanth_UP_Resume.pdf"
@@ -177,38 +180,16 @@ export default function Footer() {
                     </h3>
 
                     <ul className="space-y-4 mt-5 text-sm">
-                      <li>
-                        <Link
-                          href="/projects/zenoway"
-                          className="text-text-muted hover:text-primary transition"
-                        >
-                          Zenoway
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/projects/happy-erp"
-                          className="text-text-muted hover:text-primary transition"
-                        >
-                          Happy ERP
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/projects/nvocc"
-                          className="text-text-muted hover:text-primary transition"
-                        >
-                          NVOCC
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/projects/doctor-one"
-                          className="text-text-muted hover:text-primary transition"
-                        >
-                          Doctor One
-                        </Link>
-                      </li>
+                      {FEATURED.map((p) => (
+                        <li key={p.slug}>
+                          <Link
+                            href={p.slug}
+                            className="text-text-muted hover:text-primary transition"
+                          >
+                            {p.title}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </motion.div>
 
@@ -226,7 +207,7 @@ export default function Footer() {
                         whileTap={{
                           scale: 0.9,
                         }}
-                        href="https://github.com/aswanthup06"
+                        href={SITE_CONFIG.socials.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="GitHub Profile"
@@ -255,7 +236,7 @@ export default function Footer() {
                         whileTap={{
                           scale: 0.9,
                         }}
-                        href="https://www.linkedin.com/in/aswanthup/"
+                        href={SITE_CONFIG.socials.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn Profile"
@@ -284,7 +265,7 @@ export default function Footer() {
                         whileTap={{
                           scale: 0.9,
                         }}
-                        href="https://wa.me/917559068970"
+                        href={SITE_CONFIG.socials.whatsapp}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="WhatsApp Contact"
@@ -332,7 +313,7 @@ export default function Footer() {
               </motion.div>
             </motion.div>
           </motion.div>
-        </div>
+        </Container>
       </footer>
     </MotionConfig>
   );

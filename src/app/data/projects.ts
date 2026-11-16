@@ -1,36 +1,23 @@
-export type ProjectKind = "case-study" | "live" | "design";
+import type { Project, ProjectKind, ProjectMetaItem } from "@/types";
 
-export type Project = {
-  title: string;
-  /** Internal route. For live sites, just a unique id. */
-  slug: string;
-  /** External URL. If set, the card opens in a new tab. */
-  href?: string;
-  kind: ProjectKind;
-  featured?: boolean;
-  /** What you did on it. */
-  role: string;
-  /** One-line project summary. */
-  summary: string;
-  category: string[];
-  image: string;
-  tech: string[];
-};
+export type { Project, ProjectKind, ProjectMetaItem };
 
 export const PROJECTS: Project[] = [
   // ---------- Featured case studies ----------
-
   {
-    title: "ZENOWAY",
+    title: "Zenoway",
     slug: "/projects/zenoway",
     kind: "case-study",
     featured: true,
     role: "Founder · Design & UI Development",
     summary:
       "My own job portal, built end to end by myself, from product idea and UI/UX design to the live site.",
+    description:
+      "A career portal that skips accounts and application forms in favor of one action — a direct email to HR. Designed and built end to end, from job discovery through the admin dashboard.",
     category: ["Web Application", "UI Design"],
     image: "/images/projects/zenoway/zenoway-mock.webp",
     tech: ["NextJS", "Tailwind CSS"],
+    type: "Own Project · Career Platform",
   },
   {
     title: "Happy ERP",
@@ -40,9 +27,12 @@ export const PROJECTS: Project[] = [
     role: "UI Design & UI Development",
     summary:
       "An ERP platform for toy businesses covering inventory, orders and billing in one place.",
+    description:
+      "Enterprise ERP system built to replace spreadsheet workflows with structured inventory tables, order flows, and real-time operational views.",
     category: ["Web Application", "UI Design"],
     image: "/images/projects/happy-erp/happy-erp-hero.webp",
     tech: ["ReactJS", "Bootstrap 5"],
+    type: "Chaavie Solutions · Dashboard & Website",
   },
   {
     title: "NVOCC",
@@ -52,9 +42,12 @@ export const PROJECTS: Project[] = [
     role: "UI Development",
     summary:
       "A modern logistics and shipping management platform engineered for intuitive tracking and container operations.",
+    description:
+      "Ocean freight and vessel logistics platform featuring export, import, and container maintenance dashboards translated directly from Figma.",
     category: ["Web Application"],
     image: "/images/projects/nvocc/nvocc-hero.webp",
     tech: ["NextJS", "Tailwind CSS"],
+    type: "6solve (via Chaavie) · Dashboard",
   },
   {
     title: "Doctor One",
@@ -64,9 +57,12 @@ export const PROJECTS: Project[] = [
     role: "UI Design & UI Development",
     summary:
       "A healthcare-focused digital platform simplifying patient interactions, appointments, and medical record accessibility.",
+    description:
+      "Healthcare consultation and clinic management platform designed for clear patient scheduling, prescription access, and mobile booking.",
     category: ["Web Application", "UI Design"],
-    image: "/images/projects/doctor-one/doctor.webp",
+    image: "/images/projects/doctor-one/dr1.webp",
     tech: ["ReactJS", "Tailwind CSS"],
+    type: "Chaavie Solutions · Dashboard & Website",
   },
 
   // ---------- Live client sites ----------
@@ -166,6 +162,17 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-export const FEATURED = PROJECTS.filter((p) => p.featured);
-export const LIVE_SITES = PROJECTS.filter((p) => p.kind === "live");
-export const DESIGN_WORK = PROJECTS.filter((p) => p.kind === "design");
+export const FEATURED: Project[] = PROJECTS.filter((p) => p.featured);
+export const LIVE_SITES: Project[] = PROJECTS.filter((p) => p.kind === "live");
+export const DESIGN_WORK: Project[] = PROJECTS.filter((p) => p.kind === "design");
+
+/**
+ * Filter out the currently active project and return the top N featured projects.
+ */
+export function getTopProjects(currentSlug?: string, limit: number = 3): Project[] {
+  const normalizedCurrent = currentSlug?.toLowerCase().replace(/^\/projects\//, "");
+  return FEATURED.filter((p) => {
+    const slugWithoutPrefix = p.slug.toLowerCase().replace(/^\/projects\//, "");
+    return slugWithoutPrefix !== normalizedCurrent;
+  }).slice(0, limit);
+}

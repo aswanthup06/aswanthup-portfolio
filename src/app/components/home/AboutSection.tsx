@@ -154,7 +154,7 @@ export default function AboutSection() {
               <span className="px-2.5 py-1 rounded-md bg-primary-subtle text-primary text-xs font-medium">
                 {FEATURED.length} Case Studies
               </span>
-              <span className="px-2.5 py-1 rounded-md bg-surface-muted text-text-secondary text-xs font-medium">
+              <span className="px-2.5 py-1 rounded-md bg-surface-muted text-text-body text-xs font-medium">
                 {LIVE_SITES.length} Live Client Sites
               </span>
             </div>
@@ -181,7 +181,7 @@ export default function AboutSection() {
               repeat: Infinity,
               repeatDelay: 2,
             }}
-            className="w-10 h-10 shrink-0 rounded-xl bg-primary-subtle text-primary border border-primary-border flex items-center justify-center font-bold text-sm"
+            className="w-10 h-10 shrink-0 rounded-xl bg-primary-subtle text-primary flex items-center justify-center font-bold text-sm"
           >
             ⚡
           </motion.div>
@@ -223,12 +223,12 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className="mt-6 pt-5 border-t border-border-default">
+          <div className="mt-6">
             <div className="flex flex-wrap gap-2">
               {["Design Tokens", "Reusable Components", "Tailwind CSS"].map((item) => (
                 <span
                   key={item}
-                  className="px-2.5 py-1 rounded-md bg-primary-subtle text-primary border border-primary-border/40 text-xs font-medium"
+                  className="px-2.5 py-1 rounded-md bg-primary-subtle text-primary text-xs font-medium"
                 >
                   {item}
                 </span>

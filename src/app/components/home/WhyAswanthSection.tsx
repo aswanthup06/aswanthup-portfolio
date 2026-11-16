@@ -55,7 +55,7 @@ export default function WhyAswanthSection() {
           <motion.div
             variants={fadeUp}
             whileHover={smoothHover}
-            className="bg-surface-card rounded-xl overflow-hidden relative h-200 sm:min-h-170 lg:h-full group border border-border-default hover:border-border-accent transition-colors duration-300"
+            className="bg-surface-card rounded-xl overflow-hidden relative h-200 sm:min-h-170 lg:h-full group border border-border-default"
           >
             <div className="absolute inset-0 z-10 p-6 flex flex-col justify-between bg-gradient-to-b from-black/25 via-black/15 to-black/65 text-white transition-colors duration-300">
               <div>
@@ -141,7 +141,7 @@ export default function WhyAswanthSection() {
             <motion.div
               variants={fadeUp}
               whileHover={smoothHover}
-              className="p-6 bg-surface-card rounded-xl border border-border-default hover:border-border-accent flex flex-col justify-between overflow-hidden transition-colors duration-300"
+              className="p-6 bg-surface-card rounded-xl border border-border-default flex flex-col justify-between overflow-hidden"
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
@@ -168,7 +168,7 @@ export default function WhyAswanthSection() {
             <motion.div
               variants={fadeUp}
               whileHover={smoothHover}
-              className="rounded-xl overflow-hidden relative h-full border border-border-default hover:border-border-accent group transition-colors duration-300"
+              className="rounded-xl overflow-hidden relative h-full border border-border-default group"
             >
               <div className="absolute inset-0 p-5 h-full flex flex-col justify-between w-full z-10">
                 <div className="w-fit px-3 py-1 rounded-sm bg-white/10 backdrop-blur-md text-white text-xs tracking-wider uppercase font-semibold">
@@ -242,7 +242,7 @@ export default function WhyAswanthSection() {
             <motion.div
               variants={fadeUp}
               whileHover={smoothHover}
-              className="bg-surface-card rounded-xl p-6 border border-border-default hover:border-border-accent flex flex-col justify-between transition-colors duration-300"
+              className="bg-surface-card rounded-xl p-6 border border-border-default flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between">

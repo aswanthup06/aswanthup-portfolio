@@ -1,8 +1,6 @@
-"use client";
-
-import React, { useRef } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
-import { MdOutlineArrowOutward } from "react-icons/md";
 import {
   LuStethoscope,
   LuFlaskConical,
@@ -17,18 +15,20 @@ import {
   LuUserCheck,
   LuLayers,
 } from "react-icons/lu";
-import { useContactModal } from "../../../context/ContactModalContext";
+import { createPageMetadata } from "../../../lib/siteMetadata";
 import NextProject from "../../../components/projects/NextProject";
 import ProjectHeroMeta from "../../../components/projects/ProjectHeroMeta";
+import ContactModalButton from "../../../components/ui/ContactModalButton";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Doctor One — Healthcare Platform & Dashboard",
+  description:
+    "A healthcare-focused digital platform simplifying patient interactions, appointments, and medical record accessibility.",
+  path: "/projects/doctor-one",
+  image: "https://www.aswanthup.online/images/projects/doctor-one/dr1.webp",
+});
 
 export default function DoctorOneCaseStudy() {
-  const { openModal } = useContactModal();
-  const walkthroughRef = useRef<HTMLDivElement>(null);
-
-  const scrollToWalkthrough = () => {
-    walkthroughRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const projectMeta = [
     { label: "Role", value: "UI Design & UI Development", icon: LuUserCheck },
     { label: "Timeline", value: "3 Months (End-to-End)", icon: LuClock },
@@ -150,23 +150,21 @@ export default function DoctorOneCaseStudy() {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button
-                type="button"
-                onClick={scrollToWalkthrough}
-                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold  transition-all duration-300"
+              <a
+                href="#walkthrough"
+                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300"
               >
                 <LuPlay className="text-xs" />
                 Explore Platform Flow
-              </button>
+              </a>
 
-              <button
-                type="button"
-                onClick={openModal}
-                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+              <ContactModalButton
+                variant="secondary"
+                showIcon={false}
+                className="px-5 py-3 font-semibold"
               >
                 Discuss Similar Project
-                <MdOutlineArrowOutward className="text-base text-text-muted" />
-              </button>
+              </ContactModalButton>
             </div>
           </div>
 
@@ -319,7 +317,7 @@ export default function DoctorOneCaseStudy() {
         </section>
 
         {/* ---------------- SECTION 5: PRODUCT WALKTHROUGHS ---------------- */}
-        <section ref={walkthroughRef} className="mt-16 md:mt-24 scroll-mt-28">
+        <section id="walkthrough" className="mt-16 md:mt-24 scroll-mt-28">
           <div className="max-w-2xl mb-12">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
               PRODUCT WALKTHROUGH

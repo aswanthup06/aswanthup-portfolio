@@ -3,15 +3,9 @@
 import Image from "next/image";
 import { motion, MotionConfig } from "framer-motion";
 import { FaQuoteLeft } from "react-icons/fa6";
+import type { Testimonial } from "@/types";
 
 import { PREMIUM_EASE } from "../../lib/animations";
-
-interface Testimonial {
-  avatar: string;
-  quote: string;
-  name: string;
-  role: string;
-}
 
 export default function TestimonialCard({
   testimonial,

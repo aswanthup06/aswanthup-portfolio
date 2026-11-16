@@ -1,6 +1,5 @@
-"use client";
-
-import React, { useRef } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   LuShip,
@@ -15,18 +14,20 @@ import {
   LuPlay,
   LuFileSpreadsheet,
 } from "react-icons/lu";
-import { useContactModal } from "../../../context/ContactModalContext";
+import { createPageMetadata } from "../../../lib/siteMetadata";
 import NextProject from "../../../components/projects/NextProject";
 import ProjectHeroMeta from "../../../components/projects/ProjectHeroMeta";
+import ContactModalButton from "../../../components/ui/ContactModalButton";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "NVOCC — Logistics & Vessel Management",
+  description:
+    "A modern logistics and shipping management platform engineered for intuitive tracking and container operations.",
+  path: "/projects/nvocc",
+  image: "https://www.aswanthup.online/images/projects/nvocc/nvocc-hero.webp",
+});
 
 export default function NvoccPage() {
-  const { openModal } = useContactModal();
-  const modulesRef = useRef<HTMLDivElement>(null);
-
-  const scrollToModules = () => {
-    modulesRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const projectMeta = [
     { label: "Duration", value: "4 Months", icon: LuClock },
     { label: "Role", value: "UI Development", icon: LuUserCheck },
@@ -204,22 +205,21 @@ export default function NvoccPage() {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button
-                type="button"
-                onClick={scrollToModules}
-                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold  transition-all duration-300"
+              <a
+                href="#modules"
+                className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300"
               >
                 <LuPlay className="text-xs" />
                 Explore Core Modules
-              </button>
+              </a>
 
-              <button
-                type="button"
-                onClick={openModal}
-                className="inline-flex items-center gap-2 rounded-lg border border-border-default bg-surface-card px-5 py-3 text-sm font-semibold text-text-primary hover:bg-surface-muted transition-colors"
+              <ContactModalButton
+                variant="secondary"
+                showIcon={false}
+                className="px-5 py-3 font-semibold"
               >
                 Discuss Similar Project
-              </button>
+              </ContactModalButton>
             </div>
           </div>
 
@@ -331,7 +331,7 @@ export default function NvoccPage() {
         </section>
 
         {/* ---------------- SECTION 4: CORE MODULES WALKTHROUGH ---------------- */}
-        <section ref={modulesRef} className="mt-16 md:mt-24 scroll-mt-24">
+        <section id="modules" className="mt-16 md:mt-24 scroll-mt-24">
           <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               System Architecture

@@ -1,10 +1,7 @@
 import React from "react";
+import type { ProjectMetaItem } from "@/types";
 
-export interface ProjectMetaItem {
-  label: string;
-  value: string;
-  icon?: React.ComponentType<{ className?: string }>;
-}
+export type { ProjectMetaItem };
 
 interface ProjectHeroMetaProps {
   items: ProjectMetaItem[];
