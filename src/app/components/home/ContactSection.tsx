@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { motion, MotionConfig } from "framer-motion";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaDownload, FaEnvelope, FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { Check } from "lucide-react";
 import { useContactModal } from "../../context/ContactModalContext";
 import { fadeUp } from "../../lib/animations";
 
@@ -10,6 +12,22 @@ const EMAIL = "aswanthup06@gmail.com";
 
 export default function ContactSection() {
   const { openModal } = useContactModal();
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = EMAIL;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <MotionConfig reducedMotion="user">
@@ -73,13 +91,24 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-text-muted">
-                  <a
-                    href={`mailto:${EMAIL}`}
-                    className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+                  <button
+                    type="button"
+                    onClick={copyEmail}
+                    className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer"
+                    aria-label="Copy email address"
                   >
-                    <FaEnvelope aria-hidden="true" />
-                    {EMAIL}
-                  </a>
+                    {copied ? (
+                      <>
+                        <Check className="text-primary text-xs" size={13} />
+                        <span className="text-primary font-semibold">Email Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <FaEnvelope aria-hidden="true" />
+                        <span>{EMAIL}</span>
+                      </>
+                    )}
+                  </button>
                   <span aria-hidden="true" className="text-border-strong">·</span>
                   <a
                     href="https://github.com/aswanthup06"

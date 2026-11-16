@@ -1,12 +1,13 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, MotionConfig, type Variants } from "framer-motion";
 import { MdOutlineArrowOutward, MdArrowForward } from "react-icons/md";
 import { IoLogoReact } from "react-icons/io5";
 import { SiFigma } from "react-icons/si";
+import { Copy, Check } from "lucide-react";
 
 import { PREMIUM_EASE } from "../../lib/animations";
 import {
@@ -477,6 +478,46 @@ function CompactItem({ project }: { project: Project }) {
   );
 }
 
+function CopyEmailButton() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = EMAIL;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      className="inline-flex items-center gap-2 rounded-md border border-border-default bg-surface-card px-5 py-3 text-sm font-medium text-text-primary transition-all duration-200 hover:border-primary/50 hover:bg-surface-muted cursor-pointer"
+      aria-label="Copy email address to clipboard"
+    >
+      {copied ? (
+        <>
+          <Check className="text-base text-primary shrink-0" size={16} />
+          <span className="text-primary font-semibold">Email Copied!</span>
+        </>
+      ) : (
+        <>
+          <Copy className="text-base text-text-muted shrink-0" size={16} />
+          <span>Copy Email</span>
+        </>
+      )}
+    </button>
+  );
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Page                                                                      */
 /* -------------------------------------------------------------------------- */
@@ -488,14 +529,14 @@ export default function Projects() {
     <MotionConfig reducedMotion="user">
       <div className="relative min-h-screen overflow-x-clip pb-12 pt-28 md:pb-16 md:pt-36">
         <div
-        className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
-        style={{
-          maskImage:
-            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
-        }}
-      />
+          className="grid-bg absolute inset-x-0 top-0 h-[650px] -z-10 pointer-events-none"
+          style={{
+            maskImage:
+              "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 95% 80% at 50% 25%, black 40%, transparent 95%)",
+          }}
+        />
 
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <Hero />
@@ -558,9 +599,9 @@ export default function Projects() {
           <motion.section
             {...reveal}
             aria-labelledby="cta-heading"
-            className="mt-16 md:mt-24 grid items-end gap-8 lg:grid-cols-[1fr_auto]"
+            className="mt-16 md:mt-24 flex flex-col items-center text-center"
           >
-            <div className="max-w-2xl">
+            <div className="max-w-2xl mx-auto">
               <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
                 Have a project in mind?
               </p>
@@ -579,7 +620,7 @@ export default function Projects() {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <button
                 type="button"
                 onClick={openModal}
@@ -588,12 +629,7 @@ export default function Projects() {
                 Get in Touch
                 <MdOutlineArrowOutward aria-hidden="true" className="text-base" />
               </button>
-              <a
-                href={`mailto:${EMAIL}`}
-                className="inline-flex items-center gap-2 rounded-md border border-border-default bg-surface-card px-5 py-3 text-sm font-medium text-text-primary transition-colors hover:bg-surface-muted"
-              >
-                Send Email
-              </a>
+              <CopyEmailButton />
             </div>
           </motion.section>
         </div>

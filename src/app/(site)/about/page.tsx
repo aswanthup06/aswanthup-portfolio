@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -27,7 +27,7 @@ import {
   SiGooglegemini,
   SiSass,
 } from "react-icons/si";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Check } from "lucide-react";
 import {
   FaLocationDot,
   FaBriefcase,
@@ -1021,37 +1021,52 @@ function BeyondCode() {
 
 const CONTACTS = [
   {
-    href: `mailto:${EMAIL}`,
+    type: "copy-email" as const,
     label: "Email",
     handle: EMAIL,
     Icon: FaEnvelope,
-    external: false,
   },
   {
+    type: "link" as const,
     href: LINKS.github,
     label: "GitHub",
     handle: "github.com/aswanthup06",
     Icon: FaGithub,
-    external: true,
   },
   {
+    type: "link" as const,
     href: LINKS.linkedin,
     label: "LinkedIn",
     handle: "linkedin.com/in/aswanthup",
     Icon: FaLinkedinIn,
-    external: true,
   },
   {
+    type: "link" as const,
     href: LINKS.whatsapp,
     label: "WhatsApp",
     handle: "Message me directly",
     Icon: IoLogoWhatsapp,
-    external: true,
   },
 ];
 
 function Cta() {
   const { openModal } = useContactModal();
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = EMAIL;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
 
   return (
     <motion.section
@@ -1135,33 +1150,62 @@ function Cta() {
 
         {/* Contact list */}
         <motion.ul variants={container} {...inView} className="border-t border-border-default">
-          {CONTACTS.map(({ href, label, handle, Icon, external }) => (
-            <motion.li key={label} variants={item}>
-              <a
-                href={href}
-                {...(external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className="group flex items-center gap-4 border-b border-border-default py-4 transition-colors duration-500"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-text-body duration-300 transition-colors group-hover:text-primary">
-                  <Icon aria-hidden="true" />
-                </span>
-
-                <span className="min-w-0 flex-1">
-                  <span className="block text-sm font-semibold text-text-primary transition-colors duration-300 group-hover:text-primary">
-                    {label}
+          {CONTACTS.map((itemContact) => (
+            <motion.li key={itemContact.label} variants={item}>
+              {itemContact.type === "copy-email" ? (
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="group flex w-full text-left items-center gap-4 border-b border-border-default py-4 transition-colors duration-500 cursor-pointer"
+                  aria-label="Copy email address to clipboard"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-text-body duration-300 transition-colors group-hover:text-primary">
+                    {copiedEmail ? <Check size={18} className="text-primary" /> : <itemContact.Icon aria-hidden="true" />}
                   </span>
-                  <span className="block truncate text-xs text-text-muted transition-colors duration-300 group-hover:text-primary">
-                    {handle}
-                  </span>
-                </span>
 
-                <MdOutlineArrowOutward
-                  aria-hidden="true"
-                  className="shrink-0 text-lg text-text-muted transition-colors group-hover:text-primary"
-                />
-              </a>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-text-primary transition-colors duration-300 group-hover:text-primary">
+                      {itemContact.label}
+                    </span>
+                    <span className="block truncate text-xs text-text-muted transition-colors duration-300 group-hover:text-primary">
+                      {copiedEmail ? (
+                        <span className="text-primary font-semibold">Email copied to clipboard!</span>
+                      ) : (
+                        itemContact.handle
+                      )}
+                    </span>
+                  </span>
+
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-surface-muted text-text-muted group-hover:text-primary transition-colors">
+                    {copiedEmail ? "Copied!" : "Copy"}
+                  </span>
+                </button>
+              ) : (
+                <a
+                  href={itemContact.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 border-b border-border-default py-4 transition-colors duration-500"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-text-body duration-300 transition-colors group-hover:text-primary">
+                    <itemContact.Icon aria-hidden="true" />
+                  </span>
+
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-text-primary transition-colors duration-300 group-hover:text-primary">
+                      {itemContact.label}
+                    </span>
+                    <span className="block truncate text-xs text-text-muted transition-colors duration-300 group-hover:text-primary">
+                      {itemContact.handle}
+                    </span>
+                  </span>
+
+                  <MdOutlineArrowOutward
+                    aria-hidden="true"
+                    className="shrink-0 text-lg text-text-muted transition-colors group-hover:text-primary"
+                  />
+                </a>
+              )}
             </motion.li>
           ))}
         </motion.ul>

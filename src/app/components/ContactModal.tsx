@@ -355,12 +355,9 @@ export default function ContactModal() {
                       <button
                         type="button"
                         onClick={() => copyToClipboard("aswanthup06@gmail.com")}
-                        className="font-semibold text-primary hover:text-primary-hover hover:underline transition-colors cursor-pointer inline-flex items-center gap-1"
+                        className="font-semibold text-primary hover:text-primary-hover hover:underline transition-colors cursor-pointer"
                       >
                         aswanthup06@gmail.com
-                        {copiedEmail ? (
-                          <span className="text-xs text-green-600 font-bold">(copied!)</span>
-                        ) : null}
                       </button>
                       .
                     </p>
@@ -505,7 +502,10 @@ export default function ContactModal() {
                   <button
                     type="button"
                     onClick={() => copyToClipboard("aswanthup06@gmail.com")}
-                    className="inline-flex items-center gap-1.5 text-text-secondary hover:text-primary transition-colors font-medium cursor-pointer"
+                    aria-label="Copy email address"
+                    className={`inline-flex items-center gap-1.5 transition-colors font-medium cursor-pointer ${
+                      copiedEmail ? "text-primary font-semibold" : "text-text-secondary hover:text-primary"
+                    }`}
                   >
                     <LuMailCheck className="text-sm text-primary" />
                     <span>{copiedEmail ? "Copied!" : "Copy Email"}</span>
