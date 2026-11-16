@@ -36,7 +36,6 @@ import {
   FaLinkedinIn,
   FaRulerCombined,
   FaPuzzlePiece,
-  FaScrewdriverWrench,
   FaPencil,
   FaEnvelope,
   FaDownload,
@@ -700,19 +699,16 @@ function Story() {
 
 const PRINCIPLES = [
   {
-    Icon: FaRulerCombined,
     tag: "Architecture",
     title: "Plan before pixels",
     text: "Layout, spacing and tokens get settled in Figma with Auto Layout, so the build is one clean pass instead of rework.",
   },
   {
-    Icon: FaPuzzlePiece,
     tag: "Polish & A11y",
     title: "Details that hold it together",
     text: "Responsive behavior, states and accessibility are invisible when they work, and that’s exactly the point.",
   },
   {
-    Icon: FaScrewdriverWrench,
     tag: "Fundamentals",
     title: "Depth over buzzwords",
     text: "JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS, and Figma Dev Mode, used daily and understood well enough to bend when needed.",
@@ -738,21 +734,14 @@ function Principles() {
         {...inView}
         className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8"
       >
-        {PRINCIPLES.map(({ Icon, tag, title, text }, i) => (
+        {PRINCIPLES.map(({ tag, title, text }, i) => (
           <motion.article
             key={title}
             variants={item}
-            className="group border-t-2 border-border-default pt-6 transition-colors duration-300 hover:border-primary"
           >
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold text-primary">
-                0{i + 1}
-              </span>
-              <Icon
-                aria-hidden="true"
-                className="text-xl text-text-muted transition-colors group-hover:text-primary"
-              />
-            </div>
+            <span className="font-mono text-xs font-bold text-primary">
+              0{i + 1}
+            </span>
 
             <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-primary">
               {tag}
@@ -884,7 +873,7 @@ function Workbench() {
               }`}
           >
             {group.highlight && (
-              <div className="absolute -top-3 right-6 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-0.5 text-xs font-semibold text-[var(--color-btn-primary-text,#ffffff)] shadow-sm">
+              <div className="absolute -top-3 right-6 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-[var(--color-btn-primary-text,#ffffff)] shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" />
                 Productivity Multiplier
               </div>
