@@ -606,7 +606,7 @@ export default function ChatWidget() {
               <div className="flex items-center gap-2.5 min-w-0">
                 <AssistantAvatar />
                 <div className="min-w-0">
-                  <h2 className="text-sm font-semibold text-text-primary leading-tight truncate">
+                  <h2 className="text-sm font-medium text-text-primary leading-tight truncate">
                     Ask Aswanth&apos;s AI
                   </h2>
                   <div className="flex items-center gap-1.5 mt-0.5">
@@ -731,7 +731,7 @@ export default function ChatWidget() {
               <AssistantAvatar showSparkBadge />
 
               <span className="flex flex-col min-w-[132px] sm:min-w-[144px]">
-                <span className="text-xs sm:text-[13px] font-semibold leading-tight text-text-primary flex items-center gap-1.5">
+                <span className="text-xs sm:text-[13px] font-medium leading-tight text-text-primary flex items-center gap-1.5">
                   <span>Aswanth.ai</span>
                 </span>
                 <span className="relative h-4 overflow-hidden text-[11px] leading-4 text-text-muted">
