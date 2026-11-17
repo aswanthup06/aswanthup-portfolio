@@ -78,6 +78,8 @@ interface ThemeContextType {
   themes: ThemeOption[];
   radius: RadiusMode;
   setRadius: (radius: RadiusMode) => void;
+  resetTheme: () => void;
+  isCustomized: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -128,8 +130,33 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const resetTheme = () => {
+    setThemeState(DEFAULT_THEME);
+    document.documentElement.setAttribute("data-theme", DEFAULT_THEME);
+    setRadiusState(DEFAULT_RADIUS);
+    document.documentElement.setAttribute("data-radius", DEFAULT_RADIUS);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(RADIUS_STORAGE_KEY);
+    } catch {
+      // Ignore storage errors in restricted environments
+    }
+  };
+
+  const isCustomized = theme !== DEFAULT_THEME || radius !== DEFAULT_RADIUS;
+
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, themes: THEMES, radius, setRadius }}>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        setTheme,
+        themes: THEMES,
+        radius,
+        setRadius,
+        resetTheme,
+        isCustomized,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );

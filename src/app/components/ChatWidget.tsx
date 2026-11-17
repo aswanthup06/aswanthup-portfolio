@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useContactModal } from "../context/ContactModalContext";
 import { useModal } from "../context/ModalContext";
+import { useTheme } from "../context/ThemeContext";
 import { PREMIUM_EASE, SPRING_SMOOTH } from "../lib/animations";
 import {
   INITIAL_MESSAGES,
@@ -52,9 +53,18 @@ function AssistantAvatar({ showSparkBadge = false }: { showSparkBadge?: boolean 
 }
 
 function TypingIndicator() {
+  const { radius } = useTheme();
+  const isSmall = radius === "small";
+
   return (
     <div className="flex justify-start">
-      <div className="rounded-[18px] rounded-tl-[4px] bg-surface-muted/75 border border-border-default px-3.5 py-2.5 flex items-center gap-1.5">
+      <div
+        className={`chat-bubble bg-surface-muted/75 border border-border-default px-3.5 py-2.5 flex items-center gap-1.5 transition-[border-radius] duration-200 ${
+          isSmall
+            ? "rounded-md rounded-tl-[2px]"
+            : "rounded-[18px] rounded-tl-[4px]"
+        }`}
+      >
         {[0, 1, 2].map((dot) => (
           <motion.span
             key={dot}
@@ -82,8 +92,12 @@ function ActionButton({
   onOpenContact: () => void;
   onNavigate: () => void;
 }) {
-  const baseClass =
-    "inline-flex items-center gap-1 rounded-full border border-border-default bg-surface-card hover:border-border-accent hover:bg-primary-subtle px-2.5 py-1 text-xs font-medium text-text-secondary hover:text-text-primary transition-colors";
+  const { radius } = useTheme();
+  const isSmall = radius === "small";
+
+  const baseClass = `chat-chip inline-flex items-center gap-1 border border-border-default bg-surface-card hover:border-border-accent hover:bg-primary-subtle px-2.5 py-1 text-xs font-medium text-text-secondary hover:text-text-primary transition-all duration-200 ${
+    isSmall ? "rounded-md" : "rounded-full"
+  }`;
 
   if (action.actionType === "open-contact") {
     return (
@@ -194,6 +208,8 @@ function MessageBubble({
   onNavigate: () => void;
 }) {
   const isUser = message.role === "user";
+  const { radius } = useTheme();
+  const isSmall = radius === "small";
 
   if (isUser) {
     return (
@@ -203,7 +219,13 @@ function MessageBubble({
         transition={{ duration: 0.2, ease: PREMIUM_EASE }}
         className="flex justify-end"
       >
-        <div className="max-w-[82%] rounded-[18px] rounded-tr-[4px] bg-primary-subtle border border-primary-border px-3.5 py-2.5 text-xs sm:text-[13px] leading-relaxed text-text-primary">
+        <div
+          className={`chat-bubble max-w-[82%] bg-primary-subtle border border-primary-border px-3.5 py-2.5 text-xs sm:text-[13px] leading-relaxed text-text-primary transition-[border-radius] duration-200 ${
+            isSmall
+              ? "rounded-md rounded-tr-[2px]"
+              : "rounded-[18px] rounded-tr-[4px]"
+          }`}
+        >
           <p className="whitespace-pre-wrap break-words">{message.content}</p>
         </div>
       </motion.div>
@@ -218,7 +240,13 @@ function MessageBubble({
       className="flex justify-start"
     >
       <div className="max-w-[88%] space-y-2">
-        <div className="rounded-[18px] rounded-tl-[4px] bg-surface-muted/75 border border-border-default px-3.5 py-2.5 text-xs sm:text-[13px] leading-relaxed text-text-primary">
+        <div
+          className={`chat-bubble bg-surface-muted/75 border border-border-default px-3.5 py-2.5 text-xs sm:text-[13px] leading-relaxed text-text-primary transition-[border-radius] duration-200 ${
+            isSmall
+              ? "rounded-md rounded-tl-[2px]"
+              : "rounded-[18px] rounded-tl-[4px]"
+          }`}
+        >
           <FormattedMessageText text={message.content} onNavigate={onNavigate} />
         </div>
         {message.actions && message.actions.length > 0 && (
@@ -246,6 +274,8 @@ const LAUNCHER_PROMPTS = [
 ] as const;
 
 export default function ChatWidget() {
+  const { radius } = useTheme();
+  const isSmall = radius === "small";
   const { isOpen: isContactOpen, openModal: openContactModal } = useContactModal();
   const { isModalOpen, openModal, closeModal } = useModal();
   const isOpen = isModalOpen("chat");
@@ -599,7 +629,9 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 12 }}
             transition={SPRING_SMOOTH}
-            className="pointer-events-auto w-full h-full rounded-none border-0 sm:w-[390px] sm:h-[min(520px,calc(100dvh-9.5rem))] sm:rounded-[20px] sm:border sm:border-border-default bg-surface-card sm:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.45)] flex flex-col overflow-hidden overscroll-contain"
+            className={`chat-modal-window pointer-events-auto w-full h-full rounded-none border-0 sm:w-[390px] sm:h-[min(520px,calc(100dvh-9.5rem))] sm:border sm:border-border-default bg-surface-card sm:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.45)] flex flex-col overflow-hidden overscroll-contain transition-[border-radius] duration-200 ${
+              isSmall ? "sm:rounded-lg" : "sm:rounded-[20px]"
+            }`}
           >
             {/* Header */}
             <header className="px-4 py-3.5 pt-[max(0.875rem,env(safe-area-inset-top))] sm:pt-3.5 border-b border-border-default bg-surface-subtle/80 backdrop-blur-md flex items-center justify-between gap-3 shrink-0">
@@ -666,7 +698,11 @@ export default function ChatWidget() {
               }}
               className="p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:pb-3 border-t border-border-default bg-surface-subtle/60 shrink-0"
             >
-              <div className="flex items-end gap-2 rounded-[14px] border border-border-default bg-surface-card px-3 py-2 focus-within:border-border-accent transition-colors">
+              <div
+                className={`chat-input-container flex items-end gap-2 border border-border-default bg-surface-card px-3 py-2 focus-within:border-border-accent transition-[border-radius] duration-200 ${
+                  isSmall ? "rounded-md" : "rounded-[14px]"
+                }`}
+              >
                 <textarea
                   ref={inputRef}
                   rows={1}
@@ -683,7 +719,9 @@ export default function ChatWidget() {
                   disabled={!input.trim() || isStreaming}
                   onMouseDown={(e) => e.preventDefault()}
                   aria-label="Send message"
-                  className="btn-primary h-8 w-8 shrink-0 rounded-full flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none"
+                  className={`chat-send-btn btn-primary h-8 w-8 shrink-0 flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none transition-[border-radius] duration-200 ${
+                    isSmall ? "rounded-md" : "rounded-full"
+                  }`}
                 >
                   <SendHorizontal className="h-3.5 w-3.5" />
                 </button>

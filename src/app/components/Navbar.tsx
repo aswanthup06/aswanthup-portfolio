@@ -126,6 +126,7 @@ export default function Navbar() {
   const { openModal } = useContactModal();
   const { isModalOpen, closeModal, toggleModal } = useModal();
   const menuOpen = isModalOpen("mobile-menu");
+  const themeOpen = isModalOpen("theme");
   const [hidden, setHidden] = useState<boolean>(false);
   const navRef = useRef<HTMLElement>(null);
 
@@ -158,7 +159,7 @@ export default function Navbar() {
     // Ignore micro jitter
     if (Math.abs(diff) < 6) return;
 
-    if (latest > previous && latest > 100 && !menuOpen) {
+    if (latest > previous && latest > 100 && !menuOpen && !themeOpen) {
       setHidden(true);
     } else {
       setHidden(false);
@@ -353,11 +354,13 @@ export default function Navbar() {
               initial="hidden"
               animate="show"
               exit="exit"
+              data-lenis-prevent
               className="
                 absolute top-16 left-0 w-full
                 bg-surface-card border border-border-default
                 rounded-lg shadow-xl p-4
                 flex flex-col gap-4
+                max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain chat-scrollbar touch-pan-y
                 md:hidden
               "
             >

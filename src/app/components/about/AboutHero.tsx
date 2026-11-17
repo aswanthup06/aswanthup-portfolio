@@ -40,7 +40,7 @@ function Sticker({
 }) {
   return (
     <motion.div
-      className={`absolute ${className}`}
+      className={`absolute z-20 ${className}`}
       initial={{ opacity: 0, scale: 0.85 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.4, ease: PREMIUM_EASE }}
@@ -48,7 +48,7 @@ function Sticker({
       <motion.div
         animate={{ y: float }}
         transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
-        className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border-default bg-surface-card px-3 py-1.5 text-[11px] font-semibold text-text-primary shadow-lg shadow-black/5 md:text-xs"
+        className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border-default bg-surface-card/95 backdrop-blur-xs px-2.5 py-1 text-[10px] font-semibold text-text-primary shadow-lg shadow-black/5 sm:px-3 sm:py-1.5 sm:text-[11px] md:text-xs"
       >
         {children}
       </motion.div>
@@ -67,11 +67,11 @@ function Portrait() {
       {/* offset outline */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4 rounded-t-[999px] rounded-b-3xl border-2 border-primary/30"
+        className="pointer-events-none absolute inset-0 translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4 rounded-t-[999px] rounded-b-3xl border-2 border-primary/30 -z-10"
       />
 
       {/* arch photo */}
-      <div className="relative aspect-[4/5] rounded-t-[999px] rounded-b-3xl bg-brand-gradient p-[3px] shadow-xl">
+      <div className="relative z-10 aspect-[4/5] rounded-t-[999px] rounded-b-3xl bg-brand-gradient p-[3px] shadow-xl">
         <div className="relative h-full w-full overflow-hidden rounded-t-[999px] rounded-b-[22px] bg-surface-card">
           <Image
             src="/images/about/me.webp"
@@ -79,7 +79,7 @@ function Portrait() {
             fill
             priority
             sizes="(min-width: 768px) 320px, (min-width: 640px) 260px, 240px"
-            className="object-cover"
+            className="object-cover object-center"
           />
         </div>
       </div>
@@ -87,34 +87,37 @@ function Portrait() {
       {/* slow spinning dashed ring */}
       <motion.div
         aria-hidden="true"
-        className="absolute -right-4 -top-6 sm:-right-8 sm:-top-8 md:-right-10 h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 rounded-full border-2 border-dashed border-primary/30"
+        className="pointer-events-none absolute -right-3 -top-5 sm:-right-8 sm:-top-8 md:-right-10 h-16 w-16 sm:h-24 sm:w-24 md:h-28 md:w-28 rounded-full border-2 border-dashed border-primary/30 -z-10"
         animate={{ rotate: 360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       />
 
+      {/* Top Left: UI Engineering (floats outside above shoulder, well clear of hair/face) */}
       <Sticker
-        className="-left-2 sm:-left-6 top-16 md:-left-14"
+        className="-left-4 sm:-left-6 md:-left-12 top-2 sm:top-6 md:top-14"
         float={[0, -9, 0]}
         duration={5}
-        delay={0.9}
+        delay={0.35}
       >
         <FaRulerCombined className="text-primary" /> UI Engineering
       </Sticker>
 
+      {/* Mid/Lower Right: React · Next.js (floats on right shoulder edge, completely clear of face) */}
       <Sticker
-        className="-right-2 sm:-right-4 top-[48%] md:-right-12"
+        className="-right-4 sm:-right-6 md:-right-12 bottom-14 sm:bottom-18 md:bottom-auto md:top-[52%]"
         float={[0, 9, 0]}
         duration={6}
-        delay={1.1}
+        delay={0.45}
       >
         <IoLogoReact className="text-sky-500" /> React · Next.js
       </Sticker>
 
+      {/* Bottom Left: Figma */}
       <Sticker
-        className="left-0 sm:-left-2 bottom-8 md:-left-10"
+        className="-left-3 sm:-left-5 md:-left-10 bottom-3 sm:bottom-5 md:bottom-8"
         float={[0, -7, 0]}
         duration={5.5}
-        delay={1.3}
+        delay={0.55}
       >
         <SiFigma className="text-red-500" /> Figma
       </Sticker>

@@ -2,17 +2,18 @@
 
 import React, { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Palette } from "lucide-react";
+import { Check, Palette, RotateCcw } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useModal } from "../context/ModalContext";
 
 export default function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
-  const { theme, setTheme, themes, radius, setRadius } = useTheme();
+  const { theme, setTheme, themes, radius, setRadius, resetTheme, isCustomized } = useTheme();
   const { isModalOpen, closeModal, toggleModal } = useModal();
   const open = isModalOpen("theme");
   const containerRef = useRef<HTMLDivElement>(null);
 
   const activeTheme = themes.find((t) => t.id === theme) ?? themes[0];
+  const isInteractingInsideRef = useRef(false);
 
   useEffect(() => {
     if (!open) return;
@@ -27,11 +28,21 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
       if (e.key === "Escape") closeModal("theme");
     };
 
+    const initialY = window.scrollY;
+    const handleScroll = () => {
+      if (isInteractingInsideRef.current) return;
+      if (Math.abs(window.scrollY - initialY) > 20) {
+        closeModal("theme");
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [open, closeModal]);
 
@@ -73,6 +84,21 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
           <motion.div
             role="listbox"
             aria-label="Color themes"
+            data-lenis-prevent
+            onMouseEnter={() => {
+              isInteractingInsideRef.current = true;
+            }}
+            onMouseLeave={() => {
+              isInteractingInsideRef.current = false;
+            }}
+            onTouchStart={() => {
+              isInteractingInsideRef.current = true;
+            }}
+            onTouchEnd={() => {
+              setTimeout(() => {
+                isInteractingInsideRef.current = false;
+              }, 300);
+            }}
             initial={{ opacity: 0, y: 8, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.96 }}
@@ -81,6 +107,7 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
               absolute right-0 z-50 w-[calc(100vw-2rem)] max-w-[272px] sm:w-68 rounded-xl
               border border-border-default bg-surface-card p-2.5
               shadow-2xl
+              max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain chat-scrollbar touch-pan-y
               ${compact ? "top-16 md:top-[57px]" : "top-12"}
             `}
           >
@@ -88,9 +115,20 @@ export default function ThemeSwitcher({ compact = false }: { compact?: boolean }
               <span className="text-xs font-semibold uppercase tracking-wider text-text-muted">
                 Color Theme
               </span>
-              <span className="text-xs font-medium text-primary">
-                Live Preview
-              </span>
+              <button
+                type="button"
+                onClick={resetTheme}
+                disabled={!isCustomized}
+                aria-label="Reset theme to default"
+                title="Reset to default theme & corners"
+                className={`flex h-5 w-5 items-center justify-center rounded-md text-text-muted hover:text-primary hover:bg-surface-subtle transition-all duration-200 ${
+                  isCustomized
+                    ? "cursor-pointer opacity-100 hover:-rotate-45"
+                    : "opacity-0 pointer-events-none"
+                }`}
+              >
+                <RotateCcw className="h-3.5 w-3.5" />
+              </button>
             </div>
 
             <div className="space-y-1">

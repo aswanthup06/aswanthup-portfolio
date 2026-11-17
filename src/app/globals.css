@@ -336,6 +336,29 @@
   border-radius: 9999px;
 }
 
+/* Chat Widget Corner Synchronization with data-radius */
+@media (min-width: 640px) {
+  [data-radius="small"] .chat-modal-window {
+    border-radius: 0.5rem !important;
+  }
+}
+
+[data-radius="small"] .chat-input-container {
+  border-radius: 0.375rem !important;
+}
+
+[data-radius="small"] .chat-bubble {
+  border-radius: 0.375rem !important;
+}
+
+[data-radius="small"] .chat-chip {
+  border-radius: 0.375rem !important;
+}
+
+[data-radius="small"] .chat-send-btn {
+  border-radius: 0.375rem !important;
+}
+
 @theme inline {
   --font-sans: var(--font-space-grotesk), "Space Grotesk", sans-serif;
 
