@@ -71,11 +71,11 @@ export default function AboutJourney() {
         </motion.div>
       </div>
 
-      <div ref={ref} className="relative pl-8 sm:pl-10">
+      <div ref={ref} className="relative">
         {/* track + scroll-filled line */}
         <div
           aria-hidden="true"
-          className="absolute bottom-2 left-2 sm:left-3 top-2 w-0.5 bg-border-default"
+          className="absolute bottom-2 left-3 sm:left-4 top-2.5 w-0.5 -translate-x-1/2 bg-border-default"
         >
           <motion.div
             style={{ scaleY }}
@@ -91,12 +91,12 @@ export default function AboutJourney() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.25 }}
-              className="relative"
+              className="relative pl-8 sm:pl-10"
             >
               {/* dot */}
               <span
                 aria-hidden="true"
-                className="absolute -left-7 sm:-left-9 top-1 flex h-4 w-4 items-center justify-center"
+                className="absolute left-3 sm:left-4 top-2.5 -translate-x-1/2 -translate-y-1/2 flex h-4 w-4 items-center justify-center"
               >
                 {c.now && (
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/40" />

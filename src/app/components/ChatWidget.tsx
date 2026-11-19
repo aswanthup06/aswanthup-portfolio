@@ -26,10 +26,10 @@ function createMessageId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
 }
 
-/** Shared portrait avatar with brand ring and optional corner AI spark badge. */
+/** Shared portrait avatar with optional corner AI spark badge. */
 function AssistantAvatar({ showSparkBadge = false }: { showSparkBadge?: boolean }) {
   return (
-    <span className="relative h-9 w-9 shrink-0 rounded-full p-[1.5px] bg-brand-gradient shadow-primary-glow block">
+    <span className="relative h-9 w-9 shrink-0 block">
       <span className="block h-full w-full rounded-full overflow-hidden bg-surface-card">
         <Image
           src="/images/about/me.webp"
