@@ -305,40 +305,40 @@ export default function ZenowayCaseStudy() {
                 All tokens are defined directly as native CSS custom properties across three distinct layers.
               </p>
 
-              <div className="space-y-4 pt-2">
-                <div className="p-4 rounded-xl border border-border-default bg-surface-card flex items-start gap-3.5">
-                  <div className="w-3 h-3 rounded-full bg-emerald-600 mt-1 shrink-0" />
+              <ul className="space-y-4 pt-2">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
                   <div>
                     <h4 className="text-sm font-medium text-text-primary">1. Raw Primitives (:root)</h4>
-                    <p className="text-xs text-text-body mt-0.5">
-                      Fixed values (<code className="text-primary font-mono">#087f50</code>, <code className="text-primary font-mono">1200px</code>)
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Fixed values (<code className="text-primary font-mono text-[11px]">#087f50</code>, <code className="text-primary font-mono text-[11px]">1200px</code>)
                       that are never invoked directly within component classes.
                     </p>
                   </div>
-                </div>
+                </li>
 
-                <div className="p-4 rounded-xl border border-border-default bg-surface-card flex items-start gap-3.5">
-                  <div className="w-3 h-3 rounded-full bg-primary mt-1 shrink-0" />
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
                   <div>
                     <h4 className="text-sm font-medium text-text-primary">2. Semantic Roles (@theme)</h4>
-                    <p className="text-xs text-text-body mt-0.5">
-                      Purpose-driven classes like <code className="text-primary font-mono">bg-brand</code>, <code className="text-primary font-mono">text-text-primary</code>,
-                      and <code className="text-primary font-mono">border-border-default</code> that components consume.
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Purpose-driven classes like <code className="text-primary font-mono text-[11px]">bg-brand</code>, <code className="text-primary font-mono text-[11px]">text-text-primary</code>,
+                      and <code className="text-primary font-mono text-[11px]">border-border-default</code> that components consume.
                     </p>
                   </div>
-                </div>
+                </li>
 
-                <div className="p-4 rounded-xl border border-border-default bg-surface-card flex items-start gap-3.5">
-                  <div className="w-3 h-3 rounded-full bg-amber-500 mt-1 shrink-0" />
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
                   <div>
                     <h4 className="text-sm font-medium text-text-primary">3. Interaction &amp; Focus Spectrum</h4>
-                    <p className="text-xs text-text-body mt-0.5">
-                      Strict 4px focus ring spreads (<code className="text-primary font-mono">rgba(8, 127, 80, 0.2)</code>)
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Strict 4px focus ring spreads (<code className="text-primary font-mono text-[11px]">rgba(8, 127, 80, 0.2)</code>)
                       and reduced-motion fallbacks capping animation durations to 0.01ms.
                     </p>
                   </div>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
 
             {/* Right: Code Token Preview Card */}
@@ -579,26 +579,33 @@ export default function ZenowayCaseStudy() {
                 Designed for high information density without visual clutter:
               </p>
 
-              <ul className="space-y-3 text-sm text-text-body">
-                <li className="flex items-start gap-2.5">
+              <ul className="space-y-4 pt-1">
+                <li className="flex items-start gap-3">
                   <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
-                  <span>
-                    <span className="font-medium text-text-primary">Left Filter Sidebar:</span> Granular facets for Job Types (Full-time, Internship),
-                    Department categories with live job counts, and experience sliders.
-                  </span>
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">Left Filter Sidebar</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Granular facets for Job Types (Full-time, Internship), Department categories with live job counts, and experience sliders.
+                    </p>
+                  </div>
                 </li>
-                <li className="flex items-start gap-2.5">
+                <li className="flex items-start gap-3">
                   <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
-                  <span>
-                    <span className="font-medium text-text-primary">Accessible Location Combobox:</span> Autocomplete input supporting Indian city/state aliases
-                    (typing &ldquo;Bangalore&rdquo; resolves to &ldquo;Bengaluru&rdquo;) with full keyboard navigation (<code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">ArrowDown</code>, <code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">Enter</code>).
-                  </span>
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">Accessible Location Combobox</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Autocomplete input supporting Indian city/state aliases (typing &ldquo;Bangalore&rdquo; resolves to &ldquo;Bengaluru&rdquo;) with full keyboard navigation (<code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">ArrowDown</code>, <code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">Enter</code>).
+                    </p>
+                  </div>
                 </li>
-                <li className="flex items-start gap-2.5">
+                <li className="flex items-start gap-3">
                   <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
-                  <span>
-                    <span className="font-medium text-text-primary">1-Click Work Mode Switcher:</span> Instant segmented pill controls for All modes, Remote, Hybrid, and On-site.
-                  </span>
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">1-Click Work Mode Switcher</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Instant segmented pill controls for All modes, Remote, Hybrid, and On-site.
+                    </p>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -626,37 +633,37 @@ export default function ZenowayCaseStudy() {
                 keeping candidates anchored to their search location:
               </p>
 
-              <div className="space-y-3.5 pt-1">
-                <div className="p-3.5 rounded-xl border border-border-default bg-surface-card">
-                  <div className="flex items-center gap-2 text-xs font-medium text-text-primary">
-                    <CheckCircle2 size={14} className="text-primary" />
-                    <span>Key Specs at a Glance</span>
+              <ul className="space-y-4 pt-1">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">Key Specs at a Glance</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Structured 4-column overview displaying Salary, Experience requirement, Location, and Work Setup.
+                    </p>
                   </div>
-                  <p className="text-xs text-text-body mt-1">
-                    Structured 4-column overview displaying Salary, Experience requirement, Location, and Work Setup.
-                  </p>
-                </div>
+                </li>
 
-                <div className="p-3.5 rounded-xl border border-border-default bg-surface-card">
-                  <div className="flex items-center gap-2 text-xs font-medium text-text-primary">
-                    <Compass size={14} className="text-primary" />
-                    <span>Location Preference Callout</span>
+                <li className="flex items-start gap-3">
+                  <Compass size={16} className="text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">Location Preference Callout</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Explicitly informs candidates if an employer prioritizes local residency (e.g., &ldquo;Kerala preferred&rdquo;).
+                    </p>
                   </div>
-                  <p className="text-xs text-text-body mt-1">
-                    Explicitly informs candidates if an employer prioritizes local residency (e.g., &ldquo;Kerala preferred&rdquo;).
-                  </p>
-                </div>
+                </li>
 
-                <div className="p-3.5 rounded-xl border border-border-default bg-surface-card">
-                  <div className="flex items-center gap-2 text-xs font-medium text-text-primary">
-                    <Copy size={14} className="text-primary" />
-                    <span>1-Click Copy Email Action Bar</span>
+                <li className="flex items-start gap-3">
+                  <Copy size={16} className="text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">1-Click Copy Email Action Bar</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Instant clipboard copy with tactile confirmation toast, Save Job (persisted via <code className="text-primary font-mono text-xs">localStorage</code>), and native Web Share API.
+                    </p>
                   </div>
-                  <p className="text-xs text-text-body mt-1">
-                    Instant clipboard copy with tactile confirmation toast, Save Job (persisted via <code className="text-primary font-mono text-xs">localStorage</code>), and native Web Share API.
-                  </p>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
 
             {/* Visual Figure matching live-jobs-modal.png */}
@@ -743,26 +750,34 @@ export default function ZenowayCaseStudy() {
                 for direct link sharing, deep linking, and automated search engine indexing:
               </p>
 
-              <ul className="space-y-3 text-sm text-text-body">
-                <li className="flex items-start gap-2.5">
+              <ul className="space-y-4 pt-1">
+                <li className="flex items-start gap-3">
                   <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
-                  <span>
-                    <span className="font-medium text-text-primary">Editorial Metadata Header:</span> Breadcrumb hierarchy, verified company website link,
-                    posting date, and salary/remote tags displayed with clean typography.
-                  </span>
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">Editorial Metadata Header</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Breadcrumb hierarchy, verified company website link, posting date, and salary/remote tags displayed with clean typography.
+                    </p>
+                  </div>
                 </li>
-                <li className="flex items-start gap-2.5">
+                <li className="flex items-start gap-3">
                   <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
-                  <span>
-                    <span className="font-medium text-text-primary">Automated JSON-LD Schema:</span> Generates Google <code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">JobPosting</code> structured
-                    markup with <code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">TELECOMMUTE</code> flags and regional requirements.
-                  </span>
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">Automated JSON-LD Schema</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Generates Google <code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">JobPosting</code> structured
+                      markup with <code className="text-xs bg-surface-muted px-1 py-0.5 rounded text-primary font-mono">TELECOMMUTE</code> flags and regional requirements.
+                    </p>
+                  </div>
                 </li>
-                <li className="flex items-start gap-2.5">
+                <li className="flex items-start gap-3">
                   <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
-                  <span>
-                    <span className="font-medium text-text-primary">Instant Google Indexing:</span> Integrated with the Google Indexing API to notify search crawlers within minutes of job approval.
-                  </span>
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">Instant Google Indexing</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Integrated with the Google Indexing API to notify search crawlers within minutes of job approval.
+                    </p>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -790,40 +805,40 @@ export default function ZenowayCaseStudy() {
                 combines structured progressive disclosure with generative AI assistance:
               </p>
 
-              <div className="space-y-3.5 pt-1">
-                <div className="p-3.5 rounded-xl border border-border-default bg-surface-card">
-                  <div className="flex items-center gap-2 text-xs font-medium text-text-primary">
-                    <Sparkles size={14} className="text-primary" />
-                    <span>Gemini AI Smart Importer</span>
+              <ul className="space-y-4 pt-1">
+                <li className="flex items-start gap-3">
+                  <Sparkles size={16} className="text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">Gemini AI Smart Importer</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Recruiters can paste messy, raw text from an email, WhatsApp note, or PDF; Google Gemini
+                      auto-parses the title, company, requirements, and fills all 4 steps in under 3 seconds.
+                    </p>
                   </div>
-                  <p className="text-xs text-text-body mt-1">
-                    Recruiters can paste messy, raw text from an email, WhatsApp note, or PDF; Google Gemini
-                    auto-parses the title, company, requirements, and fills all 4 steps in under 3 seconds.
-                  </p>
-                </div>
+                </li>
 
-                <div className="p-3.5 rounded-xl border border-border-default bg-surface-card">
-                  <div className="flex items-center gap-2 text-xs font-medium text-text-primary">
-                    <Sliders size={14} className="text-primary" />
-                    <span>4-Step Guided Wizard</span>
+                <li className="flex items-start gap-3">
+                  <Sliders size={16} className="text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">4-Step Guided Wizard</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Progressive steps for Role details, Office Locations &amp; candidate residency, Compensation
+                      brackets with monthly salary sliders, and final Markdown review.
+                    </p>
                   </div>
-                  <p className="text-xs text-text-body mt-1">
-                    Progressive steps for Role details, Office Locations &amp; candidate residency, Compensation
-                    brackets with monthly salary sliders, and final Markdown review.
-                  </p>
-                </div>
+                </li>
 
-                <div className="p-3.5 rounded-xl border border-border-default bg-surface-card">
-                  <div className="flex items-center gap-2 text-xs font-medium text-text-primary">
-                    <Zap size={14} className="text-primary" />
-                    <span>Keyboard-First Navigation</span>
+                <li className="flex items-start gap-3">
+                  <Zap size={16} className="text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">Keyboard-First Navigation</h4>
+                    <p className="text-xs sm:text-sm text-text-body mt-0.5 leading-relaxed">
+                      Power users can switch wizard steps using number keys <code className="text-primary font-mono text-[11px]">1–4</code> or
+                      arrow keys <code className="text-primary font-mono text-[11px]">← / →</code> with instant client validation.
+                    </p>
                   </div>
-                  <p className="text-xs text-text-body mt-1">
-                    Power users can switch wizard steps using number keys <code className="text-primary font-mono text-[11px]">1–4</code> or
-                    arrow keys <code className="text-primary font-mono text-[11px]">← / →</code> with instant client validation.
-                  </p>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
 
             {/* Visual Figure matching live-post-job.png */}
@@ -968,7 +983,7 @@ export default function ZenowayCaseStudy() {
             </figure>
           </div>
 
-          <div className="mt-8 p-5 rounded-xl border border-border-default bg-surface-card text-xs text-text-body flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="mt-8 p-5 rounded-xl border border-border-default text-xs text-text-body flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <span className="font-medium text-text-primary">Studio UI Capabilities: </span>
               <span>Supports real-time typography switching, dynamic vector QR codes linked to the live job URL, aspect-ratio previews (4:5 Feed &amp; 9:16 Story), and 1-click high-resolution social downloads.</span>
@@ -1014,7 +1029,7 @@ export default function ZenowayCaseStudy() {
                   loading="lazy"
                 />
               </a>
-              <figcaption className="p-4 bg-surface-card border-t border-border-default">
+              <figcaption className="p-4 bg-surface-subtle border-t border-border-default">
                 <h4 className="text-sm font-medium text-text-primary mb-1">
                   1. Real-Time Admin Dashboard
                 </h4>
@@ -1042,7 +1057,7 @@ export default function ZenowayCaseStudy() {
                   loading="lazy"
                 />
               </a>
-              <figcaption className="p-4 bg-surface-card border-t border-border-default">
+              <figcaption className="p-4 bg-surface-subtle border-t border-border-default">
                 <h4 className="text-sm font-medium text-text-primary mb-1">
                   2. Catalog Management &amp; Actions
                 </h4>
@@ -1070,7 +1085,7 @@ export default function ZenowayCaseStudy() {
                   loading="lazy"
                 />
               </a>
-              <figcaption className="p-4 bg-surface-card border-t border-border-default">
+              <figcaption className="p-4 bg-surface-subtle border-t border-border-default">
                 <h4 className="text-sm font-medium text-text-primary mb-1">
                   3. 5-Step Publishing Wizard
                 </h4>
@@ -1107,11 +1122,11 @@ export default function ZenowayCaseStudy() {
               <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
                 Real-Time Concurrency
               </span>
-              <div className="flex flex-wrap items-baseline gap-2">
+              <div className="flex items-center gap-2">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   128
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/25 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   peak live
                 </span>
@@ -1125,11 +1140,11 @@ export default function ZenowayCaseStudy() {
               <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
                 24h Page Views
               </span>
-              <div className="flex flex-wrap items-baseline gap-2">
+              <div className="flex items-center gap-2">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   654
                 </span>
-                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/25 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">
                   +91%
                 </span>
               </div>
@@ -1142,11 +1157,11 @@ export default function ZenowayCaseStudy() {
               <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
                 Unique Visitors
               </span>
-              <div className="flex flex-wrap items-baseline gap-2">
+              <div className="flex items-center gap-2">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   306
                 </span>
-                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/25 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">
                   +132%
                 </span>
               </div>
@@ -1159,11 +1174,11 @@ export default function ZenowayCaseStudy() {
               <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
                 Organic Reach
               </span>
-              <div className="flex flex-wrap items-baseline gap-2">
+              <div className="flex items-center gap-2">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
                   10+
                 </span>
-                <span className="inline-flex items-center text-xs font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/25 px-2.5 py-1 rounded-full leading-none shrink-0 whitespace-nowrap">
+                <span className="inline-flex items-center text-xs font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
                   metro hubs
                 </span>
               </div>
