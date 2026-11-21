@@ -1217,7 +1217,7 @@ export default function ZenowayCaseStudy() {
                   <span className="text-xs font-mono font-medium text-text-primary">zenoway.online</span>
                   <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">99 Perf</span>
                 </div>
-                <div className="grid grid-cols-4 gap-1 text-center py-2">
+                <div className="grid grid-cols-4 gap-1 text-center py-1">
                   <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
                     <span className="block text-sm font-bold text-emerald-500">99</span>
                     <span className="text-[10px] text-text-muted">Perf</span>
@@ -1235,7 +1235,27 @@ export default function ZenowayCaseStudy() {
                     <span className="text-[10px] text-text-muted">SEO</span>
                   </div>
                 </div>
-                <p className="text-[11px] font-mono text-text-muted flex justify-between">
+
+                {/* Real Lighthouse Screenshot */}
+                <a
+                  href="/images/projects/zenoway/lighthouse-home.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group cursor-zoom-in relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-border-default bg-slate-950"
+                  title="Click to view full uncropped Lighthouse audit screenshot"
+                >
+                  <Image
+                    src="/images/projects/zenoway/lighthouse-home.png"
+                    alt="Google Lighthouse audit score 99 performance 100 accessibility 100 best practices 100 SEO for zenoway.online"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 360px"
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                    loading="lazy"
+                    unoptimized
+                  />
+                </a>
+
+                <p className="text-[11px] font-mono text-text-muted flex justify-between pt-1">
                   <span>LCP: 0.2s</span>
                   <span>TBT: 30ms</span>
                   <span>CLS: 0</span>
@@ -1248,7 +1268,7 @@ export default function ZenowayCaseStudy() {
                   <span className="text-xs font-mono font-medium text-text-primary">/join</span>
                   <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">98 Perf</span>
                 </div>
-                <div className="grid grid-cols-4 gap-1 text-center py-2">
+                <div className="grid grid-cols-4 gap-1 text-center py-1">
                   <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
                     <span className="block text-sm font-bold text-emerald-500">98</span>
                     <span className="text-[10px] text-text-muted">Perf</span>
@@ -1266,7 +1286,27 @@ export default function ZenowayCaseStudy() {
                     <span className="text-[10px] text-text-muted">SEO</span>
                   </div>
                 </div>
-                <p className="text-[11px] font-mono text-text-muted flex justify-between">
+
+                {/* Real Lighthouse Screenshot */}
+                <a
+                  href="/images/projects/zenoway/lighthouse-join.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group cursor-zoom-in relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-border-default bg-slate-950"
+                  title="Click to view full uncropped Lighthouse audit screenshot"
+                >
+                  <Image
+                    src="/images/projects/zenoway/lighthouse-join.png"
+                    alt="Google Lighthouse audit score 98 performance 100 accessibility 100 best practices 100 SEO for zenoway.online/join"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 360px"
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                    loading="lazy"
+                    unoptimized
+                  />
+                </a>
+
+                <p className="text-[11px] font-mono text-text-muted flex justify-between pt-1">
                   <span>LCP: 0.2s</span>
                   <span>TBT: 40ms</span>
                   <span>CLS: 0.001</span>
@@ -1279,7 +1319,7 @@ export default function ZenowayCaseStudy() {
                   <span className="text-xs font-mono font-medium text-text-primary">/jobs (catalog)</span>
                   <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">97 Perf</span>
                 </div>
-                <div className="grid grid-cols-4 gap-1 text-center py-2">
+                <div className="grid grid-cols-4 gap-1 text-center py-1">
                   <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
                     <span className="block text-sm font-bold text-emerald-500">97</span>
                     <span className="text-[10px] text-text-muted">Perf</span>
@@ -1297,7 +1337,27 @@ export default function ZenowayCaseStudy() {
                     <span className="text-[10px] text-text-muted">SEO</span>
                   </div>
                 </div>
-                <p className="text-[11px] font-mono text-text-muted flex justify-between">
+
+                {/* Real Lighthouse Screenshot */}
+                <a
+                  href="/images/projects/zenoway/lighthouse-jobs.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group cursor-zoom-in relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-border-default bg-slate-950"
+                  title="Click to view full uncropped Lighthouse audit screenshot"
+                >
+                  <Image
+                    src="/images/projects/zenoway/lighthouse-jobs.png"
+                    alt="Google Lighthouse audit score 97 performance 93 accessibility 100 best practices 100 SEO for zenoway.online/jobs"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 360px"
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                    loading="lazy"
+                    unoptimized
+                  />
+                </a>
+
+                <p className="text-[11px] font-mono text-text-muted flex justify-between pt-1">
                   <span>LCP: 0.6s</span>
                   <span>TBT: 140ms</span>
                   <span>CLS: 0</span>
