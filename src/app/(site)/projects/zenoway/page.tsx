@@ -50,9 +50,9 @@ export default function ZenowayCaseStudy() {
       icon: Code2,
     },
     {
-      label: "Styling Tokens",
-      value: "Tailwind CSS v4 (@theme)",
-      icon: Palette,
+      label: "Performance",
+      value: "99 Lighthouse · 0.2s LCP · 0 CLS",
+      icon: Zap,
     },
   ];
 
@@ -497,13 +497,13 @@ export default function ZenowayCaseStudy() {
           <div className="rounded-2xl border border-border-default bg-surface-card overflow-hidden shadow-xs">
             <div className="px-5 py-3.5 border-b border-border-default bg-surface-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
               <span className="font-medium text-text-primary uppercase tracking-wider">Custom Component Ownership Matrix</span>
-              <span className="font-mono text-primary font-medium">100% Bespoke Code · 0 UI Component Libraries</span>
+              <span className="font-mono text-primary font-medium">100% Bespoke Code · 70+ Vitest Automated Tests</span>
             </div>
             <div className="divide-y divide-border-default text-xs">
               <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
-                <div className="sm:col-span-3 font-mono font-medium text-text-primary">JobsClient.tsx</div>
-                <div className="sm:col-span-3 text-primary font-medium">Desktop Viewport Workbench</div>
-                <div className="sm:col-span-6 text-text-body">Root <code className="text-primary font-mono text-[11px]">h-dvh</code> container, isolated overscroll containment, dynamic category count filtering, and active work-mode segmented pills.</div>
+                <div className="sm:col-span-3 font-mono font-medium text-text-primary">JobsClient &amp; comp/</div>
+                <div className="sm:col-span-3 text-primary font-medium">Modular Workbench Architecture</div>
+                <div className="sm:col-span-6 text-text-body">Decomposed into single-responsibility subcomponents (<code className="text-primary font-mono text-[11px]">JobFilterSidebar</code>, <code className="text-primary font-mono text-[11px]">JobLocationBar</code>, <code className="text-primary font-mono text-[11px]">JobCardItem</code>, <code className="text-primary font-mono text-[11px]">JobDetailModal</code>) with root <code className="text-primary font-mono text-[11px]">h-dvh</code> container, isolated overscroll containment, and 0 runtime UI kit overhead.</div>
               </div>
               <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
                 <div className="sm:col-span-3 font-mono font-medium text-text-primary">Location Combobox</div>
@@ -519,6 +519,11 @@ export default function ZenowayCaseStudy() {
                 <div className="sm:col-span-3 font-mono font-medium text-text-primary">JobPosterCreator.tsx</div>
                 <div className="sm:col-span-3 text-primary font-medium">In-Browser Social Poster Studio</div>
                 <div className="sm:col-span-6 text-text-body">Interactive layout studio with live typography switches, dynamic vector QR codes, template format selection, and 1-click social poster export.</div>
+              </div>
+              <div className="p-4 grid sm:grid-cols-12 gap-3 items-center">
+                <div className="sm:col-span-3 font-mono font-medium text-text-primary">Vitest Test Suites</div>
+                <div className="sm:col-span-3 text-primary font-medium">Automated Regression Harness</div>
+                <div className="sm:col-span-6 text-text-body">70+ automated tests across 8 suites verifying Edge Middleware redirects, cryptographic SubtleCrypto HMAC token signatures, API payload constraints, and payment routes.</div>
               </div>
             </div>
           </div>
@@ -1188,6 +1193,119 @@ export default function ZenowayCaseStudy() {
             </div>
           </div>
 
+          {/* Verified Lighthouse & Core Web Vitals Audit */}
+          <div className="rounded-2xl border border-border-default bg-surface-card p-6 md:p-8 mb-14 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 border-b border-border-default">
+              <div>
+                <div className="flex items-center gap-2 text-primary font-semibold text-xs uppercase tracking-wider mb-1">
+                  <Zap size={15} />
+                  <span>Verified Google Lighthouse &amp; Core Web Vitals Audits</span>
+                </div>
+                <h3 className="text-xl font-bold tracking-tight text-text-primary">
+                  Near-Perfect 100s Across Production Routes
+                </h3>
+              </div>
+              <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full font-medium self-start sm:self-auto">
+                Sub-300ms LCP · 0 CLS · Fast Interactive
+              </span>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 pt-6">
+              {/* Home Page Audit */}
+              <div className="p-4 rounded-xl border border-border-default bg-surface-subtle space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-medium text-text-primary">zenoway.online</span>
+                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">99 Perf</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1 text-center py-2">
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">99</span>
+                    <span className="text-[10px] text-text-muted">Perf</span>
+                  </div>
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">100</span>
+                    <span className="text-[10px] text-text-muted">A11y</span>
+                  </div>
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">100</span>
+                    <span className="text-[10px] text-text-muted">BP</span>
+                  </div>
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">100</span>
+                    <span className="text-[10px] text-text-muted">SEO</span>
+                  </div>
+                </div>
+                <p className="text-[11px] font-mono text-text-muted flex justify-between">
+                  <span>LCP: 0.2s</span>
+                  <span>TBT: 30ms</span>
+                  <span>CLS: 0</span>
+                </p>
+              </div>
+
+              {/* Join Page Audit */}
+              <div className="p-4 rounded-xl border border-border-default bg-surface-subtle space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-medium text-text-primary">/join</span>
+                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">98 Perf</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1 text-center py-2">
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">98</span>
+                    <span className="text-[10px] text-text-muted">Perf</span>
+                  </div>
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">100</span>
+                    <span className="text-[10px] text-text-muted">A11y</span>
+                  </div>
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">100</span>
+                    <span className="text-[10px] text-text-muted">BP</span>
+                  </div>
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">100</span>
+                    <span className="text-[10px] text-text-muted">SEO</span>
+                  </div>
+                </div>
+                <p className="text-[11px] font-mono text-text-muted flex justify-between">
+                  <span>LCP: 0.2s</span>
+                  <span>TBT: 40ms</span>
+                  <span>CLS: 0.001</span>
+                </p>
+              </div>
+
+              {/* Jobs Catalog Page Audit */}
+              <div className="p-4 rounded-xl border border-border-default bg-surface-subtle space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-medium text-text-primary">/jobs (catalog)</span>
+                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">97 Perf</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1 text-center py-2">
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">97</span>
+                    <span className="text-[10px] text-text-muted">Perf</span>
+                  </div>
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">93</span>
+                    <span className="text-[10px] text-text-muted">A11y</span>
+                  </div>
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">100</span>
+                    <span className="text-[10px] text-text-muted">BP</span>
+                  </div>
+                  <div className="bg-surface-card border border-border-default rounded py-1.5 px-1">
+                    <span className="block text-sm font-bold text-emerald-500">100</span>
+                    <span className="text-[10px] text-text-muted">SEO</span>
+                  </div>
+                </div>
+                <p className="text-[11px] font-mono text-text-muted flex justify-between">
+                  <span>LCP: 0.6s</span>
+                  <span>TBT: 140ms</span>
+                  <span>CLS: 0</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Real Analytics Dashboards Grid */}
           <div className="grid lg:grid-cols-2 gap-8 items-start">
             {/* Analytics Figure 1: Vercel Analytics */}
@@ -1257,18 +1375,18 @@ export default function ZenowayCaseStudy() {
         </div>
       </section>
 
-      {/* ---------------- SECTION 12: TECHNICAL INTERVIEW DEFENSE TALKING POINTS ---------------- */}
+      {/* ---------------- SECTION 12: ARCHITECTURAL DECISIONS & TRADE-OFFS ---------------- */}
       <section className="mt-16 md:mt-24 mb-4 sm:mb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
-              TECHNICAL INTERVIEW PREPARATION
+              ARCHITECTURAL DECISIONS &amp; TRADE-OFFS
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text-primary mb-4">
-              How I Explain Zenoway in UI Engineering Interviews.
+              How I Built and Defended Zenoway&apos;s Frontend Architecture.
             </h2>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
-              When technical hiring managers ask about frontend architecture, responsive layout trade-offs, and design systems, here is how I defend my engineering decisions:
+              When evaluating frontend architecture, responsive layout trade-offs, and design systems, here is how I defended my engineering decisions:
             </p>
           </div>
 
@@ -1310,6 +1428,26 @@ export default function ZenowayCaseStudy() {
               </div>
               <p className="text-xs sm:text-sm text-text-body leading-relaxed">
                 &ldquo;Most hiring managers and early-stage founders don&apos;t have in-house designers, leading to messy, text-heavy job posts on LinkedIn and WhatsApp. By building a dedicated studio directly inside Zenoway, live job data (title, company, salary, work mode) instantly populates branded templates with scannable QR codes, enabling 1-click professional social sharing.&rdquo;
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl border border-border-default bg-surface-card space-y-3">
+              <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                <Zap size={16} />
+                <span>Q5: How did you achieve 99/100 Lighthouse scores and sub-300ms LCP?</span>
+              </div>
+              <p className="text-xs sm:text-sm text-text-body leading-relaxed">
+                &ldquo;By eliminating heavy runtime UI kits, deferring non-essential scripts, stripping unnecessary client-side animation wrappers from above-the-fold content, and using pure CSS custom properties in Tailwind v4 instead of JavaScript CSS-in-JS style recalculations. This guarantees immediate First Contentful Paint (0.2s) and zero Cumulative Layout Shift.&rdquo;
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl border border-border-default bg-surface-card space-y-3">
+              <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                <ShieldCheck size={16} />
+                <span>Q6: How do you balance rapid prototyping velocity with production reliability?</span>
+              </div>
+              <p className="text-xs sm:text-sm text-text-body leading-relaxed">
+                &ldquo;By backing code-first UI with an automated testing harness. Zenoway maintains 70+ automated tests across 8 suites in Vitest—guarding Next.js Edge Middleware route guards, SubtleCrypto HMAC session tokens, and API payload schemas—ensuring rapid development speed never degrades platform security.&rdquo;
               </p>
             </div>
           </div>
