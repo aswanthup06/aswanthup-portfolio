@@ -1194,7 +1194,7 @@ export default function ZenowayCaseStudy() {
           </div>
 
           {/* Verified Lighthouse & Core Web Vitals Audit */}
-          <div className="rounded-lg border border-border-default bg-surface-card p-6 md:p-7 mb-14 shadow-2xs">
+          <div className="rounded-2xl border border-border-default bg-surface-card p-6 md:p-8 mb-14 shadow-xs">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-border-default">
               <div>
                 <div className="flex items-center gap-2 text-primary font-semibold text-xs uppercase tracking-wider mb-1">
@@ -1205,35 +1205,19 @@ export default function ZenowayCaseStudy() {
                   Near-Perfect 100s Across Production Routes
                 </h3>
               </div>
-              <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded font-medium self-start sm:self-auto">
+              <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full font-medium self-start sm:self-auto border border-emerald-500/20">
                 Sub-300ms LCP · 0 CLS · Fast Interactive
               </span>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-5 pt-5">
+            <div className="grid md:grid-cols-3 gap-6 pt-6">
               {/* Home Page Audit */}
-              <div className="p-4 rounded-md border border-border-default bg-surface-subtle space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-medium text-text-primary">zenoway.online</span>
-                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">99 Perf</span>
-                </div>
-                <div className="grid grid-cols-4 gap-1.5 text-center py-1">
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">99</span>
-                    <span className="text-[10px] text-text-muted">Perf</span>
-                  </div>
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">100</span>
-                    <span className="text-[10px] text-text-muted">A11y</span>
-                  </div>
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">100</span>
-                    <span className="text-[10px] text-text-muted">BP</span>
-                  </div>
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">100</span>
-                    <span className="text-[10px] text-text-muted">SEO</span>
-                  </div>
+              <figure className="rounded-xl border border-border-default bg-surface-card overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col">
+                <div className="px-4 py-3 border-b border-border-default bg-surface-subtle flex items-center justify-between text-xs">
+                  <span className="font-mono font-medium text-text-primary">zenoway.online</span>
+                  <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20 text-[11px]">
+                    99 Perf
+                  </span>
                 </div>
 
                 {/* Real Lighthouse Screenshot */}
@@ -1241,50 +1225,55 @@ export default function ZenowayCaseStudy() {
                   href="/images/projects/zenoway/lighthouse-home.png"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block group cursor-zoom-in relative aspect-[16/9] w-full rounded overflow-hidden border border-border-default bg-slate-950"
+                  className="block group cursor-zoom-in relative aspect-[16/9] w-full bg-slate-950 overflow-hidden"
                   title="Click to view full uncropped Lighthouse audit screenshot"
                 >
                   <Image
                     src="/images/projects/zenoway/lighthouse-home.png"
                     alt="Google Lighthouse audit score 99 performance 100 accessibility 100 best practices 100 SEO for zenoway.online"
                     fill
-                    sizes="(max-width: 768px) 100vw, 360px"
-                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 380px"
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
                     loading="lazy"
                     unoptimized
                   />
                 </a>
 
-                <p className="text-[11px] font-mono text-text-muted flex justify-between pt-1">
-                  <span>LCP: 0.2s</span>
-                  <span>TBT: 30ms</span>
-                  <span>CLS: 0</span>
-                </p>
-              </div>
+                <figcaption className="p-4 bg-surface-subtle border-t border-border-default space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="grid grid-cols-4 gap-1.5 text-center">
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">99</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">Perf</span>
+                    </div>
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">100</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">A11y</span>
+                    </div>
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">100</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">BP</span>
+                    </div>
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">100</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">SEO</span>
+                    </div>
+                  </div>
+
+                  <div className="text-[11px] font-mono text-text-muted flex justify-between pt-1 border-t border-border-default/60">
+                    <span>LCP: <strong className="text-emerald-500 font-semibold">0.2s</strong></span>
+                    <span>TBT: <strong className="text-emerald-500 font-semibold">30ms</strong></span>
+                    <span>CLS: <strong className="text-emerald-500 font-semibold">0</strong></span>
+                  </div>
+                </figcaption>
+              </figure>
 
               {/* Join Page Audit */}
-              <div className="p-4 rounded-md border border-border-default bg-surface-subtle space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-medium text-text-primary">/join</span>
-                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">98 Perf</span>
-                </div>
-                <div className="grid grid-cols-4 gap-1.5 text-center py-1">
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">98</span>
-                    <span className="text-[10px] text-text-muted">Perf</span>
-                  </div>
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">100</span>
-                    <span className="text-[10px] text-text-muted">A11y</span>
-                  </div>
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">100</span>
-                    <span className="text-[10px] text-text-muted">BP</span>
-                  </div>
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">100</span>
-                    <span className="text-[10px] text-text-muted">SEO</span>
-                  </div>
+              <figure className="rounded-xl border border-border-default bg-surface-card overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col">
+                <div className="px-4 py-3 border-b border-border-default bg-surface-subtle flex items-center justify-between text-xs">
+                  <span className="font-mono font-medium text-text-primary">/join</span>
+                  <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20 text-[11px]">
+                    98 Perf
+                  </span>
                 </div>
 
                 {/* Real Lighthouse Screenshot */}
@@ -1292,50 +1281,55 @@ export default function ZenowayCaseStudy() {
                   href="/images/projects/zenoway/lighthouse-join.png"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block group cursor-zoom-in relative aspect-[16/9] w-full rounded overflow-hidden border border-border-default bg-slate-950"
+                  className="block group cursor-zoom-in relative aspect-[16/9] w-full bg-slate-950 overflow-hidden"
                   title="Click to view full uncropped Lighthouse audit screenshot"
                 >
                   <Image
                     src="/images/projects/zenoway/lighthouse-join.png"
                     alt="Google Lighthouse audit score 98 performance 100 accessibility 100 best practices 100 SEO for zenoway.online/join"
                     fill
-                    sizes="(max-width: 768px) 100vw, 360px"
-                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 380px"
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
                     loading="lazy"
                     unoptimized
                   />
                 </a>
 
-                <p className="text-[11px] font-mono text-text-muted flex justify-between pt-1">
-                  <span>LCP: 0.2s</span>
-                  <span>TBT: 40ms</span>
-                  <span>CLS: 0.001</span>
-                </p>
-              </div>
+                <figcaption className="p-4 bg-surface-subtle border-t border-border-default space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="grid grid-cols-4 gap-1.5 text-center">
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">98</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">Perf</span>
+                    </div>
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">100</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">A11y</span>
+                    </div>
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">100</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">BP</span>
+                    </div>
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">100</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">SEO</span>
+                    </div>
+                  </div>
+
+                  <div className="text-[11px] font-mono text-text-muted flex justify-between pt-1 border-t border-border-default/60">
+                    <span>LCP: <strong className="text-emerald-500 font-semibold">0.2s</strong></span>
+                    <span>TBT: <strong className="text-emerald-500 font-semibold">40ms</strong></span>
+                    <span>CLS: <strong className="text-emerald-500 font-semibold">0.001</strong></span>
+                  </div>
+                </figcaption>
+              </figure>
 
               {/* Jobs Catalog Page Audit */}
-              <div className="p-4 rounded-md border border-border-default bg-surface-subtle space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-medium text-text-primary">/jobs (catalog)</span>
-                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">97 Perf</span>
-                </div>
-                <div className="grid grid-cols-4 gap-1.5 text-center py-1">
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">97</span>
-                    <span className="text-[10px] text-text-muted">Perf</span>
-                  </div>
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">93</span>
-                    <span className="text-[10px] text-text-muted">A11y</span>
-                  </div>
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">100</span>
-                    <span className="text-[10px] text-text-muted">BP</span>
-                  </div>
-                  <div className="bg-surface-card border border-border-default rounded-sm py-1.5 px-1">
-                    <span className="block text-sm font-bold text-emerald-500">100</span>
-                    <span className="text-[10px] text-text-muted">SEO</span>
-                  </div>
+              <figure className="rounded-xl border border-border-default bg-surface-card overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col">
+                <div className="px-4 py-3 border-b border-border-default bg-surface-subtle flex items-center justify-between text-xs">
+                  <span className="font-mono font-medium text-text-primary">/jobs (catalog)</span>
+                  <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20 text-[11px]">
+                    97 Perf
+                  </span>
                 </div>
 
                 {/* Real Lighthouse Screenshot */}
@@ -1343,26 +1337,47 @@ export default function ZenowayCaseStudy() {
                   href="/images/projects/zenoway/lighthouse-jobs.png"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block group cursor-zoom-in relative aspect-[16/9] w-full rounded overflow-hidden border border-border-default bg-slate-950"
+                  className="block group cursor-zoom-in relative aspect-[16/9] w-full bg-slate-950 overflow-hidden"
                   title="Click to view full uncropped Lighthouse audit screenshot"
                 >
                   <Image
                     src="/images/projects/zenoway/lighthouse-jobs.png"
                     alt="Google Lighthouse audit score 97 performance 93 accessibility 100 best practices 100 SEO for zenoway.online/jobs"
                     fill
-                    sizes="(max-width: 768px) 100vw, 360px"
-                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 380px"
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
                     loading="lazy"
                     unoptimized
                   />
                 </a>
 
-                <p className="text-[11px] font-mono text-text-muted flex justify-between pt-1">
-                  <span>LCP: 0.6s</span>
-                  <span>TBT: 140ms</span>
-                  <span>CLS: 0</span>
-                </p>
-              </div>
+                <figcaption className="p-4 bg-surface-subtle border-t border-border-default space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="grid grid-cols-4 gap-1.5 text-center">
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">97</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">Perf</span>
+                    </div>
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">93</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">A11y</span>
+                    </div>
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">100</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">BP</span>
+                    </div>
+                    <div className="bg-surface-card border border-border-default rounded-lg py-2 px-1">
+                      <span className="block text-sm font-bold text-emerald-500 leading-tight">100</span>
+                      <span className="text-[10px] uppercase font-mono text-text-muted">SEO</span>
+                    </div>
+                  </div>
+
+                  <div className="text-[11px] font-mono text-text-muted flex justify-between pt-1 border-t border-border-default/60">
+                    <span>LCP: <strong className="text-emerald-500 font-semibold">0.6s</strong></span>
+                    <span>TBT: <strong className="text-emerald-500 font-semibold">140ms</strong></span>
+                    <span>CLS: <strong className="text-emerald-500 font-semibold">0</strong></span>
+                  </div>
+                </figcaption>
+              </figure>
             </div>
           </div>
 
