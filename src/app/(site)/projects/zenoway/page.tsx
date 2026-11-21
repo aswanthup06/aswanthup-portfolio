@@ -1117,80 +1117,8 @@ export default function ZenowayCaseStudy() {
             </h2>
 
             <p className="text-base md:text-lg text-text-body leading-relaxed">
-              Unlike theoretical concepts, Zenoway serves live job seekers across India. Live telemetry from Vercel Analytics and Google Analytics (GA4) demonstrates real-world organic traction, peak concurrent concurrency, and cross-state engagement:
+              Unlike theoretical concepts, Zenoway serves live job seekers across India. Production audits and live telemetry demonstrate sub-300ms latency, high concurrent browsing, and verified cross-state adoption:
             </p>
-          </div>
-
-          {/* Metric Highlights Strip */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-14">
-            <div className="space-y-2">
-              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
-                Real-Time Concurrency
-              </span>
-              <div className="flex items-center gap-2">
-                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
-                  128
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  peak live
-                </span>
-              </div>
-              <p className="text-xs text-text-body leading-relaxed">
-                Active candidates exploring live jobs simultaneously
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
-                24h Page Views
-              </span>
-              <div className="flex items-center gap-2">
-                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
-                  654
-                </span>
-                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">
-                  +91%
-                </span>
-              </div>
-              <p className="text-xs text-text-body leading-relaxed">
-                High catalog browsing depth across design roles
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
-                Unique Visitors
-              </span>
-              <div className="flex items-center gap-2">
-                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
-                  306
-                </span>
-                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">
-                  +132%
-                </span>
-              </div>
-              <p className="text-xs text-text-body leading-relaxed">
-                Organic discovery surge from LinkedIn &amp; Search
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
-                Organic Reach
-              </span>
-              <div className="flex items-center gap-2">
-                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
-                  10+
-                </span>
-                <span className="inline-flex items-center text-xs font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
-                  metro hubs
-                </span>
-              </div>
-              <p className="text-xs text-text-body leading-relaxed">
-                Bengaluru, Mumbai, Pune, Kerala, Jaipur, Lucknow
-              </p>
-            </div>
           </div>
 
           {/* Verified Lighthouse & Core Web Vitals Audit */}
@@ -1378,6 +1306,78 @@ export default function ZenowayCaseStudy() {
                   </div>
                 </figcaption>
               </figure>
+            </div>
+          </div>
+
+          {/* Metric Highlights Strip */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-14">
+            <div className="space-y-2">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
+                Real-Time Concurrency
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
+                  128
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  peak live
+                </span>
+              </div>
+              <p className="text-xs text-text-body leading-relaxed">
+                Active candidates exploring live jobs simultaneously
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
+                24h Page Views
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
+                  654
+                </span>
+                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">
+                  +91%
+                </span>
+              </div>
+              <p className="text-xs text-text-body leading-relaxed">
+                High catalog browsing depth across design roles
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
+                Unique Visitors
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
+                  306
+                </span>
+                <span className="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">
+                  +132%
+                </span>
+              </div>
+              <p className="text-xs text-text-body leading-relaxed">
+                Organic discovery surge from LinkedIn &amp; Search
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <span className="text-xs font-medium text-text-muted uppercase tracking-wider block">
+                Organic Reach
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary leading-none">
+                  10+
+                </span>
+                <span className="inline-flex items-center text-xs font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
+                  metro hubs
+                </span>
+              </div>
+              <p className="text-xs text-text-body leading-relaxed">
+                Bengaluru, Mumbai, Pune, Kerala, Jaipur, Lucknow
+              </p>
             </div>
           </div>
 
